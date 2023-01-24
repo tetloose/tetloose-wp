@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig",
+        "stylelint.vscode-stylelint",
+        "esbenp.prettier-vscode",
+        "valeryanm.vscode-phpsab",
+        "bmewburn.vscode-intelephense-client",
+        "anthonydiametrix.acf-snippet",
+        "humao.rest-client",
+        "wordpresstoolbox.wordpress-toolbox",
+        "dawhite.mustache"
+    ]
+}

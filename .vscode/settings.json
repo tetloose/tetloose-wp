@@ -1,0 +1,59 @@
+{
+    "phpsab.standard": "WordPress",
+    "phpsab.fixerEnable": true,
+    "phpsab.snifferEnable": true,
+    "phpsab.executablePathCS": "./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "phpsab.executablePathCBF": "./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+    "intelephense.environment.phpVersion": "7.4.33",
+    "intelephense.stubs": [
+        "wordpress",
+        "Core",
+        "date",
+        "json",
+        "mysqli",
+        "pcre",
+        "Phar",
+        "standard",
+        "zip",
+        "zlib",
+        "zend"
+    ],
+    "intelephense.telemetry.enabled": false,
+    "intelephense.diagnostics.undefinedTypes": false,
+    "intelephense.diagnostics.undefinedProperties": false,
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+        "SCSS": "CSS",
+        "nunjucks": "html",
+        "njk": "html",
+        "nj": "html",
+        "javascript": "javascriptreact",
+        "typescript": "typescript",
+        "php": "html"
+    },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "eslint.validate": [
+        "javascript",
+        "typescript"
+    ],
+    "stylelint.validate": [
+        "css",
+        "scss"
+    ],
+    "auto-close-tag.activationOnLanguage": [
+        "php"
+    ],
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[php]": {
+        "editor.defaultFormatter": "valeryanm.vscode-phpsab"
+    }
+}

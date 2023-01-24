@@ -1,0 +1,39 @@
+@mixin f-body {
+	font-family: 'Kiwi Maru', serif;
+}
+
+@mixin f-heading {
+	font-family: 'Space Mono', monospace;
+}
+
+@mixin f-thin {
+	font-weight: 300;
+}
+
+@mixin f-regular {
+	font-weight: 400;
+}
+
+@mixin f-medium {
+	font-weight: 500;
+}
+
+@mixin f-bold {
+	font-weight: 700;
+}
+
+@mixin f-italic {
+	font-style: italic;
+}
+
+@mixin f-uppercase {
+	text-transform: uppercase;
+}
+
+@mixin f-capitalize {
+	text-transform: capitalize;
+}
+
+@mixin f-lowercase {
+	text-transform: lowercase;
+}

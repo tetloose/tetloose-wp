@@ -1,0 +1,89 @@
+.u-content table,
+.u-table {
+	width: 100%;
+	border-style: solid;
+	border-color: color(global, grey);
+
+	@include mq(vars(brakepoint, med)) {
+		border-collapse: collapse;
+		border-width: 0 0 1px 1px;
+		table-layout: fixed;
+	}
+
+	@include mq(vars(brakepoint, med), max-width) {
+		display: block;
+		border-width: 0 0 1px;
+	}
+
+	tr {
+		@include mq(vars(brakepoint, med)) {
+			border-width: 1px 0 0;
+			border-style: solid;
+			border-color: color(global, grey);
+		}
+
+		@include mq(vars(brakepoint, med), max-width) {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	tfoot,
+	tbody {
+		@include mq(vars(brakepoint, med), max-width) {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	th,
+	td {
+		border-style: solid;
+		border-color: color(global, grey);
+		text-align: inherit;
+
+		@include type-paragraph;
+
+		@include mq(vars(brakepoint, med)) {
+			padding: rem(spacing(1));
+			border-width: 0 1px 0 0;
+		}
+
+		@include mq(vars(brakepoint, med), max-width) {
+			padding: rem(spacing(1) 0);
+			border-width: 1px 0 0;
+		}
+
+		&.text-align-left {
+			text-align: left;
+		}
+
+		&.text-align-right {
+			text-align: right;
+		}
+
+		&.text-align-center {
+			text-align: center;
+		}
+	}
+
+	td {
+		@include mq(vars(brakepoint, med), max-width) {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	thead,
+	th {
+		@include mq(vars(brakepoint, med), max-width) {
+			display: none;
+		}
+	}
+
+	&__th {
+		@include mq(vars(brakepoint, med)) {
+			display: none;
+		}
+	}
+}

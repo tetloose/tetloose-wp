@@ -1,0 +1,56 @@
+@function btn($name, $variant) {
+	@if $variant {
+		@return map-get(map-get($btn, $name), $variant);
+	} @else {
+		@return map-get($btn, $name);
+	}
+}
+
+$btn: (
+	primary: (
+		color: $white,
+		bg: $pink,
+		focus: $pink,
+		active: rgba($pink, .5),
+		hover: rgba($pink, .8)
+	)
+);
+
+.u-btn {
+	display: block;
+	width: 100%;
+	padding: rem(spacing(.5) spacing(1));
+	background-color: btn(primary, bg);
+	color: btn(primary, color);
+	text-align: center;
+	text-decoration: none;
+
+	@include type-btn;
+
+	&[disabled] {
+		opacity: .4;
+
+		@include interaction(disable);
+	}
+
+	&:focus:not(:hover) {
+		outline: btn(primary, focus);
+		outline-width: 4px;
+		outline-style: dashed;
+	}
+
+	@include mq-hover {
+		cursor: pointer;
+
+		@include transition(background-color, vars(transition, btn));
+
+		&:hover {
+			background-color: btn(primary, hover);
+		}
+	}
+
+	&:active {
+		background-color: btn(primary, active);
+		outline: none;
+	}
+}

@@ -1,0 +1,58 @@
+@function vars($name, $variant) {
+	@if $variant {
+		@return map-get(map-get($vars, $name), $variant);
+	} @else {
+		@return map-get($vars, $name);
+	}
+}
+
+$vars: (
+	paths: (
+		img: '../assets/img',
+		font: '../assets/fonts',
+		sprite: '../assets/sprite'
+	),
+	type: (
+		xxxxxlrg: 52px,
+		xxxxlrg: 48px,
+		xxxlrg: 42px,
+		xxlrg: 38px,
+		xlrg: 32px,
+		lrg: 24px,
+		med: 16px,
+		sml: 14px
+	),
+	layout: (
+		maxwidth: 1400px,
+		gutter: 20px,
+		browser-context: 16px,
+		spacing: 16px
+	),
+	brakepoint: (
+		zero: 0,
+		sml: 320px,
+		med: 768px,
+		lrg: 1024px,
+		xlrg: 1280px,
+		xxlrg: 1520px
+	),
+	radius: (
+		tny: 4px,
+		sml: 8px,
+		med: 16px,
+		lrg: 32px,
+		xlrg: 50%,
+		xxlrg: 100%
+	),
+	vh: (
+		fullscreen: 100vh,
+		half: 50vh,
+		one-third: 33.3333vh,
+		two-third: 66.6666vh
+	),
+	transition: (
+		link: 200ms,
+		btn: 200ms,
+		form: 200ms
+	)
+);

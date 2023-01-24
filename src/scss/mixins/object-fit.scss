@@ -1,0 +1,10 @@
+@mixin object-fit($fit: cover, $position: null) {
+	object-fit: $fit;
+
+	@if $position {
+		object-position: $position;
+	}
+}
+
+// @include object-fit(contain);
+// @include object-fit(cover, top);

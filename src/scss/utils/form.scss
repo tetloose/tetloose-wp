@@ -1,0 +1,66 @@
+@import '../reset/form';
+@import 'elem/date';
+@import 'elem/datetime-local';
+@import 'elem/email';
+@import 'elem/file';
+@import 'elem/label';
+@import 'elem/month';
+@import 'elem/number';
+@import 'elem/password';
+@import 'elem/search';
+@import 'elem/select';
+@import 'elem/tel';
+@import 'elem/text';
+@import 'elem/textarea';
+@import 'elem/url';
+@import 'elem/week';
+
+.u-form {
+	position: relative;
+	width: 100%;
+	margin-top: rem(spacing(1));
+
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	&__field {
+		margin-top: rem(spacing(.5));
+
+		label {
+			margin-top: rem(spacing(.5));
+		}
+
+		input {
+			margin-top: rem(spacing(.5));
+		}
+	}
+
+	&__options {
+		margin-top: rem(spacing(.5));
+
+		label {
+			position: relative;
+			margin-top: rem(spacing(.5));
+			padding-left: rem(spacing(1));
+			cursor: pointer;
+
+			[dir=rtl] & {
+				padding-right: rem(spacing(1));
+				padding-left: 0;
+			}
+		}
+
+		input {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+
+			[dir=rtl] & {
+				right: 0;
+				left: auto;
+			}
+		}
+	}
+}

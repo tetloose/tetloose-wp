@@ -1,0 +1,22 @@
+@function color($name, $variant) {
+	@if $variant {
+		@return map-get(map-get($color, $name), $variant);
+	} @else {
+		@return map-get($color, $name);
+	}
+}
+
+$white: #fff;
+$black: #2a2a2a;
+$grey: #ededed;
+$pink: #fa0f75;
+$color: (
+	global: (
+		dark: $black,
+		light: $white,
+		grey: $grey,
+		marker: $pink,
+		selection-bg: $pink,
+		selection-color: $white
+	)
+);

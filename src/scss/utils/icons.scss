@@ -1,0 +1,119 @@
+@include font-face('icons', '../fonts/icons/icons');
+
+[class*=u-icon-] {
+	display: inline-block;
+	font-style: normal;
+	font-family: icons, sans-serif;
+	line-height: 1;
+	text-rendering: auto;
+
+	@include font-smoothing;
+}
+
+.u-icon-arrow-left::before {
+	content: '\e900';
+}
+
+.u-icon-bookmark::before {
+	content: '\e901';
+}
+
+.u-icon-chevron-down::before {
+	content: '\e902';
+}
+
+.u-icon-chevron-left::before {
+	content: '\e903';
+}
+
+.u-icon-chevron-right::before {
+	content: '\e904';
+}
+
+.u-icon-chevron-up::before {
+	content: '\e905';
+}
+
+.u-icon-close-large::before {
+	content: '\e906';
+}
+
+.u-icon-close-small::before {
+	content: '\e907';
+}
+
+.u-icon-compare::before {
+	content: '\e908';
+}
+
+.u-icon-external-link::before {
+	content: '\e909';
+}
+
+.u-icon-eye-filled-strike::before {
+	content: '\e90a';
+}
+
+.u-icon-eye-filled::before {
+	content: '\e90b';
+}
+
+.u-icon-eye-strike::before {
+	content: '\e90c';
+}
+
+.u-icon-eye::before {
+	content: '\e90d';
+}
+
+.u-icon-logout::before {
+	content: '\e90e';
+}
+
+.u-icon-minus::before {
+	content: '\e90f';
+}
+
+.u-icon-more::before {
+	content: '\e910';
+}
+
+.u-icon-plus::before {
+	content: '\e911';
+}
+
+.u-icon-profile::before {
+	content: '\e912';
+}
+
+.u-icon-question::before {
+	content: '\e913';
+}
+
+.u-icon-sort-list-down::before {
+	content: '\e914';
+}
+
+.u-icon-sort-list-up::before {
+	content: '\e915';
+}
+
+.u-icon-sort-list::before {
+	content: '\e916';
+}
+
+.u-icon-tab::before {
+	content: '\e917';
+}
+
+.u-icon-tooltip::before {
+	content: '\e918';
+}
+
+.u-icon-trash::before {
+	content: '\e919';
+}
+
+.u-icon-search::before {
+	content: '\e91a';
+}

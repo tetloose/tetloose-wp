@@ -1,0 +1,46 @@
+@function link($name, $variant) {
+	@if $variant {
+		@return map-get(map-get($link, $name), $variant);
+	} @else {
+		@return map-get($link, $name);
+	}
+}
+
+$link: (
+	primary: (
+		color: $pink,
+		focus: $pink,
+		active: rgba($pink, .5),
+		hover: rgba($pink, .8)
+	)
+);
+
+.u-content a:not(.u-btn),
+.u-link:not(.u-btn) {
+	color: link(primary, color);
+	outline: link(primary, focus);
+	outline-width: 0;
+	outline-style: dashed;
+	text-decoration: underline;
+	text-decoration-skip-ink: auto;
+
+	&:focus:not(:hover) {
+		outline-width: 4px;
+	}
+
+	@include mq-hover {
+		cursor: pointer;
+
+		@include transition(color, vars(transition, link));
+
+		&:hover {
+			color: link(primary, hover);
+			outline: none;
+		}
+	}
+
+	&:active {
+		color: link(primary, active);
+		outline: none;
+	}
+}

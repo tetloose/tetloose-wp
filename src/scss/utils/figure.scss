@@ -1,0 +1,15 @@
+.u-figure {
+	&__img {
+		display: block;
+		width: 100%;
+		height: 100%;
+
+		.is-cover & {
+			@include object-fit;
+		}
+
+		.is-contain & {
+			@include object-fit(contain);
+		}
+	}
+}

@@ -1,0 +1,28 @@
+@function border($name) {
+	@return map-get($border, $name);
+}
+
+$border: (
+	primary: $pink,
+	secondary: $black
+);
+
+[class*=u-border-] {
+	border-style: solid;
+	border-color: transparent;
+}
+
+.u-border-primary-t {
+	border-width: 2px 0 0;
+	border-color: border(primary);
+}
+
+.u-border-primary-t-r {
+	border-width: 2px 2px 0;
+	border-color: border(primary);
+}
+
+.u-border-secondary-t {
+	border-width: 2px 0 0;
+	border-color: border(secondary);
+}

@@ -1,0 +1,80 @@
+{
+    "name": "empty-project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./gulpfile.babel.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "babel": {
+        "presets": [
+            "@babel/preset-env"
+        ]
+    },
+    "scripts": {
+        "clean": "gulp clean --no-warnings",
+        "dev": "gulp clean --no-warnings; ENV=dev gulp --no-warnings; ENV=dev gulp serve --no-warnings",
+        "build": "gulp clean --no-warnings; gulp build --no-warnings",
+        "backup": "./toolkit backup",
+        "deploy": "npm run build; npm run git:commit; ./toolkit deploy",
+        "commit": "./toolkit git-commit",
+        "setup": "./toolkit setup",
+        "setup:composer": "./toolkit composer",
+        "git:merge": "./toolkit merge-branch",
+        "git:commit": "./toolkit git-commit",
+        "update": "composer update",
+        "plugins": "composer require"
+    },
+    "dependencies": {
+        "gulp-shell": "^0.8.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.20.7",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/register": "^7.18.9",
+        "@typescript-eslint/eslint-plugin": "^5.47.1",
+        "@typescript-eslint/parser": "^5.47.1",
+        "autoprefixer": "^10.4.13",
+        "babel-loader": "^9.1.0",
+        "browser-sync": "^2.27.11",
+        "browserslist": "^4.21.4",
+        "eslint": "^8.31.0",
+        "fs": "^0.0.1-security",
+        "glob": "^8.0.3",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-dart-sass": "^1.0.2",
+        "gulp-eslint-new": "^1.7.1",
+        "gulp-filter": "^7.0.0",
+        "gulp-fontgen": "^0.2.5",
+        "gulp-hash": "^4.2.2",
+        "gulp-icomoon-builder": "^1.0.0",
+        "gulp-if": "^3.0.0",
+        "gulp-imagemin": "7.1.0",
+        "gulp-phpcs": "^3.1.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-real-favicon": "^0.3.2",
+        "gulp-rename": "^2.0.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "gulp-stylelint": "^13.0.0",
+        "gulp-svg-sprite": "^2.0.1",
+        "imagemin-mozjpeg": "^9.0.0",
+        "imagemin-pngquant": "9.0.2",
+        "node-notifier": "^10.0.1",
+        "postcss": "^8.4.20",
+        "prettier": "^2.8.1",
+        "sass": "^1.57.0",
+        "stylelint": "^14.16.1",
+        "stylelint-config-standard-scss": "^6.1.0",
+        "stylelint-order": "^5.0.0",
+        "ts-loader": "^9.4.2",
+        "typescript": "^4.9.4",
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1"
+    },
+    "browserslist": [
+        "defaults"
+    ]
+}
