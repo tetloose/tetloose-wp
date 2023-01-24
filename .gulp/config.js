@@ -4,7 +4,8 @@ const isDev = process.env.ENV === 'dev'
 module.exports = {
     webpack: {
         mode: isDev,
-        entry: './src/js/app.ts'
+        entry: './src/js/app.ts',
+        output: 'web/app/themes/tetloose-theme/assets'
     },
     serve: {
         proxy: 'tetloose-wp.test'
@@ -42,7 +43,7 @@ module.exports = {
         success: () => notification('🦡 Sprite 🦡', 'Saved', 'src/scss/utils/sprite.scss')
     },
     html: {
-        files: '**/*.{html,php}',
+        files: 'web/app/themes/tetloose-theme/**/*.{html,php}',
         error: () => notification('❌ PHP ❌', 'Error', 'Check Terminal')
     },
     icons: {

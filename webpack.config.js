@@ -6,7 +6,7 @@ module.exports = {
     mode: config.webpack.mode ? 'development' : 'production',
     entry: config.webpack.entry,
     output: {
-        path: path.resolve(__dirname, 'assets'),
+        path: path.resolve(__dirname, config.webpack.output),
         filename: config.webpack.mode
             ? 'js/[name].js'
             : 'js/[name].[contenthash].js',
