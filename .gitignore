@@ -1,8 +1,11 @@
 web/wp
 web/app/plugins/*
+!web/app/plugins/index.php
 web/app/mu-plugins/*
 !web/app/mu-plugins/bedrock-autoloader.php
+!web/app/mu-plugins/index.php
 !web/app/mu-plugins/tetloose-core
+!web/app/themes/index.php
 web/app/upgrade
 web/app/uploads/*
 web/app/languages/*
