@@ -1,55 +1,54 @@
 
-import { createModule, AppendModule } from '../../utilities/css-modules.utilities'
+import { createNode, AppendNode } from '../../utilities/node.utilities'
 import styles from './single-column-content.module.scss'
-import { row, col } from '../../html/grid.html'
-import { data } from './single-column-content.data'
+import { row, column } from '../../html/grid.html'
+import { content } from '../../html/content.html'
+import { gridData } from './single-column-content.grid-data'
+import { addClassNames } from '../../utilities/add-class-names.utilities'
 
 class SingleColumnContent {
     module: HTMLElement
-    modifyers?: string
+    containerClasses?: string
+    contentClasses?: string
     content?: string
-    type?: string
-    state: {
+    state?: {
         [key: string]: string
     }
 
     constructor(module: HTMLElement) {
         this.module = module
-        this.modifyers = module.dataset.modifyers
+        this.containerClasses = module.dataset.containerClasses
+        this.contentClasses = module.dataset.contentClasses
         this.content = module.dataset.content
-        this.type = module.dataset.type
         this.state = {
-            initial: 'Css modules',
-            clicked: ' is some sweet jazz'
+            noContent: '<h1>No Content Found</h1>'
         }
 
-        if (this.modifyers) {
-            this.modifyers.split(' ')
-                .forEach(name => name && this.module.classList.add(name))
+        if (this.containerClasses) {
+            addClassNames(this.module, this.containerClasses)
         }
 
-        this.styles()
         this.markup()
+        this.styles()
+    }
+
+    markup() {
+        const columns = gridData
+            .map(col => {
+                const { brakepoint } = col
+
+                return column(content(this.content ? this.content : '', this.contentClasses ? this.contentClasses : ''), brakepoint)
+            })
+            .join(' ')
+
+        new AppendNode(
+            this.module,
+            createNode(row(columns))
+        )
     }
 
     styles() {
         this.module.classList.add(styles.scc)
-    }
-
-    markup() {
-        let columns = ''
-
-        data.map(item => {
-            const { brakepoint } = item
-            const { content } = this
-
-            columns += col(content ? content : '', brakepoint)
-        })
-
-        new AppendModule(
-            this.module,
-            createModule(row(columns))
-        )
     }
 }
 

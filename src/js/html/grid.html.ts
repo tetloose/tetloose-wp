@@ -1,5 +1,5 @@
-import { GridBrakePointProps } from './grid.types'
-import { classNames } from '../utilities/class.names.utilities'
+import { BrakePointProps } from './html.types'
+import { objectToString } from '../utilities/object-to-string.utilities'
 
 export function row(content: string): string {
     return `
@@ -9,9 +9,9 @@ export function row(content: string): string {
     `
 }
 
-export function col(content: string, brakepoints: GridBrakePointProps): string {
+export function column(content: string, brakepoints: BrakePointProps): string {
     return `
-        <div class="l-row__col ${brakepoints && classNames(brakepoints)}">
+        <div class="l-row__col ${brakepoints && objectToString(brakepoints)}">
             ${content}
         </div>
     `

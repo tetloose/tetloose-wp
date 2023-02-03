@@ -1,3 +1,3 @@
-export type ClassNamesProps = {
+export type ObjectToStringProps = {
     [key: string]: string
 }

@@ -1,10 +1,6 @@
-import { GridBrakePointProps } from '../../html/grid.types'
+import { GridDataProps } from '../../html/html.types'
 
-type DataProps = Array<{
-    brakepoint: GridBrakePointProps
-}>
-
-export const data: DataProps = [
+export const gridData: GridDataProps = [
     {
         brakepoint: {
             lrg: '1-third'
