@@ -18,7 +18,8 @@ module.exports = {
     },
     'ignorePatterns': [
         'web/app/themes/tetloose-theme/assets',
-        'node_modules'
+        'node_modules',
+        '*.scss.d.ts'
     ],
     'rules': {
         'quotes': [

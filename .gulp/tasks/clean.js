@@ -1,6 +1,5 @@
 import { src } from 'gulp'
 import shell from 'gulp-shell'
-import fs from 'fs'
 import { clean as config } from '../config'
 
 const cleanAssetsFunc = () => {

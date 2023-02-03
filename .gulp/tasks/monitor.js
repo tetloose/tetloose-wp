@@ -6,7 +6,7 @@ import fonts from './fonts'
 import { iconMoveFont, iconGenerate } from './icons.js'
 import { compressAssets } from './images.js'
 import { scriptsLint, scriptsBundle } from './scripts.js'
-import { stylesLint, stylesDev, stylesTinymceDev, stylesComponents, stylesPrint } from './styles.js'
+import { stylesLint, stylesDev, stylesTinymceDev, stylesPrint } from './styles.js'
 import { php } from './php.js'
 import config from '../config'
 
@@ -23,7 +23,6 @@ const monitor = (cb) => {
             stylesLint,
             stylesDev,
             stylesTinymceDev,
-            stylesComponents,
             stylesPrint
         )
     )
@@ -34,7 +33,6 @@ const monitor = (cb) => {
             stylesLint,
             stylesDev,
             stylesTinymceDev,
-            stylesComponents,
             stylesPrint,
             config.icons.success
         )
@@ -48,7 +46,6 @@ const monitor = (cb) => {
             stylesLint,
             stylesDev,
             stylesTinymceDev,
-            stylesComponents,
             stylesPrint,
             config.sprite.success
         )
@@ -74,7 +71,6 @@ const monitor = (cb) => {
             stylesLint,
             stylesDev,
             stylesTinymceDev,
-            stylesComponents,
             stylesPrint,
             config.fonts.success
         )

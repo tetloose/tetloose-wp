@@ -1,0 +1,22 @@
+{
+    "folders": [
+        {
+            "name": "src",
+            "path": "src"
+        },
+        {
+            "name": "Theme",
+            "path": "web/app/themes/tetloose-theme"
+        },
+        {
+            "name": "Core Plugin",
+            "path": "web/app/mu-plugins/tetloose-core"
+        }
+    ],
+    "settings": {
+        "search.exclude": {
+            "**/node_modules": true,
+            "node_modules": true,
+        }
+    }
+}

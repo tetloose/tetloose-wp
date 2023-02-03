@@ -10,8 +10,6 @@ import gulpStylelint from 'gulp-stylelint'
 import gulpif from 'gulp-if'
 import hash from 'gulp-hash'
 import { styles as config } from '../config'
-import path from 'path'
-import rename from 'gulp-rename'
 
 const hashObj = {
     hashLength: 20,
@@ -72,25 +70,6 @@ const stylesTinyMceDevFunc = () => {
         })))
 }
 
-const stylesComponentsFunc = () => {
-    return src([config.componentEntry], {
-            since: lastRun(stylesComponentsFunc)
-        })
-        .pipe(plumber({ errorHandler: config.error }))
-        .pipe(gulpif(config.mode, init()))
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer())
-        .pipe(gulpif(config.mode, write('.')))
-        .pipe(gulpif(!config.mode, cleanCss()))
-        .pipe(gulpif(!config.mode, hash(hashObj)))
-        .pipe(rename(file => file.dirname = path.dirname(file.dirname)))
-        .pipe(dest(config.output))
-        .pipe(gulpif(config.mode, filter(['**/*.css'])))
-        .pipe(gulpif(config.mode, reload({
-            stream: true
-        })))
-}
-
 const stylesPrintFunc = () => {
     return src([config.printEntry], {
             since: lastRun(stylesPrintFunc)
@@ -119,11 +98,6 @@ export const stylesDev = (cb) => {
 
 export const stylesTinymceDev = (cb) => {
     stylesTinyMceDevFunc()
-    cb()
-}
-
-export const stylesComponents = (cb) => {
-    stylesComponentsFunc()
     cb()
 }
 

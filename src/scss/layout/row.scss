@@ -103,10 +103,10 @@
 			} @else if $i == 2 {
 				$brakepoint: vars(brakepoint, med);
 				$selecter: 'med';
-			} @else if $i == 2 {
+			} @else if $i == 3 {
 				$brakepoint: vars(brakepoint, lrg);
 				$selecter: 'lrg';
-			} @else if $i == 2 {
+			} @else if $i == 4 {
 				$brakepoint: vars(brakepoint, xlrg);
 				$selecter: 'xlrg';
 			}
