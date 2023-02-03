@@ -5,12 +5,14 @@ import { row, column } from '../../html/grid.html'
 import { content } from '../../html/content.html'
 import { gridData } from './single-column-content.grid-data'
 import { addClassNames } from '../../utilities/add-class-names.utilities'
+import './single-column-content.styles.scss'
 
 class SingleColumnContent {
     module: HTMLElement
     containerClasses?: string
     contentClasses?: string
     content?: string
+    animation?: string
     state?: {
         [key: string]: string
     }
@@ -20,9 +22,7 @@ class SingleColumnContent {
         this.containerClasses = module.dataset.containerClasses
         this.contentClasses = module.dataset.contentClasses
         this.content = module.dataset.content
-        this.state = {
-            noContent: '<h1>No Content Found</h1>'
-        }
+        this.animation = module.dataset.animation
 
         if (this.containerClasses) {
             addClassNames(this.module, this.containerClasses)
@@ -30,6 +30,7 @@ class SingleColumnContent {
 
         this.markup()
         this.styles()
+        this.animate()
     }
 
     markup() {
@@ -45,10 +46,35 @@ class SingleColumnContent {
             this.module,
             createNode(row(columns))
         )
+
+        this.functionality()
     }
 
     styles() {
         this.module.classList.add(styles.scc)
+        this.module.querySelector('.js-click')?.classList.add(styles.click)
+    }
+
+    animate() {
+        if (this.animation) {
+            setTimeout(() => {
+                addClassNames(this.module, `u-animate-${this.animation}`)
+            }, 200)
+        }
+    }
+
+    functionality() {
+        const click = this.module.querySelector('.js-click')
+
+        if (click) {
+            click.addEventListener('click', (e: Event): void => {
+                const { target } = e
+
+                if (target instanceof HTMLElement) {
+                    addClassNames(target, 'u-animate-fade-out')
+                }
+            })
+        }
     }
 }
 
