@@ -8,7 +8,7 @@ import { iconMoveFont, iconGenerate } from './.gulp/tasks/icons.js'
 import { compressAssets, compressUploads } from './.gulp/tasks/images.js'
 import { scriptsLint, scriptsBundle } from './.gulp/tasks/scripts.js'
 import { stylesLint, stylesDev, stylesTinymceDev, stylesPrint } from './.gulp/tasks/styles.js'
-import { php } from './.gulp/tasks/php.js'
+import { php, phpComponents } from './.gulp/tasks/php.js'
 import monitor from './.gulp/tasks/monitor.js'
 
 exports.clean = clean
@@ -47,7 +47,8 @@ exports.default = series(
     stylesDev,
     stylesTinymceDev,
     stylesPrint,
-    php
+    php,
+    phpComponents
 )
 exports.serve = series(
     serve,
@@ -67,5 +68,6 @@ exports.build = series(
     stylesDev,
     stylesTinymceDev,
     stylesPrint,
-    php
+    php,
+    phpComponents
 )

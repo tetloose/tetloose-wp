@@ -21,7 +21,8 @@ module.exports = {
         fonts: 'web/app/themes/tetloose-theme/assets/fonts',
         img: 'web/app/themes/tetloose-theme/assets/img',
         js: 'web/app/themes/tetloose-theme/assets/js',
-        sprite: 'web/app/themes/tetloose-theme/assets/sprite'
+        sprite: 'web/app/themes/tetloose-theme/assets/sprite',
+        components: 'web/app/themes/tetloose-theme/inc/components/components-*.php'
     },
     styles: {
         mode: isDev,
@@ -44,7 +45,9 @@ module.exports = {
     },
     html: {
         files: 'web/app/themes/tetloose-theme/**/*.{html,php}',
-        error: () => notification('❌ PHP ❌', 'Error', 'Check Terminal')
+        error: () => notification('❌ PHP ❌', 'Error', 'Check Terminal'),
+        components: 'src/js/components/**/*.{html,php}',
+        output: 'web/app/themes/tetloose-theme/inc/components',
     },
     icons: {
         json: 'src/icons/*.json',
