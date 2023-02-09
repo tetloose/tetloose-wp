@@ -1,7 +1,3 @@
-export function createNode(node: string): string {
-    return node
-}
-
 export class AppendNode {
     node: HTMLElement
     element: string

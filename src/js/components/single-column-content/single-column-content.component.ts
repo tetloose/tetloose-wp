@@ -1,5 +1,5 @@
 
-import { createNode, AppendNode } from '../../utilities/node.utilities'
+import { AppendNode } from '../../utilities/node.utilities'
 import styles from './single-column-content.module.scss'
 import { row, column } from '../../html/grid.html'
 import { content } from '../../html/content.html'
@@ -44,7 +44,7 @@ class SingleColumnContent {
 
         new AppendNode(
             this.module,
-            createNode(row(columns))
+            row(columns)
         )
 
         this.functionality()

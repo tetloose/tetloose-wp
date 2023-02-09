@@ -1,3 +1,8 @@
+type BodyProps = {
+    classNames?: string
+    text?: string
+}
+
 type BrakePointGenerics =
     'half' |
     '1-third' |
@@ -15,5 +20,6 @@ export type BrakePointProps = {
 }
 
 export type GridDataProps = Array<{
+    body?: BodyProps
     brakepoint: BrakePointProps
 }>
