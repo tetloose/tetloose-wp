@@ -13,8 +13,6 @@
 # ./toolkit deploy
 
 ENV=.env
-git config --global core.pager cat
-
 if test -f "$ENV"; then
   LIVE_DIR=$(grep TOOLKIT_LIVE_DIR $ENV | cut -d '=' -f2)
   STAGING_DIR=$(grep TOOLKIT_STAGING_DIR $ENV | cut -d '=' -f2)
@@ -27,7 +25,6 @@ if test -f "$ENV"; then
   LIVE_URL=$(grep TOOLKIT_LIVE_URL $ENV | cut -d '=' -f2)
   STAGIN_URL=$(grep TOOLKIT_STAGIN_URL $ENV | cut -d '=' -f2)
   LOCAL_URL=$(grep TOOLKIT_LOCAL_URL $ENV | cut -d '=' -f2)
-  BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
   export LIVE_DIR
   export STAGING_DIR
@@ -40,19 +37,14 @@ if test -f "$ENV"; then
   export LIVE_URL
   export STAGIN_URL
   export LOCAL_URL
-  export BRANCH
 
   clear
   echo "Starting Tetloose WP TOOLKIT..."
-  echo "$LIVE_DIR"
-  echo "$STAGING_DIR"
-  echo "$LOCAL_DIR"
-  echo "$TEMP_DIR"
   echo "toolkit $1"
 else
   echo "Local $ENV doesn't exist, generating now"
   eval "wp dotenv init --template=$ENV.example --interactive --with-salts --force"
-  eval "sh ./scripts/toolkit $1"
+  eval "sh ./toolkit $1"
 fi
 
 # else
@@ -61,11 +53,7 @@ fi
 
 # ./toolkit setup
 if [ "$1" = "setup" ]; then
-    eval "sh .scripts/$1"
-
-# ./toolkit git-commit
-elif [ "$1" = "git-commit" ]; then
-    eval "sh .scripts/$1"
+  eval "sh .scripts/$1"
 
 else
   echo "Stop saying that Withnail, of course he's the fucking farmer!"
