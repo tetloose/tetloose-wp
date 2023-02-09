@@ -11,7 +11,7 @@
             "@babel/preset-env"
         ]
     },
-    "private": false,
+    "private": true,
     "scripts": {
         "postinstall": "husky install",
         "prepack": "pinst --disable",
