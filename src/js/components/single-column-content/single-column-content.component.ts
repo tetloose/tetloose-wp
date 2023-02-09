@@ -7,7 +7,7 @@ import { gridData } from './single-column-content.grid-data'
 import { addClassNames } from '../../utilities/add-class-names.utilities'
 import './single-column-content.styles.scss'
 
-class SingleColumnContent {
+export class SingleColumnContent {
     module: HTMLElement
     containerClasses?: string
     contentClasses?: string
