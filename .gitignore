@@ -34,6 +34,7 @@ web/app/cache
 node_modules/
 .DS_Store
 *.sql
+package/*.zip
 
 web/app/mu-plugins/tetloose-core/
 web/app/themes/tetloose-theme/

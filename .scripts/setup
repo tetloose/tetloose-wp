@@ -1,40 +1,29 @@
 #!/bin/bash
 #Setup
 
-# echo "$LIVE_DIR"
-# echo "$STAGING_DIR"
-# echo "$LOCAL_DIR"
-# echo "$TEMP_DIR"
-# echo "$DROPBOX_DIR"
-# echo "$UPLOADS_DIR"
-# echo "$LIVE_SSH"
+# echo "$PRODUCTION_SSH"
+# echo "$PRODUCTION_DIR"
+# echo "$PRODUCTION_URL"
 # echo "$STAGING_SSH"
-# echo "$LIVE_URL"
+# echo "$STAGING_DIR"
 # echo "$STAGIN_URL"
+# echo "$LOCAL_DIR"
 # echo "$LOCAL_URL"
-read -p "##Project setup
-Select setup enviroment
+# echo "$UPLOADS_DIR"
+# echo "$BACKUP_DIR"
+# echo "$BRANCH"
+
+read -p "##Setup
+Choose Enviroment
 
 [0] Development
 [1] Production
 
-[0/1] " setupENV
-if [ "$setupENV" = "0" ]; then
-  echo "Development"
-  eval "
-  mkdir -p $TEMP_DIR &&
-  git clone https://github.com/roots/bedrock.git $TEMP_DIR &&
-  cp -r $TEMP_DIR/phpcs.xml . &&
-  cp -r $TEMP_DIR/wp-cli.yml . &&
-  cp -r $TEMP_DIR/config . &&
-  cp -r $TEMP_DIR/web . &&
-  mv -r app/mu-plugins/tetloose web/app/mu-plugins &&
-  mv -r app/plugins/tetloose web/app/plugins &&
-  rm -rf $TEMP_DIR &&
-  rm -rf app
-  "
-elif [ "$setupENV" = "1" ]; then
-  echo "Production"
+[0/1] " SETUP_SWITCH
+if [ "$SETUP_SWITCH" = "0" ]; then
+    eval "composer install; yarn; yarn postinstall; code .; yarn dev"
+elif [ "$SETUP_SWITCH" = "1" ]; then
+    eval "composer install; yarn; yarn build"
 else
-  echo -e "Please enter 0 or 1, toolkit stopping"
+  echo -e "Please Enter 0 or 1, Toolkit Stopping"
 fi

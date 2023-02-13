@@ -11,53 +11,43 @@
 # ./toolkit db-push
 # ./toolkit db-pull
 # ./toolkit deploy
+# ./toolkit package
 
 ENV=.env
-git config --global core.pager cat
+export ENV
 
 if test -f "$ENV"; then
-  LIVE_DIR=$(grep TOOLKIT_LIVE_DIR $ENV | cut -d '=' -f2)
-  STAGING_DIR=$(grep TOOLKIT_STAGING_DIR $ENV | cut -d '=' -f2)
-  LOCAL_DIR=$(grep TOOLKIT_LOCAL_DIR $ENV | cut -d '=' -f2)
-  TEMP_DIR=$(grep TOOLKIT_TEMP_DIR $ENV | cut -d '=' -f2)
-  DROPBOX_DIR=$(grep TOOLKIT_DROPBOX_DIR $ENV | cut -d '=' -f2)
-  UPLOADS_DIR=$(grep TOOLKIT_UPLOADS_DIR $ENV | cut -d '=' -f2)
-  LIVE_SSH=$(grep TOOLKIT_LIVE_SSH $ENV | cut -d '=' -f2)
-  STAGING_SSH=$(grep TOOLKIT_STAGING_SSH $ENV | cut -d '=' -f2)
-  LIVE_URL=$(grep TOOLKIT_LIVE_URL $ENV | cut -d '=' -f2)
-  STAGIN_URL=$(grep TOOLKIT_STAGIN_URL $ENV | cut -d '=' -f2)
-  LOCAL_URL=$(grep TOOLKIT_LOCAL_URL $ENV | cut -d '=' -f2)
-  BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    PRODUCTION_SSH=$(grep TOOLKIT_PRODUCTION_SSH $ENV | cut -d '=' -f2)
+    PRODUCTION_DIR=$(grep TOOLKIT_PRODUCTION_DIR $ENV | cut -d '=' -f2)
+    PRODUCTION_URL=$(grep TOOLKIT_PRODUCTION_URL $ENV | cut -d '=' -f2)
+    STAGING_SSH=$(grep TOOLKIT_STAGING_SSH $ENV | cut -d '=' -f2)
+    STAGING_DIR=$(grep TOOLKIT_STAGING_DIR $ENV | cut -d '=' -f2)
+    STAGIN_URL=$(grep TOOLKIT_STAGIN_URL $ENV | cut -d '=' -f2)
+    LOCAL_DIR=$(grep TOOLKIT_LOCAL_DIR $ENV | cut -d '=' -f2)
+    LOCAL_URL=$(grep TOOLKIT_LOCAL_URL $ENV | cut -d '=' -f2)
+    UPLOADS_DIR=$(grep TOOLKIT_UPLOADS_DIR $ENV | cut -d '=' -f2)
+    BACKUP_DIR=$(grep TOOLKIT_BACKUP_DIR $ENV | cut -d '=' -f2)
+    BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    git config --global core.pager cat
 
-  export LIVE_DIR
-  export STAGING_DIR
-  export LOCAL_DIR
-  export TEMP_DIR
-  export DROPBOX_DIR
-  export UPLOADS_DIR
-  export LIVE_SSH
-  export STAGING_SSH
-  export LIVE_URL
-  export STAGIN_URL
-  export LOCAL_URL
-  export BRANCH
+    export PRODUCTION_SSH
+    export PRODUCTION_DIR
+    export PRODUCTION_URL
+    export STAGING_SSH
+    export STAGING_DIR
+    export STAGIN_URL
+    export LOCAL_DIR
+    export LOCAL_URL
+    export UPLOADS_DIR
+    export BACKUP_DIR
+    export BRANCH
 
-  clear
-  echo "Starting Tetloose WP TOOLKIT..."
-  echo "$LIVE_DIR"
-  echo "$STAGING_DIR"
-  echo "$LOCAL_DIR"
-  echo "$TEMP_DIR"
-  echo "toolkit $1"
+    clear
+    echo "Toolkit Starting..."
+    echo "toolkit $1"
 else
-  echo "Local $ENV doesn't exist, generating now"
-  eval "wp dotenv init --template=$ENV.example --interactive --with-salts --force"
-  eval "sh ./scripts/toolkit $1"
+    eval "sh .scripts/generate-env"
 fi
-
-# else
-# # git config --global core.pager cat
-# # branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 # ./toolkit setup
 if [ "$1" = "setup" ]; then
@@ -67,6 +57,34 @@ if [ "$1" = "setup" ]; then
 elif [ "$1" = "git-commit" ]; then
     eval "sh .scripts/$1"
 
+# ./toolkit deploy
+elif [ "$1" = "deploy" ]; then
+    eval "sh .scripts/$1"
+
+# ./toolkit backup
+elif [ "$1" = "backup" ]; then
+    eval "sh .scripts/$1"
+
+# ./toolkit uploads-push
+elif [ "$1" = "uploads-push" ]; then
+    eval "sh .scripts/$1"
+
+# ./toolkit uploads-pull
+elif [ "$1" = "uploads-pull" ]; then
+    eval "sh .scripts/$1"
+
+# ./toolkit db-push
+elif [ "$1" = "db-push" ]; then
+    eval "sh .scripts/$1"
+
+# ./toolkit db-pull
+elif [ "$1" = "db-pull" ]; then
+    eval "sh .scripts/$1"
+
+# ./toolkit db-pull
+elif [ "$1" = "package" ]; then
+    eval "sh .scripts/$1"
+
 else
-  echo "Stop saying that Withnail, of course he's the fucking farmer!"
+    echo "Toolkit Stopping";
 fi

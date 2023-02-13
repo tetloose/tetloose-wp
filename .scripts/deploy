@@ -1,0 +1,39 @@
+#!/bin/bash
+#deploy
+
+# echo "$PRODUCTION_SSH"
+# echo "$PRODUCTION_DIR"
+# echo "$PRODUCTION_URL"
+# echo "$STAGING_SSH"
+# echo "$STAGING_DIR"
+# echo "$STAGIN_URL"
+# echo "$LOCAL_DIR"
+# echo "$LOCAL_URL"
+# echo "$UPLOADS_DIR"
+# echo "$BACKUP_DIR"
+# echo "$BRANCH"
+
+read -p "##Deploy
+Select Enviroment
+
+[0] Staging
+[1] Production
+
+[0/1] " DEPLOY_SWITCH
+if [ "$DEPLOY_SWITCH" = "0" ]; then
+    SSH=$PRODUCTION_SSH
+    DIR=$PRODUCTION_DIR
+    ENVIRONMENT=staging
+elif [ "$DEPLOY_SWITCH" = "1" ]; then
+    SSH=$STAGING_SSH
+    DIR=$STAGING_DIR
+    ENVIRONMENT=production
+else
+  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+fi
+
+if [ "$ENVIRONMENT" ]; then
+    echo "Deploying to $ENVIRONMENT"
+    ssh $SSH "cd $DIR; git stash; git pull; git stash apply"
+    echo "$ENVIRONMENT updated..."
+fi

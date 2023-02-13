@@ -1,0 +1,42 @@
+#!/bin/bash
+#backup
+
+# echo "$PRODUCTION_SSH"
+# echo "$PRODUCTION_DIR"
+# echo "$PRODUCTION_URL"
+# echo "$STAGING_SSH"
+# echo "$STAGING_DIR"
+# echo "$STAGIN_URL"
+# echo "$LOCAL_DIR"
+# echo "$LOCAL_URL"
+# echo "$UPLOADS_DIR"
+# echo "$BACKUP_DIR"
+# echo "$BRANCH"
+
+read -p "##Backup
+Select enviroment
+
+[0] Staging
+[1] Production
+
+[0/1] " BACKUP_SWITCH
+if [ "$BACKUP_SWITCH" = "0" ]; then
+    SSH=$PRODUCTION_SSH
+    DIR=$PRODUCTION_DIR
+    ENVIRONMENT=staging
+elif [ "$BACKUP_SWITCH" = "1" ]; then
+    SSH=$STAGING_SSH
+    DIR=$STAGING_DIR
+    ENVIRONMENT=production
+else
+  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+fi
+
+if [ "$ENVIRONMENT" ]; then
+    echo "Deploying to $ENVIRONMENT"
+    ssh "$SSH" "cd $DIR; wp db export backup.sql; zip -r backup.zip .env backup.sql web/.htaccess web/app/uploads"
+    eval rsync "$SSH":"$DIR"/backup.zip "$LOCAL_DIR" --stats --progress -zvrt --update
+    eval mv "$LOCAL_DIR"/backup.zip "$BACKUP_DIR"/backup-env-"$ENVIRONMENT"-date-$(date +"%Y-%m-%d").zip
+    ssh "$SSH" "cd $DIR; rm -rf backup.zip backup.sql"
+    echo "Backup of $ENVIRONMENT created $(date +"%Y-%m-%d") moved to $BACKUP_DIR"
+fi

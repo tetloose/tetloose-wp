@@ -1,22 +1,21 @@
 #!/bin/bash
 #git-commit
 
-# echo "$LIVE_DIR"
-# echo "$STAGING_DIR"
-# echo "$LOCAL_DIR"
-# echo "$TEMP_DIR"
-# echo "$DROPBOX_DIR"
-# echo "$UPLOADS_DIR"
-# echo "$LIVE_SSH"
+# echo "$PRODUCTION_SSH"
+# echo "$PRODUCTION_DIR"
+# echo "$PRODUCTION_URL"
 # echo "$STAGING_SSH"
-# echo "$LIVE_URL"
+# echo "$STAGING_DIR"
 # echo "$STAGIN_URL"
+# echo "$LOCAL_DIR"
 # echo "$LOCAL_URL"
+# echo "$UPLOADS_DIR"
+# echo "$BACKUP_DIR"
 # echo "$BRANCH"
 
-git status;
+git status
 echo "Branch: $BRANCH"
-read -p "Enter a commit message [ENTER]: " desc;
-git add --a;
-git commit -m "$desc" && \;
-git push;
+read -p "Enter a commit message [ENTER]: " desc
+git add --a
+git commit -m "$desc" && \
+git push

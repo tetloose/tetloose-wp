@@ -1,0 +1,82 @@
+#!/bin/bash
+#generate-env
+
+# echo "$PRODUCTION_SSH"
+# echo "$PRODUCTION_DIR"
+# echo "$PRODUCTION_URL"
+# echo "$STAGING_SSH"
+# echo "$STAGING_DIR"
+# echo "$STAGIN_URL"
+# echo "$LOCAL_DIR"
+# echo "$LOCAL_URL"
+# echo "$UPLOADS_DIR"
+# echo "$BACKUP_DIR"
+# echo "$BRANCH"
+
+read -p "##Local $ENV doesn't exist
+Choose generation method
+
+[0] Manual (edit $ENV)
+[1] Interactive
+
+[0/1] " ENV_SWITCH
+if [ "$ENV_SWITCH" = "0" ]; then
+    eval "cp $ENV.example $ENV"
+    read -p "Update $ENV manualy, [ENTER] to continue " ENV_GATE
+    eval "sh ./toolkit $1"
+elif [ "$ENV_SWITCH" = "1" ]; then
+    echo "Follow promps."
+    read -p "Production SSH: " PSSH
+    read -p "Production Directory: " PDIR
+    read -p "Production URL: " PURL
+    read -p "Staging SSH: " SSSH
+    read -p "Staging Directory: " SDIR
+    read -p "Staging URL: " SURL
+    read -p "Local Directory: " LDIR
+    read -p "Local URL: " LURL
+    read -p "Uploads Directory: " UDIR
+    read -p "Backup Directory: " BDIR
+    read -p "Database Prefix: " DPREFIX
+    read -p "Database Host: " DHOST
+    read -p "Database Name: " DNAME
+    read -p "Database User: " DUSER
+    read -p "Database Password: " DPASSWORD
+    read -p "Wordpress Environment: " WENV
+    read -p "Wordpress Home: " WHOME
+    eval "touch $ENV"
+    echo "# TOOLKIT VARIABLES" >> $ENV
+    echo "TOOLKIT_PRODUCTION_SSH=$PSSH" >> $ENV
+    echo "TOOLKIT_PRODUCTION_DIR=$PDIR" >> $ENV
+    echo "TOOLKIT_PRODUCTION_URL=$PURL" >> $ENV
+    echo "TOOLKIT_STAGING_SSH=$SSSH" >> $ENV
+    echo "TOOLKIT_STAGING_DIR=$SDIR" >> $ENV
+    echo "TOOLKIT_STAGIN_URL=$SURL" >> $ENV
+    echo "TOOLKIT_LOCAL_DIR=$LDIR" >> $ENV
+    echo "TOOLKIT_LOCAL_URL=$LURL" >> $ENV
+    echo "TOOLKIT_UPLOADS_DIR=$UDIR" >> $ENV
+    echo "TOOLKIT_BACKUP_DIR=$BDIR" >> $ENV
+    echo "TOOLKIT_TEMP_DIR=temp" >> $ENV
+    echo "" >> $ENV
+    echo "# WORDPRESS OPTIONS" >> $ENV
+    echo "DB_PREFIX=$DPREFIX" >> $ENV
+    echo "DB_HOST=$DHOST" >> $ENV
+    echo "DB_NAME=$DNAME" >> $ENV
+    echo "DB_USER=$DUSER" >> $ENV
+    echo "DB_PASSWORD=$DPASSWORD" >> $ENV
+    echo "WP_ENV=$WENV" >> $ENV
+    echo "WP_HOME=$WHOME" >> $ENV
+    echo "WP_SITEURL=$WHOME/wp" >> $ENV
+    echo "" >> $ENV
+    echo "# THEME OPTIONS" >> $ENV
+    echo "" >> $ENV
+    echo "USE_JQUERY=no" >> $ENV
+    echo "JQUERY_VERSION=https://code.jquery.com/jquery-3.6.3.min.js" >> $ENV
+    echo "" >> $ENV
+    echo "# SALTS (https://roots.io/salts.html)" >> $ENV
+    echo $WSALTS >> $ENV
+    echo "" >> $ENV
+    read -p "Goto https://roots.io/salts.html, paste salts Env Format bottom of file and save. Check values then press [ENTER] to continue " ENV_GATE
+    eval "sh ./toolkit $1"
+else
+  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+fi

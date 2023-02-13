@@ -1,0 +1,42 @@
+#!/bin/bash
+#db-push
+
+# echo "$PRODUCTION_SSH"
+# echo "$PRODUCTION_DIR"
+# echo "$PRODUCTION_URL"
+# echo "$STAGING_SSH"
+# echo "$STAGING_DIR"
+# echo "$STAGIN_URL"
+# echo "$LOCAL_DIR"
+# echo "$LOCAL_URL"
+# echo "$UPLOADS_DIR"
+# echo "$BACKUP_DIR"
+# echo "$BRANCH"
+
+read -p "##Database Push
+Select Enviroment
+
+[0] Staging
+[1] Production
+
+[0/1] " DB_PUSH_SWITCH
+if [ "$DB_PUSH_SWITCH" = "0" ]; then
+    SSH=$PRODUCTION_SSH
+    DIR=$PRODUCTION_DIR
+    URL=$STAGIN_URL
+    ENVIRONMENT=staging
+elif [ "$DB_PUSH_SWITCH" = "1" ]; then
+    SSH=$STAGING_SSH
+    DIR=$STAGING_DIR
+    URL=$PRODUCTION_URL
+    ENVIRONMENT=production
+else
+  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+fi
+
+if [ "$ENVIRONMENT" ]; then
+    eval rsync -r "$LOCAL_DIR"/db.sql "$SSH":"$DIR" --stats --progress -raz --update
+    ssh "$SSH" "cd $DIR; wp db import db.sql; wp search-replace $LOCAL_URL $URL; rm -rf db.sql"
+    rm -rf db.sql
+    echo "db updated on $ENVIRONMENT from local."
+fi

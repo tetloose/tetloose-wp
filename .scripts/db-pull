@@ -1,0 +1,45 @@
+#!/bin/bash
+#db-pull
+
+# echo "$PRODUCTION_SSH"
+# echo "$PRODUCTION_DIR"
+# echo "$PRODUCTION_URL"
+# echo "$STAGING_SSH"
+# echo "$STAGING_DIR"
+# echo "$STAGIN_URL"
+# echo "$LOCAL_DIR"
+# echo "$LOCAL_URL"
+# echo "$UPLOADS_DIR"
+# echo "$BACKUP_DIR"
+# echo "$BRANCH"
+
+read -p "##Database Pull
+Select Enviroment
+
+[0] Staging
+[1] Production
+
+[0/1] " DB_PULL_SWITCH
+if [ "$DB_PULL_SWITCH" = "0" ]; then
+    SSH=$PRODUCTION_SSH
+    DIR=$PRODUCTION_DIR
+    URL=$STAGIN_URL
+    ENVIRONMENT=staging
+elif [ "$DB_PULL_SWITCH" = "1" ]; then
+    SSH=$STAGING_SSH
+    DIR=$STAGING_DIR
+    URL=$PRODUCTION_URL
+    ENVIRONMENT=production
+else
+  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+fi
+
+if [ "$ENVIRONMENT" ]; then
+    ssh "$SSH" "cd $DIR; wp db export sitedb.sql";
+    eval rsync -r "$SSH":"$DIR"/sitedb.sql "$LOCAL_DIR" --stats --progress -raz --update;
+    eval "wp db import sitedb.sql";
+    wp search-replace "$URL" "$LOCAL_URL";
+    rm -rf sitedb.sql;
+    ssh "$SSH" "cd $DIR; rm -rf sitedb.sql";
+    echo "db updated on local from $ENVIRONMENT...";
+fi
