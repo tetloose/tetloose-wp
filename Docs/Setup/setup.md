@@ -16,9 +16,9 @@ Another option is to use [Trellis](https://roots.io/trellis/docs/installation/).
 
 This is scraper to pull in the latest version of ACF, to use this:
 
-1. Duplicate repo on your own repo
-2. Update line **39** `composer.json` -> `"url": "git@github.com:{repo-name}.git"`
-3. Goto `https://github.com/{repo-name}/settings` -> Secrets and Variables -> Actions
+1. Duplicate **Tetloose-ACF** on your own repo
+2. Inside **Tetloose-WP** Update line **39** `composer.json` -> `"url": "git@github.com:{repo-name}.git"`
+3. Goto the cloned **Tetloose-ACF** `https://github.com/{repo-name}/settings` -> Secrets and Variables -> Actions
 4. Create `New Repository secret`
 5. **Name** `ACF_PRO_LICENSE`
 6. Enter ACF License in **Secret**
