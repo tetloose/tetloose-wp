@@ -17,21 +17,21 @@ These variables are used in the shell script `toolkit`. URLs are used to search 
 
 ## WORDPRESS OPTIONS
 
-DB_PREFIX=`tetlooseWP_`
-DB_HOST=`127.0.0.1`
-DB_NAME=`project-name`
-DB_USER=`root`
-DB_PASSWORD=`root`
-WP_ENV=`development`
-WP_HOME=`http://project-name.test`
-WP_SITEURL=`${WP_HOME}/wp`
+- DB_PREFIX=`tetlooseWP_`
+- DB_HOST=`127.0.0.1`
+- DB_NAME=`project-name`
+- DB_USER=`root`
+- DB_PASSWORD=`root`
+- WP_ENV=`development`
+- WP_HOME=`http://project-name.test`
+- WP_SITEURL=`${WP_HOME}/wp`
 
 ## THEME OPTIONS
 
 For development, setting this to no will remove jQuery from the theme, setting this to yes will add it back in. The version below should be the latest, if you want to use jQuery.
 
-USE_JQUERY=no
-JQUERY_VERSION=https://code.jquery.com/jquery-3.6.3.min.js'
+- USE_JQUERY=no
+- JQUERY_VERSION=https://code.jquery.com/jquery-3.6.3.min.js'
 
 ## GENERATE YOUR KEYS HERE: https://roots.io/salts.html
 
