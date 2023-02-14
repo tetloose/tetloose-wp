@@ -13,17 +13,17 @@
 # echo "$BACKUP_DIR"
 # echo "$BRANCH"
 
-read -p "##Setup
-Choose Enviroment
+read -p "Setup
+Choose Environment
 
 [0] Development
 [1] Production
 
-[0/1] " SETUP_SWITCH
+[0/1]: " SETUP_SWITCH
 if [ "$SETUP_SWITCH" = "0" ]; then
     eval "composer install; yarn; yarn postinstall; code .; yarn dev"
 elif [ "$SETUP_SWITCH" = "1" ]; then
     eval "composer install; yarn; yarn build"
 else
-  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+  echo "Please Enter 0 or 1, Toolkit Stopping"
 fi

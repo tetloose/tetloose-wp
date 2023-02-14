@@ -13,13 +13,13 @@
 # echo "$BACKUP_DIR"
 # echo "$BRANCH"
 
-read -p "##Local $ENV doesn't exist
+read -p "Local $ENV doesn't exist
 Choose generation method
 
 [0] Manual (edit $ENV)
 [1] Interactive
 
-[0/1] " ENV_SWITCH
+[0/1]: " ENV_SWITCH
 if [ "$ENV_SWITCH" = "0" ]; then
     eval "cp $ENV.example $ENV"
     read -p "Update $ENV manualy, [ENTER] to continue " ENV_GATE
@@ -78,5 +78,5 @@ elif [ "$ENV_SWITCH" = "1" ]; then
     read -p "Goto https://roots.io/salts.html, paste salts Env Format bottom of file and save. Check values then press [ENTER] to continue " ENV_GATE
     eval "sh ./toolkit $1"
 else
-  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+  echo "Please Enter 0 or 1, Toolkit Stopping"
 fi

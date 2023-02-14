@@ -43,8 +43,6 @@ if test -f "$ENV"; then
     export BRANCH
 
     clear
-    echo "Toolkit Starting..."
-    echo "toolkit $1"
 else
     eval "sh .scripts/generate-env"
 fi
@@ -83,6 +81,9 @@ elif [ "$1" = "db-pull" ]; then
 
 # ./toolkit db-pull
 elif [ "$1" = "package" ]; then
+    eval "sh .scripts/$1"
+
+elif [ "$1" = "add-component" ]; then
     eval "sh .scripts/$1"
 
 else

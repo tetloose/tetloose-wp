@@ -13,13 +13,13 @@
 # echo "$BACKUP_DIR"
 # echo "$BRANCH"
 
-read -p "##Backup
-Select enviroment
+read -p "Backup
+Select environment
 
 [0] Staging
 [1] Production
 
-[0/1] " BACKUP_SWITCH
+[0/1]: " BACKUP_SWITCH
 if [ "$BACKUP_SWITCH" = "0" ]; then
     SSH=$PRODUCTION_SSH
     DIR=$PRODUCTION_DIR
@@ -29,7 +29,7 @@ elif [ "$BACKUP_SWITCH" = "1" ]; then
     DIR=$STAGING_DIR
     ENVIRONMENT=production
 else
-  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+  echo "Please Enter 0 or 1, Toolkit Stopping"
 fi
 
 if [ "$ENVIRONMENT" ]; then

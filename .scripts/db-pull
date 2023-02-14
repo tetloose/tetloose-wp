@@ -13,13 +13,13 @@
 # echo "$BACKUP_DIR"
 # echo "$BRANCH"
 
-read -p "##Database Pull
-Select Enviroment
+read -p "Database Pull
+Select Environment
 
 [0] Staging
 [1] Production
 
-[0/1] " DB_PULL_SWITCH
+[0/1]: " DB_PULL_SWITCH
 if [ "$DB_PULL_SWITCH" = "0" ]; then
     SSH=$PRODUCTION_SSH
     DIR=$PRODUCTION_DIR
@@ -31,7 +31,7 @@ elif [ "$DB_PULL_SWITCH" = "1" ]; then
     URL=$PRODUCTION_URL
     ENVIRONMENT=production
 else
-  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+  echo "Please Enter 0 or 1, Toolkit Stopping"
 fi
 
 if [ "$ENVIRONMENT" ]; then

@@ -1,193 +1,82 @@
-# [Bedrock](https://roots.io/bedrock/)
-
-[![Packagist](https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square)](https://packagist.org/packages/roots/bedrock)
-[![Build Status](https://img.shields.io/travis/roots/bedrock.svg?style=flat-square)](https://travis-ci.org/roots/bedrock)
-
-#Bedrock Wordpress & custom theme w/ Gulp, SCSS, JS, Font Generation, SVG and @X2 PNG sprite, Browser Sync.
-
-### https://roots.io/bedrock/
-
-## Setup
-
-1. Install Node if not installed
-2. Install Caskroom/cask/xquartz - `brew install Caskroom/cask/xquartz`
-3. Install fontforge ttfautohint ttf2eot bat - `brew install fontforge ttfautohint ttf2eot bat`
-4. Set up a vhost i.e. - `wp.localdev`
-5. Create New Database
-6. Copy .env.example to .env and update environment variables in `.env`
-7. Add vHost to - `gulpfile.js line 106`
-8. Run `npm update && npm install && composer install` - in the root of the project
-9. Open `wp.localdev` and install WP
-10. Run `gulp` - in the root of the project
-
-## Add to SVG to allow upload
-
-`<?xml version="1.0" encoding="UTF-8"?>`
-
-## Adding plugins
-
-`composer require <namespace>/<packagename>`
-
-## Updating plugins
-
-`composer update`
-
-## Force composer update
-
-`composer update --ignore-platform-reqs`
-
-## Force composer install
-
-`composer install --ignore-platform-reqs`
-
-## WP Admin
-
-Note only use admin vir vhost not browser sync
-
-1. http://wp.localdev/wp-admin
-
-## Gulp commands
-
--   **Scss:** `gulp styles`
--   **Javascript:** `gulp scripts`
--   **Generate Font pack:** `gulp fonts`
--   **Image minification:** `gulp images`
--   **Favicon:** `gulp favicon`
--   **Browser Sync:** `gulp browser-sync`
--   **SVG sprites:** `gulp svg-sprite`
--   **Retina sprite:** `gulp sprite`
--   **Watch:** `gulp watch`
--   **Default GULP:** `gulp`
-
-## SCSS
-
-Write SCSS in `./web/app/theme/tetloose/dev/scss/**/*.scss`. Compile run `gulp styles`
-
-## Javascript
-
-Javascript split into 2 sections js in the header js in the footer
-
-###js in the header i.e. `modernizr`
-
-1. Place header plugins into `./web/app/theme/tetloose/dev/javascript/header/*.js`
-2. Attach a number for which ones to load first, i.e. **modernizr** 01\_ so gulp picks it up first
-3. Gulp concats these files, then minifiys them to `./web/app/theme/tetloose/app/javascript/header.js`
-
-###js in the footer i.e. `jquery, plugins & custom js`
-
-1. Place plugins i.e. _jquery\*\* in `./web/app/theme/tetloose/dev/javascript/plugins/_.js`, attach number i.e. 01* 02* so js is loaded in sequence.
-2. Global js `./web/app/theme/tetloose/dev/javascript/global.js` sets up any global variables
-3. Custom js Modules `./web/app/theme/tetloose/dev/javascript/modules/*.js` Your custom modules
-4. App.js `./web/app/theme/tetloose/dev/javascript/app.js` where you call your modules
-5. Gulp concats all the above files, then minifiys them to `./web/app/theme/tetloose/app/javascript/app.js`
-
-## Generating font pack
-
-### Dependencys
-
-1. `brew install Caskroom/cask/xquartz`
-2. `brew install fontforge ttfautohint ttf2eot bat`
-
-`NOTE: This isnt working at the moment`
-
-1. Drop `ttf` font into `/dev/fonts/`
-2. run `gulp fonts`
-3. gulp generates font pack, moves to `./web/app/theme/tetloose/app/fonts/`
-4. removes source font from `./web/app/theme/tetloose/dev/fonts/`
-
-## Image minification
-
-1. Drop images required by theme into `./web/app/theme/tetloose/app/images/`
-2. Run `gulp images`
-3. Theme Images and Wordpress uploads Minified
-
-## Favicon
-
-1. Drop 192px by 192px favicon.png into `./web/app/theme/tetloose/dev/favicon/`
-2. Run `gulp favicon`
-3. Gulp generates favicons and touch icons, places them in `./web/app/theme/tetloose/app/images/meta/`
-4. Gulp inserts meta tags into `./web/app/theme/tetloose/inc/header/head/favicons.php`
-5. You tweek app name and colours in gulp.js then re run `gulp favicon`
-
-## Browser Sync
-
-1. Set up your project vhost i.e. mysite.localdev if not using php connect
-2. Restart apache
-3. Line 112 gulp.js add your `$vHost` if using vhost if not leave as is
-4. Run `gulp browser-sync`
-5. Spins up a php server
-6. Check terminal for Local External and Ui addresses
-7. Browser Sync will run on a port and proxie your vhost
-
-## SVG Sprites
-
-###Source: https://github.com/jkphl/svg-sprite
-
-1. Drop svg into `./web/app/theme/tetloose/dev/sprites/svg/`
-2. Run `gulp svg-sprite`
-3. SVG Sprite class names generated `./web/app/theme/tetloose/dev/scss/lib/_svg.scss/`
-
-#### MARKUP
-
-```
-<i class="u-svg--{svg_name}">
-  <svg><use xlink:href="./web/app/theme/tetloose/app/images/sprites/svg.svg#{svg_name}" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-</i>
-```
-
-Replace {svg_name} width the name of the svg dropped into /dev/sprites/svg/.
-
-## Retina Sprites
-
-1. Drop images into `./web/app/theme/tetloose/dev/sprites/sprite/`
-2. All normal sprite images must be accomained by the retina version, and prefixed @2x
-3. Run `gulp sprite`
-4. Sprite class names generated `./web/app/theme/tetloose/dev/scss/lib/_sprite.scss/`
-
-#### MARKUP
-
-```
-<i class="u-sprite--{sprite_name}"></i>
-```
-
-Replace {sprite_name} width the name of the image dropped into ./web/app/theme/tetloose/dev/sprites/sprite.
-
-## Watch for changes
-
-1. Run `gulp watch`
-2. Changes made to styles, html, js get injected and browser reloads
-
-## Default GULP
-
-1. Run `gulp`
-2. Browser-sync, browser sync, scss, javascript, watch
-
-## Simple Deploy Script over SSH
-
-See `update` update ssh path
-Run `./update` - this does the following
-
-1. Connects via ssh to live / staging server
-2. Composer install
-3. Pulls latest commit on Specified Branch
-
-## Tutorial out of date
-
-[Click here for full tutorial on how to set this up.](http://tetloose.com/diary/technology/wordpress-boilerplate-tutorial-bash-zsh-git-scss-gulp-npm-sql-virtual-hosts-wordpress-tutorial-framework-git-hub-bit-bucket-wp-themes/)
-
-## USEFULL LINKS
-
-`http://ianlunn.github.io/Hover/`
-`http://gudh.github.io/ihover/dist/`
-`http://tympanus.net/Tutorials/OriginalHoverEffects/index10.html`
-`https://github.com/h5bp/Effeckt.css`
-`http://forthebadge.com/`
-`https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow`
-
-
-
-Composer install
-
-ln -s ./vendor/squizlabs/php_codesniffer/bin/phpcbf ./phpcs/phpcbf
-ln -s ./vendor/squizlabs/php_codesniffer/bin/phpcs ./phpcs/phpcs
-https://github.com/philcook/brew-php-switcher
+# TETLOOSE WP
+
+Tetloose WP is a custom Wordpress framework that uses [Bedrock Wordpress](https://roots.io/bedrock/).
+# Local environment
+
+Tetloose WP was built using Mac OS, it would need to be tweaked to work with Windows. You may need to drop the font generation.
+
+This isn't a tutorial on setting up a local environment for your development machine, more of an idea of a setup that could be used.
+
+Brew is used as a package manager to install casks, read more about [Brew](https://brew.sh/).
+
+[Laravel Valet](https://laravel.com/docs/9.x/) is a great tool to spinning up local enviroements with nginx. Requires some config to get php@7.4 to run. Please read the docs.
+
+## Required
+
+- PHP 7.4.33: `brew install php@7.4`
+- MYSQL 5.7: `brew install mysql@5.7`
+- fontforge ttfautohint ttf2eot bat Caskroom/cask/xquartz: `brew install fontforge ttfautohint ttf2eot bat Caskroom/cask/xquartz`
+- phantomjs `brew install --cask phantomjs`
+- git 2.37.1^: `brew install git`
+- Node 18.12.1^: `brew install nvm`
+- SSH
+- [Composer](https://getcomposer.org/doc/00-intro.md)
+- [WP-CLI](https://wp-cli.org/)
+
+## Optional
+
+- nvm: `brew install nvm`
+- [oh my zsh](https://ohmyz.sh/)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [Valet](https://laravel.com/docs/9.x/)
+
+## Software
+
+- VSCode: `brew install --cask visual-studio-code`
+- Sequel Ace: `sequel-ace`
+- Brave Browser: `brew install --cask brave-browser`
+- iTerm2: `brew install --cask iterm2`
+## Core
+
+- [Tetloose-Core](https://github.com/tetloose/tetloose-core) Wordpress plugin
+- [Tetloose-Theme](https://github.com/tetloose/tetloose-theme) Wordpress Theme
+- [Tetloose-styles](https://github.com/tetloose/tetloose-styles) SCSS starter package
+- [Tetloose-ACF](https://github.com/tetloose/tetloose-ACF) Advanced custom fields Pro - scraper
+
+## Features
+
+- Favicon generation
+- Font Generation
+- Icon generation from [icomoon](https://icomoon.io/)
+- Image minification
+- SVG sprite generation
+- PHP linting
+- Modern js
+- Jest
+- SCSS modules
+- SCSS
+- WCAG AAA
+- Performance optimised with dynamic Module loading
+
+## Commands
+
+- `yarn dev`: Development
+- `yarn build`: Build project for deployment
+- `yarn deploy`: see [Deployment](../Deployment/setup.md) docs
+- `yarn add-component`: see [Components](../Development/components.md) docs
+- `yarn git:commit`
+- `yarn uploads:push`: Push uploads to an environment
+- `yarn uploads:pull`: Pull uploads from an environment to local
+- `yarn db:push`: Push database to an environment
+- `yarn db:pull`: Pull database from an environment to local
+- `yarn clone:from`: Pull uploads and database from an environment to local
+- `yarn clone:to`: Push uploads and database from local to an environment
+- `yarn package`: Create a zip package, Uploads, Plugins, MU-Plugins, Theme and database
+- `yarn backup`: Create a backup zip of entire project
+- `yarn plugins`: Composer require Wordpress Plugin
+- `yarn test`: Run Jests
+- `yarn update-snapshot`: Update Jests **snapshots**
+
+## Navigation
+
+[ENVIRONMENT >>](Docs/Setup/environment.md)

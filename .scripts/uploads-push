@@ -13,13 +13,13 @@
 # echo "$BACKUP_DIR"
 # echo "$BRANCH"
 
-read -p "##Uploads Push
-Select Enviroment
+read -p "Uploads Push
+Select Environment
 
 [0] Staging
 [1] Production
 
-[0/1] " UPLOADS_PUSH_SWITCH
+[0/1]: " UPLOADS_PUSH_SWITCH
 if [ "$UPLOADS_PUSH_SWITCH" = "0" ]; then
     SSH=$PRODUCTION_SSH
     DIR=$PRODUCTION_DIR
@@ -29,7 +29,7 @@ elif [ "$UPLOADS_PUSH_SWITCH" = "1" ]; then
     DIR=$STAGING_DIR
     ENVIRONMENT=production
 else
-  echo -e "Please Enter 0 or 1, Toolkit Stopping"
+  echo "Please Enter 0 or 1, Toolkit Stopping"
 fi
 
 if [ "$ENVIRONMENT" ]; then

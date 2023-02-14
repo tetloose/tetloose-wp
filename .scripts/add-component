@@ -1,0 +1,41 @@
+#!/bin/bash
+#add-component
+
+# echo "$PRODUCTION_SSH"
+# echo "$PRODUCTION_DIR"
+# echo "$PRODUCTION_URL"
+# echo "$STAGING_SSH"
+# echo "$STAGING_DIR"
+# echo "$STAGIN_URL"
+# echo "$LOCAL_DIR"
+# echo "$LOCAL_URL"
+# echo "$UPLOADS_DIR"
+# echo "$BACKUP_DIR"
+# echo "$BRANCH"
+
+clear
+ls pattern-library
+echo ""
+echo ""
+read -p "Avalible components: copy component name paste press [ENTER]: " COMPONENT
+echo ""
+echo ""
+
+if [ -d pattern-library/"$COMPONENT" ]; then
+    cp -r pattern-library/"$COMPONENT" src/js/components
+    echo "$COMPONENT" successfully added to src/js/components
+
+    read -p "Add another component
+
+    [0] Yes
+    [1] No
+
+    [0/1]: " ADD_COMPONENT_SWITCH
+    if [ "$ADD_COMPONENT_SWITCH" = "0" ]; then
+        eval "sh .scripts/add-component"
+    else
+        echo "Toolkit Stopping"
+    fi
+else
+    echo "$COMPONENT" does not exist, Toolkit Stopping
+fi
