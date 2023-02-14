@@ -8,4 +8,4 @@ Update a Jest Snapshot run `yarn update-snapshot`.
 
 # Navigation
 
-- [DEPLOYMENT >>](deployment.md)
+[DEPLOYMENT >>](deployment.md)

@@ -15,4 +15,4 @@ Place these files in `src/icons`, see `src/scss/utils/icons.scss`
 
 # Navigation
 
-- [FONTS >>](fonts.md)
+[FONTS >>](fonts.md)

@@ -10,4 +10,4 @@ The path is relative to the theme, `web/app/themes/tetloose-theme/assets/css`
 
 # Navigation
 
-- [FAVICONS >>](favicons.md)
+[FAVICONS >>](favicons.md)

@@ -115,4 +115,4 @@ Markup for iFrames should follow this pattern for the intersection to pick it up
 
 # Navigation
 
-- [SCSS >>](scss.md)
+[SCSS >>](scss.md)

@@ -15,4 +15,4 @@ Replace {sprite-name} width the name of the svg dropped into **src/sprite**.
 
 # Navigation
 
-- [ICONS >>](icons.md)
+[ICONS >>](icons.md)

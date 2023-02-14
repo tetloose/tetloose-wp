@@ -15,4 +15,4 @@ $favicon_application_colour = '#ff69b4';
 
 # Navigation
 
-- [TS >>](ts.md)
+[TS >>](ts.md)
