@@ -37,4 +37,4 @@ This will first run tests, if they pass, it will:
 
 ## Setup
 
-- [<< BACK TO DEVELOPMENT](index.md)
+[<< BACK TO DEVELOPMENT](index.md)
