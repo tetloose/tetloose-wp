@@ -78,7 +78,7 @@ Brew is used as a package manager to install casks, read more about [Brew](https
 - `yarn test`: Run Jests
 - `yarn update-snapshot`: Update Jests **snapshots**
 
-## Navigation
+## Docs
 
 - [ENVIRONMENT >>](Docs/Setup/environment.md)
 - [SETUP >>](Docs/Setup/setup.md)
