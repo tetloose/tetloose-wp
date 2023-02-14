@@ -35,7 +35,7 @@ For development, setting this to no will remove jQuery from the theme, setting t
 
 ## GENERATE YOUR KEYS HERE: https://roots.io/salts.html
 
-You have to generate your own keys, goto [Salts](htt Formatps://roots.io/salts.html) copy the **ENV Format** and paste at the bottom of the env.
+You have to generate your own keys, goto [Salts](https://roots.io/salts.html) copy the **ENV Format** and paste at the bottom of the env.
 
 ## Navigation
 
