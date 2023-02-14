@@ -14,33 +14,36 @@ This will observe the document, if a component, figure or iframe hits the inters
 
 Component sit in `src/js/components`.
 
-**PHP Component**
+### PHP Component
 
 prefix of **components-** at the start, then the **component-name**.
 
-**TS Component**
+### TS Component
 
 {component-name}.component.ts
 
-**SCSS Module (optional)**
+### SCSS Module (optional)
 
 {component-name}.module.scss
 
-**SCSS File (optional)**
+### SCSS File (optional)
 
 {component-name}.styles.scss
 
-**Test file**
+### Test file
+
 {component-name}.test.scss
 
 The folder structure will look like this
 
+```
 - /{component-name}
 - - components-{component-name}.php
 - - {component-name}.component.ts
 - - {component-name}.module.scss
 - - {component-name}.styles.scss
 - - {component-name}.test.ts
+```
 
 ## PHP Component
 
