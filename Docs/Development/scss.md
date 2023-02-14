@@ -1,8 +1,8 @@
 # SCSS
 
-Application styles, these styles are loaded everywhere, they are cached via a hash, this means they will only be downloaded if the file changes. The aim is to only provide what we need when we need it.
+Project styles, these styles are loaded everywhere, they are cached via a hash, this means they will only be downloaded if the file changes. The aim is to only provide what we need when we need it.
 
-## Application styles
+## Project styles
 
 - Global
 - Layout
@@ -25,7 +25,7 @@ This imports
 
 The only requirement here is `@import 'settings';`, this will import variables, mixins, colours, fonts and typography.
 
-CSS Modules will rely on this import if you want to use the application settings.
+SCSS Modules will rely on this import if you want to use the project settings.
 
 ### Reset
 
