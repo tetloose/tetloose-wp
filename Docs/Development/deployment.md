@@ -18,3 +18,23 @@ If you don't have access to document roots in your hosting you may need to symli
 2. `mv public public-bak`
 3. `ln -s ~/project-name/web/ ~/public`
 4. remove `public-bak`
+
+## Yarn Deploy
+
+`yarn deploy`
+
+This will first run tests, if they pass, it will:
+
+1. Update plugins + Wordpress
+2. Build the project
+3. Commit the project
+4. SSH into environment
+5. Stash any changes
+6. Pull the latest code
+7. Re apply the stash
+
+# Navigation
+
+## Setup
+
+- [<< BACK TO DEVELOPMENT](index.md)

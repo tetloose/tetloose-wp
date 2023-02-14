@@ -1,6 +1,7 @@
 # TETLOOSE WP
 
 Tetloose WP is a custom Wordpress framework that uses [Bedrock Wordpress](https://roots.io/bedrock/).
+
 # Local environment
 
 Tetloose WP was built using Mac OS, it would need to be tweaked to work with Windows. You may need to drop the font generation.
@@ -62,9 +63,9 @@ Brew is used as a package manager to install casks, read more about [Brew](https
 
 - `yarn dev`: Development
 - `yarn build`: Build project for deployment
-- `yarn deploy`: see [Deployment](../Deployment/setup.md) docs
-- `yarn add-component`: see [Components](../Development/components.md) docs
-- `yarn git:commit`
+- `yarn deploy`: see [Deployment](Docs/Development/deployment.md) docs
+- `yarn add-component`: see [TYPESCRIPT](Docs/Development/ts.md) docs
+- `yarn git:commit`: Commits all files within your branch, promps for commit message
 - `yarn uploads:push`: Push uploads to an environment
 - `yarn uploads:pull`: Pull uploads from an environment to local
 - `yarn db:push`: Push database to an environment
@@ -79,4 +80,21 @@ Brew is used as a package manager to install casks, read more about [Brew](https
 
 ## Navigation
 
-[ENVIRONMENT >>](Docs/Setup/environment.md)
+- [ENVIRONMENT >>](Docs/Setup/environment.md)
+- [SETUP >>](Docs/Setup/setup.md)
+- [SSH >>](Docs/Setup/ssh.md)
+- [ENV >>](Docs/Setup/env.md)
+
+## Development
+
+- [IMAGES >>](Docs/Development/images.md)
+- [SVG-SPRITE >>](Docs/Development/svg-sprite.md)
+- [ICONS >>](Docs/Development/icons.md)
+- [FONTS >>](Docs/Development/fonts.md)
+- [FAVICONS >>](Docs/Development/favicons.md)
+- [TS >>](Docs/Development/ts.md)
+- [SCSS >>](Docs/Development/scss.md)
+- [SCSS-MODULES >>](Docs/Development/scss-modules.md)
+- [TESTING >>](Docs/Development/testing.md)
+- [DEPLOYMENT >>](Docs/Development/deployment.md)
+
