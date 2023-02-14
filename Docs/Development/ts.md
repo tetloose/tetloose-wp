@@ -37,12 +37,12 @@ prefix of **components-** at the start, then the **component-name**.
 The folder structure will look like this
 
 ```
-- /{component-name}
-- - components-{component-name}.php
-- - {component-name}.component.ts
-- - {component-name}.module.scss
-- - {component-name}.styles.scss
-- - {component-name}.test.ts
+{component-name}
+    components-{component-name}.php
+    {component-name}.component.ts
+    {component-name}.module.scss
+    {component-name}.styles.scss
+    {component-name}.test.ts
 ```
 
 ## PHP Component
