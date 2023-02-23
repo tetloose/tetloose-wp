@@ -5,7 +5,7 @@
 
 	footer {
 		@include type-small;
-		@include f-bold;
+		@include f-body-bold;
 
 		padding-top: rem(spacing(.2));
 	}

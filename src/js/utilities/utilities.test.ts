@@ -1,9 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { objectToString } from './object-to-string.utilities'
-import { AppendNode } from './node.utilities'
-import { addClassNames } from './add-class-names.utilities'
+import { objectToString, AppendNode, addClassNames } from '.'
 
 afterEach(() => {
     jest.restoreAllMocks()

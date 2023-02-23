@@ -1,28 +1,24 @@
-@function border($name) {
-	@return map-get($border, $name);
-}
-
-$border: (
-	primary: $pink,
-	secondary: $black
-);
-
 [class*=u-border-] {
 	border-style: solid;
 	border-color: transparent;
 }
 
-.u-border-primary-t {
+.u-border-1-t {
 	border-width: 2px 0 0;
-	border-color: border(primary);
+	border-color: $color-1;
 }
 
-.u-border-primary-t-r {
-	border-width: 2px 2px 0;
-	border-color: border(primary);
+.u-border-2-t {
+	border-width: 2px 0 0;
+	border-color: $color-2;
 }
 
-.u-border-secondary-t {
+.u-border-3-t {
 	border-width: 2px 0 0;
-	border-color: border(secondary);
+	border-color: $color-3;
+}
+
+.u-border-4-t {
+	border-width: 2px 0 0;
+	border-color: $color-4;
 }

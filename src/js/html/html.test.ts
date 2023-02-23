@@ -1,5 +1,4 @@
-import { row, column } from './grid.html'
-import { content } from './content.html'
+import { row, column, content } from '.'
 import { GridDataProps } from './html.types'
 
 test('Row function returns 2 columns with brakepoints and classes', () => {

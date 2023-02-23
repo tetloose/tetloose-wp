@@ -7,7 +7,7 @@ const cleanAssetsFunc = () => {
             read: false
         })
         .pipe(shell(
-            [`rm -rf ${config.assets}; rm -rf ${config.components}; mkdir -p ${config.assets} ${config.css} ${config.fonts} ${config.img} ${config.js} ${config.sprite}`]
+            [`rm -rf ${config.assets} ${config.components} ${config.header} ${config.footer} ${config.partials}; mkdir -p ${config.assets} ${config.css} ${config.fonts} ${config.img} ${config.js} ${config.sprite}`]
         ))
 }
 

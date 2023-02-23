@@ -97,4 +97,3 @@ Brew is used as a package manager to install casks, read more about [Brew](https
 - [SCSS-MODULES >>](Docs/Development/scss-modules.md)
 - [TESTING >>](Docs/Development/testing.md)
 - [DEPLOYMENT >>](Docs/Development/deployment.md)
-

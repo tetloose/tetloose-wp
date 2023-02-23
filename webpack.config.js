@@ -11,10 +11,10 @@ module.exports = {
         path: path.resolve(__dirname, config.webpack.output),
         filename: config.webpack.mode
             ? 'js/[name].js'
-            : 'js/[name].[contenthash].js',
+            : 'js/[name].[hash:8].js',
         chunkFilename: config.webpack.mode
             ? 'js/[name].js'
-            : 'js/[name].[contenthash].js'
+            : 'js/[name].[hash:8].js'
     },
     stats: 'minimal',
     resolve: {
@@ -87,10 +87,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: config.webpack.mode
                 ? 'css/[name].css'
-                : 'css/[name].[contenthash].css',
+                : 'css/[name].[hash:8].css',
             chunkFilename: config.webpack.mode
                 ? 'css/[name].css'
-                : 'css/[name].[contenthash].css'
+                : 'css/[name].[hash:8].css'
         })
     ],
     optimization: {
@@ -99,20 +99,6 @@ module.exports = {
             new CssMinimizerPlugin(),
             new UglifyJsPlugin()
         ],
-        runtimeChunk: 'single',
-        splitChunks: {
-            chunks: 'all',
-            maxInitialRequests: Infinity,
-            minSize: 0,
-            cacheGroups: {
-                commons: {
-                    test: /[\\/]node_modules[\\/]/,
-                    filename: config.webpack.mode
-                        ? 'js/vendors.js'
-                        : 'js/vendors.[contenthash].js',
-                    chunks: 'all'
-                }
-            }
-        }
+        runtimeChunk: 'single'
     }
 }

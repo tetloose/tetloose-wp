@@ -2,19 +2,40 @@ export const figures = document.querySelectorAll('.js-figure') as NodeListOf<HTM
 
 export function loadFigure(target: HTMLElement, options?: DOMStringMap): void {
     if (target && options) {
-        target.innerHTML += `
-            <img
-                class="u-figure__img u-animate-hide ${options.size && `is-${options.size}`}"
-                alt="${options.alt ? options.alt : ''}"
-                src="${options.src && options.src}"
-                ${options.srcset && `srcset="${options.srcset}"`}
-                ${options.rest ? options.rest : ''}
-            />
-        `
+        const img = new Image()
 
-        setTimeout(() => {
-            target.querySelector('img')?.classList.add(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in')
-        }, options.duration ? parseInt(options.duration) : 200)
+        img.setAttribute('class', `u-figure__img u-animate-hide ${options.size ? `is-${options.size}` : 'is-cover'}`)
+        img.setAttribute('alt', options.alt ? options.alt : '')
+        img.setAttribute('src', options.src ? options.src : '')
+        img.setAttribute('srcset', options.srcset ? options.srcset : '')
+
+        target.classList.remove('js-figure')
+        target.removeAttribute('width')
+        target.removeAttribute('height')
+        target.removeAttribute('data-animation')
+        target.removeAttribute('data-duration')
+        target.removeAttribute('data-alt')
+        target.removeAttribute('data-src')
+        target.removeAttribute('data-srcset')
+
+        target.appendChild(img)
+
+        img.onload = () => {
+            const image = target.querySelector('img')
+
+            if (image) {
+                target.classList.remove('u-skeleton-figure')
+
+                setTimeout(() => {
+                    image.classList.add(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in')
+                }, options.duration ? parseInt(options.duration) : 200)
+
+                setTimeout(() => {
+                    image.classList.remove(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in', 'u-animate-hide')
+                }, options.duration ? parseInt(options.duration) * 2 : 400)
+            }
+        }
+
     }
 }
 

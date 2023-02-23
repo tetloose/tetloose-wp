@@ -1,5 +1,4 @@
 html {
-	height: 500vh;
 	min-height: vars(vh, fullscreen);
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -9,7 +8,7 @@ html {
 	text-rendering: optimizespeed;
 
 	@include f-body;
-	@include f-regular;
+	@include f-body-regular;
 	@include font-smoothing;
 	@include fluid-type(vars(brakepoint, sml), vars(layout, maxwidth), vars(type, sml), vars(type, lrg));
 
@@ -20,5 +19,15 @@ html {
 		body {
 			overflow: hidden;
 		}
+	}
+}
+
+body {
+	@include mq(vars(brakepoint, med), max-width) {
+		margin-top: rem(80px);
+	}
+
+	@include mq(vars(brakepoint, med)) {
+		margin-top: rem(120px);
 	}
 }

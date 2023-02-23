@@ -36,5 +36,5 @@ node_modules/
 *.sql
 package/*.zip
 
-web/app/mu-plugins/tetloose-core/
-web/app/themes/tetloose-theme/
+tetloose-core
+tetloose-theme

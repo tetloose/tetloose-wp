@@ -2,8 +2,8 @@
     "phpsab.standard": "WordPress",
     "phpsab.fixerEnable": true,
     "phpsab.snifferEnable": true,
-    "phpsab.executablePathCS": "./vendor/squizlabs/php_codesniffer/bin/phpcs",
-    "phpsab.executablePathCBF": "./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+    "phpsab.executablePathCS": "vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "phpsab.executablePathCBF": "vendor/squizlabs/php_codesniffer/bin/phpcbf",
     "intelephense.environment.phpVersion": "7.4.33",
     "intelephense.stubs": [
         "wordpress",
@@ -55,5 +55,41 @@
     },
     "[php]": {
         "editor.defaultFormatter": "valeryanm.vscode-phpsab"
-    }
+    },
+    "files.exclude": {
+        ".editorconfig": false,
+        ".env": false,
+        ".env.example": false,
+        ".eslintrc.js": false,
+        ".gitignore": false,
+        ".prettierrc": false,
+        ".stylelintrc.js": false,
+        "composer.json": false,
+        "composer.lock": false,
+        "declaration.d.ts": false,
+        "gulpfile.babel.js": false,
+        "jest.config.js": false,
+        "package.json": false,
+        "postcss.config.js": false,
+        "README.md": false,
+        "tetloose.code-workspace": false,
+        "TODO.md": false,
+        "toolkit": false,
+        "tsconfig.json": false,
+        "webpack.config.js": false,
+        "wp-cli.yml": false,
+        "yarn.lock": false,
+        ".gulp": false,
+        ".husky": false,
+        ".scripts": false,
+        "config": false,
+        "Docs": false,
+        "node_modules": false,
+        "package": false,
+        "pattern-library": false,
+        "vendor": false,
+        "web": false,
+        ".vscode": false
+    },
+    "workspace.isHidden": false
 }

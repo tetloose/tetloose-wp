@@ -16,7 +16,13 @@ Component sit in `src/js/components`.
 
 ### PHP Component
 
-prefix of **components-** at the start, then the **component-name**.
+PHP files are moved to `web/app/themes/tetloose-theme/inc/components`.
+
+For ACF Flexible content we need to prefix the component with **components-**{component-name}.php. This will let the component loader `web/app/themes/tetloose-theme/inc/components/component-loader.php` know this is a flexible content component.
+
+Wordpress requires other prefixes for **get_template_part** to work. e.g.
+
+**header-**{component-name}.php -> `get_template_part( '/inc/components/header', 'component-name' );`.
 
 ### TS Component
 
@@ -67,6 +73,8 @@ export class ComponentName {
         this.module = module
     }
 }
+
+export default (module: HTMLElement) => new ComponentName(module)
 ```
 
 We need to now tell Webpack that we want to create a dynamic module for this component.

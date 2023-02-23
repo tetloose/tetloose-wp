@@ -1,5 +1,6 @@
 import { src, lastRun } from 'gulp'
 import webpack from 'webpack'
+import { reload } from 'browser-sync'
 import webpackConfig from '../../webpack.config'
 import plumber from 'gulp-plumber'
 import gulpESLintNew, { fix, format, failAfterError } from 'gulp-eslint-new'
@@ -17,7 +18,8 @@ const scriptsLintFunc = () => {
 }
 
 const scriptsBundleFunc = () => {
-    return webpack(webpackConfig, (_, stats) => {
+    return webpack(webpackConfig, (err, stats) => {
+        if (err) console.log(err)
         console.log('[scripts]', stats.toString({
             colors: true,
             modules: false,
@@ -43,5 +45,8 @@ export const scriptsLint = (cb) => {
 
 export const scriptsBundle = (cb) => {
     scriptsBundleFunc()
+    setTimeout(() => {
+        reload()
+    }, 200);
     cb()
 }

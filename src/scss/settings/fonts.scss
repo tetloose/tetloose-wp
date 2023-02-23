@@ -1,25 +1,41 @@
 @mixin f-body {
-	font-family: 'Kiwi Maru', serif;
+	font-family: var(--f-body);
 }
 
 @mixin f-heading {
-	font-family: 'Space Mono', monospace;
+	font-family: var(--f-heading);
 }
 
-@mixin f-thin {
-	font-weight: 300;
+@mixin f-body-light {
+	font-weight: var(--f-body-light);
 }
 
-@mixin f-regular {
-	font-weight: 400;
+@mixin f-heading-light {
+	font-weight: var(--f-heading-light);
 }
 
-@mixin f-medium {
-	font-weight: 500;
+@mixin f-body-regular {
+	font-weight: var(--f-body-regular);
 }
 
-@mixin f-bold {
-	font-weight: 700;
+@mixin f-heading-regular {
+	font-weight: var(--f-heading-regular);
+}
+
+@mixin f-body-medium {
+	font-weight: var(--f-body-medium);
+}
+
+@mixin f-heading-medium {
+	font-weight: var(--f-heading-medium);
+}
+
+@mixin f-body-bold {
+	font-weight: var(--f-body-bold);
+}
+
+@mixin f-heading-bold {
+	font-weight: var(--f-heading-bold);
 }
 
 @mixin f-italic {

@@ -1,21 +1,15 @@
-@function bg($name) {
-	@return map-get($bg, $name);
+.u-bg-1 {
+	background-color: $color-1;
 }
 
-$bg: (
-	primary: $pink,
-	secondary: $black,
-	tertiary: $white
-);
-
-.u-bg-primary {
-	background-color: bg(primary);
+.u-bg-2 {
+	background-color: $color-2;
 }
 
-.u-bg-secondary {
-	background-color: bg(secondary);
+.u-bg-3 {
+	background-color: $color-3;
 }
 
-.u-bg-tertiary {
-	background-color: bg(tertiary);
+.u-bg-4 {
+	background-color: $color-4;
 }

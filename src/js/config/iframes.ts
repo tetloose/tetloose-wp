@@ -10,9 +10,17 @@ export function loadIframe(target: HTMLElement, options?: DOMStringMap): void {
             </iframe>
         `
 
-        setTimeout(() => {
-            target.querySelector('iframe')?.classList.add(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in')
-        }, options.duration ? parseInt(options.duration) : 200)
+        const frame = target.querySelector('iframe')
+
+        if (frame) {
+            setTimeout(() => {
+                frame.classList.add(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in')
+            }, options.duration ? parseInt(options.duration) : 200)
+
+            setTimeout(() => {
+                frame.classList.remove(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in', 'u-animate-hide')
+            }, options.duration ? parseInt(options.duration) * 2 : 400)
+        }
     }
 }
 

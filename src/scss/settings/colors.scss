@@ -6,17 +6,23 @@
 	}
 }
 
-$white: #fff;
-$black: #2a2a2a;
-$grey: #ededed;
-$pink: #fa0f75;
+$black: #0a0808;
+$light: #fff;
+$grey: #b9b9b9;
+$light-grey: #d8d8d8;
+$color-1: var(--color-1);
+$color-2: var(--color-2);
+$color-3: var(--color-3);
+$color-4: var(--color-4);
 $color: (
 	global: (
 		dark: $black,
-		light: $white,
+		light: $light,
+		hover: $grey,
 		grey: $grey,
-		marker: $pink,
-		selection-bg: $pink,
-		selection-color: $white
+		light-grey: $light-grey,
+		marker: $black,
+		selection-bg: $black,
+		selection-color: $light
 	)
 );

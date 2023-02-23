@@ -1,5 +1,5 @@
 import { BrakePointProps } from './html.types'
-import { objectToString } from '../utilities/object-to-string.utilities'
+import { objectToString } from '../utilities'
 
 export function row(content: string): string {
     return `<div class="l-row">${content}</div>`

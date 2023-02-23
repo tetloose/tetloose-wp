@@ -1,0 +1,12 @@
+@import '../../../scss/settings';
+
+.logo {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+
+	&__figure {
+		max-width: 200px;
+	}
+}

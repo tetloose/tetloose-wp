@@ -22,7 +22,10 @@ module.exports = {
         img: 'web/app/themes/tetloose-theme/assets/img',
         js: 'web/app/themes/tetloose-theme/assets/js',
         sprite: 'web/app/themes/tetloose-theme/assets/sprite',
-        components: 'web/app/themes/tetloose-theme/inc/components/components-*.php'
+        components: 'web/app/themes/tetloose-theme/inc/components/components-*.php',
+        header: 'web/app/themes/tetloose-theme/inc/components/header-*.php',
+        footer: 'web/app/themes/tetloose-theme/inc/components/footer-*.php',
+        partials: 'web/app/themes/tetloose-theme/inc/components/partials-*.php'
     },
     styles: {
         mode: isDev,
@@ -44,10 +47,10 @@ module.exports = {
         success: () => notification('🦡 Sprite 🦡', 'Saved', 'src/scss/utils/sprite.scss')
     },
     html: {
-        files: 'web/app/themes/tetloose-theme/**/*.{html,php}',
-        error: () => notification('❌ PHP ❌', 'Error', 'Check Terminal'),
-        components: 'src/js/components/**/*.{html,php}',
+        files: 'web/app/themes/tetloose-theme/**/*.php',
+        components: 'src/js/components/**/*.php',
         output: 'web/app/themes/tetloose-theme/inc/components',
+        error: () => notification('❌ PHP ❌', 'Error', 'Check Terminal')
     },
     icons: {
         json: 'src/icons/*.json',

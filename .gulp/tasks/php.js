@@ -1,14 +1,12 @@
 import { src, dest } from 'gulp'
 import phpcs from 'gulp-phpcs';
-import plumber from 'gulp-plumber'
 import rename from 'gulp-rename'
 import { html as config } from '../config'
 
-const phpFunc = () => {
-    return src([config.files, `!${config.output}/**/*.{html,php}`])
-        .pipe(plumber({ errorHandler: config.error }))
+const phpLintFunc = () => {
+    return src([config.files])
         .pipe(phpcs({
-            bin: 'vendor/bin/phpcs',
+            bin: 'vendor/squizlabs/php_codesniffer/bin/phpcs',
             standard: '.phpcs.xml',
             warningSeverity: 0
         }))
@@ -17,18 +15,12 @@ const phpFunc = () => {
 
 const phpComponentFunc = () => {
     return src([config.components])
-        .pipe(phpcs({
-            bin: 'vendor/bin/phpcs',
-            standard: '.phpcs.xml',
-            warningSeverity: 0
-        }))
         .pipe(rename({dirname: ''}))
         .pipe(dest(config.output))
-        .pipe(phpcs.reporter('log'))
 }
 
-export const php = (cb) => {
-    phpFunc()
+export const phpLint = (cb) => {
+    phpLintFunc()
     cb()
 }
 

@@ -1,28 +1,22 @@
 
-import { AppendNode } from '../../utilities/node.utilities'
 import styles from './single-column-content.module.scss'
-import { row, column } from '../../html/grid.html'
-import { content } from '../../html/content.html'
 import { gridData } from './single-column-content.grid-data'
-import { addClassNames } from '../../utilities/add-class-names.utilities'
-import './single-column-content.styles.scss'
+import { ComponentClass, cssModule, addClassNames, AppendNode } from '../../utilities/'
+import { row, column, content } from '../../html'
 
-export class SingleColumnContent {
-    module: HTMLElement
+export class SingleColumnContent extends ComponentClass {
     containerClasses?: string
     contentClasses?: string
     content?: string
-    animation?: string
     state?: {
         [key: string]: string
     }
 
     constructor(module: HTMLElement) {
-        this.module = module
+        super(module)
         this.containerClasses = module.dataset.containerClasses
         this.contentClasses = module.dataset.contentClasses
         this.content = module.dataset.content
-        this.animation = module.dataset.animation
 
         if (this.containerClasses) {
             addClassNames(this.module, this.containerClasses)
@@ -30,7 +24,6 @@ export class SingleColumnContent {
 
         this.markup()
         this.styles()
-        this.animate()
     }
 
     markup() {
@@ -51,16 +44,9 @@ export class SingleColumnContent {
     }
 
     styles() {
-        this.module.classList.add(styles.scc)
-        this.module.querySelector('.js-click')?.classList.add(styles.click)
-    }
+        cssModule(this.module, styles)
 
-    animate() {
-        if (this.animation) {
-            setTimeout(() => {
-                addClassNames(this.module, `u-animate-${this.animation}`)
-            }, 200)
-        }
+        this.module.querySelector('.js-click')?.classList.add(styles.click)
     }
 
     functionality() {

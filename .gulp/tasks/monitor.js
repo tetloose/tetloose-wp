@@ -7,15 +7,14 @@ import { iconMoveFont, iconGenerate } from './icons.js'
 import { compressAssets } from './images.js'
 import { scriptsLint, scriptsBundle } from './scripts.js'
 import { stylesLint, stylesDev, stylesTinymceDev, stylesPrint } from './styles.js'
-import { php, phpComponents } from './php.js'
+import { phpLint, phpComponents } from './php.js'
 import config from '../config'
 
 const monitor = (cb) => {
     watch([config.scripts.files, config.scripts.modules],
         series(
             scriptsLint,
-            scriptsBundle,
-            reload
+            scriptsBundle
         )
     )
     watch([config.styles.files],
@@ -39,13 +38,12 @@ const monitor = (cb) => {
     )
     watch([config.html.components],
         series(
-            phpComponents,
-            reload
+            phpComponents
         )
     )
     watch([config.html.files],
         series(
-            php,
+            phpLint,
             reload
         )
     )
