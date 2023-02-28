@@ -51,6 +51,9 @@ export class Menu extends ComponentClass {
                 }
             })
 
+        // keyinput esc close menu
+        // add class to html
+
         trigger?.addEventListener('click', () => {
             this.updateState('nav', this.state ? !this.state.nav : false)
 
