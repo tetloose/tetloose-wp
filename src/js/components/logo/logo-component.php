@@ -14,6 +14,7 @@ if ( ! empty( $logo ) ) :
     ?>
         <<?php echo esc_attr( $el ); ?>
             data-module="Logo"
+            tab-index="0"
             data-styles="<?php echo esc_attr( $logo->class_name ); ?>"
             data-animation="<?php echo esc_attr( $logo->animation ); ?>"
             <?php if ( ! empty( $logo->href ) ) : ?>

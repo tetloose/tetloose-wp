@@ -1,17 +1,13 @@
 import styles from './menu.module.scss'
+import utilityStyles from '../../utilities/component-class.module.scss'
 import { ComponentClass, cssModule } from '../../utilities'
 
 export class Menu extends ComponentClass {
-    trigger: Element | null
-    menu: Element | null
-
     constructor(module: HTMLElement) {
         super(module)
-        this.trigger = this.module.querySelector('.js-trigger')
-        this.menu = this.module.querySelector('.js-menu')
         this.state = {
-            menu: false,
-            interaction: true
+            styles: { ...styles, ...utilityStyles },
+            nav: false
         }
 
         this.styles()
@@ -19,7 +15,7 @@ export class Menu extends ComponentClass {
     }
 
     styles() {
-        cssModule(this.module, styles)
+        cssModule(this.module, this.state?.styles)
     }
 
     updateState(key: string, value: string | boolean) {
@@ -29,13 +25,61 @@ export class Menu extends ComponentClass {
     }
 
     loadEventListener() {
-        this.trigger?.addEventListener('click', () => {
-            this.updateState('menu', this.state ? !this.state.menu : false)
+        const trigger = this.module.querySelector(`.${this.state?.styles['trigger']}`)
+        const nav = this.module.querySelector(`.${this.state?.styles['nav']}`)
+        const subNav = this.module.querySelector(`.${this.state?.styles['sub-nav']}`)
+        const a = subNav?.querySelector('a')
 
-            if (this.state && this.state.menu && this.state.interaction) {
-                this.menu?.classList.add(styles['is-active'])
+        subNav?.querySelectorAll('li')
+            .forEach(elem => {
+                Object.values(subNav.classList)
+                    .forEach(val1 => Object.values(this.state?.styles)
+                        .forEach(val2 => val1 === val2 &&
+                            elem.querySelector('a')?.classList.add(val1)
+                        )
+                    )
+
+                elem.removeAttribute('id')
+
+                if (elem.classList.contains('current-menu-item')) {
+                    elem.removeAttribute('class')
+                    elem.classList.add(this.state?.styles['sub-nav__item'])
+                    elem.classList.add(this.state?.styles['is-active'])
+                } else {
+                    elem.removeAttribute('class')
+                    elem.classList.add(this.state?.styles['sub-nav__item'])
+                }
+            })
+
+        trigger?.addEventListener('click', () => {
+            this.updateState('nav', this.state ? !this.state.nav : false)
+
+            if (this.state?.nav) {
+                this.module.classList.add(this.state?.styles['nav-open'])
+
+                setTimeout(() => {
+                    nav?.classList.add(this.state?.styles['animate-angle-open'])
+                }, 200)
+
+                setTimeout(() => {
+                    this.module.classList.add(this.state?.styles['sub-nav-visible'])
+
+                    setTimeout(() => {
+                        if (a) {
+                            a.focus()
+                        }
+                    }, 200)
+                }, 400)
+
+                // if (links) links[0].focus()
             } else {
-                this.menu?.classList.remove(styles['is-active'])
+                this.module.classList.remove(this.state?.styles['sub-nav-visible'])
+                nav?.classList.add(this.state?.styles['animate-angle-close'])
+                this.module.classList.remove(this.state?.styles['nav-open'])
+
+                setTimeout(() => {
+                    nav?.classList.remove(this.state?.styles['animate-angle-open'], this.state?.styles['animate-angle-close'])
+                }, 200)
             }
         })
     }

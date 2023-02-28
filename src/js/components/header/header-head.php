@@ -6,27 +6,31 @@
  */
 
 $header_cta = get_field( 'header_cta', 'option' );
-$class_names = new ClassNames(
+$header_styles = new ReplaceClassName(
     [
-        get_field( 'headerBackgroundColour', 'option' ),
-        get_field( 'headerBorderColour', 'option' ) ? 'u-hairline-bottom ' . get_field( 'headerBorderColour', 'option' ) : '',
-        'u-animate-hide',
-    ],
+        'header',
+        get_field( 'header_bg_color', 'option' ),
+        get_field( 'header_border_color', 'option' ) ? 'border-b ' . get_field( 'header_border_color', 'option' ) : '',
+    ]
+);
+$cta_link_styles = new ReplaceClassName(
     [
-        get_field( 'headerFontColour', 'option' ),
+        'header__cta-link',
+        get_field( 'header_border_color', 'option' ) ? 'border-t-r-l ' . get_field( 'header_border_color', 'option' ) : '',
+        get_field( 'header_cta_color', 'option' ),
     ]
 );
 ?>
 <header
-    class="<?php echo esc_attr( $class_names->container() ); ?>"
     data-module="Header"
-    data-animation="fade-in">
+    data-animation="fade-in"
+    data-styles="<?php echo esc_attr( $header_styles->names() ); ?>">
     <?php
     $logo = (object) [
         'image' => get_field( 'header_logo', 'option' ),
         'href' => home_url( '/' ),
         'class_name' => 'header__logo',
-        'figure_class_name' => 'header__logo-figure',
+        'figure_class_name' => '',
         'animation' => 'fade-in',
         'animation_duration' => 200,
     ];
@@ -34,14 +38,13 @@ $class_names = new ClassNames(
     ?>
     <?php if ( have_rows( 'header_cta', 'option' ) ) : ?>
         <div
-            data-styles="header__cta"
-            class="<?php echo esc_attr( $class_names->font() ); ?>">
+            data-styles="header__cta">
             <?php
             while ( have_rows( 'header_cta', 'option' ) ) :
                 the_row();
                 $_link = (object) [
                     'link' => get_sub_field( 'link' ),
-                    'class_name' => 'header__cta-link',
+                    'class_name' => esc_attr( $cta_link_styles->names() ),
                 ];
                 include( locate_template( '/inc/components/partials-link.php' ) );
             endwhile;
