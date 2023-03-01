@@ -23,6 +23,7 @@
 	right: 0;
 	bottom: 0;
 	z-index: 4;
+	visibility: visible;
 
 	@include transition(all, 200ms);
 	@include hardware(true);
@@ -112,11 +113,19 @@
 	}
 
 	&.bar-hover-light {
+		&:focus #{$trigger}__title {
+			color: $light;
+		}
+
 		&:focus #{$trigger}__bar {
 			background-color: $light;
 		}
 
 		@include mq-hover {
+			&:hover #{$trigger}__title {
+				color: $light;
+			}
+
 			&:hover #{$trigger}__bar {
 				background-color: $light;
 			}
@@ -124,11 +133,19 @@
 	}
 
 	&.bar-hover-dark {
+		&:focus #{$trigger}__title {
+			color: $dark;
+		}
+
 		&:focus #{$trigger}__bar {
 			background-color: $dark;
 		}
 
 		@include mq-hover {
+			&:hover #{$trigger}__title {
+				color: $dark;
+			}
+
 			&:hover #{$trigger}__bar {
 				background-color: $dark;
 			}
@@ -136,11 +153,19 @@
 	}
 
 	&.bar-hover-color-1 {
+		&:focus #{$trigger}__title {
+			color: $color-1;
+		}
+
 		&:focus #{$trigger}__bar {
 			background-color: $color-1;
 		}
 
 		@include mq-hover {
+			&:hover #{$trigger}__title {
+				color: $color-1;
+			}
+
 			&:hover #{$trigger}__bar {
 				background-color: $color-1;
 			}
@@ -148,11 +173,19 @@
 	}
 
 	&.bar-hover-color-2 {
+		&:focus #{$trigger}__title {
+			color: $color-2;
+		}
+
 		&:focus #{$trigger}__bar {
 			background-color: $color-2;
 		}
 
 		@include mq-hover {
+			&:hover #{$trigger}__title {
+				color: $color-2;
+			}
+
 			&:hover #{$trigger}__bar {
 				background-color: $color-2;
 			}
@@ -160,11 +193,19 @@
 	}
 
 	&.bar-hover-color-3 {
+		&:focus #{$trigger}__title {
+			color: $color-3;
+		}
+
 		&:focus #{$trigger}__bar {
 			background-color: $color-3;
 		}
 
 		@include mq-hover {
+			&:hover #{$trigger}__title {
+				color: $color-3;
+			}
+
 			&:hover #{$trigger}__bar {
 				background-color: $color-3;
 			}
@@ -172,55 +213,152 @@
 	}
 
 	&.bar-hover-color-4 {
+		&:focus #{$trigger}__title {
+			color: $color-4;
+		}
+
 		&:focus #{$trigger}__bar {
 			background-color: $color-4;
 		}
 
 		@include mq-hover {
+			&:hover #{$trigger}__title {
+				color: $color-4;
+			}
+
 			&:hover #{$trigger}__bar {
 				background-color: $color-4;
 			}
 		}
 	}
 
-	&.bar-active-light #{$trigger}__bar {
-		.nav-open & {
-			background-color: $light;
+	&.bar-active-light {
+		#{$trigger}__title {
+			.nav-open & {
+				color: $light;
+			}
+		}
+
+		#{$trigger}__bar {
+			.nav-open & {
+				background-color: $light;
+			}
 		}
 	}
 
-	&.bar-active-dark #{$trigger}__bar {
-		.nav-open & {
-			background-color: $dark;
+	&.bar-active-dark {
+		#{$trigger}__title {
+			.nav-open & {
+				color: $dark;
+			}
+		}
+
+		#{$trigger}__bar {
+			.nav-open & {
+				background-color: $dark;
+			}
 		}
 	}
 
-	&.bar-active-color-1 #{$trigger}__bar {
-		.nav-open & {
-			background-color: $color-1;
+	&.bar-active-color-1 {
+		#{$trigger}__title {
+			.nav-open & {
+				color: $color-1;
+			}
+		}
+
+		#{$trigger}__bar {
+			.nav-open & {
+				background-color: $color-1;
+			}
 		}
 	}
 
-	&.bar-active-color-2 #{$trigger}__bar {
-		.nav-open & {
-			background-color: $color-2;
+	&.bar-active-color-2 {
+		#{$trigger}__title {
+			.nav-open & {
+				color: $color-2;
+			}
+		}
+
+		#{$trigger}__bar {
+			.nav-open & {
+				background-color: $color-2;
+			}
 		}
 	}
 
-	&.bar-active-color-3 #{$trigger}__bar {
-		.nav-open & {
-			background-color: $color-3;
+	&.bar-active-color-3 {
+		#{$trigger}__title {
+			.nav-open & {
+				color: $color-3;
+			}
+		}
+
+		#{$trigger}__bar {
+			.nav-open & {
+				background-color: $color-3;
+			}
 		}
 	}
 
-	&.bar-active-color-4 #{$trigger}__bar {
-		.nav-open & {
-			background-color: $color-4;
+	&.bar-active-color-4 {
+		#{$trigger}__title {
+			.nav-open & {
+				color: $color-4;
+			}
+		}
+
+		#{$trigger}__bar {
+			.nav-open & {
+				background-color: $color-4;
+			}
 		}
 	}
 
 	.nav-open & {
 		background-color: transparent;
+	}
+
+	&__title {
+		position: absolute;
+		top: 14%;
+		right: 0;
+		left: 0;
+		background-color: transparent;
+		text-align: center;
+		text-transform: uppercase;
+
+		@include type-paragraph;
+
+		@include mq-hover {
+			@include transition(all, 200ms);
+			@include hardware(true);
+		}
+
+		&.bg-light {
+			color: $light;
+		}
+
+		&.bg-dark {
+			color: $dark;
+		}
+
+		&.bg-color-1 {
+			color: $color-1;
+		}
+
+		&.bg-color-2 {
+			color: $color-2;
+		}
+
+		&.bg-color-3 {
+			color: $color-3;
+		}
+
+		&.bg-color-4 {
+			color: $color-4;
+		}
 	}
 
 	&__container {
@@ -229,7 +367,7 @@
 		left: 50%;
 		width: 60%;
 		height: 35%;
-		transform: translate(-50%, -50%);
+		transform: translate(-50%, -30%);
 	}
 
 	&__bar {

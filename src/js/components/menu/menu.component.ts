@@ -6,6 +6,8 @@ export class Menu extends ComponentClass {
     constructor(module: HTMLElement) {
         super(module)
         this.state = {
+            closedText: this.module.dataset.closed,
+            openText: this.module.dataset.open,
             styles: { ...styles, ...utilityStyles },
             nav: false
         }
@@ -18,73 +20,76 @@ export class Menu extends ComponentClass {
         cssModule(this.module, this.state?.styles)
     }
 
-    updateState(key: string, value: string | boolean) {
-        if (this.state) {
-            this.state[key] = value
-        }
-    }
-
     loadEventListener() {
+        const subNav = this.module.querySelector(`.${this.state?.styles['sub-nav']}`)
         const trigger = this.module.querySelector(`.${this.state?.styles['trigger']}`)
         const nav = this.module.querySelector(`.${this.state?.styles['nav']}`)
-        const subNav = this.module.querySelector(`.${this.state?.styles['sub-nav']}`)
-        const a = subNav?.querySelector('a')
+        const focusElem = subNav?.querySelector('a')
 
-        subNav?.querySelectorAll('li')
-            .forEach(elem => {
-                Object.values(subNav.classList)
-                    .forEach(val1 => Object.values(this.state?.styles)
-                        .forEach(val2 => val1 === val2 &&
-                            elem.querySelector('a')?.classList.add(val1)
-                        )
-                    )
+        if (subNav && this.state?.styles) this.subNav(subNav, this.state?.styles)
 
-                elem.removeAttribute('id')
-
-                if (elem.classList.contains('current-menu-item')) {
-                    elem.removeAttribute('class')
-                    elem.classList.add(this.state?.styles['sub-nav__item'])
-                    elem.classList.add(this.state?.styles['is-active'])
-                } else {
-                    elem.removeAttribute('class')
-                    elem.classList.add(this.state?.styles['sub-nav__item'])
+        if (trigger && focusElem && nav) {
+            this.module.addEventListener('keyup', (e: KeyboardEvent) => {
+                if (e.key === 'Escape' && this.state?.nav) {
+                    this.navToggle(trigger, nav, focusElem)
                 }
             })
 
-        // keyinput esc close menu
-        // add class to html
+            trigger.addEventListener('click', () => this.navToggle(trigger, nav, focusElem))
+        }
+    }
 
-        trigger?.addEventListener('click', () => {
-            this.updateState('nav', this.state ? !this.state.nav : false)
+    navToggle(trigger: Element, nav: Element, focusElem: HTMLElement) {
+        const html = <HTMLElement>document.querySelector('html')
+        const title = this.module.querySelector(`.${this.state?.styles['trigger__title']}`)
 
-            if (this.state?.nav) {
-                this.module.classList.add(this.state?.styles['nav-open'])
+        this.updateState('nav', this.state ? !this.state.nav : false)
 
-                setTimeout(() => {
-                    nav?.classList.add(this.state?.styles['animate-angle-open'])
+        if (this.state?.nav) {
+            html.classList.add('no-scroll')
+            this.module.classList.add(this.state?.styles['nav-open'])
+            nav?.setAttribute('aria-expanded', 'true')
+            trigger?.setAttribute('aria-expanded', 'true')
+            trigger?.setAttribute('aria-label', this.state.openText)
+
+            if (title) title.innerHTML = this.state.openText
+
+            setTimeout(() => {
+                nav?.classList.add(this.state?.styles['animate-angle-open'])
+            }, 200)
+
+            setTimeout(() => {
+                this.module.classList.add(this.state?.styles['sub-nav-visible'])
+
+                if (focusElem) setTimeout(() => {
+                    focusElem.focus()
                 }, 200)
+            }, 400)
+        } else {
+            this.module.classList.remove(this.state?.styles['sub-nav-visible'])
+            this.module.classList.remove(this.state?.styles['nav-open'])
 
-                setTimeout(() => {
-                    this.module.classList.add(this.state?.styles['sub-nav-visible'])
-
-                    setTimeout(() => {
-                        if (a) {
-                            a.focus()
-                        }
-                    }, 200)
-                }, 400)
-
-                // if (links) links[0].focus()
-            } else {
-                this.module.classList.remove(this.state?.styles['sub-nav-visible'])
-                nav?.classList.add(this.state?.styles['animate-angle-close'])
-                this.module.classList.remove(this.state?.styles['nav-open'])
-
-                setTimeout(() => {
-                    nav?.classList.remove(this.state?.styles['animate-angle-open'], this.state?.styles['animate-angle-close'])
-                }, 200)
+            if (nav) {
+                nav.classList.add(this.state?.styles['animate-angle-close'])
+                nav.setAttribute('aria-expanded', 'true')
             }
-        })
+
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'true')
+                trigger.setAttribute('aria-label', this.state?.closedText)
+
+                if (trigger instanceof HTMLElement) {
+                    trigger.focus()
+                }
+            }
+
+            if (title) title.innerHTML = this.state?.closedText
+
+            setTimeout(() => {
+                nav?.classList.remove(this.state?.styles['animate-angle-open'], this.state?.styles['animate-angle-close'])
+                html.classList.remove('no-scroll')
+            }, 200)
+        }
     }
 }
 

@@ -35,4 +35,34 @@ export class ComponentClass {
             }, 400)
         }
     }
+
+    updateState(key: string, value: string | boolean) {
+        if (this.state) {
+            this.state[key] = value
+        }
+    }
+
+    subNav(subNav: Element, subNavStyles: typeof CssExports) {
+        subNav && subNavStyles &&
+            subNav.querySelectorAll('li')
+                .forEach(elem => {
+                    Object.values(subNav ? subNav.classList : '')
+                        .forEach(val1 => Object.values(subNavStyles)
+                            .forEach(val2 => val1 === val2 &&
+                                elem.querySelector('a')?.classList.add(val1)
+                            )
+                        )
+
+                    elem.removeAttribute('id')
+
+                    if (elem.classList.contains('current-menu-item')) {
+                        elem.removeAttribute('class')
+                        elem.classList.add(subNavStyles['sub-nav__item'])
+                        elem.classList.add(subNavStyles['is-active'])
+                    } else {
+                        elem.removeAttribute('class')
+                        elem.classList.add(subNavStyles['sub-nav__item'])
+                    }
+                })
+    }
 }

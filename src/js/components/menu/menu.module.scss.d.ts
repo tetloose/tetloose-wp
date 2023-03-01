@@ -13,6 +13,12 @@ interface CssExports {
   'bar-hover-color-4': string;
   'bar-hover-dark': string;
   'bar-hover-light': string;
+  'bg-color-1': string;
+  'bg-color-2': string;
+  'bg-color-3': string;
+  'bg-color-4': string;
+  'bg-dark': string;
+  'bg-light': string;
   'hover-color-1': string;
   'hover-color-2': string;
   'hover-color-3': string;
@@ -41,6 +47,7 @@ interface CssExports {
   'trigger': string;
   'trigger__bar': string;
   'trigger__container': string;
+  'trigger__title': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
