@@ -44,7 +44,7 @@
 	hr,
 	img,
 	blockquote {
-		margin: rem(spacing(1) 0 0 0);
+		margin: rem(spacing(1)) 0 0 0;
 	}
 
 	p,
@@ -54,15 +54,15 @@
 	h4,
 	h5,
 	h6 {
-		padding: rem(spacing(1) 0 0 0);
+		padding: rem(spacing(1)) 0 0 0;
 	}
 
 	ul,
 	ol {
-		padding: rem(spacing(.5) 0 0 0);
+		padding: rem(spacing(.5)) 0 0 0;
 
 		li {
-			padding: rem(spacing(.5) 0 0 0);
+			padding: rem(spacing(.5)) 0 0 0;
 		}
 	}
 }

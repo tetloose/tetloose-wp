@@ -1,9 +1,9 @@
-.animate-hide {
+.u-animate-hide {
 	opacity: 0;
 	visibility: hidden;
 }
 
-.animate-fade-in {
+.u-animate-fade-in {
 	animation-name: kf-fade-in;
 	animation-duration: 200ms;
 	animation-timing-function: cubic-bezier(.75, .75, .75, 1);
@@ -22,11 +22,11 @@
 	}
 }
 
-.animate-angle-open {
+.u-animate-angle-open {
 	&::before,
 	&::after {
 		animation-name: kf-angle-open;
-		animation-duration: 200ms;
+		animation-duration: 400ms;
 		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
@@ -43,11 +43,11 @@
 	}
 }
 
-.animate-angle-close {
+.u-animate-angle-close {
 	&::before,
 	&::after {
 		animation-name: kf-angle-close;
-		animation-duration: 200ms;
+		animation-duration: 400ms;
 		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
@@ -64,10 +64,10 @@
 	}
 }
 
-.animate-fade-out {
+.u-animate-fade-out {
 	position: relative;
 	animation-name: kf-fade-out;
-	animation-duration: 1000ms;
+	animation-duration: 200ms;
 	animation-timing-function: ease-in-out;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;

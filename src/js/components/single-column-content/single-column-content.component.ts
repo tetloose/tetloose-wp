@@ -1,16 +1,13 @@
 
 import styles from './single-column-content.module.scss'
 import { gridData } from './single-column-content.grid-data'
-import { ComponentClass, cssModule, addClassNames, AppendNode } from '../../utilities/'
+import { ComponentClass, addClassNames, AppendNode } from '../../utilities/'
 import { row, column, content } from '../../html'
 
 export class SingleColumnContent extends ComponentClass {
     containerClasses?: string
     contentClasses?: string
     content?: string
-    state?: {
-        [key: string]: string
-    }
 
     constructor(module: HTMLElement) {
         super(module)
@@ -44,7 +41,7 @@ export class SingleColumnContent extends ComponentClass {
     }
 
     styles() {
-        cssModule(this.module, styles)
+        this.cssModule(this.module, styles)
 
         this.module.querySelector('.js-click')?.classList.add(styles.click)
     }

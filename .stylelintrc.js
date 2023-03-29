@@ -62,7 +62,7 @@ module.exports = {
         ],
         'max-line-length': 200,
         'max-nesting-depth': [
-            3,
+            4,
             {
                 'ignore': [
                     'pseudo-classes',

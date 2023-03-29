@@ -8,22 +8,6 @@
 	margin-right: auto;
 	margin-left: auto;
 
-	&.is-justify-center {
-		justify-content: center;
-	}
-
-	&.is-align-center {
-		align-items: center;
-	}
-
-	&.is-algin-top {
-		align-items: flex-start;
-	}
-
-	&.is-algin-bottom {
-		align-items: flex-end;
-	}
-
 	&.no-gutter {
 		padding-right: 0;
 		padding-left: 0;
@@ -40,24 +24,6 @@
 
 		&.no-overflow {
 			overflow: hidden;
-		}
-
-		&.text-align-left {
-			text-align: left;
-		}
-
-		&.text-align-right {
-			text-align: right;
-		}
-
-		&.text-align-center {
-			text-align: center;
-		}
-
-		&.text-align-centered {
-			display: block;
-			margin-right: auto;
-			margin-left: auto;
 		}
 
 		&.is-half {
@@ -82,14 +48,6 @@
 
 		&.no-gutter {
 			padding-right: 0;
-			padding-left: 0;
-		}
-
-		&.no-gutter-right {
-			padding-right: 0;
-		}
-
-		&.no-gutter-left {
 			padding-left: 0;
 		}
 

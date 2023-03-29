@@ -1,5 +1,6 @@
 html {
 	min-height: vars(vh, fullscreen);
+	visibility: visible;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	background-color: color(global, light);
@@ -19,6 +20,28 @@ html {
 
 		body {
 			overflow: hidden;
+		}
+	}
+
+	&.is-admin {
+
+		/* stylelint-disable-next-line declaration-no-important */
+		margin-top: 0 !important;
+
+		@include mq(vars(brakepoint, med), max-width) {
+			padding-top: 46px;
+
+			> body > header {
+				margin-top: 46px;
+			}
+		}
+
+		@include mq(vars(brakepoint, med)) {
+			padding-top: 32px;
+
+			> body > header {
+				margin-top: 32px;
+			}
 		}
 	}
 }

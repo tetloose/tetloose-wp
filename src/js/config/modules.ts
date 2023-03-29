@@ -1,6 +1,9 @@
 export const modules = {
     Header: () => import(/* webpackChunkName: "header" */ '../components/header/header.component'),
-    Logo: () => import(/* webpackChunkName: "logo" */ '../components/logo/logo.component'),
     Menu: () => import(/* webpackChunkName: "menu" */ '../components/menu/menu.component'),
-    SingleColumnContent: () => import(/* webpackChunkName: "single-column-content" */ '../components/single-column-content/single-column-content.component')
+    Navigation: () => import(/* webpackChunkName: "navigation" */ '../components/navigation/navigation.component'),
+    Footer: () => import(/* webpackChunkName: "footer" */ '../components/footer/footer.component'),
+    Social: () => import(/* webpackChunkName: "social" */ '../components/social/social.component'),
+    Content: () => import(/* webpackChunkName: "content" */ '../components/content/content.component'),
+    Title: () => import(/* webpackChunkName: "title" */ '../components/title/title.component')
 }

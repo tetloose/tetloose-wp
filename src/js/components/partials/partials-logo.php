@@ -1,6 +1,6 @@
 <?php
 /**
- * Header
+ * Partials - Logo
  *
  * @package Tetloose-Theme
  */
@@ -13,17 +13,18 @@ if ( ! empty( $logo ) ) :
     }
     ?>
         <<?php echo esc_attr( $el ); ?>
-            data-module="Logo"
-            tab-index="0"
-            data-styles="<?php echo esc_attr( $logo->class_name ); ?>"
             data-animation="<?php echo esc_attr( $logo->animation ); ?>"
             <?php if ( ! empty( $logo->href ) ) : ?>
                 href="<?php echo esc_url( $logo->href ); ?>"
-            <?php endif; ?>>
+            <?php endif; ?>
+            tab-index="0"
+            data-styles="<?php echo esc_attr( $logo->styles ); ?>"
+            class="<?php echo esc_attr( $logo->class_names ); ?>">
             <?php
             $image = (object) [
                 'image' => $logo->image,
-                'class_name' => esc_attr( $logo->figure_class_name ),
+                'styles' => esc_attr( $logo->figure_styles ),
+                'class_names' => esc_attr( $logo->figure_class_names ),
                 'animation' => esc_attr( $logo->animation ),
                 'animation_duration' => esc_attr( $logo->animation_duration ),
             ];

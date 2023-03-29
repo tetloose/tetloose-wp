@@ -55,15 +55,17 @@
 }
 
 @mixin type-btn {
-	font-size: rem(vars(type, med));
+	font-size: rem(vars(type, sml));
 
-	@include f-uppercase;
 	@include f-heading;
-	@include f-body-bold;
 }
 
 @mixin type-label {
 	font-size: rem(vars(type, med));
 
 	@include f-body-bold;
+}
+
+@mixin type-icon {
+	font-size: rem(vars(type, lrg));
 }

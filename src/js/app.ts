@@ -1,7 +1,4 @@
-import { components } from './config/components'
-import { figures } from './config/figures'
-import { iframes } from './config/iframes'
-import { observer } from './config/observer'
+import { components, figures, iframes, observer } from './config'
 
 components?.forEach((component) => {
     observer.observe(component)

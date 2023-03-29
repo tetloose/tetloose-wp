@@ -1,31 +1,86 @@
-@function btn($name, $variant) {
-	@if $variant {
-		@return map-get(map-get($btn, $name), $variant);
-	} @else {
-		@return map-get($btn, $name);
-	}
-}
-
-$btn: (
-	primary: (
-		color: $color-1,
-		bg: $color-2,
-		focus: $color-1,
-		active: rgba($color-1, .5),
-		hover: rgba($color-1 .8)
-	)
-);
-
 .u-btn {
-	display: block;
-	width: 100%;
-	padding: rem(spacing(.5) spacing(1));
-	background-color: btn(primary, bg);
-	color: btn(primary, color);
+	$btn: &;
+
+	position: relative;
+	padding: rem(spacing(.5) spacing(2));
+	background-color: transparent;
+	border-width: rem(2px);
+	border-style: solid;
+	border-color: transparent;
 	text-align: center;
 	text-decoration: none;
 
 	@include type-btn;
+
+	&.is-inline {
+		display: inline-block;
+	}
+
+	&.is-block {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__title {
+		position: absolute;
+		left: 0;
+		background-color: transparent;
+		text-align: center;
+		text-transform: uppercase;
+
+		@include mq(vars(brakepoint, med), max-width) {
+			top: 10%;
+			right: -(rem(4px));
+			letter-spacing: rem(3.5px);
+
+			@include type-small;
+		}
+
+		@include mq(vars(brakepoint, med)) {
+			top: 14%;
+			right: -(rem(9px));
+			letter-spacing: rem(9px);
+
+			@include type-paragraph;
+		}
+	}
+
+	&__container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 60%;
+		height: 35%;
+		transform: translate(-50%, -30%);
+	}
+
+	&__bar {
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		left: 0;
+		width: auto;
+		height: rem(3px);
+		visibility: visible;
+
+		&:nth-child(1) {
+			top: 0;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&:nth-child(4) {
+			bottom: 0;
+		}
+
+		@include transition(all, 200ms);
+		@include hardware(true);
+	}
 
 	&[disabled] {
 		opacity: .4;
@@ -33,24 +88,573 @@ $btn: (
 		@include interaction(disable);
 	}
 
-	&:focus:not(:hover) {
-		outline: btn(primary, focus);
-		outline-width: 4px;
-		outline-style: dashed;
+	&:active {
+		opacity: .8;
+		outline: none;
 	}
 
 	@include mq-hover {
+		@include transition(all, vars(transition, btn));
+
 		cursor: pointer;
+	}
 
-		@include transition(background-color, vars(transition, btn));
+	.btn-light & {
+		color: $light;
 
-		&:hover {
-			background-color: btn(primary, hover);
+		#{$btn}__bar {
+			background-color: $light;
 		}
 	}
 
-	&:active {
-		background-color: btn(primary, active);
-		outline: none;
+	.btn-dark & {
+		color: $dark;
+
+		#{$btn}__bar {
+			background-color: $dark;
+		}
+	}
+
+	.btn-color-1 & {
+		color: $color-1;
+
+		#{$btn}__bar {
+			background-color: $color-1;
+		}
+	}
+
+	.btn-color-2 & {
+		color: $color-2;
+
+		#{$btn}__bar {
+			background-color: $color-2;
+		}
+	}
+
+	.btn-color-3 & {
+		color: $color-3;
+
+		#{$btn}__bar {
+			background-color: $color-3;
+		}
+	}
+
+	.btn-color-4 & {
+		color: $color-4;
+
+		#{$btn}__bar {
+			background-color: $color-4;
+		}
+	}
+
+	.btn-hover-light & {
+		&:focus {
+			color: $light;
+
+			#{$btn}__bar {
+				background-color: $light;
+			}
+		}
+
+		@include mq-hover {
+			&:hover {
+				color: $light;
+
+				#{$btn}__bar {
+					background-color: $light;
+				}
+			}
+		}
+	}
+
+	.btn-hover-dark & {
+		&:focus {
+			color: $dark;
+
+			#{$btn}__bar {
+				background-color: $dark;
+			}
+		}
+
+		@include mq-hover {
+			&:hover {
+				color: $dark;
+
+				#{$btn}__bar {
+					background-color: $dark;
+				}
+			}
+		}
+	}
+
+	.btn-hover-color-1 & {
+		&:focus {
+			color: $color-1;
+
+			#{$btn}__bar {
+				background-color: $color-1;
+			}
+		}
+
+		@include mq-hover {
+			&:hover {
+				color: $color-1;
+
+				#{$btn}__bar {
+					background-color: $color-1;
+				}
+			}
+		}
+	}
+
+	.btn-hover-color-2 & {
+		&:focus {
+			color: $color-2;
+
+			#{$btn}__bar {
+				background-color: $color-2;
+			}
+		}
+
+		@include mq-hover {
+			&:hover {
+				color: $color-2;
+
+				#{$btn}__bar {
+					background-color: $color-2;
+				}
+			}
+		}
+	}
+
+	.btn-hover-color-3 & {
+		&:focus {
+			color: $color-3;
+
+			#{$btn}__bar {
+				background-color: $color-3;
+			}
+		}
+
+		@include mq-hover {
+			&:hover {
+				color: $color-3;
+
+				#{$btn}__bar {
+					background-color: $color-3;
+				}
+			}
+		}
+	}
+
+	.btn-hover-color-4 & {
+		&:focus {
+			color: $color-4;
+
+			#{$btn}__bar {
+				background-color: $color-4;
+			}
+		}
+
+		@include mq-hover {
+			&:hover {
+				color: $color-4;
+
+				#{$btn}__bar {
+					background-color: $color-4;
+				}
+			}
+		}
+	}
+
+	.btn-border-light & {
+		border-color: $light;
+	}
+
+	.btn-border-dark & {
+		border-color: $dark;
+	}
+
+	.btn-border-color-1 & {
+		border-color: $color-1;
+	}
+
+	.btn-border-color-2 & {
+		border-color: $color-2;
+	}
+
+	.btn-border-color-3 & {
+		border-color: $color-3;
+	}
+
+	.btn-border-color-4 & {
+		border-color: $color-4;
+	}
+
+	.btn-border-hover-light & {
+		&:focus {
+			border-color: $light;
+		}
+
+		@include mq-hover {
+			&:hover {
+				border-color: $light;
+			}
+		}
+	}
+
+	.btn-border-hover-dark & {
+		&:focus {
+			border-color: $dark;
+		}
+
+		@include mq-hover {
+			&:hover {
+				border-color: $dark;
+			}
+		}
+	}
+
+	.btn-border-hover-color-1 & {
+		&:focus {
+			border-color: $color-1;
+		}
+
+		@include mq-hover {
+			&:hover {
+				border-color: $color-1;
+			}
+		}
+	}
+
+	.btn-border-hover-color-2 & {
+		&:focus {
+			border-color: $color-2;
+		}
+
+		@include mq-hover {
+			&:hover {
+				border-color: $color-2;
+			}
+		}
+	}
+
+	.btn-border-hover-color-3 & {
+		&:focus {
+			border-color: $color-3;
+		}
+
+		@include mq-hover {
+			&:hover {
+				border-color: $color-3;
+			}
+		}
+	}
+
+	.btn-border-hover-color-4 & {
+		&:focus {
+			border-color: $color-4;
+		}
+
+		@include mq-hover {
+			&:hover {
+				border-color: $color-4;
+			}
+		}
+	}
+
+	.btn-bg-light & {
+		background-color: $light;
+	}
+
+	.btn-bg-dark & {
+		background-color: $dark;
+	}
+
+	.btn-bg-color-1 & {
+		background-color: $color-1;
+	}
+
+	.btn-bg-color-2 & {
+		background-color: $color-2;
+	}
+
+	.btn-bg-color-3 & {
+		background-color: $color-3;
+	}
+
+	.btn-bg-color-4 & {
+		background-color: $color-4;
+	}
+
+	.btn-bg-hover-light & {
+		&:focus {
+			background-color: $light;
+		}
+
+		@include mq-hover {
+			&:hover {
+				background-color: $light;
+			}
+		}
+	}
+
+	.btn-bg-hover-dark & {
+		&:focus {
+			background-color: $dark;
+		}
+
+		@include mq-hover {
+			&:hover {
+				background-color: $dark;
+			}
+		}
+	}
+
+	.btn-bg-hover-color-1 & {
+		&:focus {
+			background-color: $color-1;
+		}
+
+		@include mq-hover {
+			&:hover {
+				background-color: $color-1;
+			}
+		}
+	}
+
+	.btn-bg-hover-color-2 & {
+		&:focus {
+			background-color: $color-2;
+		}
+
+		@include mq-hover {
+			&:hover {
+				background-color: $color-2;
+			}
+		}
+	}
+
+	.btn-bg-hover-color-3 & {
+		&:focus {
+			background-color: $color-3;
+		}
+
+		@include mq-hover {
+			&:hover {
+				background-color: $color-3;
+			}
+		}
+	}
+
+	.btn-bg-hover-color-4 & {
+		&:focus {
+			background-color: $color-4;
+		}
+
+		@include mq-hover {
+			&:hover {
+				background-color: $color-4;
+			}
+		}
+	}
+
+	&.is-active {
+		background-color: transparent;
+		border-width: 0;
+
+		#{$btn}__bar {
+			&:nth-child(1),
+			&:nth-child(4) {
+				top: 50%;
+				bottom: auto;
+				opacity: 0;
+				transform: translateY(-50%);
+				transform: rotate(45deg);
+			}
+
+			&:nth-child(2) {
+				transform: rotate(-45deg);
+			}
+
+			&:nth-child(3) {
+				transform: rotate(45deg);
+			}
+		}
+
+		.btn-active-light & {
+			color: $light;
+
+			#{$btn}__bar {
+				background-color: $light;
+			}
+		}
+
+		.btn-active-dark & {
+			color: $dark;
+
+			#{$btn}__bar {
+				background-color: $dark;
+			}
+		}
+
+		.btn-active-color-1 & {
+			color: $color-1;
+
+			#{$btn}__bar {
+				background-color: $color-1;
+			}
+		}
+
+		.btn-active-color-2 & {
+			color: $color-2;
+
+			#{$btn}__bar {
+				background-color: $color-2;
+			}
+		}
+
+		.btn-active-color-3 & {
+			color: $color-3;
+
+			#{$btn}__bar {
+				background-color: $color-3;
+			}
+		}
+
+		.btn-active-color-4 & {
+			color: $color-4;
+
+			#{$btn}__bar {
+				background-color: $color-4;
+			}
+		}
+
+		.btn-active-hover-light & {
+			&:focus {
+				color: $light;
+
+				#{$btn}__bar {
+					background-color: $light;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $light;
+
+					#{$btn}__bar {
+						background-color: $light;
+					}
+				}
+			}
+		}
+
+		.btn-active-hover-dark & {
+			&:focus {
+				color: $dark;
+
+				#{$btn}__bar {
+					background-color: $dark;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $dark;
+
+					#{$btn}__bar {
+						background-color: $dark;
+					}
+				}
+			}
+		}
+
+		.btn-active-hover-color-1 & {
+			&:focus {
+				color: $color-1;
+
+				#{$btn}__bar {
+					background-color: $color-1;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $color-1;
+
+					#{$btn}__bar {
+						background-color: $color-1;
+					}
+				}
+			}
+		}
+
+		.btn-active-hover-color-2 & {
+			&:focus {
+				color: $color-2;
+
+				#{$btn}__bar {
+					background-color: $color-2;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $color-2;
+
+					#{$btn}__bar {
+						background-color: $color-2;
+					}
+				}
+			}
+		}
+
+		.btn-active-hover-color-3 & {
+			&:focus {
+				color: $color-3;
+
+				#{$btn}__bar {
+					background-color: $color-3;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $color-3;
+
+					#{$btn}__bar {
+						background-color: $color-3;
+					}
+				}
+			}
+		}
+
+		.btn-active-hover-color-4 & {
+			&:focus {
+				color: $color-4;
+
+				#{$btn}__bar {
+					background-color: $color-4;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $color-4;
+
+					#{$btn}__bar {
+						background-color: $color-4;
+					}
+				}
+			}
+		}
+
+		@include mq-hover {
+			&:focus,
+			&:hover {
+				background-color: transparent;
+			}
+		}
 	}
 }

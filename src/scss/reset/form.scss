@@ -1,40 +1,18 @@
-@function form($name, $variant) {
-	@if $variant {
-		@return map-get(map-get($form, $name), $variant);
-	} @else {
-		@return map-get($form, $name);
-	}
-}
-
-$form: (
-	primary: (
-		bg: $color-1,
-		color: $color-2,
-		placeholder: rgba($color-2, .3),
-		focus: $color-2,
-		hover: $color-2
-	)
-);
-
 %form-reset {
 	display: block;
 	width: 100%;
 	padding: rem(spacing(.5));
-	background-color: form(primary, bg);
-	border-width: 2px;
+	border-width: rem(2px);
 	border-style: solid;
 	border-color: transparent;
-	color: form(primary, color);
 	appearance: none;
 
 	@include type-paragraph;
 
 	&::placeholder {
-		color: form(primary, placeholder);
-	}
+		opacity: .8;
 
-	&:focus:not(:hover) {
-		border-color: form(primary, focus);
+		@include transition(all, vars(transition, form));
 	}
 
 	&[disabled] {
@@ -44,10 +22,6 @@ $form: (
 	}
 
 	@include mq-hover {
-		@include transition(border-color, vars(transition, form));
-
-		&:hover {
-			border-color: form(primary, hover);
-		}
+		@include transition(all, vars(transition, form));
 	}
 }

@@ -16,32 +16,60 @@
 @import 'elem/week';
 
 .u-form {
-	position: relative;
-	width: 100%;
-	margin-top: rem(spacing(1));
-
 	> *:first-child {
 		margin-top: 0;
 	}
 
-	&__field {
-		margin-top: rem(spacing(.5));
-
-		label {
-			margin-top: rem(spacing(.5));
+	label[for] {
+		@include mq-hover {
+			cursor: pointer;
 		}
+	}
+
+	&__field {
+		margin-top: rem(spacing(1));
 
 		input {
 			margin-top: rem(spacing(.5));
 		}
 	}
 
+	&__validation {
+		display: block;
+		padding-top: rem(spacing(.2));
+
+		@include type-small;
+
+		.u-form-validation-light & {
+			color: $light;
+		}
+
+		.u-form-validation-dark & {
+			color: $dark;
+		}
+
+		.u-form-validation-color-1 & {
+			color: $color-1;
+		}
+
+		.u-form-validation-color-2 & {
+			color: $color-2;
+		}
+
+		.u-form-validation-color-3 & {
+			color: $color-3;
+		}
+
+		.u-form-validation-color-4 & {
+			color: $color-4;
+		}
+	}
+
 	&__options {
-		margin-top: rem(spacing(.5));
+		margin-top: rem(spacing(1));
 
 		label {
 			position: relative;
-			margin-top: rem(spacing(.5));
 			padding-left: rem(spacing(1));
 			cursor: pointer;
 
@@ -61,6 +89,366 @@
 				right: 0;
 				left: auto;
 			}
+		}
+	}
+}
+
+.u-form-light input:not([type=submit]) {
+	color: $light;
+
+	&::placeholder {
+		color: $light;
+	}
+}
+
+.u-form-dark input:not([type=submit]) {
+	color: $dark;
+
+	&::placeholder {
+		color: $dark;
+	}
+}
+
+.u-form-color-1 input:not([type=submit]) {
+	color: $color-1;
+
+	&::placeholder {
+		color: $color-1;
+	}
+}
+
+.u-form-color-2 input:not([type=submit]) {
+	color: $color-2;
+
+	&::placeholder {
+		color: $color-2;
+	}
+}
+
+.u-form-color-3 input:not([type=submit]) {
+	color: $color-3;
+
+	&::placeholder {
+		color: $color-3;
+	}
+}
+
+.u-form-color-4 input:not([type=submit]) {
+	color: $color-4;
+
+	&::placeholder {
+		color: $color-4;
+	}
+}
+
+.u-form-hover-light input:not([type=submit]) {
+	&:focus {
+		color: $light;
+
+		&::placeholder {
+			color: $light;
+		}
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $light;
+
+			&::placeholder {
+				color: $light;
+			}
+		}
+	}
+}
+
+.u-form-hover-dark input:not([type=submit]) {
+	&:focus {
+		color: $dark;
+
+		&::placeholder {
+			color: $dark;
+		}
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $dark;
+
+			&::placeholder {
+				color: $dark;
+			}
+		}
+	}
+}
+
+.u-form-hover-color-1 input:not([type=submit]) {
+	&:focus {
+		color: $color-1;
+
+		&::placeholder {
+			color: $color-1;
+		}
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-1;
+
+			&::placeholder {
+				color: $color-1;
+			}
+		}
+	}
+}
+
+.u-form-hover-color-2 input:not([type=submit]) {
+	&:focus {
+		color: $color-2;
+
+		&::placeholder {
+			color: $color-2;
+		}
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-2;
+
+			&::placeholder {
+				color: $color-2;
+			}
+		}
+	}
+}
+
+.u-form-hover-color-3 input:not([type=submit]) {
+	&:focus {
+		color: $color-3;
+
+		&::placeholder {
+			color: $color-3;
+		}
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-3;
+
+			&::placeholder {
+				color: $color-3;
+			}
+		}
+	}
+}
+
+.u-form-hover-color-4 input:not([type=submit]) {
+	&:focus {
+		color: $color-4;
+
+		&::placeholder {
+			color: $color-4;
+		}
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-4;
+
+			&::placeholder {
+				color: $color-4;
+			}
+		}
+	}
+}
+
+.u-form-bg-light input:not([type=submit]) {
+	background-color: $light;
+}
+
+.u-form-bg-dark input:not([type=submit]) {
+	background-color: $dark;
+}
+
+.u-form-bg-color-1 input:not([type=submit]) {
+	background-color: $color-1;
+}
+
+.u-form-bg-color-2 input:not([type=submit]) {
+	background-color: $color-2;
+}
+
+.u-form-bg-color-3 input:not([type=submit]) {
+	background-color: $color-3;
+}
+
+.u-form-bg-color-4 input:not([type=submit]) {
+	background-color: $color-4;
+}
+
+.u-form-bg-hover-light input:not([type=submit]) {
+	&:focus {
+		background-color: $light;
+	}
+
+	@include mq-hover {
+		&:hover {
+			background-color: $light;
+		}
+	}
+}
+
+.u-form-bg-hover-dark input:not([type=submit]) {
+	&:focus {
+		background-color: $dark;
+	}
+
+	@include mq-hover {
+		&:hover {
+			background-color: $dark;
+		}
+	}
+}
+
+.u-form-bg-hover-color-1 input:not([type=submit]) {
+	&:focus {
+		background-color: $color-1;
+	}
+
+	@include mq-hover {
+		&:hover {
+			background-color: $color-1;
+		}
+	}
+}
+
+.u-form-bg-hover-color-2 input:not([type=submit]) {
+	&:focus {
+		background-color: $color-2;
+	}
+
+	@include mq-hover {
+		&:hover {
+			background-color: $color-2;
+		}
+	}
+}
+
+.u-form-bg-hover-color-3 input:not([type=submit]) {
+	&:focus {
+		background-color: $color-3;
+	}
+
+	@include mq-hover {
+		&:hover {
+			background-color: $color-3;
+		}
+	}
+}
+
+.u-form-bg-hover-color-4 input:not([type=submit]) {
+	&:focus {
+		background-color: $color-4;
+	}
+
+	@include mq-hover {
+		&:hover {
+			background-color: $color-4;
+		}
+	}
+}
+
+.u-form-border-light input:not([type=submit]) {
+	border-color: $light;
+}
+
+.u-form-border-dark input:not([type=submit]) {
+	border-color: $dark;
+}
+
+.u-form-border-color-1 input:not([type=submit]) {
+	border-color: $color-1;
+}
+
+.u-form-border-color-2 input:not([type=submit]) {
+	border-color: $color-2;
+}
+
+.u-form-border-color-3 input:not([type=submit]) {
+	border-color: $color-3;
+}
+
+.u-form-border-color-4 input:not([type=submit]) {
+	border-color: $color-4;
+}
+
+.u-form-border-hover-light input:not([type=submit]) {
+	&:focus {
+		border-color: $light;
+	}
+
+	@include mq-hover {
+		&:hover {
+			border-color: $light;
+		}
+	}
+}
+
+.u-form-border-hover-dark input:not([type=submit]) {
+	&:focus {
+		border-color: $dark;
+	}
+
+	@include mq-hover {
+		&:hover {
+			border-color: $dark;
+		}
+	}
+}
+
+.u-form-border-hover-color-1 input:not([type=submit]) {
+	&:focus {
+		border-color: $color-1;
+	}
+
+	@include mq-hover {
+		&:hover {
+			border-color: $color-1;
+		}
+	}
+}
+
+.u-form-border-hover-color-2 input:not([type=submit]) {
+	&:focus {
+		border-color: $color-2;
+	}
+
+	@include mq-hover {
+		&:hover {
+			border-color: $color-2;
+		}
+	}
+}
+
+.u-form-border-hover-color-3 input:not([type=submit]) {
+	&:focus {
+		border-color: $color-3;
+	}
+
+	@include mq-hover {
+		&:hover {
+			border-color: $color-3;
+		}
+	}
+}
+
+.u-form-border-hover-color-4 input:not([type=submit]) {
+	&:focus {
+		border-color: $color-4;
+	}
+
+	@include mq-hover {
+		&:hover {
+			border-color: $color-4;
 		}
 	}
 }

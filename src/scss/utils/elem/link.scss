@@ -1,46 +1,153 @@
-@function link($name, $variant) {
-	@if $variant {
-		@return map-get(map-get($link, $name), $variant);
-	} @else {
-		@return map-get($link, $name);
-	}
-}
-
-$link: (
-	primary: (
-		color: $color-1,
-		focus: $color-2,
-		active: rgba($color-2, .5),
-		hover: rgba($color-2, .8)
-	)
-);
-
-.u-content a:not(.u-btn),
-.u-link:not(.u-btn) {
-	color: link(primary, color);
-	outline: link(primary, focus);
-	outline-width: 0;
-	outline-style: dashed;
-	text-decoration: underline;
+[class*=u-link-] a:not(.u-btn) {
+	display: inline-block;
+	position: relative;
 	text-decoration-skip-ink: auto;
 
-	&:focus:not(:hover) {
-		outline-width: 4px;
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: -(rem(4px));
+		bottom: 0;
+		left: -(rem(4px));
+		z-index: -1;
+		opacity: 0;
+
+		@include transition(all);
+		@include hardware(true);
+	}
+
+	&:focus::after {
+		opacity: 1;
 	}
 
 	@include mq-hover {
 		cursor: pointer;
 
-		@include transition(color, vars(transition, link));
+		@include transition(color);
 
-		&:hover {
-			color: link(primary, hover);
-			outline: none;
+		&:hover::after {
+			opacity: 1;
 		}
 	}
+}
 
-	&:active {
-		color: link(primary, active);
-		outline: none;
+.u-link-dark a:not(.u-btn) {
+	color: $dark;
+}
+
+.u-link-light a:not(.u-btn) {
+	color: $light;
+}
+
+.u-link-color-1 a:not(.u-btn) {
+	color: $color-1;
+}
+
+.u-link-color-2 a:not(.u-btn) {
+	color: $color-2;
+}
+
+.u-link-color-3 a:not(.u-btn) {
+	color: $color-3;
+}
+
+.u-link-color-4 a:not(.u-btn) {
+	color: $color-4;
+}
+
+.u-link-hover-dark a:not(.u-btn) {
+	&:focus {
+		color: $dark;
 	}
+
+	@include mq-hover {
+		&:hover {
+			color: $dark;
+		}
+	}
+}
+
+.u-link-hover-light a:not(.u-btn) {
+	&:focus {
+		color: $light;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $light;
+		}
+	}
+}
+
+.u-link-hover-color-1 a:not(.u-btn) {
+	&:focus {
+		color: $color-1;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-1;
+		}
+	}
+}
+
+.u-link-hover-color-2 a:not(.u-btn) {
+	&:focus {
+		color: $color-2;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-2;
+		}
+	}
+}
+
+.u-link-hover-color-3 a:not(.u-btn) {
+	&:focus {
+		color: $color-3;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-3;
+		}
+	}
+}
+
+.u-link-hover-color-4 a:not(.u-btn) {
+	&:focus {
+		color: $color-4;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-4;
+		}
+	}
+}
+
+.u-link-background-hover-dark a:not(.u-btn)::after {
+	background-color: $dark;
+}
+
+.u-link-background-hover-light a:not(.u-btn)::after {
+	background-color: $light;
+}
+
+.u-link-background-hover-color-1 a:not(.u-btn)::after {
+	background-color: $color-1;
+}
+
+.u-link-background-hover-color-2 a:not(.u-btn)::after {
+	background-color: $color-2;
+}
+
+.u-link-background-hover-color-3 a:not(.u-btn)::after {
+	background-color: $color-3;
+}
+
+.u-link-background-hover-color-4 a:not(.u-btn)::after {
+	background-color: $color-4;
 }

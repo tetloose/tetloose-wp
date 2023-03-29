@@ -1,0 +1,95 @@
+.u-dark {
+	color: $dark;
+}
+
+.u-light {
+	color: $light;
+}
+
+.u-color-1 {
+	color: $color-1;
+}
+
+.u-color-2 {
+	color: $color-2;
+}
+
+.u-color-3 {
+	color: $color-3;
+}
+
+.u-color-4 {
+	color: $color-4;
+}
+
+.u-hover-dark {
+	&:focus {
+		color: $dark;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $dark;
+		}
+	}
+}
+
+.u-hover-light {
+	&:focus {
+		color: $light;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $light;
+		}
+	}
+}
+
+.u-hover-color-1 {
+	&:focus {
+		color: $color-1;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-1;
+		}
+	}
+}
+
+.u-hover-color-2 {
+	&:focus {
+		color: $color-2;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-2;
+		}
+	}
+}
+
+.u-hover-color-3 {
+	&:focus {
+		color: $color-3;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-3;
+		}
+	}
+}
+
+.u-hover-color-4 {
+	&:focus {
+		color: $color-4;
+	}
+
+	@include mq-hover {
+		&:hover {
+			color: $color-4;
+		}
+	}
+}

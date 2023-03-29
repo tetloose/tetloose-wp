@@ -16,417 +16,23 @@
 }
 
 .trigger {
-	$trigger: &;
-
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
 	z-index: 4;
 	visibility: visible;
+	border-top-width: 0;
+	border-right-width: 0;
+	border-bottom-width: 0;
 
 	@include transition(all, 200ms);
 	@include hardware(true);
-
-	@include mq(vars(brakepoint, med), max-width) {
-		width: rem(80px);
-	}
-
-	@include mq(vars(brakepoint, med)) {
-		width: rem(120px);
-	}
-
-	@include mq-hover {
-		cursor: pointer;
-	}
-
-	&.hover-light {
-		&:focus {
-			background-color: $light;
-		}
-
-		@include mq-hover {
-			&:hover {
-				background-color: $light;
-			}
-		}
-	}
-
-	&.hover-dark {
-		&:focus {
-			background-color: $dark;
-		}
-
-		@include mq-hover {
-			&:hover {
-				background-color: $dark;
-			}
-		}
-	}
-
-	&.hover-color-1 {
-		&:focus {
-			background-color: $color-1;
-		}
-
-		@include mq-hover {
-			&:hover {
-				background-color: $color-1;
-			}
-		}
-	}
-
-	&.hover-color-2 {
-		&:focus {
-			background-color: $color-2;
-		}
-
-		@include mq-hover {
-			&:hover {
-				background-color: $color-2;
-			}
-		}
-	}
-
-	&.hover-color-3 {
-		&:focus {
-			background-color: $color-3;
-		}
-
-		@include mq-hover {
-			&:hover {
-				background-color: $color-3;
-			}
-		}
-	}
-
-	&.hover-color-4 {
-		&:focus {
-			background-color: $color-4;
-		}
-
-		@include mq-hover {
-			&:hover {
-				background-color: $color-4;
-			}
-		}
-	}
-
-	&.bar-hover-light {
-		&:focus #{$trigger}__title {
-			color: $light;
-		}
-
-		&:focus #{$trigger}__bar {
-			background-color: $light;
-		}
-
-		@include mq-hover {
-			&:hover #{$trigger}__title {
-				color: $light;
-			}
-
-			&:hover #{$trigger}__bar {
-				background-color: $light;
-			}
-		}
-	}
-
-	&.bar-hover-dark {
-		&:focus #{$trigger}__title {
-			color: $dark;
-		}
-
-		&:focus #{$trigger}__bar {
-			background-color: $dark;
-		}
-
-		@include mq-hover {
-			&:hover #{$trigger}__title {
-				color: $dark;
-			}
-
-			&:hover #{$trigger}__bar {
-				background-color: $dark;
-			}
-		}
-	}
-
-	&.bar-hover-color-1 {
-		&:focus #{$trigger}__title {
-			color: $color-1;
-		}
-
-		&:focus #{$trigger}__bar {
-			background-color: $color-1;
-		}
-
-		@include mq-hover {
-			&:hover #{$trigger}__title {
-				color: $color-1;
-			}
-
-			&:hover #{$trigger}__bar {
-				background-color: $color-1;
-			}
-		}
-	}
-
-	&.bar-hover-color-2 {
-		&:focus #{$trigger}__title {
-			color: $color-2;
-		}
-
-		&:focus #{$trigger}__bar {
-			background-color: $color-2;
-		}
-
-		@include mq-hover {
-			&:hover #{$trigger}__title {
-				color: $color-2;
-			}
-
-			&:hover #{$trigger}__bar {
-				background-color: $color-2;
-			}
-		}
-	}
-
-	&.bar-hover-color-3 {
-		&:focus #{$trigger}__title {
-			color: $color-3;
-		}
-
-		&:focus #{$trigger}__bar {
-			background-color: $color-3;
-		}
-
-		@include mq-hover {
-			&:hover #{$trigger}__title {
-				color: $color-3;
-			}
-
-			&:hover #{$trigger}__bar {
-				background-color: $color-3;
-			}
-		}
-	}
-
-	&.bar-hover-color-4 {
-		&:focus #{$trigger}__title {
-			color: $color-4;
-		}
-
-		&:focus #{$trigger}__bar {
-			background-color: $color-4;
-		}
-
-		@include mq-hover {
-			&:hover #{$trigger}__title {
-				color: $color-4;
-			}
-
-			&:hover #{$trigger}__bar {
-				background-color: $color-4;
-			}
-		}
-	}
-
-	&.bar-active-light {
-		#{$trigger}__title {
-			.nav-open & {
-				color: $light;
-			}
-		}
-
-		#{$trigger}__bar {
-			.nav-open & {
-				background-color: $light;
-			}
-		}
-	}
-
-	&.bar-active-dark {
-		#{$trigger}__title {
-			.nav-open & {
-				color: $dark;
-			}
-		}
-
-		#{$trigger}__bar {
-			.nav-open & {
-				background-color: $dark;
-			}
-		}
-	}
-
-	&.bar-active-color-1 {
-		#{$trigger}__title {
-			.nav-open & {
-				color: $color-1;
-			}
-		}
-
-		#{$trigger}__bar {
-			.nav-open & {
-				background-color: $color-1;
-			}
-		}
-	}
-
-	&.bar-active-color-2 {
-		#{$trigger}__title {
-			.nav-open & {
-				color: $color-2;
-			}
-		}
-
-		#{$trigger}__bar {
-			.nav-open & {
-				background-color: $color-2;
-			}
-		}
-	}
-
-	&.bar-active-color-3 {
-		#{$trigger}__title {
-			.nav-open & {
-				color: $color-3;
-			}
-		}
-
-		#{$trigger}__bar {
-			.nav-open & {
-				background-color: $color-3;
-			}
-		}
-	}
-
-	&.bar-active-color-4 {
-		#{$trigger}__title {
-			.nav-open & {
-				color: $color-4;
-			}
-		}
-
-		#{$trigger}__bar {
-			.nav-open & {
-				background-color: $color-4;
-			}
-		}
-	}
-
-	.nav-open & {
-		background-color: transparent;
-	}
-
-	&__title {
-		position: absolute;
-		top: 14%;
-		right: 0;
-		left: 0;
-		background-color: transparent;
-		text-align: center;
-		text-transform: uppercase;
-
-		@include type-paragraph;
-
-		@include mq-hover {
-			@include transition(all, 200ms);
-			@include hardware(true);
-		}
-
-		&.bg-light {
-			color: $light;
-		}
-
-		&.bg-dark {
-			color: $dark;
-		}
-
-		&.bg-color-1 {
-			color: $color-1;
-		}
-
-		&.bg-color-2 {
-			color: $color-2;
-		}
-
-		&.bg-color-3 {
-			color: $color-3;
-		}
-
-		&.bg-color-4 {
-			color: $color-4;
-		}
-	}
-
-	&__container {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 60%;
-		height: 35%;
-		transform: translate(-50%, -30%);
-	}
-
-	&__bar {
-		display: inline-block;
-		position: absolute;
-		right: 0;
-		left: 0;
-		width: auto;
-		height: rem(3px);
-		visibility: visible;
-
-		&:nth-child(1) {
-			top: 0;
-		}
-
-		&:nth-child(2),
-		&:nth-child(3) {
-			top: 50%;
-			transform: translateY(-50%);
-		}
-
-		&:nth-child(4) {
-			bottom: 0;
-		}
-
-		@include transition(all, 200ms);
-		@include hardware(true);
-
-		.nav-open & {
-			&:nth-child(1),
-			&:nth-child(4) {
-				top: 50%;
-				bottom: auto;
-				opacity: 0;
-				transform: translateY(-50%);
-				transform: rotate(45deg);
-			}
-
-			&:nth-child(2) {
-				transform: rotate(-45deg);
-			}
-
-			&:nth-child(3) {
-				transform: rotate(45deg);
-			}
-		}
-	}
 }
 
 .nav {
-	display: flex;
 	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	z-index: 3;
-	align-items: center;
-	justify-content: center;
 	opacity: 0;
 	visibility: hidden;
 	overflow-x: hidden;
@@ -435,42 +41,42 @@
 	@include transition(all, 200ms);
 	@include hardware(true);
 
-	&.menu-angles-bg-light {
+	&.animation-light {
 		&::before,
 		&::after {
 			background-color: $light;
 		}
 	}
 
-	&.menu-angles-bg-dark {
+	&.animation-dark {
 		&::before,
 		&::after {
 			background-color: $dark;
 		}
 	}
 
-	&.menu-angles-bg-color-1 {
+	&.animation-color-1 {
 		&::before,
 		&::after {
 			background-color: $color-1;
 		}
 	}
 
-	&.menu-angles-bg-color-2 {
+	&.animation-color-2 {
 		&::before,
 		&::after {
 			background-color: $color-2;
 		}
 	}
 
-	&.menu-angles-bg-color-3 {
+	&.animation-color-3 {
 		&::before,
 		&::after {
 			background-color: $color-3;
 		}
 	}
 
-	&.menu-angles-bg-color-4 {
+	&.animation-color-4 {
 		&::before,
 		&::after {
 			background-color: $color-4;
@@ -515,129 +121,5 @@
 	.sub-nav-visible & {
 		opacity: 1;
 		visibility: visible;
-	}
-
-	&.menu-link-hover-light #{$sub-nav}__item a {
-		&:focus {
-			color: $light;
-		}
-
-		@include mq-hover {
-			&:hover {
-				color: $light;
-			}
-		}
-	}
-
-	&.menu-link-hover-dark #{$sub-nav}__item a {
-		&:focus {
-			color: $dark;
-		}
-
-		@include mq-hover {
-			&:hover {
-				color: $dark;
-			}
-		}
-	}
-
-	&.menu-link-hover-color-1 #{$sub-nav}__item a {
-		&:focus {
-			color: $color-1;
-		}
-
-		@include mq-hover {
-			&:hover {
-				color: $color-1;
-			}
-		}
-	}
-
-	&.menu-link-hover-color-2 #{$sub-nav}__item a {
-		&:focus {
-			color: $color-2;
-		}
-
-		@include mq-hover {
-			&:hover {
-				color: $color-2;
-			}
-		}
-	}
-
-	&.menu-link-hover-color-3 #{$sub-nav}__item a {
-		&:focus {
-			color: $color-3;
-		}
-
-		@include mq-hover {
-			&:hover {
-				color: $color-3;
-			}
-		}
-	}
-
-	&.menu-link-hover-color-4 #{$sub-nav}__item a {
-		&:focus {
-			color: $color-4;
-		}
-
-		@include mq-hover {
-			&:hover {
-				color: $color-4;
-			}
-		}
-	}
-
-	&__item {
-		list-style-type: none;
-		text-align: center;
-
-		a {
-			display: block;
-			padding: rem(spacing(.5) 0);
-			text-decoration: none;
-			text-transform: uppercase;
-
-			@include mq(vars(brakepoint, med), max-width) {
-				@include type-h6;
-			}
-
-			@include mq(vars(brakepoint, med)) {
-				@include type-h1;
-			}
-
-			@include mq-hover {
-				@include transition(color, 200ms);
-			}
-		}
-
-		&.is-active > a {
-			text-decoration: underline;
-
-			.menu-link-hover-light & {
-				color: $light;
-			}
-
-			.menu-link-hover-dark & {
-				color: $dark;
-			}
-
-			.menu-link-hover-color-1 & {
-				color: $color-1;
-			}
-
-			.menu-link-hover-color-2 & {
-				color: $color-2;
-			}
-
-			.menu-link-hover-color-3 & {
-				color: $color-3;
-			}
-
-			.menu-link-hover-color-4 & {
-				color: $color-4;
-			}
-		}
 	}
 }

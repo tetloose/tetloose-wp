@@ -1,12 +1,8 @@
-import styles from './component-class.module.scss'
-import CssExports from './utilities.module.scss'
-import { addClassNames } from './add-class-names.utilities'
-
 export class ComponentClass {
     module: HTMLElement
     animation: string
     state?: {
-        [key: string]: string | boolean | typeof CssExports
+        [key: string]: string | boolean | HTMLElement
     }
 
     constructor(module: HTMLElement) {
@@ -14,24 +10,19 @@ export class ComponentClass {
         this.animation = module.dataset.animation ?? 'fade-in'
 
         this.animate()
-        // this.module.removeAttribute('data-module')
-        // this.module.removeAttribute('data-animation')
     }
 
     animate() {
         if (this.animation) {
-            this.module.classList.add(styles['animate-hide'])
+            this.module.classList.add('u-animate-hide')
 
             setTimeout(() => {
-                Object.entries(styles)
-                    .forEach(([key, value]) => key === `animate-${this.animation}` &&
-                        addClassNames(this.module, value)
-                    )
+                this.module.classList.add(`u-animate-${this.animation}`)
             }, 200)
 
             setTimeout(() => {
-                // fix later. remove all fade in styles
-                this.module.classList.remove(styles['animate-hide'], styles['animate-fade-in'])
+                this.module.classList.remove('u-animate-hide', `u-animate-${this.animation}`)
+                // this.cleanUp()
             }, 400)
         }
     }
@@ -42,27 +33,50 @@ export class ComponentClass {
         }
     }
 
-    subNav(subNav: Element, subNavStyles: typeof CssExports) {
-        subNav && subNavStyles &&
+    subNav(subNav: Element, subNavitem: string, subNavActive: string) {
+        subNav && subNavitem && subNavActive &&
             subNav.querySelectorAll('li')
                 .forEach(elem => {
-                    Object.values(subNav ? subNav.classList : '')
-                        .forEach(val1 => Object.values(subNavStyles)
-                            .forEach(val2 => val1 === val2 &&
-                                elem.querySelector('a')?.classList.add(val1)
-                            )
-                        )
-
                     elem.removeAttribute('id')
 
                     if (elem.classList.contains('current-menu-item')) {
                         elem.removeAttribute('class')
-                        elem.classList.add(subNavStyles['sub-nav__item'])
-                        elem.classList.add(subNavStyles['is-active'])
+                        elem.classList.add(subNavitem)
+                        elem.classList.add(subNavActive)
                     } else {
                         elem.removeAttribute('class')
-                        elem.classList.add(subNavStyles['sub-nav__item'])
+                        elem.classList.add(subNavitem)
                     }
                 })
+    }
+
+    cssModule(element: HTMLElement, styles: unknown) {
+        if (styles && element && typeof styles === 'object') {
+            Object
+                .entries(styles)
+                .forEach(([key, value]) => element.dataset.styles?.split(' ').includes(key) &&
+                    `${element.classList.add(value)}`
+                )
+
+            element.querySelectorAll('[data-styles]')
+                .forEach(elem => {
+                    if (elem instanceof HTMLElement) {
+                        Object
+                            .entries(styles)
+                            .forEach(([key, value]) => elem.dataset.styles?.split(' ').includes(key) &&
+                                `${elem.classList.add(value)}`
+                            )
+                    }
+                })
+        }
+    }
+
+    cleanUp() {
+        this.module.removeAttribute('data-styles')
+        this.module.querySelectorAll('[data-styles]')
+            .forEach(attr => attr.removeAttribute('data-styles'))
+
+        this.module.removeAttribute('data-animation')
+        this.module.removeAttribute('data-module')
     }
 }

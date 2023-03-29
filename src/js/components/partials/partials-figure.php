@@ -8,10 +8,8 @@
 ?>
 <?php if ( ! empty( $image ) ) : ?>
     <figure
-        width="<?php echo esc_attr( $image->image['width'] ); ?>"
-        height="<?php echo esc_attr( $image->image['height'] ); ?>"
-        class="u-figure js-figure u-skeleton-figure"
-        data-styles="<?php echo esc_attr( $image->class_name ); ?>"
+        class="u-figure js-figure u-skeleton-figure <?php echo esc_attr( $image->class_names ); ?>"
+        data-styles="<?php echo esc_attr( $image->styles ); ?>"
         data-animation="<?php echo esc_attr( $image->animation ); ?>"
         data-duration="<?php echo esc_attr( $image->animation_duration ); ?>"
         data-alt="<?php echo esc_attr( $image->image['alt'] ); ?>"
