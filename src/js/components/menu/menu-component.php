@@ -13,6 +13,7 @@ $nav_component = new Module(
         $navigation_styles['animation_color'],
     ],
     [
+        'u-animate-hide',
         'u-align-middle',
         'u-align-center',
         $navigation_styles['bg_borders']['background_color'],
@@ -50,7 +51,7 @@ if ( ! empty( $header_navigation ) ) :
             class="<?php echo esc_attr( $nav_component->class_names() ); ?>"
             aria-expanded="false">
                 <?php
-                $navigation = (object) [
+                $navigation_obj = (object) [
                     'id' => $header_navigation['menu']->ID,
                     'styles' => $sub_nav_component->styles(),
                     'class_names' => $sub_nav_component->class_names(),

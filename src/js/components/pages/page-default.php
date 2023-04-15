@@ -8,7 +8,7 @@
 get_header();
 if ( have_posts() ) {
     if ( post_password_required( $post ) ) {
-        get_template_part( '/inc/components/partials', 'password' );
+        get_template_part( '/inc/components/page', 'password' );
     } else {
         while ( have_posts() ) :
             the_post();
@@ -16,6 +16,6 @@ if ( have_posts() ) {
         endwhile;
     }
 } else {
-    get_template_part( '/inc/components/partials', 'no-posts' );
+    get_template_part( '/inc/components/page', 'no-posts' );
 }
 get_footer();

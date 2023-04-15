@@ -31,7 +31,7 @@ $no_posts_component = new Module(
         <div class="l-row__col is-med-2-third">
             <?php if ( ! empty( $no_posts ) ) : ?>
                 <?php
-                $content = (object) [
+                $content_obj = (object) [
                     'styles' => '',
                     'class_names' => '',
                     'content' => $no_posts,

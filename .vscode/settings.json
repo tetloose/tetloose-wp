@@ -89,7 +89,8 @@
         "pattern-library": true,
         "vendor": true,
         "web": true,
-        ".vscode": true
+        ".vscode": true,
+        ".phpcs.xml": true
     },
     "workspace.isHidden": true
 }

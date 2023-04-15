@@ -8,10 +8,11 @@
 $social_component = new Module(
     [
         'social',
-        $social->styles,
+        $social_obj->styles,
     ],
     [
-        $social->class_names,
+        'u-animate-hide',
+        $social_obj->class_names,
     ]
 );
 if ( have_rows( 'social', 'option' ) ) :
@@ -23,7 +24,7 @@ if ( have_rows( 'social', 'option' ) ) :
         <?php
         while ( have_rows( 'social', 'option' ) ) :
             the_row();
-            $_link = (object) [
+            $link_obj = (object) [
                 'link' => get_sub_field( 'link' ),
                 'styles' => 'social__link',
                 'class_names' => get_sub_field( 'icon' ),

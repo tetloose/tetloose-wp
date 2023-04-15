@@ -37,10 +37,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:tetloose/tetloose-acf.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:tetloose/tetloose-core.git"
         }
     ],
     "require": {
@@ -65,7 +61,6 @@
         "wpackagist-plugin/google-sitemap-generator": "^4.1",
         "phalapi/phpmailer": "dev-master",
         "tetloose/advanced-custom-fields-pro": "dev-main",
-        "tetloose/tetloose-core": "dev-main",
         "tetloose/tetloose-theme": "dev-main"
     },
     "require-dev": {

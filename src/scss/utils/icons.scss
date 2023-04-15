@@ -10,6 +10,26 @@
 	@include font-smoothing;
 }
 
+.u-icon-news::before {
+	content: '\e90a';
+}
+
+.u-icon-prev::before {
+	content: '\e90b';
+}
+
+.u-icon-next::before {
+	content: '\e90c';
+}
+
+.u-icon-first::before {
+	content: '\e90d';
+}
+
+.u-icon-last::before {
+	content: '\e90e';
+}
+
 .u-icon-songkick::before {
 	content: '\e900';
 }

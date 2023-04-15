@@ -4,6 +4,14 @@ module.exports = {
         'stylelint-order'
     ],
     rules: {
+        "selector-pseudo-class-no-unknown": [
+            true,
+            {
+                "ignorePseudoClasses": [
+                    "global"
+                ]
+            }
+        ],
         'max-empty-lines': 1,
         'string-quotes': 'single',
         'indentation': 'tab',

@@ -1,0 +1,38 @@
+[class*=u-gradiant-] {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		opacity: .3;
+	}
+}
+
+.u-gradiant-light::before {
+	background-color: $light;
+}
+
+.u-gradiant-dark::before {
+	background-color: $dark;
+}
+
+.u-gradiant-color-1::before {
+	background-color: $color-1;
+}
+
+.u-gradiant-color-2::before {
+	background-color: $color-2;
+}
+
+.u-gradiant-color-3::before {
+	background-color: $color-3;
+}
+
+.u-gradiant-color-4::before {
+	background-color: $color-4;
+}

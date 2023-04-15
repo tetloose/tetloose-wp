@@ -4,7 +4,7 @@ export function loadFigure(target: HTMLElement, options?: DOMStringMap): void {
     if (target && options) {
         const img = new Image()
 
-        img.setAttribute('class', `u-figure__img u-animate-hide ${options.size ? `is-${options.size}` : 'is-cover'}`)
+        img.setAttribute('class', 'u-figure__img u-animate-hide')
         img.setAttribute('alt', options.alt ? options.alt : '')
         img.setAttribute('src', options.src ? options.src : '')
         img.setAttribute('srcset', options.srcset ? options.srcset : '')

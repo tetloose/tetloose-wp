@@ -45,7 +45,7 @@ $form_component = new Module(
         <div class="l-row__col is-med-half">
             <?php if ( ! empty( $password_protected['title'] ) ) : ?>
                 <?php
-                $content = (object) [
+                $content_obj = (object) [
                     'styles' => '',
                     'class_names' => '',
                     'content' => '<h2>' . esc_attr( $password_protected['title'] ) . '</h2>',

@@ -5,16 +5,16 @@
  * @package Tetloose-Theme
  */
 
-if ( ! empty( $_link ) ) :
+if ( ! empty( $link_obj ) ) :
     ?>
     <a
-        data-styles="<?php echo esc_attr( $_link->styles ); ?>"
-        href="<?php echo esc_url( $_link->link['url'] ); ?>"
-        <?php if ( ! empty( $_link->link['target'] ) ) : ?>
-            target="<?php echo esc_attr( $_link->link['target'] ); ?>"
+        data-styles="<?php echo esc_attr( $link_obj->styles ); ?>"
+        href="<?php echo esc_url( $link_obj->link['url'] ); ?>"
+        <?php if ( ! empty( $link_obj->link['target'] ) ) : ?>
+            target="<?php echo esc_attr( $link_obj->link['target'] ); ?>"
         <?php endif ?>
-        class="<?php echo esc_attr( $_link->class_names ); ?>">
-        <?php echo esc_html( $_link->link['title'] ); ?>
+        class="<?php echo esc_attr( $link_obj->class_names ); ?>">
+        <?php echo esc_html( $link_obj->link['title'] ); ?>
     </a>
     <?php
 endif;

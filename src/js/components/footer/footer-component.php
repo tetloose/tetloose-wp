@@ -12,6 +12,7 @@ $footer_component = new Module(
         'footer',
     ],
     [
+        'u-animate-hide',
         $footer_styles['bg_borders']['background_color'],
         $footer_styles['bg_borders']['border_color'] ? 'u-border-t ' . $footer_styles['bg_borders']['border_color'] : '',
         $footer_styles['content_styles']['color'],
@@ -22,6 +23,7 @@ $footer_component = new Module(
 );
 $sub_nav_component = new Module(
     [
+        'u-animate-hide',
         'sub-nav',
         'is-inline',
         $footer_styles['content_styles']['link_hover_color'],
@@ -35,7 +37,7 @@ $sub_nav_component = new Module(
     data-styles="<?php echo esc_attr( $footer_component->styles() ); ?>"
     class="<?php echo esc_attr( $footer_component->class_names() ); ?>">
     <?php
-    $social = (object) [
+    $social_obj = (object) [
         'styles' => 'footer__social',
         'class_names' => '',
     ];
@@ -43,7 +45,7 @@ $sub_nav_component = new Module(
     ?>
     <nav data-styles="footer__nav">
         <?php
-        $navigation = (object) [
+        $navigation_obj = (object) [
             'id' => $footer['navigation']->ID,
             'styles' => $sub_nav_component->styles(),
             'class_names' => '',
@@ -53,7 +55,7 @@ $sub_nav_component = new Module(
     </nav>
     <?php if ( ! empty( $footer['copyright'] ) ) : ?>
         <?php
-        $content = (object) [
+        $content_obj = (object) [
             'styles' => 'footer__content',
             'class_names' => '',
             'content' => '<p><small>' . wp_kses_post( '<sup>&copy;</sup> ' . get_bloginfo() . ' ' . esc_attr( gmdate( 'Y' ) ) . ' ' . $footer['copyright'] ) . '</small></p>',

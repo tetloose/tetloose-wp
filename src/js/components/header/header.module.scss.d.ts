@@ -5,6 +5,7 @@ interface CssExports {
   'cta__link': string;
   'header': string;
   'header__logo': string;
+  'is-hidden': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

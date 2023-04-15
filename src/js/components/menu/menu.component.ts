@@ -43,6 +43,7 @@ export class Menu extends ComponentClass {
             trigger.classList.add('is-active')
             trigger?.setAttribute('aria-expanded', 'true')
             trigger?.setAttribute('aria-label', `${this.state.openText}`)
+            html.classList.add('no-scroll')
 
             if (title) title.innerHTML = `${this.state.openText}`
 
@@ -53,7 +54,6 @@ export class Menu extends ComponentClass {
                     this.module.classList.add(styles['sub-nav-visible'])
 
                     if (focusElem) setTimeout(() => {
-                        html.classList.add('no-scroll')
                         focusElem.focus()
                     }, 200)
                 }, 400)

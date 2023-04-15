@@ -22,10 +22,7 @@ module.exports = {
         img: 'web/app/themes/tetloose-theme/assets/img',
         js: 'web/app/themes/tetloose-theme/assets/js',
         sprite: 'web/app/themes/tetloose-theme/assets/sprite',
-        components: 'web/app/themes/tetloose-theme/inc/components/components-*.php',
-        header: 'web/app/themes/tetloose-theme/inc/components/header-*.php',
-        footer: 'web/app/themes/tetloose-theme/inc/components/footer-*.php',
-        partials: 'web/app/themes/tetloose-theme/inc/components/partials-*.php'
+        components: 'web/app/themes/tetloose-theme/inc/components/*.php'
     },
     styles: {
         mode: isDev,

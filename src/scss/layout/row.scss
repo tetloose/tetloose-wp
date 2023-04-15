@@ -8,6 +8,10 @@
 	margin-right: auto;
 	margin-left: auto;
 
+	&.is-fullwidth {
+		max-width: 100%;
+	}
+
 	&.no-gutter {
 		padding-right: 0;
 		padding-left: 0;

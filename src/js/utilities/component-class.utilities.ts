@@ -2,7 +2,7 @@ export class ComponentClass {
     module: HTMLElement
     animation: string
     state?: {
-        [key: string]: string | boolean | HTMLElement
+        [key: string]: string | boolean | number | HTMLElement
     }
 
     constructor(module: HTMLElement) {
@@ -14,7 +14,7 @@ export class ComponentClass {
 
     animate() {
         if (this.animation) {
-            this.module.classList.add('u-animate-hide')
+            // this.module.classList.add('u-animate-hide')
 
             setTimeout(() => {
                 this.module.classList.add(`u-animate-${this.animation}`)
@@ -27,7 +27,7 @@ export class ComponentClass {
         }
     }
 
-    updateState(key: string, value: string | boolean) {
+    updateState(key: string, value: string | boolean | number) {
         if (this.state) {
             this.state[key] = value
         }
