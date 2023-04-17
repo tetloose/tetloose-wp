@@ -47,6 +47,6 @@ export const scriptsBundle = (cb) => {
     scriptsBundleFunc()
     setTimeout(() => {
         reload()
-    }, 200);
+    }, 400);
     cb()
 }

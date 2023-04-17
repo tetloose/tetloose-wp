@@ -2,11 +2,12 @@
 	$btn: &;
 
 	position: relative;
-	padding: rem(spacing(.5) spacing(2));
+	padding: rem(spacing(.6) spacing(2));
 	background-color: transparent;
 	border-width: rem(2px);
 	border-style: solid;
 	border-color: transparent;
+	border-radius: rem(vars(radius, sml));
 	text-align: center;
 	text-decoration: none;
 
@@ -78,7 +79,7 @@
 			bottom: 0;
 		}
 
-		@include transition(all, 200ms);
+		@include transition(all);
 		@include hardware(true);
 	}
 
@@ -94,7 +95,7 @@
 	}
 
 	@include mq-hover {
-		@include transition(all, vars(transition, btn));
+		@include transition(all);
 
 		cursor: pointer;
 	}

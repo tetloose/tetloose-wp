@@ -41,7 +41,7 @@ $sub_nav_component = new Module(
         'styles' => 'footer__social',
         'class_names' => '',
     ];
-    include( locate_template( '/inc/components/social-component.php' ) );
+    include( locate_template( '/components/social-component.php' ) );
     ?>
     <nav data-styles="footer__nav">
         <?php
@@ -50,7 +50,7 @@ $sub_nav_component = new Module(
             'styles' => $sub_nav_component->styles(),
             'class_names' => '',
         ];
-        include( locate_template( '/inc/components/navigation-component.php' ) );
+        include( locate_template( '/components/navigation-component.php' ) );
         ?>
     </nav>
     <?php if ( ! empty( $footer['copyright'] ) ) : ?>
@@ -60,7 +60,7 @@ $sub_nav_component = new Module(
             'class_names' => '',
             'content' => '<p><small>' . wp_kses_post( '<sup>&copy;</sup> ' . get_bloginfo() . ' ' . esc_attr( gmdate( 'Y' ) ) . ' ' . $footer['copyright'] ) . '</small></p>',
         ];
-        include( locate_template( '/inc/components/partials-content.php' ) );
+        include( locate_template( '/components/partials-content.php' ) );
         ?>
     <?php endif; ?>
 </footer>

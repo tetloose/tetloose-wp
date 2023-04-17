@@ -8,6 +8,7 @@
 
 if ( get_row_layout() == 'full_bleed_video' ) :
     $bg_borders = get_sub_field( 'bg_borders' );
+    $ratio = get_sub_field( 'ratio' );
     $content_editor = get_sub_field( 'content_editor' );
     $video_component = new Module(
         [],
@@ -25,7 +26,7 @@ if ( get_row_layout() == 'full_bleed_video' ) :
         <div
             class="js-videoIframe"
             data-video="<?php echo esc_attr( $content_editor ); ?>"
-            data-size="ratio-16x9"
+            data-size="<?php echo esc_attr( $ratio ); ?>"
             data-animation="fade-in"></div>
     </section>
     <?php

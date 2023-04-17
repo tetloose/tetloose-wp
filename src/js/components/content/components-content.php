@@ -61,7 +61,7 @@ if ( get_row_layout() == 'content' ) :
                                 'class_names' => '',
                                 'content' => $content_editor,
                             ];
-                            include( locate_template( '/inc/components/partials-content.php' ) );
+                            include( locate_template( '/components/partials-content.php' ) );
                         endif;
                         ?>
                     </div>

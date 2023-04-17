@@ -37,10 +37,10 @@ $vars: (
 		xxlrg: 1520px
 	),
 	radius: (
-		tny: 4px,
-		sml: 8px,
-		med: 16px,
-		lrg: 32px,
+		tny: 2px,
+		sml: 4px,
+		med: 6px,
+		lrg: 8px,
 		xlrg: 50%,
 		xxlrg: 100%
 	),
@@ -51,8 +51,10 @@ $vars: (
 		two-third: 66.6666vh
 	),
 	transition: (
-		link: 200ms,
-		btn: 200ms,
-		form: 200ms
-	)
+		slow: 500ms,
+		med: 400ms,
+		fast: 300ms,
+		xfast: 200ms,
+		xxfast: 100ms
+	),
 );

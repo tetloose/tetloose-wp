@@ -52,7 +52,7 @@ $cta_link_component = new Module(
         'animation' => 'fade-in',
         'animation_duration' => 200,
     ];
-    include( locate_template( '/inc/components/partials-logo.php' ) );
+    include( locate_template( '/components/partials-logo.php' ) );
     if ( have_rows( 'header_cta', 'option' ) ) :
         ?>
         <div data-styles="cta">
@@ -64,12 +64,12 @@ $cta_link_component = new Module(
                     'styles' => esc_attr( $cta_link_component->styles() ),
                     'class_names' => esc_attr( $cta_link_component->class_names() ),
                 ];
-                include( locate_template( '/inc/components/partials-link.php' ) );
+                include( locate_template( '/components/partials-link.php' ) );
             endwhile;
             ?>
         </div>
         <?php
     endif;
-    get_template_part( '/inc/components/menu', 'component' );
+    get_template_part( '/components/menu', 'component' );
     ?>
 </header>

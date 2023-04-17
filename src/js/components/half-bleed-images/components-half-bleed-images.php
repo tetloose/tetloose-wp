@@ -1,6 +1,6 @@
 <?php
 /**
- * Full Bleed Image
+ * Half Bleed Image
  * ACF Flexible Content
  *
  * @package Tetloose-Theme
@@ -47,7 +47,7 @@ if ( get_row_layout() == 'half_bleed_images' ) :
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
                 ];
-                include( locate_template( '/inc/components/partials-figure.php' ) );
+                include( locate_template( '/components/partials-figure.php' ) );
             endwhile;
         endif;
         ?>

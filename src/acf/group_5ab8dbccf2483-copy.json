@@ -20,7 +20,11 @@
                 "field_643687d65336d",
                 "field_64368c4f5336e",
                 "field_5878eaaba3bfe",
-                "field_5878ea5f040e6"
+                "field_5878ea5f040e6",
+                "field_643687cc61b62",
+                "field_64242c4c0aed4",
+                "field_641d819bb0b98",
+                "field_640a3622100d0"
             ],
             "display": "seamless",
             "layout": "block",
@@ -58,5 +62,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681594358
+    "modified": 1681661784
 }

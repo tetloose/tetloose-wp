@@ -12,7 +12,7 @@
 	&::placeholder {
 		opacity: .8;
 
-		@include transition(all, vars(transition, form));
+		@include transition(all);
 	}
 
 	&[disabled] {
@@ -21,7 +21,11 @@
 		@include interaction(disable);
 	}
 
+	&.is-hidden {
+		display: none;
+	}
+
 	@include mq-hover {
-		@include transition(all, vars(transition, form));
+		@include transition(all);
 	}
 }

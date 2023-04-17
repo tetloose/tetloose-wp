@@ -44,7 +44,7 @@ if ( get_row_layout() == 'full_bleed_image' ) :
             'animation' => 'fade-in',
             'animation_duration' => 200,
         ];
-        include( locate_template( '/inc/components/partials-figure.php' ) );
+        include( locate_template( '/components/partials-figure.php' ) );
         ?>
     </section>
     <?php

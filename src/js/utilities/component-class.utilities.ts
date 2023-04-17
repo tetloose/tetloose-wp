@@ -1,8 +1,10 @@
+import { StateProps } from './utilities.types'
+
 export class ComponentClass {
     module: HTMLElement
     animation: string
     state?: {
-        [key: string]: string | boolean | number | HTMLElement
+        [key: string]: StateProps
     }
 
     constructor(module: HTMLElement) {
@@ -14,20 +16,16 @@ export class ComponentClass {
 
     animate() {
         if (this.animation) {
-            // this.module.classList.add('u-animate-hide')
-
-            setTimeout(() => {
-                this.module.classList.add(`u-animate-${this.animation}`)
-            }, 200)
+            this.module.classList.add(`u-animate-${this.animation}`)
 
             setTimeout(() => {
                 this.module.classList.remove('u-animate-hide', `u-animate-${this.animation}`)
-                // this.cleanUp()
-            }, 400)
+                this.cleanUp()
+            }, 200)
         }
     }
 
-    updateState(key: string, value: string | boolean | number) {
+    updateState(key: string, value: StateProps) {
         if (this.state) {
             this.state[key] = value
         }

@@ -17,13 +17,31 @@
 
 .trigger {
 	z-index: 4;
+	width: 100%;
+	height: 100%;
 	visibility: visible;
 	border-top-width: 0;
 	border-right-width: 0;
 	border-bottom-width: 0;
+	border-radius: 0;
 
-	@include transition(all, 200ms);
-	@include hardware(true);
+	@include transition-property(color, background-color);
+
+	&:global(.is-active) {
+		position: fixed;
+		top: 0;
+		right: 0;
+
+		@include mq(vars(brakepoint, med), max-width) {
+			width: rem(80px);
+			height: rem(78px);
+		}
+
+		@include mq(vars(brakepoint, med)) {
+			width: rem(120px);
+			height: rem(118px);
+		}
+	}
 }
 
 .nav {
@@ -38,7 +56,7 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 
-	@include transition(all, 200ms);
+	@include transition(all);
 	@include hardware(true);
 
 	&.animation-light {
@@ -102,7 +120,7 @@
 	}
 
 	.sub-nav {
-		@include transition(all, 200ms);
+		@include transition(all);
 		@include hardware(true);
 	}
 

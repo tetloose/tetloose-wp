@@ -52,7 +52,6 @@ $content_component = new Module(
     data-animation="fade-in"
     data-styles="<?php echo esc_attr( $excerpt_component->styles() ); ?>"
     class="<?php echo esc_attr( $excerpt_component->class_names() ); ?>">
-
     <?php
     if ( ! empty( $excerpt['image'] ) ) :
         $image_obj = (object) [
@@ -63,14 +62,14 @@ $content_component = new Module(
             'animation_duration' => 200,
         ];
     endif;
-    include( locate_template( '/inc/components/partials-figure.php' ) );
+    include( locate_template( '/components/partials-figure.php' ) );
     if ( ! empty( $content ) ) :
         $content_obj = (object) [
             'styles' => esc_attr( $content_component->styles() ),
             'class_names' => '',
             'content' => '<div data-styles="excerpt__content-inside">' . $content . '</div>',
         ];
-        include( locate_template( '/inc/components/partials-content.php' ) );
+        include( locate_template( '/components/partials-content.php' ) );
     endif;
     ?>
 </article>

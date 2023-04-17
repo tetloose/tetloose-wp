@@ -24,7 +24,6 @@ $no_posts_component = new Module(
         $no_posts_styles['btn_styles']['background_hover_color'],
     ]
 );
-
 ?>
 <main class="<?php echo esc_attr( $no_posts_component->class_names() ); ?>">
     <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-sml u-spacing-b-sml">
@@ -36,7 +35,7 @@ $no_posts_component = new Module(
                     'class_names' => '',
                     'content' => $no_posts,
                 ];
-                include( locate_template( '/inc/components/partials-content.php' ) );
+                include( locate_template( '/components/partials-content.php' ) );
                 ?>
             <?php endif; ?>
         </div>

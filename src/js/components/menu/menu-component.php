@@ -56,14 +56,14 @@ if ( ! empty( $header_navigation ) ) :
                     'styles' => $sub_nav_component->styles(),
                     'class_names' => $sub_nav_component->class_names(),
                 ];
-                include( locate_template( '/inc/components/navigation-component.php' ) );
+                include( locate_template( '/components/navigation-component.php' ) );
                 ?>
         </nav>
         <button
             aria-expanded="false"
             aria-label="Open navigation"
             data-styles="trigger"
-            class="u-btn is-block js-menuTrigger">
+            class="u-btn js-menuTrigger">
             <span class="u-btn__title js-menuTriggerTitle">
                 <?php if ( ! empty( $header_navigation['menu_title_closed'] ) ) : ?>
                     <?php echo esc_attr( $header_navigation['menu_title_closed'] ); ?>

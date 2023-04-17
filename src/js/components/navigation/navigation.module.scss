@@ -48,7 +48,7 @@
 			@include type-paragraph;
 
 			@include mq-hover {
-				@include transition(color, 200ms);
+				@include transition;
 			}
 
 			&::after {

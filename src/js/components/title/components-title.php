@@ -7,8 +7,8 @@
  **/
 
 if ( get_row_layout() == 'title' ) :
-    $post_title = is_archive() ? ucwords( get_post_type() ) : get_the_title();
-    $content = get_sub_field( 'use_post_title' ) ? '<h2>' . esc_attr( $post_title ) . '</h2>' : '<h2>' . get_sub_field( 'title' ) . '</h2>';
+    $post_title = is_archive() ? bold_last_string( titleizeit( get_post_type() ) ) : bold_last_string( get_the_title() );
+    $content = get_sub_field( 'use_post_title' ) ? '<h2>' . esc_sql( $post_title ) . '</h2>' : '<h2>' . bold_last_string( get_sub_field( 'title' ) ) . '</h2>';
     $content .= get_sub_field( 'sub_title' ) ? '<p data-styles="sub-title">' . get_sub_field( 'sub_title' ) . '</p>' : '';
     $text_alignment = get_sub_field( 'text_alignment' );
     $spacing = get_sub_field( 'spacing' );
@@ -50,7 +50,7 @@ if ( get_row_layout() == 'title' ) :
                             'class_names' => esc_attr( $content_component->class_names() ),
                             'content' => $content,
                         ];
-                        include( locate_template( '/inc/components/partials-content.php' ) );
+                        include( locate_template( '/components/partials-content.php' ) );
                         ?>
                 </div>
             </div>

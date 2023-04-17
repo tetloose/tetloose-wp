@@ -35,7 +35,7 @@ $error_page_component = new Module(
                     'class_names' => '',
                     'content' => $error_page,
                 ];
-                include( locate_template( '/inc/components/partials-content.php' ) );
+                include( locate_template( '/components/partials-content.php' ) );
                 ?>
             <?php endif; ?>
         </div>

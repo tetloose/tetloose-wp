@@ -29,7 +29,7 @@ if ( have_rows( 'social', 'option' ) ) :
                 'styles' => 'social__link',
                 'class_names' => get_sub_field( 'icon' ),
             ];
-            include( locate_template( '/inc/components/partials-link.php' ) );
+            include( locate_template( '/components/partials-link.php' ) );
          endwhile;
         ?>
     </div>

@@ -28,7 +28,7 @@ if ( ! empty( $logo_obj ) ) :
                 'animation' => esc_attr( $logo_obj->animation ),
                 'animation_duration' => esc_attr( $logo_obj->animation_duration ),
             ];
-            include( locate_template( '/inc/components/partials-figure.php' ) );
+            include( locate_template( '/components/partials-figure.php' ) );
             ?>
         </<?php echo esc_attr( $el ); ?>>
     <?php

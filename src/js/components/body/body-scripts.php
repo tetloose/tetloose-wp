@@ -1,12 +1,12 @@
 <?php
 /**
- * Header Load Scripts
+ * Body - scripts
  *
  * @package Tetloose-Theme
  */
 
 $scripts = get_field( 'scripts', 'option' );
-wp_head();
+
 if ( ! empty( $scripts ) ) {
-    echo esc_sql( $scripts['head'] );
+    echo esc_sql( $scripts['body'] );
 }

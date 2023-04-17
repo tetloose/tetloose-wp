@@ -16,9 +16,9 @@ function bold_last_string( $string ) {
         if ( count( $word_arr ) > 1 ) {
             $word_arr[ count( $word_arr ) - 1 ] = '<strong>' . ( $word_arr[ count( $word_arr ) - 1 ] ) . '</strong>';
             $string = implode( ' ', $word_arr );
-            echo wp_kses_post( $string );
+            return wp_kses_post( $string );
         } else {
-            echo '<strong>' . wp_kses_post( $string ) . '</strong>';
+            return '<strong>' . wp_kses_post( $string ) . '</strong>';
         }
     }
 }

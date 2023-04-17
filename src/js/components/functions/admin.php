@@ -28,9 +28,7 @@ function admin_backend_styles() {
             #toplevel_page_aiowpsec,
             #wp-admin-bar-new-user,
             #wp-admin-bar-comments,
-            #toplevel_page_edit-post_type-acf-field-group,
-            #toplevel_page_cptui_main_menu,
-            #toplevel_page_wpcf7 {
+            #toplevel_page_edit-post_type-acf-field-group {
                 display: none !important;
             }
         </style>

@@ -19,7 +19,7 @@ if ( is_archive() ) {
                     $component = explode( '.php', $component );
                     $component = implode( $component );
 
-                    get_template_part( '/inc/components/components', $component );
+                    get_template_part( '/components/components', $component );
                 }
             }
         endwhile;
@@ -38,7 +38,7 @@ if ( is_archive() ) {
                     $component = explode( '.php', $component );
                     $component = implode( $component );
 
-                    get_template_part( '/inc/components/components', $component );
+                    get_template_part( '/components/components', $component );
                 }
             }
         endwhile;

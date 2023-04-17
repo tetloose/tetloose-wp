@@ -1,15 +1,13 @@
 @import '../../../scss/settings';
 
 .header {
-	$header: &;
-
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 2;
 	width: 100%;
 
-	@include transition(top, 200ms);
+	@include transition(top);
 
 	&.is-hidden {
 		@include mq(vars(brakepoint, med), max-width) {
@@ -39,7 +37,7 @@
 		}
 
 		@include mq-hover {
-			@include transition(all, 200ms, ease-in-out);
+			@include transition(all);
 			@include hardware(true);
 		}
 	}
@@ -73,6 +71,7 @@
 			padding: rem(spacing(1));
 			border-right-width: 0;
 			border-bottom-width: 0;
+			border-radius: 0;
 		}
 
 		&:first-of-type {

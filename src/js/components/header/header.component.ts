@@ -14,9 +14,10 @@ export class Header extends ComponentClass {
 
     headerScroll() {
         if (typeof this.state?.position === 'number') {
+            const moduleHeigtht = this.module.offsetHeight
             const offsetY: number = window.pageYOffset
 
-            if (offsetY > this.state?.position && !this.module.classList.contains(styles['is-hidden'])) {
+            if (offsetY > this.state?.position && !this.module.classList.contains(styles['is-hidden']) && offsetY >= moduleHeigtht) {
                 this.module.classList.add(styles['is-hidden'])
             } else if (offsetY < this.state?.position && this.module.classList.contains(styles['is-hidden'])) {
                 this.module.classList.remove(styles['is-hidden'])

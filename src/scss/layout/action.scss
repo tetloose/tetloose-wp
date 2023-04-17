@@ -9,6 +9,12 @@
 		align-items: center;
 	}
 
+	&.is-align-right {
+		@include mq(vars(brakepoint, sml)) {
+			justify-content: flex-end;
+		}
+	}
+
 	.u-btn {
 		margin-top: rem(spacing(.5));
 

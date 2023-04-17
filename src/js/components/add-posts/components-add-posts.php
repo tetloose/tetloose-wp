@@ -11,11 +11,9 @@ if ( get_row_layout() == 'add_posts' ) :
     $_title = get_sub_field( 'title' );
     $spacing = get_sub_field( 'spacing' );
     $bg_borders = get_sub_field( 'bg_borders' );
-
     $pagination_spacing = get_sub_field( 'pagination_spacing' );
     $pagination_bg_borders = get_sub_field( 'pagination_bg_borders' );
     $pagination_content_styles = get_sub_field( 'pagination_content_styles' );
-
     $posts_component = new Module(
         [],
         [
@@ -35,7 +33,7 @@ if ( get_row_layout() == 'add_posts' ) :
         ],
         [
             'l-row__col',
-            is_archive() ? 'is-lrg-half is-xlrg-1-third' : 'is-lrg-1-third',
+            is_archive() ? 'is-lrg-half' : 'is-lrg-1-third',
             'no-gutter',
         ]
     );
@@ -68,7 +66,7 @@ if ( get_row_layout() == 'add_posts' ) :
                     'styles' => esc_attr( $excerpt_component->styles() ),
                     'class_names' => esc_attr( $excerpt_component->class_names() ),
                 ];
-                include( locate_template( '/inc/components/excerpt-component.php' ) );
+                include( locate_template( '/components/excerpt-component.php' ) );
             endwhile;
             $pagination_obj = (object) [
                 'title' => $_title ? $_title : 'Pagination',
@@ -76,15 +74,15 @@ if ( get_row_layout() == 'add_posts' ) :
                 'class_names' => esc_attr( $pagination_component->class_names() ),
             ];
             pagination( $pagination_obj );
-        elseif ( ! empty( $news ) ) :
+        elseif ( ! empty( $_posts ) ) :
             // phpcs:disable
-            foreach ( $news as $post ) :
+            foreach ( $_posts as $post ) :
                 setup_postdata( $post );
                 $excerpt_obj = (object) [
                     'styles' => esc_attr( $excerpt_component->styles() ),
                     'class_names' => esc_attr( $excerpt_component->class_names() ),
                 ];
-                include( locate_template( '/inc/components/excerpt-component.php' ) );
+                include( locate_template( '/components/excerpt-component.php' ) );
             endforeach;
             // phpcs:enable
             wp_reset_postdata();

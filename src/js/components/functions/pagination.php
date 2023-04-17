@@ -67,7 +67,7 @@ function pagination( $pagination_obj, $numpages = '', $pagerange = '', $paged = 
                             'class_names' => 'text-align-center',
                             'content' => '<h3>' . $pagination_obj->title . '</h3>',
                         ];
-                        include( locate_template( '/inc/components/partials-content.php' ) );
+                        include( locate_template( '/components/partials-content.php' ) );
                     endif;
                     ?>
                     <nav class="u-spacing-t-sml">

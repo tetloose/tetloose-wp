@@ -53,7 +53,7 @@ if ( get_row_layout() == 'post_nav' ) :
                             'class_names' => 'text-align-center',
                             'content' => '<h3>' . $_title . '</h3>',
                         ];
-                        include( locate_template( '/inc/components/partials-content.php' ) );
+                        include( locate_template( '/components/partials-content.php' ) );
                     endif;
                     ?>
                     <nav
@@ -76,8 +76,8 @@ if ( get_row_layout() == 'post_nav' ) :
                         <a
                             data-styles="post-nav__nav-link"
                             class="u-icon-news"
-                            href="/<?php echo esc_url( get_post_type() ); ?>"
-                            title="<?php echo esc_attr( ucwords( get_post_type() ) ); ?>">
+                            href="/<?php echo esc_attr( get_post_type() ); ?>"
+                            title="<?php echo esc_attr( titleizeit( get_post_type() ) ); ?>">
                         </a>
                         <?php
                         if ( ! empty( $next_post ) ) :

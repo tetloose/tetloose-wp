@@ -5,7 +5,7 @@
 
 .u-animate-fade-in {
 	animation-name: kf-fade-in;
-	animation-duration: 200ms;
+	animation-duration: vars(transition, xfast);
 	animation-timing-function: cubic-bezier(.75, .75, .75, 1);
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
@@ -26,7 +26,7 @@
 	&::before,
 	&::after {
 		animation-name: kf-angle-open;
-		animation-duration: 400ms;
+		animation-duration: vars(transition, med);
 		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
@@ -47,7 +47,7 @@
 	&::before,
 	&::after {
 		animation-name: kf-angle-close;
-		animation-duration: 400ms;
+		animation-duration: vars(transition, med);
 		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
@@ -67,7 +67,7 @@
 .u-animate-fade-out {
 	position: relative;
 	animation-name: kf-fade-out;
-	animation-duration: 200ms;
+	animation-duration: vars(transition, xfast);
 	animation-timing-function: ease-in-out;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;

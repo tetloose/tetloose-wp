@@ -24,7 +24,7 @@
 	@include mq-hover {
 		cursor: pointer;
 
-		@include transition(color);
+		@include transition;
 
 		&:hover::after {
 			opacity: 1;

@@ -22,7 +22,7 @@ module.exports = {
         img: 'web/app/themes/tetloose-theme/assets/img',
         js: 'web/app/themes/tetloose-theme/assets/js',
         sprite: 'web/app/themes/tetloose-theme/assets/sprite',
-        components: 'web/app/themes/tetloose-theme/inc/components/*.php'
+        components: 'web/app/themes/tetloose-theme/components/*.php'
     },
     styles: {
         mode: isDev,
@@ -46,7 +46,7 @@ module.exports = {
     html: {
         files: 'web/app/themes/tetloose-theme/**/*.php',
         components: 'src/js/components/**/*.php',
-        output: 'web/app/themes/tetloose-theme/inc/components',
+        output: 'web/app/themes/tetloose-theme/components',
         error: () => notification('❌ PHP ❌', 'Error', 'Check Terminal')
     },
     icons: {

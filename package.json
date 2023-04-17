@@ -95,6 +95,7 @@
         "jest-css-modules": "^2.1.0",
         "jest-environment-jsdom": "^29.4.2",
         "mini-css-extract-plugin": "^2.7.2",
+        "moment": "^2.29.4",
         "node-notifier": "^10.0.1",
         "pinst": "^3.0.0",
         "postcss": "^8.4.21",

@@ -94,7 +94,7 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                         'animation' => 'fade-in',
                         'animation_duration' => 200,
                     ];
-                    include( locate_template( '/inc/components/partials-figure.php' ) );
+                    include( locate_template( '/components/partials-figure.php' ) );
                     ?>
                     <div
                         data-styles="<?php echo esc_attr( $row_component->styles() ); ?>"
@@ -107,7 +107,7 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                                     'class_names' => esc_attr( $content_component->class_names() ),
                                     'content' => $content_editor,
                                 ];
-                                include( locate_template( '/inc/components/partials-content.php' ) );
+                                include( locate_template( '/components/partials-content.php' ) );
                             endif;
                             ?>
                         </div>

@@ -22,4 +22,5 @@ export type BrakePointProps = {
 export type GridDataProps = Array<{
     body?: BodyProps
     brakepoint: BrakePointProps
+    classNames?: string
 }>
