@@ -2,6 +2,7 @@ import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import config from './.gulp/config'
+import TerserPlugin from 'terser-webpack-plugin'
 
 module.exports = {
     mode: config.webpack.mode ? 'development' : 'production',
@@ -10,10 +11,10 @@ module.exports = {
         path: path.resolve(__dirname, config.webpack.output),
         filename: config.webpack.mode
             ? 'js/[name].js'
-            : 'js/[name].[hash:8].js',
+            : 'js/[name].[fullhash].js',
         chunkFilename: config.webpack.mode
             ? 'js/[name].js'
-            : 'js/[name].[hash:8].js'
+            : 'js/[name].[fullhash].js'
     },
     stats: 'minimal',
     resolve: {
@@ -86,16 +87,17 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: config.webpack.mode
                 ? 'css/[name].css'
-                : 'css/[name].[hash:8].css',
+                : 'css/[name].[fullhash].css',
             chunkFilename: config.webpack.mode
                 ? 'css/[name].css'
-                : 'css/[name].[hash:8].css'
+                : 'css/[name].[fullhash].css'
         })
     ],
     optimization: {
         minimize: !config.webpack.mode,
         minimizer: [
-            new CssMinimizerPlugin()
+            new CssMinimizerPlugin(),
+            new TerserPlugin()
         ],
         runtimeChunk: 'single'
     }

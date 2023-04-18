@@ -1,5 +1,4 @@
 import styles from './song-kick.module.scss'
-import moment from 'moment'
 import { ComponentClass, AppendNode, request } from '../../utilities/'
 import { row, column, content } from '../../html'
 import { ResProps } from './song-kick.types'
@@ -72,12 +71,10 @@ export class SongKick extends ComponentClass {
                         venue,
                         location
                     } = event[1]
-                    const eventDay = moment(start.date).format('D')
-                    const eventMonth = moment(start.date).format('MMMM')
-                    const eventYear = moment(start.date).format('YYYY')
+                    const newDate = new Date(start.date)
                     const theContent = `
                         <h3>
-                            ${eventDay}/${eventMonth}/${eventYear}
+                            ${newDate.getDate()}/${newDate.getMonth() + 1}/${newDate.getFullYear()}
                         </h3>
                         <ul>
                             <li><strong>${this.state?.artistCity}: </strong>${location.city}</li>
