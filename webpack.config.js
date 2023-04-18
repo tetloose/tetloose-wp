@@ -1,5 +1,4 @@
 import path from 'path'
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import config from './.gulp/config'
@@ -96,8 +95,7 @@ module.exports = {
     optimization: {
         minimize: !config.webpack.mode,
         minimizer: [
-            new CssMinimizerPlugin(),
-            new UglifyJsPlugin()
+            new CssMinimizerPlugin()
         ],
         runtimeChunk: 'single'
     }
