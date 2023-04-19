@@ -13,11 +13,9 @@ $nav_component = new Module(
         $navigation_styles['animation_color'],
     ],
     [
-        'u-animate-hide',
         'u-align-middle',
         'u-align-center',
         $navigation_styles['bg_borders']['background_color'],
-        $navigation_styles['bg_borders']['border_color'] ? 'u-border ' . $navigation_styles['bg_borders']['border_color'] : '',
     ],
 );
 $sub_nav_component = new Module(

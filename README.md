@@ -39,7 +39,6 @@ Brew is used as a package manager to install casks, read more about [Brew](https
 - iTerm2: `brew install --cask iterm2`
 ## Core
 
-- [Tetloose-Core](https://github.com/tetloose/tetloose-core) Wordpress plugin
 - [Tetloose-Theme](https://github.com/tetloose/tetloose-theme) Wordpress Theme
 - [Tetloose-styles](https://github.com/tetloose/tetloose-styles) SCSS starter package
 - [Tetloose-ACF](https://github.com/tetloose/tetloose-ACF) Advanced custom fields Pro - scraper

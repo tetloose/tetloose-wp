@@ -3,11 +3,6 @@
 		font-weight: $weight;
 		font-style: $style;
 		font-family: $font-family;
-
-		/* stylelint-disable-next-line declaration-colon-newline-after */
-		src: url('#{$file-path}.eot') format('eot'),
-			url('#{$file-path}.woff') format('woff'),
-			url('#{$file-path}.ttf') format('truetype'),
-			url('#{$file-path}.svg##{$font-family}') format('svg');
+		src: url('#{$file-path}.eot') format('eot'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype'), url('#{$file-path}.svg##{$font-family}') format('svg');
 	}
 }

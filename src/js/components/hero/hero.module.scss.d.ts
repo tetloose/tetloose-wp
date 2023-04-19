@@ -5,6 +5,7 @@ interface CssExports {
   'hero__image': string;
   'hero__row': string;
   'hero__title': string;
+  'hero__title-inside': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

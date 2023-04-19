@@ -14,7 +14,9 @@ if ( ! empty( $link_obj ) ) :
             target="<?php echo esc_attr( $link_obj->link['target'] ); ?>"
         <?php endif ?>
         class="<?php echo esc_attr( $link_obj->class_names ); ?>">
-        <?php echo esc_html( $link_obj->link['title'] ); ?>
+        <span>
+            <?php echo esc_html( $link_obj->link['title'] ); ?>
+        </span>
     </a>
     <?php
 endif;

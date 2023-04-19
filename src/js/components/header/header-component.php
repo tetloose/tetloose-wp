@@ -32,7 +32,6 @@ $cta_link_component = new Module(
     ],
     [
         'u-btn',
-        'is-block',
     ]
 );
 ?>

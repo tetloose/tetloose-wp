@@ -2,7 +2,7 @@
 /**
  *  Tinymce
  *
- * @package Tetloose-Core
+ * @package Tetloose-Theme
  **/
 
 /**

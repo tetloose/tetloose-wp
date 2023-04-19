@@ -23,7 +23,6 @@ wp db export package/"$HASH"/package.sql
 wp search-replace "$PRODUCTION_URL" "$LOCAL_URL"
 cp -r web/app/uploads package/"$HASH"
 cp -r web/app/plugins package/"$HASH"
-cp -r web/app/mu-plugins/tetloose-core package/"$HASH"/mu-plugins
 cp -r web/app/mu-plugins/advanced-custom-fields-pro package/"$HASH"/mu-plugins
 cp -r web/app/themes/tetloose-theme package/"$HASH"/themes
 zip -r package/"$HASH".zip package/"$HASH"

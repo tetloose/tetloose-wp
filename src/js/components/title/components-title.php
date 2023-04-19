@@ -7,9 +7,11 @@
  **/
 
 if ( get_row_layout() == 'title' ) :
+    $_title = get_sub_field( 'title' );
+    $sub_title = get_sub_field( 'sub_title' );
     $post_title = is_archive() ? bold_last_string( titleizeit( get_post_type() ) ) : bold_last_string( get_the_title() );
-    $content = get_sub_field( 'use_post_title' ) ? '<h2>' . esc_sql( $post_title ) . '</h2>' : '<h2>' . bold_last_string( get_sub_field( 'title' ) ) . '</h2>';
-    $content .= get_sub_field( 'sub_title' ) ? '<p data-styles="sub-title">' . get_sub_field( 'sub_title' ) . '</p>' : '';
+    $content = get_sub_field( 'use_post_title' ) ? '<h2>' . $post_title . '</h2>' : '<h2>' . bold_last_string( $_title ) . '</h2>';
+    $content .= $sub_title ? '<p data-styles="sub-title">' . $sub_title . '</p>' : '';
     $text_alignment = get_sub_field( 'text_alignment' );
     $spacing = get_sub_field( 'spacing' );
     $bg_borders = get_sub_field( 'bg_borders' );

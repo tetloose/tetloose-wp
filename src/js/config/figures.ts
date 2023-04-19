@@ -10,8 +10,6 @@ export function loadFigure(target: HTMLElement, options?: DOMStringMap): void {
         img.setAttribute('srcset', options.srcset ? options.srcset : '')
 
         target.classList.remove('js-figure')
-        target.removeAttribute('width')
-        target.removeAttribute('height')
         target.removeAttribute('data-animation')
         target.removeAttribute('data-duration')
         target.removeAttribute('data-alt')
@@ -26,13 +24,11 @@ export function loadFigure(target: HTMLElement, options?: DOMStringMap): void {
             if (image) {
                 target.classList.remove('u-skeleton-figure')
 
-                setTimeout(() => {
-                    image.classList.add(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in')
-                }, options.duration ? parseInt(options.duration) : 200)
+                image.classList.add(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in')
 
                 setTimeout(() => {
                     image.classList.remove(options.animation ? `u-animate-${options.animation}` : 'u-animate-fade-in', 'u-animate-hide')
-                }, options.duration ? parseInt(options.duration) * 2 : 400)
+                }, options.duration ? parseInt(options.duration) * 2 : 200)
             }
         }
 
