@@ -20,7 +20,7 @@ export class ComponentClass {
 
             setTimeout(() => {
                 this.module.classList.remove('u-animate-hide', `u-animate-${this.animation}`)
-                this.cleanUp()
+                // this.cleanUp()
             }, 200)
         }
     }
@@ -73,7 +73,6 @@ export class ComponentClass {
         this.module.removeAttribute('data-styles')
         this.module.querySelectorAll('[data-styles]')
             .forEach(attr => attr.removeAttribute('data-styles'))
-
         this.module.removeAttribute('data-animation')
         this.module.removeAttribute('data-module')
     }

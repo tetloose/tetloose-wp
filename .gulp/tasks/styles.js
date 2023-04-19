@@ -34,9 +34,9 @@ const stylesLintFunc = () => {
         }))
 }
 
-const stylesDevFunc = () => {
+const stylesFunc = () => {
     return src([config.appEntry], {
-            since: lastRun(stylesDevFunc)
+            since: lastRun(stylesFunc)
         })
         .pipe(plumber({ errorHandler: config.error }))
         .pipe(gulpif(config.mode, init()))
@@ -52,9 +52,9 @@ const stylesDevFunc = () => {
         })))
 }
 
-const stylesTinyMceDevFunc = () => {
+const tinymceFunc = () => {
     return src([config.tinymceEntry], {
-            since: lastRun(stylesTinyMceDevFunc)
+            since: lastRun(tinymceFunc)
         })
         .pipe(plumber({ errorHandler: config.error }))
         .pipe(gulpif(config.mode, init()))
@@ -70,9 +70,9 @@ const stylesTinyMceDevFunc = () => {
         })))
 }
 
-const stylesPrintFunc = () => {
+const printFunc = () => {
     return src([config.printEntry], {
-            since: lastRun(stylesPrintFunc)
+            since: lastRun(printFunc)
         })
         .pipe(plumber({ errorHandler: config.error }))
         .pipe(sass().on('error', sass.logError))
@@ -91,17 +91,17 @@ export const stylesLint = (cb) => {
     cb()
 }
 
-export const stylesDev = (cb) => {
-    stylesDevFunc()
+export const styles = (cb) => {
+    stylesFunc()
     cb()
 }
 
-export const stylesTinymceDev = (cb) => {
-    stylesTinyMceDevFunc()
+export const tinymce = (cb) => {
+    tinymceFunc()
     cb()
 }
 
-export const stylesPrint = (cb) => {
-    stylesPrintFunc()
+export const print = (cb) => {
+    printFunc()
     cb()
 }

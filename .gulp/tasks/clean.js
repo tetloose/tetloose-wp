@@ -7,13 +7,25 @@ const cleanAssetsFunc = () => {
             read: false
         })
         .pipe(shell(
-            [`rm -rf ${config.assets} ${config.components}; mkdir -p ${config.assets} ${config.css} ${config.fonts} ${config.img} ${config.js} ${config.sprite}`]
+            [`rm -rf ${config.assets} ${config.components}; mkdir -p ${config.assets} ${config.css} ${config.icons} ${config.js}`]
         ))
 }
 
-const clean = (cb) => {
+const cleanFaviconsFunc = () => {
+    return src('.', {
+            read: false
+        })
+        .pipe(shell(
+            [`rm -rf ${config.favicons}; mkdir -p ${config.favicons};`]
+        ))
+}
+
+export const clean = (cb) => {
     cleanAssetsFunc()
     cb()
 }
 
-export default clean
+export const cleanFavicons = (cb) => {
+    cleanFaviconsFunc()
+    cb()
+}

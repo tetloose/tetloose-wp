@@ -1,12 +1,9 @@
 import { watch, series } from 'gulp'
 import { reload } from './serve.js'
-import sprite from './sprite.js'
 import { favicon } from './favicons.js'
-import fonts from './fonts'
 import { iconMoveFont, iconGenerate } from './icons.js'
-import { compressAssets } from './images.js'
 import { scriptsLint, scriptsBundle } from './scripts.js'
-import { stylesLint, stylesDev, stylesTinymceDev, stylesPrint } from './styles.js'
+import { stylesLint, styles, tinymce, print } from './styles.js'
 import { phpLint, phpComponents } from './php.js'
 import config from '../config'
 
@@ -20,9 +17,9 @@ const monitor = (cb) => {
     watch([config.styles.files],
         series(
             stylesLint,
-            stylesDev,
-            stylesTinymceDev,
-            stylesPrint
+            styles,
+            tinymce,
+            print
         )
     )
     watch([config.icons.fonts, config.icons.json],
@@ -30,37 +27,22 @@ const monitor = (cb) => {
             iconMoveFont,
             iconGenerate,
             stylesLint,
-            stylesDev,
-            stylesTinymceDev,
-            stylesPrint,
+            styles,
+            tinymce,
+            print,
             config.icons.success
         )
     )
-    watch([config.html.components],
+    watch([config.php.components],
         series(
-            phpComponents
+            phpComponents,
         )
-    )
-    watch([config.html.files],
+    ).on('change', (file) => {
+        phpLint(file)
+    })
+    watch([config.php.files],
         series(
-            phpLint,
             reload
-        )
-    )
-    watch([config.sprite.entry],
-        series(
-            sprite,
-            stylesLint,
-            stylesDev,
-            stylesTinymceDev,
-            stylesPrint,
-            config.sprite.success
-        )
-    )
-    watch([config.images.files],
-        series(
-            compressAssets,
-            config.images.success
         )
     )
     watch(
@@ -69,17 +51,6 @@ const monitor = (cb) => {
             favicon,
             config.favicons.success,
             reload
-        )
-    )
-    watch(
-        [config.fonts.files],
-        series(
-            fonts,
-            stylesLint,
-            stylesDev,
-            stylesTinymceDev,
-            stylesPrint,
-            config.fonts.success
         )
     )
     cb()

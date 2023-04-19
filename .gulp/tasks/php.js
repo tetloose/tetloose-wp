@@ -1,13 +1,15 @@
-import { src, dest } from 'gulp'
+import path from 'path'
+import { src, dest, watch, series } from 'gulp'
 import phpcs from 'gulp-phpcs';
 import rename from 'gulp-rename'
-import { html as config } from '../config'
+import { php as config } from '../config'
+const base = path.resolve(__dirname, '../../')
 
-const phpLintFunc = () => {
-    return src([config.files])
+const phpLintFunc = (file) => {
+    return src(file)
         .pipe(phpcs({
-            bin: 'vendor/squizlabs/php_codesniffer/bin/phpcs',
-            standard: '.phpcs.xml',
+            bin: `${base}/vendor/squizlabs/php_codesniffer/bin/phpcs`,
+            standard: `${base}/.phpcs.xml`,
             warningSeverity: 0
         }))
         .pipe(phpcs.reporter('log'))
@@ -19,9 +21,8 @@ const phpComponentFunc = () => {
         .pipe(dest(config.output))
 }
 
-export const phpLint = (cb) => {
-    phpLintFunc()
-    cb()
+export const phpLint = (file) => {
+    phpLintFunc(file)
 }
 
 export const phpComponents = (cb) => {

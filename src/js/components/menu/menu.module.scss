@@ -20,12 +20,17 @@
 	width: 100%;
 	height: 100%;
 	visibility: visible;
-	border-top-width: 0;
-	border-right-width: 0;
-	border-bottom-width: 0;
 	border-radius: 0;
 
-	@include transition-property(color, background-color);
+	@include mq(vars(brakepoint, med), max-width) {
+		border-top-width: 0;
+		border-right-width: 0;
+		border-bottom-width: 0;
+	}
+
+	@include mq(vars(brakepoint, med)) {
+		border-width: 0;
+	}
 
 	&:global(.is-active) {
 		position: fixed;
@@ -34,12 +39,12 @@
 
 		@include mq(vars(brakepoint, med), max-width) {
 			width: rem(80px);
-			height: rem(78px);
+			height: rem(80px);
 		}
 
 		@include mq(vars(brakepoint, med)) {
 			width: rem(120px);
-			height: rem(118px);
+			height: rem(120px);
 		}
 	}
 }
@@ -56,8 +61,7 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 
-	@include transition(all);
-	@include hardware(true);
+	@include transition(all, vars(transition, slow), ease-in-out);
 
 	&.animation-light {
 		&::before,

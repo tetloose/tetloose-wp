@@ -13,6 +13,14 @@
 
 	@include type-btn;
 
+	@include mq-hover {
+		@include transition-property(color, background-color, border, opacity);
+		@include transition-duration(vars(transition, xfast));
+		@include transition-timing(ease-in-out);
+
+		cursor: pointer;
+	}
+
 	&.is-inline {
 		display: inline-block;
 	}
@@ -79,7 +87,9 @@
 			bottom: 0;
 		}
 
-		@include transition(all);
+		@include transition-property(transform, background-color);
+		@include transition-duration(vars(transition, xfast));
+		@include transition-timing(ease-in-out);
 		@include hardware(true);
 	}
 
@@ -87,17 +97,6 @@
 		opacity: .4;
 
 		@include interaction(disable);
-	}
-
-	&:active {
-		opacity: .8;
-		outline: none;
-	}
-
-	@include mq-hover {
-		@include transition(all);
-
-		cursor: pointer;
 	}
 
 	.btn-light & {
@@ -463,6 +462,14 @@
 	&.is-active {
 		background-color: transparent;
 		border-width: 0;
+
+		@include transition-property(color, opacity);
+
+		&:active,
+		&:focus {
+			background-color: transparent;
+			border-width: 0;
+		}
 
 		#{$btn}__bar {
 			&:nth-child(1),

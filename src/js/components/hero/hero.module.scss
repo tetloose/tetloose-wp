@@ -18,11 +18,11 @@
 	}
 
 	&__title {
-		display: inline-block;
 		position: relative;
 		transform: rotate(-2deg);
 
-		:global(h1) {
+		&-inside {
+			display: inline-block;
 			padding: rem(spacing(.5)) rem(spacing(1));
 		}
 	}

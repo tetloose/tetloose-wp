@@ -25,4 +25,5 @@ require_once TEMPLATEPATH . '/components/images.php';
 require_once TEMPLATEPATH . '/components/menus.php';
 require_once TEMPLATEPATH . '/components/the-title.php';
 require_once TEMPLATEPATH . '/components/tinymce.php';
+require_once TEMPLATEPATH . '/components/console-log.php';
 require_once TEMPLATEPATH . '/components/class-module.php';
