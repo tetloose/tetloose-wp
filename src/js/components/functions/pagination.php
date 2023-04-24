@@ -8,12 +8,12 @@
  /**
   * Pagination function
   *
-  * @param object $pagination_obj value passed is a object.
+  * @param object $args value passed is a object.
   * @param string $numpages value passed is a string.
   * @param string $pagerange value passed is a string.
   * @param string $paged value passed is a string.
   **/
-function pagination( $pagination_obj, $numpages = '', $pagerange = '', $paged = '' ) {
+function pagination( $args, $numpages = '', $pagerange = '', $paged = '' ) {
     global $paged;
 
     if ( empty( $pagerange ) ) {
@@ -56,18 +56,21 @@ function pagination( $pagination_obj, $numpages = '', $pagerange = '', $paged = 
     if ( is_array( $paginate_links ) ) {
         ?>
         <div
-            data-styles="<?php echo esc_attr( $pagination_obj->styles ); ?>"
-            class="<?php echo esc_attr( $pagination_obj->class_names ); ?>">
+            data-styles="<?php echo esc_attr( $args['styles'] ); ?>"
+            class="<?php echo esc_attr( $args['class_names'] ); ?>">
             <div class="l-row">
                 <div class="l-row__col">
                     <?php
-                    if ( ! empty( $pagination_obj->title ) ) :
-                        $content_obj = (object) [
-                            'styles' => '',
-                            'class_names' => 'text-align-center',
-                            'content' => '<h3>' . $pagination_obj->title . '</h3>',
-                        ];
-                        include( locate_template( '/components/partials-content.php' ) );
+                    if ( ! empty( $args['title'] ) ) :
+                        get_template_part(
+                            'components/partials-content',
+                            null,
+                            array(
+                                'styles' => '',
+                                'class_names' => 'text-align-center',
+                                'content' => '<h3>' . $args['title'] . '</h3>',
+                            )
+                        );
                     endif;
                     ?>
                     <nav class="u-spacing-t-sml">

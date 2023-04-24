@@ -30,22 +30,27 @@ $password_component = new Module(
         $password_styles['form_styles']['background_hover_color'],
         $password_styles['form_styles']['border_hover_color'],
         $password_styles['form_styles']['validation_color'],
+        $password_styles['selection']['color'],
+        $password_styles['selection']['background_color'],
     ]
 );
 ?>
 <main class="<?php echo esc_attr( $password_component->class_names() ); ?>">
     <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-sml u-spacing-b-sml">
         <div class="l-row__col is-med-half">
-            <?php if ( ! empty( $password_protected['title'] ) ) : ?>
-                <?php
-                $content_obj = (object) [
-                    'styles' => '',
-                    'class_names' => '',
-                    'content' => '<h2>' . esc_attr( $password_protected['title'] ) . '</h2>',
-                ];
-                include( locate_template( '/components/partials-content.php' ) );
-                ?>
-            <?php endif; ?>
+            <?php
+            if ( ! empty( $password_protected['title'] ) ) :
+                get_template_part(
+                    'components/partials-content',
+                    null,
+                    array(
+                        'styles' => '',
+                        'class_names' => '',
+                        'content' => '<h2>' . esc_attr( $password_protected['title'] ) . '</h2>',
+                    )
+                );
+            endif;
+            ?>
             <form
                 action="<?php echo esc_url( home_url( '/' ) ) . esc_sql( $password_protected['action'] ); ?>"
                 method="post"

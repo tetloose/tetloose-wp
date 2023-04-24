@@ -15,7 +15,9 @@ $header_component = new Module(
     [
         'u-animate-hide',
         $header_styles['bg_borders']['background_color'],
-        $header_styles['bg_borders']['border_color'] ? 'u-border-b ' . $header_styles['bg_borders']['border_color'] : '',
+        $header_styles['bg_borders']['border_color']
+            ? 'u-border-b ' . $header_styles['bg_borders']['border_color']
+            : '',
         $header_styles['btn_styles']['color'],
         $header_styles['btn_styles']['border_color'],
         $header_styles['btn_styles']['background_color'],
@@ -24,6 +26,8 @@ $header_component = new Module(
         $header_styles['btn_styles']['background_hover_color'],
         $header_styles['active_btn']['active_color'],
         $header_styles['active_btn']['active_hover_color'],
+        $header_styles['selection']['color'],
+        $header_styles['selection']['background_color'],
     ]
 );
 $cta_link_component = new Module(
@@ -41,29 +45,39 @@ $cta_link_component = new Module(
     data-styles="<?php echo esc_attr( $header_component->styles() ); ?>"
     class="<?php echo esc_attr( $header_component->class_names() ); ?>">
     <?php
-    $logo_obj = (object) [
-        'image' => $header_logo['logo'],
-        'href' => home_url( '/' ),
-        'styles' => 'header__logo',
-        'class_names' => 'logo',
-        'figure_styles' => '',
-        'figure_class_names' => '',
-        'animation' => 'fade-in',
-        'animation_duration' => 200,
-    ];
-    include( locate_template( '/components/partials-logo.php' ) );
+    if ( ! empty( $header_logo['logo'] ) ) {
+        get_template_part(
+            'components/partials-logo',
+            null,
+            array(
+                'image' => $header_logo['logo'],
+                'href' => home_url( '/' ),
+                'styles' => 'header__logo',
+                'class_names' => 'logo',
+                'figure_styles' => '',
+                'figure_class_names' => '',
+                'animation' => 'fade-in',
+                'animation_duration' => 200,
+            )
+        );
+    }
     if ( have_rows( 'header_cta', 'option' ) ) :
         ?>
         <div data-styles="cta">
             <?php
             while ( have_rows( 'header_cta', 'option' ) ) :
                 the_row();
-                $link_obj = (object) [
-                    'link' => get_sub_field( 'link' ),
-                    'styles' => esc_attr( $cta_link_component->styles() ),
-                    'class_names' => esc_attr( $cta_link_component->class_names() ),
-                ];
-                include( locate_template( '/components/partials-link.php' ) );
+                if ( ! empty( get_sub_field( 'link' ) ) ) :
+                    get_template_part(
+                        'components/partials-link',
+                        null,
+                        array(
+                            'link' => get_sub_field( 'link' ),
+                            'styles' => esc_attr( $cta_link_component->styles() ),
+                            'class_names' => esc_attr( $cta_link_component->class_names() ),
+                        )
+                    );
+                endif;
             endwhile;
             ?>
         </div>

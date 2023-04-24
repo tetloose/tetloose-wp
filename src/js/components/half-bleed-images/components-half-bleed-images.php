@@ -15,7 +15,9 @@ if ( get_row_layout() == 'half_bleed_images' ) :
         [
             'u-animate-hide',
             $bg_borders['background_color'],
-            $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+            $bg_borders['border_color']
+                ? 'u-border-t ' . $bg_borders['border_color']
+                : '',
         ]
     );
     ?>
@@ -40,14 +42,19 @@ if ( get_row_layout() == 'half_bleed_images' ) :
                         $image_styles['image_alignment'],
                     ]
                 );
-                $image_obj = (object) [
-                    'image' => $image,
-                    'styles' => esc_attr( $image_component->styles() ),
-                    'class_names' => esc_attr( $image_component->class_names() ),
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                ];
-                include( locate_template( '/components/partials-figure.php' ) );
+                if ( ! empty( $image ) ) :
+                    get_template_part(
+                        'components/partials-figure',
+                        null,
+                        array(
+                            'image' => $image,
+                            'styles' => esc_attr( $image_component->styles() ),
+                            'class_names' => esc_attr( $image_component->class_names() ),
+                            'animation' => 'fade-in',
+                            'animation_duration' => 200,
+                        )
+                    );
+                endif;
             endwhile;
         endif;
         ?>

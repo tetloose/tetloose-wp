@@ -15,6 +15,7 @@ if ( get_row_layout() == 'hero' ) :
     $bg_borders = get_sub_field( 'bg_borders' );
     $content_styles = get_sub_field( 'content_styles' );
     $btn_styles = get_sub_field( 'btn_styles' );
+    $selection = get_sub_field( 'selection' );
     $text_alignment = get_sub_field( 'text_alignment' );
     $hero_component = new Module(
         [
@@ -23,7 +24,11 @@ if ( get_row_layout() == 'hero' ) :
         [
             'u-animate-hide',
             $bg_borders['background_color'],
-            $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+            $bg_borders['border_color']
+                ? 'u-border-t ' . $bg_borders['border_color']
+                : '',
+            $selection['color'],
+            $selection['background_color'],
         ]
     );
     $image_component = new Module(
@@ -73,8 +78,12 @@ if ( get_row_layout() == 'hero' ) :
             $text_alignment,
         ]
     );
-    $use_post_title = get_sub_field( 'use_post_title' );
-    $post_title = is_archive() ? bold_last_string( titleizeit( get_post_type() ) ) : bold_last_string( get_the_title() );
+    $use_post_title = is_single() || is_archive()
+        ? true
+        : get_sub_field( 'use_post_title' );
+    $post_title = is_archive()
+        ? bold_last_string( titleizeit( get_post_type() ) )
+        : bold_last_string( get_the_title() );
     $_title = bold_last_string( get_sub_field( 'title' ) );
     $sub_title = get_sub_field( 'sub_title' );
     $content = $use_post_title
@@ -83,7 +92,6 @@ if ( get_row_layout() == 'hero' ) :
     $content .= $sub_title
         ? '<p data-styles="hero__title"><span data-styles="hero__title-inside" class="' . esc_attr( $title_component->class_names() ) . '">' . $sub_title . '</span></p>'
         : '';
-
     ?>
     <section
         data-module="Hero"
@@ -92,14 +100,17 @@ if ( get_row_layout() == 'hero' ) :
         class="<?php echo esc_attr( $hero_component->class_names() ); ?>">
         <?php
         if ( ! empty( $image ) ) :
-            $image_obj = (object) [
-                'image' => $image,
-                'styles' => esc_attr( $image_component->styles() ),
-                'class_names' => esc_attr( $image_component->class_names() ),
-                'animation' => 'fade-in',
-                'animation_duration' => 200,
-            ];
-            include( locate_template( '/components/partials-figure.php' ) );
+            get_template_part(
+                'components/partials-figure',
+                null,
+                array(
+                    'image' => $image,
+                    'styles' => esc_attr( $image_component->styles() ),
+                    'class_names' => esc_attr( $image_component->class_names() ),
+                    'animation' => 'fade-in',
+                    'animation_duration' => 200,
+                )
+            );
         endif;
         if ( ! empty( $content ) ) :
             ?>
@@ -108,12 +119,15 @@ if ( get_row_layout() == 'hero' ) :
                 class="<?php echo esc_attr( $row_component->class_names() ); ?>">
                 <div class="l-row__col">
                     <?php
-                    $content_obj = (object) [
-                        'styles' => esc_attr( $content_component->styles() ),
-                        'class_names' => esc_attr( $content_component->class_names() ),
-                        'content' => $content,
-                    ];
-                    include( locate_template( '/components/partials-content.php' ) );
+                    get_template_part(
+                        'components/partials-content',
+                        null,
+                        array(
+                            'styles' => esc_attr( $content_component->styles() ),
+                            'class_names' => esc_attr( $content_component->class_names() ),
+                            'content' => $content,
+                        )
+                    );
                     ?>
                 </div>
             </div>

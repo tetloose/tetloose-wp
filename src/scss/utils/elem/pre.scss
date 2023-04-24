@@ -6,7 +6,6 @@
 	max-width: 100%;
 	padding: rem(spacing(1));
 	overflow: auto;
-	background-color: color(global, grey);
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	page-break-inside: avoid;
@@ -20,6 +19,29 @@
 		bottom: 0;
 		left: 0;
 		width: rem(4px);
-		background-color: color(global, dark);
+
+		.u-dark & {
+			background-color: $dark;
+		}
+
+		.u-light & {
+			background-color: $light;
+		}
+
+		.u-color-1 & {
+			background-color: $color-1;
+		}
+
+		.u-color-2 & {
+			background-color: $color-2;
+		}
+
+		.u-color-3 & {
+			background-color: $color-3;
+		}
+
+		.u-color-4 & {
+			background-color: $color-4;
+		}
 	}
 }

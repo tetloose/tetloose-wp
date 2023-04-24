@@ -17,7 +17,9 @@ if ( get_row_layout() == 'full_bleed_image' ) :
         [
             'u-animate-hide',
             $bg_borders['background_color'],
-            $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+            $bg_borders['border_color']
+                ? 'u-border-t ' . $bg_borders['border_color']
+                : '',
         ]
     );
     $image_component = new Module(
@@ -30,22 +32,27 @@ if ( get_row_layout() == 'full_bleed_image' ) :
             $image_styles['image_alignment'],
         ]
     );
-    ?>
-    <section
-        data-module="FullBleedImage"
-        data-animation="fade-in"
-        data-styles="<?php echo esc_attr( $full_bleed_component->styles() ); ?>"
-        class="<?php echo esc_attr( $full_bleed_component->class_names() ); ?>">
-        <?php
-        $image_obj = (object) [
-            'image' => $image,
-            'styles' => esc_attr( $image_component->styles() ),
-            'class_names' => esc_attr( $image_component->class_names() ),
-            'animation' => 'fade-in',
-            'animation_duration' => 200,
-        ];
-        include( locate_template( '/components/partials-figure.php' ) );
+    if ( ! empty( $image ) ) :
         ?>
-    </section>
-    <?php
+        <section
+            data-module="FullBleedImage"
+            data-animation="fade-in"
+            data-styles="<?php echo esc_attr( $full_bleed_component->styles() ); ?>"
+            class="<?php echo esc_attr( $full_bleed_component->class_names() ); ?>">
+            <?php
+            get_template_part(
+                'components/partials-figure',
+                null,
+                array(
+                    'image' => $image,
+                    'styles' => esc_attr( $image_component->styles() ),
+                    'class_names' => esc_attr( $image_component->class_names() ),
+                    'animation' => 'fade-in',
+                    'animation_duration' => 200,
+                )
+            );
+            ?>
+        </section>
+        <?php
+    endif;
 endif;

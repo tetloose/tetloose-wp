@@ -18,6 +18,11 @@
 	.u-btn {
 		margin-top: rem(spacing(.5));
 
+		@include mq(vars(brakepoint, sml), max-width) {
+			display: block;
+			width: 100%;
+		}
+
 		@include mq(vars(brakepoint, sml)) {
 			margin-right: rem(spacing(.2));
 			margin-left: rem(spacing(.2));

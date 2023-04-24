@@ -124,7 +124,14 @@
 
 		label {
 			position: relative;
-			padding-right: rem(spacing(1));
+
+			@include mq(vars(brakepoint, lrg), max-width) {
+				padding-right: rem(spacing(1.5));
+			}
+
+			@include mq(vars(brakepoint, lrg)) {
+				padding-right: rem(spacing(1));
+			}
 
 			@include mq-hover {
 				cursor: pointer;

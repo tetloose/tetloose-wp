@@ -1,28 +1,6 @@
-@function color($name, $variant) {
-	@if $variant {
-		@return map-get(map-get($color, $name), $variant);
-	} @else {
-		@return map-get($color, $name);
-	}
-}
-
 $dark: #{var(--dark)};
-$light: var(--light);
-$grey: #b9b9b9;
-$light-grey: #d8d8d8;
-$color-1: var(--color-1);
-$color-2: var(--color-2);
-$color-3: var(--color-3);
-$color-4: var(--color-4);
-$color: (
-	global: (
-		dark: $dark,
-		light: $light,
-		hover: $grey,
-		grey: $grey,
-		light-grey: $light-grey,
-		marker: $dark,
-		selection-bg: $dark,
-		selection-color: $light
-	)
-);
+$light: #{var(--light)};
+$color-1: #{var(--color-1)};
+$color-2: #{var(--color-2)};
+$color-3: #{var(--color-3)};
+$color-4: #{var(--color-4)};

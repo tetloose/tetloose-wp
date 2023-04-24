@@ -5,17 +5,25 @@
  * @package Tetloose-Theme
  */
 
-if ( ! empty( $link_obj ) ) :
+if ( ! empty( $args ) ) :
+    $link_component = new Module(
+        [
+            $args['styles'],
+        ],
+        [
+            $args['class_names'],
+        ]
+    );
     ?>
     <a
-        data-styles="<?php echo esc_attr( $link_obj->styles ); ?>"
-        href="<?php echo esc_url( $link_obj->link['url'] ); ?>"
-        <?php if ( ! empty( $link_obj->link['target'] ) ) : ?>
-            target="<?php echo esc_attr( $link_obj->link['target'] ); ?>"
+        data-styles="<?php echo esc_attr( $link_component->styles() ); ?>"
+        class="<?php echo esc_attr( $link_component->class_names() ); ?>"
+        <?php if ( ! empty( $args['link']['target'] ) ) : ?>
+            target="<?php echo esc_attr( $args['link']['target'] ); ?>"
         <?php endif ?>
-        class="<?php echo esc_attr( $link_obj->class_names ); ?>">
+        href="<?php echo esc_url( $args['link']['url'] ); ?>">
         <span>
-            <?php echo esc_html( $link_obj->link['title'] ); ?>
+            <?php echo esc_html( $args['link']['title'] ); ?>
         </span>
     </a>
     <?php

@@ -11,6 +11,7 @@ if ( get_row_layout() == 'post_nav' ) :
     $spacing = get_sub_field( 'spacing' );
     $bg_borders = get_sub_field( 'bg_borders' );
     $content_styles = get_sub_field( 'content_styles' );
+    $selection = get_sub_field( 'selection' );
     $prev_post = get_previous_post();
     $next_post = get_next_post();
     $post_component = new Module(
@@ -22,11 +23,15 @@ if ( get_row_layout() == 'post_nav' ) :
             $spacing['top'],
             $spacing['bottom'],
             $bg_borders['background_color'],
-            $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+            $bg_borders['border_color']
+                ? 'u-border-t ' . $bg_borders['border_color']
+                : '',
             $content_styles['color'],
             $content_styles['link_color'],
             $content_styles['link_hover_color'],
             $content_styles['link_background_hover_color'],
+            $selection['color'],
+            $selection['background_color'],
         ]
     );
     $nav_component = new Module(
@@ -48,12 +53,15 @@ if ( get_row_layout() == 'post_nav' ) :
                 <div class="l-row__col">
                     <?php
                     if ( ! empty( $_title ) ) :
-                        $content_obj = (object) [
-                            'styles' => '',
-                            'class_names' => 'text-align-center',
-                            'content' => '<h3>' . $_title . '</h3>',
-                        ];
-                        include( locate_template( '/components/partials-content.php' ) );
+                        get_template_part(
+                            'components/partials-content',
+                            null,
+                            array(
+                                'styles' => '',
+                                'class_names' => 'text-align-center',
+                                'content' => '<h3>' . $_title . '</h3>',
+                            )
+                        );
                     endif;
                     ?>
                     <nav
@@ -63,33 +71,41 @@ if ( get_row_layout() == 'post_nav' ) :
                         <?php
                         if ( ! empty( $prev_post ) ) :
                             $prev_title = strip_tags( str_replace( '"', '', $prev_post->post_title ) );
-                            ?>
-                            <a
-                                data-styles="post-nav__nav-link"
-                                class="u-icon-prev"
-                                href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>"
-                                title="<?php echo $prev_title ? esc_html( $prev_title ) : ''; ?>">
-                            </a>
-                            <?php
+
+                            get_template_part(
+                                'components/partials-navlink',
+                                null,
+                                array(
+                                    'styles' => 'post-nav__nav-link',
+                                    'class_names' => 'u-icon-prev',
+                                    'href' => get_permalink( $prev_post->ID ),
+                                    'title' => $prev_title ? $prev_title : '',
+                                )
+                            );
                         endif;
-                        ?>
-                        <a
-                            data-styles="post-nav__nav-link"
-                            class="u-icon-news"
-                            href="/<?php echo esc_attr( get_post_type() ); ?>"
-                            title="<?php echo esc_attr( titleizeit( get_post_type() ) ); ?>">
-                        </a>
-                        <?php
+                        get_template_part(
+                            'components/partials-navlink',
+                            null,
+                            array(
+                                'styles' => 'post-nav__nav-link',
+                                'class_names' => 'u-icon-news',
+                                'href' => '/' . get_post_type(),
+                                'title' => get_post_type() ? get_post_type() : '',
+                            )
+                        );
                         if ( ! empty( $next_post ) ) :
                             $next_title = strip_tags( str_replace( '"', '', $next_post->post_title ) );
-                            ?>
-                            <a
-                                data-styles="post-nav__nav-link"
-                                class="u-icon-next"
-                                href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>"
-                                title="<?php echo $next_title ? esc_html( $next_title ) : ''; ?>">
-                            </a>
-                            <?php
+
+                            get_template_part(
+                                'components/partials-navlink',
+                                null,
+                                array(
+                                    'styles' => 'post-nav__nav-link',
+                                    'class_names' => 'u-icon-next',
+                                    'href' => get_permalink( $next_post->ID ),
+                                    'title' => $next_title ? $next_title : '',
+                                )
+                            );
                         endif;
                         ?>
                     </nav>

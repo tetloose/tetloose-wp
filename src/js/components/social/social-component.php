@@ -5,17 +5,17 @@
  * @package Tetloose-Theme
  */
 
-$social_component = new Module(
-    [
-        'social',
-        $social_obj->styles,
-    ],
-    [
-        'u-animate-hide',
-        $social_obj->class_names,
-    ]
-);
-if ( have_rows( 'social', 'option' ) ) :
+if ( have_rows( 'social', 'option' ) && ! empty( $args ) ) :
+    $social_component = new Module(
+        [
+            'social',
+            $args['styles'],
+        ],
+        [
+            'u-animate-hide',
+            $args['class_names'],
+        ]
+    );
     ?>
     <div
         data-module="Social"
@@ -24,12 +24,16 @@ if ( have_rows( 'social', 'option' ) ) :
         <?php
         while ( have_rows( 'social', 'option' ) ) :
             the_row();
-            $link_obj = (object) [
-                'link' => get_sub_field( 'link' ),
-                'styles' => 'social__link',
-                'class_names' => get_sub_field( 'icon' ),
-            ];
-            include( locate_template( '/components/partials-link.php' ) );
+
+            get_template_part(
+                'components/partials-link',
+                null,
+                array(
+                    'link' => get_sub_field( 'link' ),
+                    'styles' => 'social__link',
+                    'class_names' => get_sub_field( 'icon' ),
+                )
+            );
          endwhile;
         ?>
     </div>

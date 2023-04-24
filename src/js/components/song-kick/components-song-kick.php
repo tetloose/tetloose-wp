@@ -17,6 +17,7 @@ if ( get_row_layout() == 'song_kick' ) :
     $content_styles = get_sub_field( 'content_styles' );
     $btn_styles = get_sub_field( 'btn_styles' );
     $artist_styles_border_color = get_sub_field( 'artist_styles_border_color' );
+    $selection = get_sub_field( 'selection' );
     $song_kick_component = new Module(
         [
             'song-kick',
@@ -26,7 +27,9 @@ if ( get_row_layout() == 'song_kick' ) :
             $spacing['top'],
             $spacing['bottom'],
             $bg_borders['background_color'],
-            $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+            $bg_borders['border_color']
+                ? 'u-border-t ' . $bg_borders['border_color']
+                : '',
             $content_styles['color'],
             $content_styles['link_color'],
             $content_styles['link_hover_color'],
@@ -37,12 +40,16 @@ if ( get_row_layout() == 'song_kick' ) :
             $btn_styles['hover_color'],
             $btn_styles['border_hover_color'],
             $btn_styles['background_hover_color'],
+            $selection['color'],
+            $selection['background_color'],
         ]
     );
     $artist_component = new Module(
         [],
         [
-            $artist_styles_border_color ? 'u-border ' . $artist_styles_border_color : '',
+            $artist_styles_border_color
+                ? 'u-border ' . $artist_styles_border_color
+                : '',
         ]
     );
     if ( ! empty( $artist_id ) && ! empty( $content_editor ) ) :

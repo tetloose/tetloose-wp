@@ -33,10 +33,13 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                 $btn_styles = get_sub_field( 'btn_styles' );
                 $image = get_sub_field( 'image' );
                 $image_styles = get_sub_field( 'image_styles' );
+                $selection = get_sub_field( 'selection' );
                 $image_component = new Module(
                     [
                         'content-image__figure',
-                        $content_image_count > 0 ? 'content-image__figure--left' : 'content-image__figure--right',
+                        $content_image_count > 0
+                            ? 'content-image__figure--left'
+                            : 'content-image__figure--right',
                     ],
                     [
                         $image_styles['image_gradiant'],
@@ -50,7 +53,9 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                     ],
                     [
                         $bg_borders['background_color'],
-                        $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+                        $bg_borders['border_color']
+                            ? 'u-border-t ' . $bg_borders['border_color']
+                            : '',
                         $content_styles['color'],
                         $content_styles['link_color'],
                         $content_styles['link_hover_color'],
@@ -61,6 +66,8 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                         $btn_styles['hover_color'],
                         $btn_styles['border_hover_color'],
                         $btn_styles['background_hover_color'],
+                        $selection['color'],
+                        $selection['background_color'],
                     ]
                 );
                 $row_component = new Module(
@@ -69,13 +76,17 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                     ],
                     [
                         'l-row',
-                        $content_image_count > 0 ? 'u-align-right' : 'u-align-left',
+                        $content_image_count > 0
+                            ? 'u-align-right'
+                            : 'u-align-left',
                     ]
                 );
                 $content_component = new Module(
                     [
                         'content-image__content',
-                        $content_image_count > 0 ? 'content-image__content--left' : 'content-image__content--right',
+                        $content_image_count > 0
+                            ? 'content-image__content--left'
+                            : 'content-image__content--right',
                     ],
                     [
                         $spacing['top'],
@@ -87,14 +98,17 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                     data-styles="<?php echo esc_attr( $container_component->styles() ); ?>"
                     class="<?php echo esc_attr( $container_component->class_names() ); ?>">
                     <?php
-                    $image_obj = (object) [
-                        'image' => $image,
-                        'styles' => esc_attr( $image_component->styles() ),
-                        'class_names' => esc_attr( $image_component->class_names() ),
-                        'animation' => 'fade-in',
-                        'animation_duration' => 200,
-                    ];
-                    include( locate_template( '/components/partials-figure.php' ) );
+                    get_template_part(
+                        'components/partials-figure',
+                        null,
+                        array(
+                            'image' => $image,
+                            'styles' => esc_attr( $image_component->styles() ),
+                            'class_names' => esc_attr( $image_component->class_names() ),
+                            'animation' => 'fade-in',
+                            'animation_duration' => 200,
+                        )
+                    );
                     ?>
                     <div
                         data-styles="<?php echo esc_attr( $row_component->styles() ); ?>"
@@ -102,12 +116,15 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                         <div class="l-row__col is-lrg-half">
                             <?php
                             if ( ! empty( $content_editor ) ) :
-                                $content_obj = (object) [
-                                    'styles' => esc_attr( $content_component->styles() ),
-                                    'class_names' => esc_attr( $content_component->class_names() ),
-                                    'content' => $content_editor,
-                                ];
-                                include( locate_template( '/components/partials-content.php' ) );
+                                get_template_part(
+                                    'components/partials-content',
+                                    null,
+                                    array(
+                                        'styles' => esc_attr( $content_component->styles() ),
+                                        'class_names' => esc_attr( $content_component->class_names() ),
+                                        'content' => $content_editor,
+                                    )
+                                );
                             endif;
                             ?>
                         </div>

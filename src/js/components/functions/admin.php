@@ -93,6 +93,14 @@ if ( is_user_logged_in() ) {
     remove_action( 'welcome_panel', 'wp_welcome_panel' );
 }
 
+// De register core block support.
+add_action(
+    'wp_footer',
+    function () {
+        wp_dequeue_style( 'core-block-supports' );
+    }
+);
+
 // Cleanup Wordpress head.
 if ( ! is_admin() ) {
     remove_action( 'wp_head', 'rsd_link' );

@@ -4,8 +4,4 @@
 	list-style-type: decimal;
 
 	@include type-paragraph;
-
-	li::marker {
-		color: color(global, marker);
-	}
 }

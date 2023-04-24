@@ -34,6 +34,7 @@ export class Menu extends ComponentClass {
     navToggle(trigger: Element, nav: Element, focusElem: HTMLElement) {
         const html = <HTMLElement>document.querySelector('html')
         const title = trigger.querySelector('.js-menuTriggerTitle')
+        const innerWidth = window.innerWidth
 
         this.updateState('nav', this.state ? !this.state.nav : false)
 
@@ -53,9 +54,11 @@ export class Menu extends ComponentClass {
                 setTimeout(() => {
                     this.module.classList.add(styles['sub-nav-visible'])
 
-                    if (focusElem) setTimeout(() => {
-                        focusElem.focus()
-                    }, 200)
+                    if (focusElem && innerWidth >= 768) {
+                        setTimeout(() => {
+                            focusElem.focus()
+                        }, 200)
+                    }
                 }, 400)
             }, 200)
 
@@ -65,7 +68,7 @@ export class Menu extends ComponentClass {
             trigger.setAttribute('aria-expanded', 'false')
             trigger.setAttribute('aria-label', `${this.state?.closedText}`)
 
-            if (trigger instanceof HTMLElement) {
+            if (trigger instanceof HTMLElement && innerWidth >= 768) {
                 trigger.focus()
             }
 

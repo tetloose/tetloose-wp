@@ -15,19 +15,32 @@ if ( get_row_layout() == 'full_bleed_video' ) :
         [
             'u-animate-hide',
             $bg_borders['background_color'],
-            $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+            $bg_borders['border_color']
+                ? 'u-border-t ' . $bg_borders['border_color']
+                : '',
         ]
     );
-    ?>
-    <section
-        data-module="FullBleedVideo"
-        data-animation="fade-in"
-        class="<?php echo esc_attr( $video_component->class_names() ); ?>">
-        <div
-            class="js-videoIframe"
-            data-video="<?php echo esc_attr( $content_editor ); ?>"
-            data-size="<?php echo esc_attr( $ratio ); ?>"
-            data-animation="fade-in"></div>
-    </section>
-    <?php
+    if ( ! empty( $content_editor ) ) :
+        ?>
+        <section
+            data-module="FullBleedVideo"
+            data-animation="fade-in"
+            class="<?php echo esc_attr( $video_component->class_names() ); ?>">
+            <?php
+            get_template_part(
+                'components/partials-video',
+                null,
+                array(
+                    'styles' => '',
+                    'class_names' => '',
+                    'video' => esc_attr( $content_editor ),
+                    'ratio' => esc_attr( $ratio ),
+                    'animation' => 'fade-in',
+                    'animation_duration' => 200,
+                )
+            );
+            ?>
+        </section>
+        <?php
+    endif;
 endif;

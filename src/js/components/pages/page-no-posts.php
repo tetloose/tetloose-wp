@@ -22,22 +22,28 @@ $no_posts_component = new Module(
         $no_posts_styles['btn_styles']['hover_color'],
         $no_posts_styles['btn_styles']['border_hover_color'],
         $no_posts_styles['btn_styles']['background_hover_color'],
+        $no_posts_styles['selection']['color'],
+        $no_posts_styles['selection']['background_color'],
     ]
 );
-?>
-<main class="<?php echo esc_attr( $no_posts_component->class_names() ); ?>">
-    <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-sml u-spacing-b-sml">
-        <div class="l-row__col is-med-2-third">
-            <?php if ( ! empty( $no_posts ) ) : ?>
-                <?php
-                $content_obj = (object) [
-                    'styles' => '',
-                    'class_names' => '',
-                    'content' => $no_posts,
-                ];
-                include( locate_template( '/components/partials-content.php' ) );
-                ?>
-            <?php endif; ?>
-        </div>
-    </section>
-</main>
+if ( ! empty( $no_posts ) ) :
+    ?>
+    <main class="<?php echo esc_attr( $no_posts_component->class_names() ); ?>">
+        <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-lrg u-spacing-b-lrg">
+            <div class="l-row__col is-med-2-third">
+            <?php
+                get_template_part(
+                    'components/partials-content',
+                    null,
+                    array(
+                        'styles' => '',
+                        'class_names' => '',
+                        'content' => $no_posts,
+                    )
+                );
+            ?>
+            </div>
+        </section>
+    </main>
+    <?php
+endif;

@@ -5,30 +5,43 @@
  * @package Tetloose-Theme
  */
 
-if ( ! empty( $logo_obj ) ) :
-    if ( ! empty( $logo_obj->href ) ) {
+if ( ! empty( $args ) ) :
+    if ( ! empty( $args['href'] ) ) {
         $el = 'a';
     } else {
         $el = 'div';
     }
+    $logo_component = new Module(
+        [
+            $args['styles'],
+        ],
+        [
+            $args['class_names'],
+        ]
+    );
     ?>
         <<?php echo esc_attr( $el ); ?>
-            data-animation="<?php echo esc_attr( $logo_obj->animation ); ?>"
-            <?php if ( ! empty( $logo_obj->href ) ) : ?>
-                href="<?php echo esc_url( $logo_obj->href ); ?>"
+            data-styles="<?php echo esc_attr( $logo_component->styles() ); ?>"
+            class="<?php echo esc_attr( $logo_component->class_names() ); ?>"
+            data-animation="<?php echo esc_attr( $args['animation'] ); ?>"
+            <?php if ( ! empty( $args['href'] ) ) : ?>
+                href="<?php echo esc_url( $args['href'] ); ?>"
             <?php endif; ?>
-            tab-index="0"
-            data-styles="<?php echo esc_attr( $logo_obj->styles ); ?>"
-            class="<?php echo esc_attr( $logo_obj->class_names ); ?>">
+            <?php if ( ! empty( $el ) && $el === 'div' ) : ?>
+                tab-index="0"
+            <?php endif; ?>>
             <?php
-            $image_obj = (object) [
-                'image' => $logo_obj->image,
-                'styles' => esc_attr( $logo_obj->figure_styles ),
-                'class_names' => esc_attr( $logo_obj->figure_class_names ),
-                'animation' => esc_attr( $logo_obj->animation ),
-                'animation_duration' => esc_attr( $logo_obj->animation_duration ),
-            ];
-            include( locate_template( '/components/partials-figure.php' ) );
+            get_template_part(
+                'components/partials-figure',
+                null,
+                array(
+                    'image' => $args['image'],
+                    'styles' => esc_attr( $args['figure_styles'] ),
+                    'class_names' => esc_attr( $args['figure_class_names'] ),
+                    'animation' => esc_attr( $args['animation'] ),
+                    'animation_duration' => esc_attr( $args['animation_duration'] ),
+                )
+            );
             ?>
         </<?php echo esc_attr( $el ); ?>>
     <?php

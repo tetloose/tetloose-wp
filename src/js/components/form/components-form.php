@@ -12,6 +12,7 @@ if ( get_row_layout() == 'form' ) :
     $content_styles = get_sub_field( 'content_styles' );
     $btn_styles = get_sub_field( 'btn_styles' );
     $form_styles = get_sub_field( 'form_styles' );
+    $selection = get_sub_field( 'selection' );
     $form = get_sub_field( 'form' );
     $form_component = new Module(
         [],
@@ -20,7 +21,9 @@ if ( get_row_layout() == 'form' ) :
             $spacing['top'],
             $spacing['bottom'],
             $bg_borders['background_color'],
-            $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+            $bg_borders['border_color']
+                ? 'u-border-t ' . $bg_borders['border_color']
+                : '',
             $content_styles['color'],
             $content_styles['link_color'],
             $content_styles['link_hover_color'],
@@ -38,19 +41,29 @@ if ( get_row_layout() == 'form' ) :
             $btn_styles['hover_color'],
             $btn_styles['border_hover_color'],
             $btn_styles['background_hover_color'],
+            $selection['color'],
+            $selection['background_color'],
         ]
     );
-    ?>
-    <?php if ( ! empty( $form ) ) : ?>
+    if ( ! empty( $form ) ) :
+        ?>
         <section
             data-module="Content"
             data-animation="fade-in"
             class="<?php echo esc_attr( $form_component->class_names() ); ?>">
             <div class="l-row">
                 <div class="l-row__col">
-                    <div class="u-form">
-                        <?php echo do_shortcode( $form ); ?>
-                    </div>
+                    <?php
+                        get_template_part(
+                            'components/partials-form',
+                            null,
+                            array(
+                                'styles' => '',
+                                'class_names' => '',
+                                'form' => $form,
+                            )
+                        );
+                    ?>
                 </div>
             </div>
         </section>

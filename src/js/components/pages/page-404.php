@@ -22,22 +22,28 @@ $error_page_component = new Module(
         $error_styles['btn_styles']['hover_color'],
         $error_styles['btn_styles']['border_hover_color'],
         $error_styles['btn_styles']['background_hover_color'],
+        $error_styles['selection']['color'],
+        $error_styles['selection']['background_color'],
     ]
 );
-?>
-<main class="<?php echo esc_attr( $error_page_component->class_names() ); ?>">
-    <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-sml u-spacing-b-sml">
-        <div class="l-row__col is-med-2-third">
-            <?php if ( ! empty( $error_page ) ) : ?>
+if ( ! empty( $error_page ) ) :
+    ?>
+    <main class="<?php echo esc_attr( $error_page_component->class_names() ); ?>">
+        <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-lrg u-spacing-b-lrg">
+            <div class="l-row__col is-med-2-third">
                 <?php
-                $content_obj = (object) [
-                    'styles' => '',
-                    'class_names' => '',
-                    'content' => $error_page,
-                ];
-                include( locate_template( '/components/partials-content.php' ) );
+                get_template_part(
+                    'components/partials-content',
+                    null,
+                    array(
+                        'styles' => '',
+                        'class_names' => '',
+                        'content' => $error_page,
+                    )
+                );
                 ?>
-            <?php endif; ?>
-        </div>
-    </section>
-</main>
+            </div>
+        </section>
+    </main>
+    <?php
+endif;

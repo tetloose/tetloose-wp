@@ -2,7 +2,6 @@
 .u-table {
 	width: 100%;
 	border-style: solid;
-	border-color: color(global, grey);
 
 	@include mq(vars(brakepoint, med)) {
 		border-collapse: collapse;
@@ -19,12 +18,36 @@
 		@include mq(vars(brakepoint, med)) {
 			border-width: 1px 0 0;
 			border-style: solid;
-			border-color: color(global, grey);
 		}
 
 		@include mq(vars(brakepoint, med), max-width) {
 			display: block;
 			width: 100%;
+			border-width: 0;
+		}
+
+		.u-dark & {
+			border-color: $dark;
+		}
+
+		.u-light & {
+			border-color: $light;
+		}
+
+		.u-color-1 & {
+			border-color: $color-1;
+		}
+
+		.u-color-2 & {
+			border-color: $color-2;
+		}
+
+		.u-color-3 & {
+			border-color: $color-3;
+		}
+
+		.u-color-4 & {
+			border-color: $color-4;
 		}
 	}
 
@@ -39,7 +62,6 @@
 	th,
 	td {
 		border-style: solid;
-		border-color: color(global, grey);
 		text-align: inherit;
 
 		@include type-paragraph;
@@ -65,6 +87,30 @@
 		&.text-align-center {
 			text-align: center;
 		}
+
+		.u-dark & {
+			border-color: $dark;
+		}
+
+		.u-light & {
+			border-color: $light;
+		}
+
+		.u-color-1 & {
+			border-color: $color-1;
+		}
+
+		.u-color-2 & {
+			border-color: $color-2;
+		}
+
+		.u-color-3 & {
+			border-color: $color-3;
+		}
+
+		.u-color-4 & {
+			border-color: $color-4;
+		}
 	}
 
 	td {
@@ -79,9 +125,17 @@
 		@include mq(vars(brakepoint, med), max-width) {
 			display: none;
 		}
+
+		@include mq(vars(brakepoint, med)) {
+			@include f-heading-bold;
+		}
 	}
 
 	&__th {
+		@include mq(vars(brakepoint, med), max-width) {
+			@include f-heading-bold;
+		}
+
 		@include mq(vars(brakepoint, med)) {
 			display: none;
 		}

@@ -11,11 +11,5 @@
  * @param string $log value passed is a string.
  **/
 function console_log( $log ) {
-    $output = $log;
-
-    if ( is_array( $output ) ) {
-        $output = implode( ',', $output );
-    }
-
-    echo "<script>console.log('Debug Objects: " . esc_attr( $output ) . "' );</script>";
+    echo "<script>console.log('" . esc_attr( $log ) . "');</script>";
 }

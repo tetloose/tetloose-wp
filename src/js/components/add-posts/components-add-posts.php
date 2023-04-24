@@ -14,12 +14,15 @@ if ( get_row_layout() == 'add_posts' ) :
     $pagination_spacing = get_sub_field( 'pagination_spacing' );
     $pagination_bg_borders = get_sub_field( 'pagination_bg_borders' );
     $pagination_content_styles = get_sub_field( 'pagination_content_styles' );
+    $pagination_selection = get_sub_field( 'pagination_selection' );
     $posts_component = new Module(
         [],
         [
             'u-animate-hide',
             $bg_borders['background_color'],
-            $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+            $bg_borders['border_color']
+                ? 'u-border-t ' . $bg_borders['border_color']
+                : '',
             $spacing['top'],
             $spacing['bottom'],
             'l-row',
@@ -29,11 +32,15 @@ if ( get_row_layout() == 'add_posts' ) :
     );
     $excerpt_component = new Module(
         [
-            is_archive() ? 'is-archive' : 'is-component',
+            is_archive()
+                ? 'is-archive'
+                : 'is-component',
         ],
         [
             'l-row__col',
-            is_archive() ? 'is-lrg-half' : 'is-lrg-1-third',
+            is_archive()
+                ? 'is-lrg-half'
+                : 'is-lrg-1-third',
             'no-gutter',
         ]
     );
@@ -45,11 +52,15 @@ if ( get_row_layout() == 'add_posts' ) :
             $pagination_spacing['top'],
             $pagination_spacing['bottom'],
             $pagination_bg_borders['background_color'],
-            $pagination_bg_borders['border_color'] ? 'u-border-t ' . $pagination_bg_borders['border_color'] : '',
+            $pagination_bg_borders['border_color']
+                ? 'u-border-t ' . $pagination_bg_borders['border_color']
+                : '',
             $pagination_content_styles['color'],
             $pagination_content_styles['link_color'],
             $pagination_content_styles['link_hover_color'],
             $pagination_content_styles['link_background_hover_color'],
+            $pagination_selection['color'],
+            $pagination_selection['background_color'],
         ]
     );
     ?>
@@ -62,27 +73,36 @@ if ( get_row_layout() == 'add_posts' ) :
         if ( is_archive() ) :
             while ( have_posts() ) :
                 the_post();
-                $excerpt_obj = (object) [
-                    'styles' => esc_attr( $excerpt_component->styles() ),
-                    'class_names' => esc_attr( $excerpt_component->class_names() ),
-                ];
-                include( locate_template( '/components/excerpt-component.php' ) );
+
+                get_template_part(
+                    'components/excerpt-component',
+                    null,
+                    array(
+                        'styles' => esc_attr( $excerpt_component->styles() ),
+                        'class_names' => esc_attr( $excerpt_component->class_names() ),
+                    )
+                );
             endwhile;
-            $pagination_obj = (object) [
-                'title' => $_title ? $_title : 'Pagination',
-                'styles' => esc_attr( $pagination_component->styles() ),
-                'class_names' => esc_attr( $pagination_component->class_names() ),
-            ];
-            pagination( $pagination_obj );
+            pagination(
+                array(
+                    'title' => $_title ? $_title : 'Pagination',
+                    'styles' => esc_attr( $pagination_component->styles() ),
+                    'class_names' => esc_attr( $pagination_component->class_names() ),
+                )
+            );
         elseif ( ! empty( $_posts ) ) :
             // phpcs:disable
             foreach ( $_posts as $post ) :
                 setup_postdata( $post );
-                $excerpt_obj = (object) [
-                    'styles' => esc_attr( $excerpt_component->styles() ),
-                    'class_names' => esc_attr( $excerpt_component->class_names() ),
-                ];
-                include( locate_template( '/components/excerpt-component.php' ) );
+
+                get_template_part(
+                    'components/excerpt-component',
+                    null,
+                    array(
+                        'styles' => esc_attr( $excerpt_component->styles() ),
+                        'class_names' => esc_attr( $excerpt_component->class_names() ),
+                    )
+                );
             endforeach;
             // phpcs:enable
             wp_reset_postdata();

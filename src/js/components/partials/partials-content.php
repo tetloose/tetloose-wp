@@ -5,21 +5,21 @@
  * @package Tetloose-Theme
  */
 
-$content_component = new Module(
-    [
-        $content_obj->styles,
-    ],
-    [
-        'u-content',
-        $content_obj->class_names,
-    ]
-);
-if ( ! empty( $content_obj ) ) :
+if ( ! empty( $args ) ) :
+    $content_component = new Module(
+        [
+            $args['styles'],
+        ],
+        [
+            'u-content',
+            $args['class_names'],
+        ]
+    );
     ?>
     <div
         data-styles="<?php echo esc_attr( $content_component->styles() ); ?>"
         class="<?php echo esc_attr( $content_component->class_names() ); ?>">
-        <?php echo wp_kses_post( $content_obj->content ); ?>
+        <?php echo wp_kses_post( $args['content'] ); ?>
     </div>
     <?php
 endif;

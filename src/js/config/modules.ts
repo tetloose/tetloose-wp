@@ -15,5 +15,6 @@ export const modules = {
     AddPosts: () => import(/* webpackChunkName: "add-posts" */ '../components/add-posts/add-posts.component'),
     Excerpt: () => import(/* webpackChunkName: "excerpt" */ '../components/excerpt/excerpt.component'),
     PostNav: () => import(/* webpackChunkName: "post-nav" */ '../components/post-nav/post-nav.component'),
-    SongKick: () => import(/* webpackChunkName: "song-kick" */ '../components/song-kick/song-kick.component')
+    SongKick: () => import(/* webpackChunkName: "song-kick" */ '../components/song-kick/song-kick.component'),
+    AnimatedBanner: () => import(/* webpackChunkName: "animated-banner" */ '../components/animated-banner/animated-banner.component')
 }

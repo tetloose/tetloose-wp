@@ -13,9 +13,12 @@ $nav_component = new Module(
         $navigation_styles['animation_color'],
     ],
     [
+        'u-animate-hide',
         'u-align-middle',
         'u-align-center',
         $navigation_styles['bg_borders']['background_color'],
+        $navigation_styles['selection']['color'],
+        $navigation_styles['selection']['background_color'],
     ],
 );
 $sub_nav_component = new Module(
@@ -44,19 +47,28 @@ if ( ! empty( $header_navigation ) ) :
         <?php if ( ! empty( $header_navigation['menu_title_open'] ) ) : ?>
             data-open="<?php echo esc_attr( $header_navigation['menu_title_open'] ); ?>"
         <?php endif; ?>>
-        <nav
-            data-styles="<?php echo esc_attr( $nav_component->styles() ); ?>"
-            class="<?php echo esc_attr( $nav_component->class_names() ); ?>"
-            aria-expanded="false">
+        <?php
+        if ( ! empty( $header_navigation['menu']->ID ) ) :
+            ?>
+            <nav
+                data-styles="<?php echo esc_attr( $nav_component->styles() ); ?>"
+                class="<?php echo esc_attr( $nav_component->class_names() ); ?>"
+                aria-expanded="false">
                 <?php
-                $navigation_obj = (object) [
-                    'id' => $header_navigation['menu']->ID,
-                    'styles' => $sub_nav_component->styles(),
-                    'class_names' => $sub_nav_component->class_names(),
-                ];
-                include( locate_template( '/components/navigation-component.php' ) );
+                get_template_part(
+                    'components/navigation-component',
+                    null,
+                    array(
+                        'id' => $header_navigation['menu']->ID,
+                        'styles' => $sub_nav_component->styles(),
+                        'class_names' => $sub_nav_component->class_names(),
+                    )
+                );
                 ?>
-        </nav>
+            </nav>
+            <?php
+        endif;
+        ?>
         <button
             aria-expanded="false"
             aria-label="Open navigation"
