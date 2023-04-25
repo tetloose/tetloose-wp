@@ -35,5 +35,7 @@ node_modules/
 *.sql
 package/*.zip
 
-tetloose-core
+
 tetloose-theme
+tetloose-wp-pattern-library
+pattern-library
