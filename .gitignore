@@ -1,3 +1,4 @@
+tetloose-theme
 web/wp
 web/app/plugins/*
 !web/app/plugins/index.php
@@ -34,8 +35,3 @@ node_modules/
 .DS_Store
 *.sql
 package/*.zip
-
-
-tetloose-theme
-tetloose-wp-pattern-library
-pattern-library

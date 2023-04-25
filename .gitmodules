@@ -1,0 +1,3 @@
+[submodule "pattern-library"]
+	path = pattern-library
+	url = git@github.com:tetloose/tetloose-wp-pattern-library.git
