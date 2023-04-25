@@ -2,16 +2,22 @@
 
 Build an icon pack using [icomoon.io](https://icomoon.io/), download your icon pack.
 
-Extract from the zip
+## Extract from the zip
 
 1. selection.json
-2. rename the font files to icons.{svg,ttf,woff}
+2. Rename the font files to **icons.{svg,ttf,woff}**
 
-Place these files in `src/icons`, see `src/scss/utils/icons.scss`
+Place `selection.json` and `icons.{svg,ttf,woff}` into the folder `src/icons`.
+
+`src/scss/utils/icons.scss` is auto generated.
 
 ## MARKUP
 
 `<i class="u-icon-arrow-left"><i>`
+
+## Editing
+
+Upload `selection.json` to [icomoon.io](https://icomoon.io/), edit your icons, repeate the above process.
 
 # Navigation
 
