@@ -1,6 +1,6 @@
 # Favicons
 
-Update `src/favicon/favicon.png`, favicons will be generated `web/app/themes/tetloose-theme/assets/img/meta`.
+Update `src/favicon/favicon.png`, favicons will be generated `web/app/themes/tetloose-theme/favicons`.
 
 Favicons are included in the head inside the theme -> `web/app/themes/tetloose-theme/inc/header/head/head-favicons.php`.
 

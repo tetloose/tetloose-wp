@@ -1,6 +1,6 @@
 <?php
 /**
- * Footer Load scripts
+ * Wrapper - Footer Scripts
  *
  * @package Tetloose-Theme
  */

@@ -1,5 +1,8 @@
 import path from 'path'
 import notification from './tasks/notification'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 const isDev = process.env.ENV === 'dev'
 const base = path.resolve(__dirname, '../')
 
@@ -10,7 +13,7 @@ module.exports = {
         output: `${base}/web/app/themes/tetloose-theme/assets`
     },
     serve: {
-        proxy: 'tetloose-wp.test'
+        proxy: process.env.PROXY
     },
     scripts: {
         files: `${base}/src/**/*.{ts,js}`,
@@ -30,8 +33,9 @@ module.exports = {
         files: `${base}/src/scss/**/*.scss`,
         appEntry: `${base}/src/scss/app.scss`,
         tinymceEntry: `${base}/src/scss/tinymce.scss`,
-        componentEntry: `${base}/src/js/components/**/*.scss`,
         printEntry: `${base}/src/scss/print.scss`,
+        wordpressEntry: `${base}/src/scss/wordpress.scss`,
+        componentEntry: `${base}/src/js/components/**/*.scss`,
         output: `${base}/web/app/themes/tetloose-theme/assets/css`,
         error: () => notification('❌ STYLES ❌', 'Error', 'Check Terminal')
     },

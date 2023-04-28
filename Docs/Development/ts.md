@@ -2,13 +2,13 @@
 
 Entry `src/app.ts`
 
-This will load in components, figures, iframes and the intersection observer.
+This will load in components, figures, iframes, videoIframes and the intersection observer.
 
 # Observer
 
 `src/config/observer`
 
-This will observe the document, if a component, figure or iframe hits the intersection it will load it.
+This will observe the document, if a component, figure, iframe or videoIframe hits the intersection it will load it.
 
 ## Components
 
@@ -16,66 +16,48 @@ Component sit in `src/js/components`.
 
 ### PHP Component
 
-PHP files are moved to `web/app/themes/tetloose-theme/inc/components`.
+- components-{component-name}.php
+- {component-name}-component.php
 
-For ACF Flexible content we need to prefix the component with **components-**{component-name}.php. This will let the component loader `web/app/themes/tetloose-theme/inc/components/component-loader.php` know this is a flexible content component.
+These components require a few attributes
 
-Wordpress requires other prefixes for **get_template_part** to work. e.g.
+- `data-module="ComponentName"` (optional)
+- `data-animation="animation-name"` (optional)
+- `data-styles="scss-module-class-name"` (optional)
+- `class="class-names"` (optional)
 
-**header-**{component-name}.php -> `get_template_part( '/inc/components/header', 'component-name' );`.
+To add custom animations see: `src/scss/utils/animate.scss`.
 
 ### TS Component
-
-{component-name}.component.ts
-
-### SCSS Module (optional)
-
-{component-name}.module.scss
-
-### SCSS File (optional)
-
-{component-name}.styles.scss
-
-### Test file
-
-{component-name}.test.scss
-
-The folder structure will look like this
-
-```
-{component-name}
-    components-{component-name}.php
-    {component-name}.component.ts
-    {component-name}.module.scss
-    {component-name}.styles.scss
-    {component-name}.test.ts
-```
-
-## PHP Component
-
-These components markup need a data attribute of
-
-- `data-module="ComponentName"`
-- `data-animation="animation-name"`
-
-## TS Component
 
 `{component-name}.component.ts`
 
 This is a Class with the same name as data-module, e.g. `ComponentName`
 
 ```
-export class ComponentName {
-    module: HTMLElement
-    animation?: string
+import styles from './component-name.module.scss'
+import { ComponentClass } from '../../utilities'
 
+export class ComponentName extends ComponentClass {
     constructor(module: HTMLElement) {
-        this.module = module
+        super(module)
+        this.state = {
+            position: 0
+        }
+        this.cssModule(this.module, styles)
+
+        this.myCustomFunction()
+    }
+
+    myCustomFunction(): void {
+        console.log('my custom function')
     }
 }
 
 export default (module: HTMLElement) => new ComponentName(module)
 ```
+
+See `src/js/utilities/component-class.utilities.ts` for the extended Class.
 
 We need to now tell Webpack that we want to create a dynamic module for this component.
 
@@ -83,44 +65,42 @@ add a new key value to `src/js/config/modules.ts` object.
 
 ```
 export const modules = {
-    ComponentName: () => import(/* webpackChunkName: "component-name" */ '../components/component-name/component-name.component') // <---- new  key value
-    SingleColumnContent: () => import(/* webpackChunkName: "single-column-content" */ '../components/single-column-content/single-column-content.component')
+    ComponentName: () => import(/* webpackChunkName: "component-name" */ '../components/component-name/component-name.component')
 }
 ```
 
-Once this Component hits the intersection it will load its assets.
+### SCSS Module (optional)
 
-## Figures
+`{component-name}.module.scss`
 
-Markup for figures should follow this pattern for the intersection to pick it up and load it.
+Import this file into `component-name.component.ts`: `import styles from './component-name.module.scss'`
 
-```
-<figure
-    class="u-figure js-figure u-skeleton-figure"
-    data-animation="fade-in"
-    data-duration="200"
-    data-alt="This is alt text"
-    data-src="https://picsum.photos/400/500"
-    data-srcset="https://picsum.photos/700/800 1440w, https://picsum.photos/600/700 1024w, https://picsum.photos/500/600 960w, https://picsum.photos/400/500 480w"
-    data-size="cover"
-    data-rest="title='test title' data-anything='so on and so forth'"
-></figure>
+Reference the styles in the Class Constructor:
 
 ```
-
-## iFrames
-
-Markup for iFrames should follow this pattern for the intersection to pick it up and load it.
-
-```
-<div
-    class="u-media ratio-16x9 js-iframe u-skeleton-media"
-    data-src="https://www.youtube.com/embed/j6JppVyKE-k?autoplay=1&mute=1"
-    data-rest="title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen">
-</div>
-
+    constructor(module: HTMLElement) {
+        this.cssModule(this.module, styles)
+    }
 ```
 
-# Navigation
+Reference the style names in your markup `data-styles="class-name"`, add **.class-name {background-color: hotpink}** to `./component-name.module.scss`.
 
-[SCSS >>](scss.md)
+The cssModule function will loop though and apply the css module class's to any element with this data-attribute.
+
+Webpack will auto generate a TypeScript Definition file for each class name added. `component-name.module.scss.d.ts`.
+
+To use the application variables, mixins, colours, fonts and typography you must include `@import 'path-to/settings';` within `component-name.module.scss`.
+
+### SCSS (optional)
+
+`{component-name}.styles.scss`
+
+For none css modules just include a style sheet in your ts file, it will load these styles. The nameing convention needs to be `{component-name}.styles.scss`, this will tell Webpack to treat this file differently from a CSS Module.
+
+### Tests
+
+`{component-name}.test.ts`
+
+Jest is set up for testing, the nameing convention is `{component-name}.test.ts`. See [Jest Docs >>](https://jestjs.io/docs/getting-started).
+
+[Utilities >>](utilities.md)

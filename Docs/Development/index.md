@@ -1,10 +1,7 @@
 ## Development
 
-Styles and JS are **Enqueue** from `web/app/themes/tetloose-theme/inc/functions/enqueue.php`.
-
-# Navigation
-
-- [IMAGES >>](images.md)
+- [WEBPACK CHUNKS >>](webpack-chunks.md)
+- [COMPONENTS >>](components.md)
 - [ICONS >>](icons.md)
 - [FAVICONS >>](favicons.md)
 - [TS >>](ts.md)

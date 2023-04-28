@@ -22,9 +22,3 @@ export function loadVideoIframe(target: HTMLElement, options?: DOMStringMap): vo
         }, options.duration ? parseInt(options.duration) * 2 : 400)
     }
 }
-
-// <div
-//     class="js-videoIframe"
-//     data-video="<?php echo esc_attr( $content_editor ); ?>"
-//     data-size="ratio-16x9"
-//     data-animation="fade-in"></div>

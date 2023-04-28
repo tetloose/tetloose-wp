@@ -12,6 +12,7 @@ if ( ! empty( $args ) ) :
         ],
         [
             'js-videoIframe',
+            'u-skeleton-media',
             $args['class_names'],
         ]
     );

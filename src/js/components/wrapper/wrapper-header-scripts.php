@@ -1,6 +1,6 @@
 <?php
 /**
- * Header - Scripts
+ * Wrapper - Header Scripts
  *
  * @package Tetloose-Theme
  */

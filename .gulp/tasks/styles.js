@@ -57,12 +57,9 @@ const tinymceFunc = () => {
             since: lastRun(tinymceFunc)
         })
         .pipe(plumber({ errorHandler: config.error }))
-        .pipe(gulpif(config.mode, init()))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(gulpif(config.mode, write('.')))
         .pipe(gulpif(!config.mode, cleanCss()))
-        .pipe(gulpif(!config.mode, hash(hashObj)))
         .pipe(dest(config.output))
         .pipe(gulpif(config.mode, filter(['**/*.css'])))
         .pipe(gulpif(config.mode, reload({
@@ -79,6 +76,21 @@ const printFunc = () => {
         .pipe(autoprefixer())
         .pipe(gulpif(!config.mode, cleanCss()))
         .pipe(gulpif(!config.mode, hash(hashObj)))
+        .pipe(dest(config.output))
+        .pipe(gulpif(config.mode, filter(['**/*.css'])))
+        .pipe(gulpif(config.mode, reload({
+            stream: true
+        })))
+}
+
+const wordpressFunc = () => {
+    return src([config.wordpressEntry], {
+            since: lastRun(wordpressFunc)
+        })
+        .pipe(plumber({ errorHandler: config.error }))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(gulpif(!config.mode, cleanCss()))
         .pipe(dest(config.output))
         .pipe(gulpif(config.mode, filter(['**/*.css'])))
         .pipe(gulpif(config.mode, reload({
@@ -103,5 +115,10 @@ export const tinymce = (cb) => {
 
 export const print = (cb) => {
     printFunc()
+    cb()
+}
+
+export const wordpress = (cb) => {
+    wordpressFunc()
     cb()
 }

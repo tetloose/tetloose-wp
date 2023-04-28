@@ -3,7 +3,7 @@ import { reload } from './serve.js'
 import { favicon } from './favicons.js'
 import { iconMoveFont, iconGenerate } from './icons.js'
 import { scriptsLint, scriptsBundle } from './scripts.js'
-import { stylesLint, styles, tinymce, print } from './styles.js'
+import { stylesLint, styles, tinymce, print, wordpress } from './styles.js'
 import { phpLint, phpComponents } from './php.js'
 import config from '../config'
 
@@ -19,7 +19,8 @@ const monitor = (cb) => {
             stylesLint,
             styles,
             tinymce,
-            print
+            print,
+            wordpress
         )
     )
     watch([config.icons.fonts, config.icons.json],
@@ -28,8 +29,6 @@ const monitor = (cb) => {
             iconGenerate,
             stylesLint,
             styles,
-            tinymce,
-            print,
             config.icons.success
         )
     )

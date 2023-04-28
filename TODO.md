@@ -30,10 +30,26 @@
 
 Release on Github
 
+Submodules
+theme + scss + pattern library
+
 
 
 symlink on setup
 ```
 ln -s ~/Sites/Clients/Fractures/TetlooseWP/web/app/themes/tetloose-theme/ .
-ln -s ~/Sites/Clients/Fractures/TetlooseWP/web/app/mu-plugins/tetloose-core .
 ```
+
+
+Pattern Library
+
+Add readme for each component
+
+Tetloose WP
+
+Finish docs
+create deploy theme
+
+
+scss admin styles
+scss frontend styles

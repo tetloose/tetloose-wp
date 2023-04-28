@@ -26,6 +26,7 @@ if [ "$ENV_SWITCH" = "0" ]; then
     eval "sh ./toolkit $1"
 elif [ "$ENV_SWITCH" = "1" ]; then
     echo "Follow promps."
+    read -p "PROXY: " PROXY
     read -p "Production SSH: " PSSH
     read -p "Production Directory: " PDIR
     read -p "Production URL: " PURL
@@ -44,6 +45,9 @@ elif [ "$ENV_SWITCH" = "1" ]; then
     read -p "Wordpress Environment: " WENV
     read -p "Wordpress Home: " WHOME
     eval "touch $ENV"
+    echo "# DEVELOPMENT PROXY" >> $ENV
+    echo "PROXY=$PROXY" >> $ENV
+    echo "" >> $ENV
     echo "# TOOLKIT VARIABLES" >> $ENV
     echo "TOOLKIT_PRODUCTION_SSH=$PSSH" >> $ENV
     echo "TOOLKIT_PRODUCTION_DIR=$PDIR" >> $ENV

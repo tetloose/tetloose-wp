@@ -23,9 +23,3 @@ export function loadIframe(target: HTMLElement, options?: DOMStringMap): void {
         }
     }
 }
-
-// <div
-//     class="u-media ratio-16x9 js-iframe u-skeleton-media"
-//     data-src="https://www.youtube.com/embed/j6JppVyKE-k?autoplay=1&mute=1"
-//     data-rest="title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen">
-// </div>

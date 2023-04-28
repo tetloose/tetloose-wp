@@ -6,7 +6,7 @@
  **/
 
 /**
- * Function Pull in scf global styles
+ * Function Pull in acf global styles
  **/
 function global_styles() {
     $fonts = get_field( 'fonts', 'option' );
@@ -97,15 +97,19 @@ function styles() {
     );
 
     $ver = null;
+
     wp_dequeue_style( 'classic-theme-styles' );
+
     foreach ( get_files( '/assets/css', [ 'print', 'app' ] ) as $file ) {
-        wp_enqueue_style(
-            $file,
-            get_stylesheet_directory_uri() . '/assets/css/' . $file,
-            array(),
-            $ver,
-            false
-        );
+        if ( ! str_contains( $file, '.map' ) ) {
+            wp_enqueue_style(
+                $file,
+                get_stylesheet_directory_uri() . '/assets/css/' . $file,
+                array(),
+                $ver,
+                false
+            );
+        }
     }
 }
 
@@ -193,4 +197,15 @@ function tetloose_global_admin_styles() {
             }
         </style>
     ';
+}
+
+// Dequeue footer style.
+add_action( 'wp_footer', 'wp_footer_dequeue_style' );
+
+/**
+ * Footer hook,
+ * Dequeue footer style.
+ **/
+function wp_footer_dequeue_style() {
+    wp_dequeue_style( 'core-block-supports' );
 }

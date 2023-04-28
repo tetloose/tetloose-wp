@@ -33,5 +33,5 @@ if ( ! empty( $args ) ) :
             <?php echo esc_attr( $args['image']['sizes']['lrg'] ); ?> 1024w,
             <?php echo esc_attr( $args['image']['sizes']['med'] ); ?> 768w,
             <?php echo esc_attr( $args['image']['sizes']['sml'] ); ?> 320w"
-    ></figure>
+        data-rest="<?php echo esc_attr( $args['rest'] ); ?>"></figure>
 <?php endif; ?>

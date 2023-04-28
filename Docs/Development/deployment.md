@@ -12,7 +12,7 @@ See [SSH](ssh.md) for more info
 
 ## Symlink Project folder
 
-If you don't have access to document roots in your hosting you may need to symlink the project, the example below uses a document root of `public`
+If you don't have access to document roots in your hosting you may need to symlink the project, the example below uses a document root of `public`.
 
 1. `ssh project-name`
 2. `mv public public-bak`
@@ -34,7 +34,5 @@ This will first run tests, if they pass, it will:
 7. Re apply the stash
 
 # Navigation
-
-## Setup
 
 [<< BACK TO DEVELOPMENT](index.md)

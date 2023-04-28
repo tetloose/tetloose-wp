@@ -13,8 +13,6 @@ function admin_replace_wp_footer() {
     echo '<p>Built by <a href="https://www.tetloose.com" target="_blank">Theme by Tetloose</a></p>';
 }
 
-add_filter( 'admin_footer_text', 'admin_replace_wp_footer' );
-
 /**
  * Hide admin items from none developers.
  **/
@@ -87,21 +85,42 @@ function admin_remove_items() {
     }
 }
 
+/**
+ * Redirect user to theme settings.
+ **/
+function admin_redirect_theme_settings() {
+    wp_redirect( admin_url( 'admin.php?page=theme-settings' ) );
+}
+
+/**
+ * Redirect user to theme settings if wp-admin in url.
+ **/
+function admin_login_redirect_theme_settings() {
+    return admin_url( 'admin.php?page=theme-settings' );
+}
+
+/**
+ * Wordpress styles
+ **/
+function wordpress_styles() {
+    $ver = null;
+
+    wp_enqueue_style(
+        'wordpress',
+        get_stylesheet_directory_uri() . '/assets/css/wordpress.css',
+        array(),
+        $ver,
+        false
+    );
+}
+
+// Cleanup Wordpress head.
 if ( is_user_logged_in() ) {
     add_action( 'wp_head', 'admin_frontend_styles' );
     add_action( 'admin_init', 'admin_remove_items' );
     remove_action( 'welcome_panel', 'wp_welcome_panel' );
 }
 
-// De register core block support.
-add_action(
-    'wp_footer',
-    function () {
-        wp_dequeue_style( 'core-block-supports' );
-    }
-);
-
-// Cleanup Wordpress head.
 if ( ! is_admin() ) {
     remove_action( 'wp_head', 'rsd_link' );
     remove_action( 'wp_head', 'wp_generator' );
@@ -125,20 +144,8 @@ if ( ! is_admin() ) {
     add_filter( 'use_default_gallery_style', '__return_false' );
 }
 
-/**
- * Redirect user to theme settings.
- **/
-function admin_redirect_theme_settings() {
-    wp_redirect( admin_url( 'admin.php?page=theme-settings' ) );
-}
-
+// Filter and action hooks.
+add_filter( 'admin_footer_text', 'admin_replace_wp_footer' );
 add_action( 'load-index.php', 'admin_redirect_theme_settings' );
-
-/**
- * Redirect user to theme settings if wp-admin in url.
- **/
-function admin_login_redirect_theme_settings() {
-    return admin_url( 'admin.php?page=theme-settings' );
-}
-
 add_filter( 'login_redirect', 'admin_login_redirect_theme_settings', 10, 3 );
+add_action( 'login_enqueue_scripts', 'wordpress_styles' );

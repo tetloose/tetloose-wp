@@ -1,5 +1,9 @@
 # ENV
 
+## DEVELOPMENT PROXY
+
+This will be the linked project i.e. **project-name.test**.
+
 ## TOOLKIT VARIABLES
 
 These variables are used in the shell script `toolkit`. URLs are used to search replace fields in the database, it's fine to set these as // if both local, production and staging use https, other wise prefex with http:// https://.
@@ -39,4 +43,4 @@ You have to generate your own keys, goto [Salts](https://roots.io/salts.html) co
 
 ## Navigation
 
-[DEVELOPMENT >>](../Development/index.md)
+[COMMANDS >>](../commands.md)

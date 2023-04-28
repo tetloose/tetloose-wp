@@ -7,7 +7,7 @@ Another option is to use [Trellis](https://roots.io/trellis/docs/installation/).
 ## Clone the project
 
 1. `cd ~/project-folder`
-2. `git clone git@github.com:tetloose/tetloose-wp.git`
+2. `git clone git@github.com:tetloose/tetloose-wp.git --recurse-submodules`
 3. `git checkout -b develop`
 
 ## Tetloose ACF

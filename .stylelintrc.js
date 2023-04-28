@@ -332,8 +332,10 @@ module.exports = {
         ]
     },
     ignoreFiles: [
-        'web/app/themes/tetloose-theme/assets/**/*.css',
-        'src/scss/utils/sprite.scss',
+        'src/scss/print.scss',
+        'src/scss/wordpress.scss',
+        'src/scss/tinymce.scss',
+        '**/*.css',
         'src/scss/utils/icons.scss'
     ]
 }

@@ -34,14 +34,3 @@ export function loadFigure(target: HTMLElement, options?: DOMStringMap): void {
 
     }
 }
-
-// <figure
-//     class="u-figure js-figure u-skeleton-figure"
-//     data-animation="fade-in"
-//     data-duration="200"
-//     data-alt="This is alt text"
-//     data-src="https://picsum.photos/400/500"
-//     data-srcset="https://picsum.photos/700/800 1440w, https://picsum.photos/600/700 1024w, https://picsum.photos/500/600 960w, https://picsum.photos/400/500 480w"
-//     data-size="cover"
-//     data-rest="title='hello this is a sweet title' awesome='this is a random other thing'"
-// ></figure>
