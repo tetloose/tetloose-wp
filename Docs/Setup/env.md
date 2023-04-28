@@ -43,4 +43,4 @@ You have to generate your own keys, goto [Salts](https://roots.io/salts.html) co
 
 ## Navigation
 
-[COMMANDS >>](../commands.md)
+[COMMANDS >>](commands.md)
