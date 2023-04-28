@@ -87,6 +87,8 @@ get_template_part(
 
 ## Video iFrames (YouTube Vimeo)
 
+Wordpress allows you to paste a YouTube or Vimeo link directly into the content editor, the editor will automaticly build an iFrame for you. To style this correctly we need to convert the output into a string, strip out any paragraph tags, then place the iFrame into a div with the utility classes. The TS helper does this for you.
+
 ### TS Helper
 
 `src/js/config/iframes.ts`
@@ -119,6 +121,132 @@ get_template_part(
         'ratio' => 'ratio-16x9',
         'animation' => 'fade-in',
         'animation_duration' => 200
+    )
+);
+?>
+```
+
+## Content
+
+### PHP Partial
+
+`src/js/components/partials/partials-content.php`
+
+```
+<?php
+$content = get_field( 'content' );
+
+get_template_part(
+    'components/partials-content',
+    null,
+    array(
+        'styles' => '',
+        'class_names' => '',
+        'content' => $content,
+    )
+);
+?>
+```
+
+## Form
+
+Used with embeded forms.
+
+### PHP Partial
+
+`src/js/components/partials/partials-form.php`
+
+```
+<?php
+$form = get_field( 'form' );
+
+get_template_part(
+    'components/partials-form',
+    null,
+    array(
+        'styles' => '',
+        'class_names' => '',
+        'form' => $form,
+    )
+);
+?>
+```
+
+## Logo
+
+Adding logos
+
+### PHP Partial
+
+`src/js/components/partials/partials-logo.php`
+
+```
+<?php
+$logo = get_field( 'logo' );
+
+get_template_part(
+    'components/partials-logo',
+    null,
+    array(
+        'image' => $logo,
+        'href' => home_url( '/' ),
+        'styles' => '',
+        'class_names' => '',
+        'figure_styles' => '',
+        'figure_class_names' => '',
+        'animation' => 'fade-in',
+        'animation_duration' => 200,
+        'rest' => ''
+    )
+);
+?>
+```
+
+## Links
+
+Acf Link fields.
+
+### PHP Partial
+
+`src/js/components/partials/partials-link.php`
+
+```
+<?php
+$_link = get_field( 'link' );
+
+get_template_part(
+    'components/partials-link',
+    null,
+    array(
+        'link' => $_link,
+        'styles' => '',
+        'class_names' => '',
+    )
+);
+?>
+```
+
+## Nav Links
+
+Links with icons instead of text.
+
+### PHP Partial
+
+`src/js/components/partials/partials-navlink.php`
+
+```
+<?php
+$prev_post = get_previous_post();
+$prev_title = strip_tags( str_replace( '"', '', $prev_post->post_title ) );
+
+get_template_part(
+    'components/partials-navlink',
+    null,
+    array(
+        'styles' => '',
+        'class_names' => 'u-icon-prev',
+        'href' => get_permalink( $prev_post->ID ),
+        'title' => $prev_title ? $prev_title : '',
     )
 );
 ?>

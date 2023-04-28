@@ -40,6 +40,7 @@ if ( ! empty( $args ) ) :
                     'class_names' => esc_attr( $args['figure_class_names'] ),
                     'animation' => esc_attr( $args['animation'] ),
                     'animation_duration' => esc_attr( $args['animation_duration'] ),
+                    'rest' => esc_attr( $args['rest'] ),
                 )
             );
             ?>
