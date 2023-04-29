@@ -8,4 +8,4 @@ Update a Jest Snapshot run `yarn update-snapshot`.
 
 # Navigation
 
-[<< BACK TO TYPESCRIPT](TypeScript.md)
+[<< BACK TO TYPESCRIPT](ts.md)

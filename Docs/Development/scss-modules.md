@@ -14,4 +14,4 @@ $HTMLElement.classList.add(styles.className);
 
 Once this component hits the intersection it will inject the styles into the head.
 
-[<< BACK TO TYPESCRIPT](TypeScript.md)
+[<< BACK TO TYPESCRIPT](ts.md)

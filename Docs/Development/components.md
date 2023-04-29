@@ -32,4 +32,4 @@ Any other **.php** will be treated as standard files, these are moved to `web/ap
 
 # Navigation
 
-[TypeScript >>](ts.md)
+[TYPESCRIPT >>](ts.md)
