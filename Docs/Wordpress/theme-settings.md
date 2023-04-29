@@ -1,4 +1,4 @@
-### Theme Settings
+# Theme Settings
 
 Click the tab at the top, **Theme Settings**.
 
