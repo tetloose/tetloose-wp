@@ -59,8 +59,7 @@ Workspaces is a key to this project, as the amount of files is wild. It will sho
 - [PACKAGE >>](Docs/Scripts/package.md)
 - [PATTERN-LIBRARY >>](Docs/Scripts/pattern-library.md)
 
-## WORDPRESS
-
+## Wordpress
 
 - [FIRST LOAD >>](Docs/Wordpress/first-load.md)
 - [THEME SETTINGS >>](Docs/Wordpress/theme-settings.md)
