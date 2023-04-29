@@ -1,29 +1,17 @@
-# Wordpress Uploads
+# Static Content
 
-## Push
+The idea is to content manage every part of a project, this alleviate the need to make code changes when it's content related.
 
-`yarn uploads:push`
+Goto **Static Content**.
 
-Follow the prompts:
+You have 4 tabs, 404 page, No posts, Password Protected and each of their styles.
 
-This will do the following:
+Update this content and hit **Update**.
 
-1. Zip local uploads
-2. Rsync uploads to server
-3. Unzip and replace uploads
+If other elements in the project are outside of a component, then add them here.
 
-## Pull
-
-`yarn uploads:pull`
-
-Follow the prompts:
-
-This will do the following:
-
-1. Zip server uploads
-2. Rsync uploads to local
-3. Unzip and replace uploads
+See **ACF** -> **Static Content**.
 
 # Navigation
 
-[CLONING >>](cloning.md)
+[NEWS LANDING >>](news-landing.md)

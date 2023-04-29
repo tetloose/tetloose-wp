@@ -61,9 +61,12 @@ Workspaces is a key to this project, as the amount of files is wild. It will sho
 
 ## WORDPRESS
 
+
 - [FIRST LOAD >>](Docs/Wordpress/first-load.md)
-- [ACF >>](Docs/Wordpress/acf.md)
-- [SETTINGS >>](Docs/Wordpress/settings.md)
+- [THEME SETTINGS >>](Docs/Wordpress/theme-settings.md)
 - [STATIC CONTENT >>](Docs/Wordpress/static-content.md)
+- [NEWS LANDING >>](Docs/Wordpress/news-landing.md)
 - [SHARED FIELDS >>](Docs/Wordpress/shared-fields.md)
+- [PAGE BUILDER >>](Docs/Wordpress/page-builder.md)
 - [COMPONENTS >>](Docs/Wordpress/components.md)
+- [ACF >>](Docs/Wordpress/acf.md)

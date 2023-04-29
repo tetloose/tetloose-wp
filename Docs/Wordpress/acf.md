@@ -1,14 +1,10 @@
 # ACF
 
-Tetloose-WP relies on Advanced Custom Fields ACF. When ever a **field** or **post type** is created or removed ACF will generate / update the it's corrisponding json file. The files are stored here `src/acf`.
+Tetloose-WP relies on Advanced Custom Fields ACF. When ever a **field** or **post type** is created or removed ACF will generate / update the associated json file for it. The files are stored in `src/acf`.
 
-This allows us to version fields and post types.
-
-On first load of the project, goto **ACF** and sync all the avalible fields and post types.
+These fields / post types can now be version controlled.
 
 ## Option pages
-
-ACF allows us to create option pages that sit in the sidebar, this is really handy for content that isn't apart of the loop.
 
 Option pages are stored `src/js/components/functions/acf.php` line **35 - 73**.
 
@@ -35,4 +31,4 @@ acf_add_options_page(
 
 # Navigation
 
-- [SETTINGS >>](settings.md)
+[HOME >>](../../README.md)

@@ -12,26 +12,28 @@ function global_styles() {
     $fonts = get_field( 'fonts', 'option' );
     $colours = get_field( 'colours', 'option' );
 
-    return '
-        :root {
-            --f-body: ' . wp_kses_post( $fonts['body_font']['font_family'] ) . ';
-            --f-body-light: ' . wp_kses_post( $fonts['body_font']['font_weight_light'] ) . ';
-            --f-body-regular: ' . wp_kses_post( $fonts['body_font']['font_weight_regular'] ) . ';
-            --f-body-medium: ' . wp_kses_post( $fonts['body_font']['font_weight_medium'] ) . ';
-            --f-body-bold: ' . wp_kses_post( $fonts['body_font']['font_weight_bold'] ) . ';
-            --f-heading: ' . wp_kses_post( $fonts['heading_font']['font_family'] ) . ';
-            --f-heading-light: ' . wp_kses_post( $fonts['heading_font']['font_weight_light'] ) . ';
-            --f-heading-regular: ' . wp_kses_post( $fonts['heading_font']['font_weight_regular'] ) . ';
-            --f-heading-medium: ' . wp_kses_post( $fonts['heading_font']['font_weight_medium'] ) . ';
-            --f-heading-bold: ' . wp_kses_post( $fonts['heading_font']['font_weight_bold'] ) . ';
-            --light: ' . wp_kses_post( $colours['light'] ) . ';
-            --dark: ' . wp_kses_post( $colours['dark'] ) . ';
-            --color-1: ' . wp_kses_post( $colours['color1'] ) . ';
-            --color-2: ' . wp_kses_post( $colours['color2'] ) . ';
-            --color-3: ' . wp_kses_post( $colours['color3'] ) . ';
-            --color-4: ' . wp_kses_post( $colours['color4'] ) . ';
-        }
-    ';
+    if ( ! empty( $colours ) && ! empty( $fonts ) ) {
+        return '
+            :root {
+                --f-body: ' . wp_kses_post( $fonts['body_font']['font_family'] ) . ';
+                --f-body-light: ' . wp_kses_post( $fonts['body_font']['font_weight_light'] ) . ';
+                --f-body-regular: ' . wp_kses_post( $fonts['body_font']['font_weight_regular'] ) . ';
+                --f-body-medium: ' . wp_kses_post( $fonts['body_font']['font_weight_medium'] ) . ';
+                --f-body-bold: ' . wp_kses_post( $fonts['body_font']['font_weight_bold'] ) . ';
+                --f-heading: ' . wp_kses_post( $fonts['heading_font']['font_family'] ) . ';
+                --f-heading-light: ' . wp_kses_post( $fonts['heading_font']['font_weight_light'] ) . ';
+                --f-heading-regular: ' . wp_kses_post( $fonts['heading_font']['font_weight_regular'] ) . ';
+                --f-heading-medium: ' . wp_kses_post( $fonts['heading_font']['font_weight_medium'] ) . ';
+                --f-heading-bold: ' . wp_kses_post( $fonts['heading_font']['font_weight_bold'] ) . ';
+                --light: ' . wp_kses_post( $colours['light'] ) . ';
+                --dark: ' . wp_kses_post( $colours['dark'] ) . ';
+                --color-1: ' . wp_kses_post( $colours['color1'] ) . ';
+                --color-2: ' . wp_kses_post( $colours['color2'] ) . ';
+                --color-3: ' . wp_kses_post( $colours['color3'] ) . ';
+                --color-4: ' . wp_kses_post( $colours['color4'] ) . ';
+            }
+        ';
+    }
 }
 
 // Define vars from env.

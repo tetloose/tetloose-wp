@@ -1,29 +1,19 @@
-# Wordpress Uploads
+# Shared fields
 
-## Push
+ACF can get a bit out of control when you have lots of pages and posts all using different fields.
 
-`yarn uploads:push`
+The clone field is a great way to get around this. There is a custom page type called Shared Fields, this is used as a blank page, so we can create fields that never get shown on the backend.
 
-Follow the prompts:
+We can then clone these hidden fields into all the other fields.
 
-This will do the following:
+See **ACF** -> **Shared Fields**.
 
-1. Zip local uploads
-2. Rsync uploads to server
-3. Unzip and replace uploads
+This contains every field type the project would require.
 
-## Pull
+Once these are set up, you can then clone them, with option pages and archive pages you can prefix the variable.
 
-`yarn uploads:pull`
-
-Follow the prompts:
-
-This will do the following:
-
-1. Zip server uploads
-2. Rsync uploads to local
-3. Unzip and replace uploads
+This is a great way to make ACF Dry.
 
 # Navigation
 
-[CLONING >>](cloning.md)
+[PAGE BUILDER >>](page-builder.md)

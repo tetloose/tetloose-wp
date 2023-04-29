@@ -1,29 +1,17 @@
-# Wordpress Uploads
+# Components
 
-## Push
+Tetloose-WP relies on ACF Flexible Content to build page layouts.
 
-`yarn uploads:push`
+## Flexible Content
 
-Follow the prompts:
+See **ACF** -> **Shared Fields** -> **Components**
 
-This will do the following:
+This is a list of avalible components, the names should match the directory in `src/js/components` or be kind of similar so you know what they are.
 
-1. Zip local uploads
-2. Rsync uploads to server
-3. Unzip and replace uploads
+You can add remove Components here. Once you've created your fields, hit **Save Changes**. You can then select this new component on pages / posts.
 
-## Pull
-
-`yarn uploads:pull`
-
-Follow the prompts:
-
-This will do the following:
-
-1. Zip server uploads
-2. Rsync uploads to local
-3. Unzip and replace uploads
+See [DEVELOPMENT COMPONENTS](../Development/components.md) for component creation.
 
 # Navigation
 
-[CLONING >>](cloning.md)
+[ACF >>](acf.md)
