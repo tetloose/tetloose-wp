@@ -107,7 +107,7 @@ See [SCSS >>](scss.md).
 
 Jest is set up for testing, the nameing convention is `{component-name}.test.ts`. See [Jest Docs >>](https://jestjs.io/docs/getting-started).
 
-See [TESTING >>](scss.md).
+See [TESTING >>](testing.md).
 
 # Navigation
 
