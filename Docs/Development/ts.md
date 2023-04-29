@@ -111,4 +111,4 @@ See [TESTING >>](testing.md).
 
 # Navigation
 
-[UTILITIES >>](UTILITIES.md)
+[UTILITIES >>](utilities.md)
