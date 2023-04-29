@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4414b61bea74a4634cd23515ff27124",
+    "content-hash": "99ed2fdf9862410cee8202d7f1613428",
     "packages": [
         {
             "name": "composer/installers",
@@ -1203,13 +1203,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "git@github.com:tetloose/tetloose-theme.git",
-                "reference": "c9ac9d866456c7175ff24ca6d674bf9d75d904f1"
+                "url": "https://github.com/tetloose/tetloose-theme.git",
+                "reference": "875a681d51946bac2961e9e1dddf2e140d596afd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tetloose/tetloose-theme/zipball/c9ac9d866456c7175ff24ca6d674bf9d75d904f1",
-                "reference": "c9ac9d866456c7175ff24ca6d674bf9d75d904f1",
+                "url": "https://api.github.com/repos/tetloose/tetloose-theme/zipball/875a681d51946bac2961e9e1dddf2e140d596afd",
+                "reference": "875a681d51946bac2961e9e1dddf2e140d596afd",
                 "shasum": ""
             },
             "default-branch": true,
@@ -1226,7 +1226,7 @@
                 "issues": "https://github.com/tetloose/tetloose-theme/issues",
                 "source": "https://github.com/tetloose/tetloose-theme/tree/main"
             },
-            "time": "2023-01-23T10:05:12+00:00"
+            "time": "2023-04-27T15:28:01+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2371,7 +2371,6 @@
     "stability-flags": {
         "phalapi/phpmailer": 20,
         "tetloose/advanced-custom-fields-pro": 20,
-        "tetloose/tetloose-theme": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

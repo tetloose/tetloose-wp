@@ -2,7 +2,7 @@
 
 ## DEVELOPMENT PROXY
 
-This will be the linked project i.e. **project-name.test**.
+This will be the linked project host i.e. **project-name.test**.
 
 ## TOOLKIT VARIABLES
 
@@ -32,10 +32,12 @@ These variables are used in the shell script `toolkit`. URLs are used to search 
 
 ## THEME OPTIONS
 
-For development, setting this to no will remove jQuery from the theme, setting this to yes will add it back in. The version below should be the latest, if you want to use jQuery.
+For development, setting this to **no** will remove jQuery from the theme, setting this to **yes** will add it back in. The version below should be the latest, if you want to use jQuery.
 
-- USE_JQUERY=no
-- JQUERY_VERSION=https://code.jquery.com/jquery-3.6.3.min.js'
+```
+USE_JQUERY=no
+JQUERY_VERSION=https://code.jquery.com/jquery-3.6.3.min.js'
+```
 
 ## GENERATE YOUR KEYS HERE: https://roots.io/salts.html
 

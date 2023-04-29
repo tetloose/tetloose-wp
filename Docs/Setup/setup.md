@@ -50,6 +50,16 @@ Set up will first generate a **.env** file, it will give you options to use a te
 
 Check values in `.env` before continuing.
 
+`yarn setup` will continue to install packages. Once it co then it Browser sync will open a browser with  **localhost:3000**.
+
+It's very important you **do not** install Wordpress on **localhost:3000**.
+
+Install Wordpress on the host url i.e. `project-name.test/wp/wp-admin`.
+
+We don't want Browser sync any where near Wordpress.
+
+More info see [FIRST LOAD >>](../Wordpress/first-load.md).
+
 ## Navigation
 
 [ENV >>](env.md)

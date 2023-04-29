@@ -59,9 +59,9 @@
         "wpackagist-plugin/wps-hide-login": "^1.9",
         "phalapi/phpmailer": "dev-master",
         "tetloose/advanced-custom-fields-pro": "dev-main",
-        "tetloose/tetloose-theme": "dev-main",
         "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.0",
-        "wpackagist-plugin/wordpress-seo": "^20.5"
+        "wpackagist-plugin/wordpress-seo": "^20.5",
+        "tetloose/tetloose-theme": "dev-main"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.7.1",

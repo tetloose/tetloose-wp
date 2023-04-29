@@ -79,7 +79,7 @@ elif [ "$ENV_SWITCH" = "1" ]; then
     echo "# SALTS (https://roots.io/salts.html)" >> $ENV
     echo $WSALTS >> $ENV
     echo "" >> $ENV
-    read -p "Goto https://roots.io/salts.html, copy Env Format and them into .env at the bottom and save. [ENTER] to continue " ENV_GATE
+    read -p "Goto https://roots.io/salts.html, copy Env Format and past vals into .env at the bottom and save. [ENTER] to continue " ENV_GATE
     eval "sh ./toolkit $1"
 else
   echo "Please Enter 0 or 1, Toolkit Stopping"
