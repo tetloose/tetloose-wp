@@ -37,7 +37,7 @@ A collection of custom utilities to handle a variaty of different re usuable ele
 
 ### Global
 
-For styling the html tag + the selection sudo.
+For styling the html/body tag.
 
 ### Layout
 
@@ -45,12 +45,16 @@ Custom Grid layout, based on halfs, thirds, and forths.
 
 ## Print
 
-A print style sheet, for print styles, save to PDF.
+A print style sheet, for print styles, save to PDF etc.
 
 ## Tinymce
 
 Styles for Wordpress editor.
 
+## Wordpress
+
+Styles for Wordpress login.
+
 ## Navigation
 
-[SCSS MODULES >>](scss-modules.md)
+[<< BACK TO TYPESCRIPT](TypeScript.md)

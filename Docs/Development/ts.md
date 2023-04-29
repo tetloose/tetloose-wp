@@ -91,11 +91,15 @@ Webpack will auto generate a TypeScript Definition file for each class name adde
 
 To use the application variables, mixins, colours, fonts and typography you must include `@import 'path-to/settings';` within `component-name.module.scss`.
 
+See [SCSS-MODULES >>](scss-modules.md).
+
 ### SCSS (optional)
 
 `{component-name}.styles.scss`
 
 For none css modules just include a style sheet in your ts file, it will load these styles. The nameing convention needs to be `{component-name}.styles.scss`, this will tell Webpack to treat this file differently from a CSS Module.
+
+See [SCSS >>](scss.md).
 
 ### Tests
 
@@ -103,4 +107,8 @@ For none css modules just include a style sheet in your ts file, it will load th
 
 Jest is set up for testing, the nameing convention is `{component-name}.test.ts`. See [Jest Docs >>](https://jestjs.io/docs/getting-started).
 
-[Utilities >>](utilities.md)
+See [TESTING >>](scss.md).
+
+# Navigation
+
+[UTILITIES >>](UTILITIES.md)

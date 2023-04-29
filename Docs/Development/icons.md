@@ -17,8 +17,8 @@ Place `selection.json` and `icons.{svg,ttf,woff}` into the folder `src/icons`.
 
 ## Editing
 
-Upload `selection.json` to [icomoon.io](https://icomoon.io/), edit your icons, repeate the above process.
+Upload `src/icons/selection.json` to [icomoon.io](https://icomoon.io/), edit your icons, repeate the above process.
 
 # Navigation
 
-[FONTS >>](fonts.md)
+[FAVICONS >>](favicons.md)

@@ -252,6 +252,58 @@ get_template_part(
 ?>
 ```
 
+## HTML Grid / Content
+
+TypeScript function to create html grid elements wrapped in a content element.
+
+- `src/js/html/grid.html.ts`
+- `src/js/html/content.html.ts`
+
+
+```
+import { row, column, content } from '.'
+import { GridDataProps } from './html.types'
+
+const gridData: GridDataProps = [
+    {
+        body: {
+            classNames: 'class-1',
+            text: 'Column 1'
+        },
+        brakepoint: {
+            lrg: '1-third'
+        },
+        classNames: 'col-1'
+    },
+    {
+        body: {
+            classNames: 'class-2 class-3',
+            text: 'Column 2'
+        },
+        brakepoint: {
+            lrg: '2-third'
+        },
+        classNames: 'col-2'
+    }
+]
+
+const columns = gridData
+    .map((col) => {
+        const { body, brakepoint, classNames } = col
+
+        return column(
+            content(
+                body && body.text ? body.text : '',
+                body && body.classNames ? body.classNames : ''
+            ),
+            brakepoint,
+            classNames ? classNames : ''
+        )
+    })
+    .join(' ')
+
+```
+
 # Navigation
 
-[Partials >>](partials.md)
+[ICONS >>](icons.md)
