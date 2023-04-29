@@ -149,3 +149,4 @@ add_filter( 'admin_footer_text', 'admin_replace_wp_footer' );
 add_action( 'load-index.php', 'admin_redirect_theme_settings' );
 add_filter( 'login_redirect', 'admin_login_redirect_theme_settings', 10, 3 );
 add_action( 'login_enqueue_scripts', 'wordpress_styles' );
+add_filter( 'wpseo_debug_markers', '__return_false' );
