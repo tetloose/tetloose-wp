@@ -1,7 +1,7 @@
-import { loadComponent } from './components'
-import { loadFigure } from './figures'
-import { loadIframe } from './iframes'
-import { loadVideoIframe } from './video-iframes'
+import { loadComponent } from './components.utilities'
+import { loadFigure } from './figures.utilities'
+import { loadIframe } from './iframes.utilities'
+import { loadVideoIframe } from './video-iframes.utilities'
 
 export const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {

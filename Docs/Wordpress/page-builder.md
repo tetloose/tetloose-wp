@@ -2,7 +2,7 @@
 
 This is a user friendly name given to the components.
 
-The page builder exisits on every page / post, allows you build custom pages / posts using the avalible components using ACF Flexible Content.
+The page builder exists on every page / post, allows you build custom pages / posts using the available components using ACF Flexible Content.
 
 On first sync of ACF, you will have access to every component ever built for Tetloose-WP, but they don't actually exist in `src/js/components` only the core ones.
 
@@ -22,11 +22,9 @@ On first sync of ACF, you will have access to every component ever built for Tet
 
 To add these missing components, use `yarn add-component` to add them from the component library.
 
-Once you have all the desired components, you will need to go into **ACF** -> **Shared Fields**, to the bottom, expand **components**. Then delete the components i.e **Animated Banner**, **Hero** etc.
+Once you have all the desired components, you will need to go into **ACF** -> **Shared Fields**, to the bottom, expand **components**. Then delete the unwanted components i.e **Animated Banner**, **Hero** etc.
 
-The idea to make every page editable even posts which allows the user to create a completly custom end product.
-
-The Plugin **Easy Post Duplicator** is perfect, you can design your pages and posts, then duplicate them and only alter the content if you wanna keep a theme going.
+The idea to make every element editable, this gives the user complete control over the end product. It can take a bit longer getting pages / posts set up, once they are the Plugin **Easy Post Duplicator** will allow you to duplicate the page / post.
 
 # Navigation
 

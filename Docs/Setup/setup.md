@@ -1,8 +1,10 @@
 # Setup
 
-This setup uses [Valet](https://laravel.com/docs/9.x/), which is super fast, takes a bit of config, but it's worth it, as you have full control of your development environment.
+This setup uses [Valet](https://laravel.com/docs/9.x/).
 
-Another option is to use [Trellis](https://roots.io/trellis/docs/installation/). This uses a Vagrant box, and requires zero set up time. The only issue is it's a bit slow.
+Another option is to use [Trellis](https://roots.io/trellis/docs/installation/).
+
+You can use any setup as long as the document root is set to the `web` folder.
 
 ## Clone the project
 
@@ -14,7 +16,7 @@ Another option is to use [Trellis](https://roots.io/trellis/docs/installation/).
 
 - [Tetloose-ACF](https://github.com/tetloose/tetloose-ACF) Advanced custom fields Pro - scraper
 
-This is scraper to pull in the latest version of ACF, to use this:
+This is scraper that pulls in the latest version of ACF:
 
 1. Duplicate **Tetloose-ACF** on your own repo
 2. Inside **Tetloose-WP** Update line **39** `composer.json` -> `"url": "git@github.com:{repo-name}.git"`
@@ -25,7 +27,7 @@ This is scraper to pull in the latest version of ACF, to use this:
 
 ## Database
 
-1. Create a new database `database-name`
+1. Create a new database `database-project-name`
 
 ## VHost
 
@@ -41,22 +43,22 @@ For deployment SSH is used to connect your local env to staging or production.
 
 See [SSH](ssh.md)
 
-## Install the requirments
+## Install the requirements
 
 1. `cd ~/path-to-repo/tetloose-wp`
 2. `yarn setup`
 
-Set up will first generate a **.env** file, it will give you options to use a template and manually alter the values or an interactive option.
+Set up will first generate a **.env** file in the project root, it will give you options to use a template and manually input the values values or an interactive option.
 
 Check values in `.env` before continuing.
 
-`yarn setup` will continue to install packages. Once it co then it Browser sync will open a browser with  **localhost:3000**.
+`yarn setup` will continue to install packages. Once it completes, Browser-Sync will open a browser with  **localhost:3000**.
 
 It's very important you **do not** install Wordpress on **localhost:3000**.
 
-Install Wordpress on the host url i.e. `project-name.test/wp/wp-admin`.
+This will cause a page reload every time you save code.
 
-We don't want Browser sync any where near Wordpress.
+Install Wordpress on the vHost url i.e. `project-name.test/wp/wp-admin`.
 
 More info see [FIRST LOAD >>](../Wordpress/first-load.md).
 

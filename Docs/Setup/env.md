@@ -6,14 +6,14 @@ This will be the linked project host i.e. **project-name.test**.
 
 ## TOOLKIT VARIABLES
 
-These variables are used in the shell script `toolkit`. URLs are used to search replace fields in the database, it's fine to set these as // if both local, production and staging use https, other wise prefex with http:// https://.
+These variables are used in the shell script `toolkit`. URLs are used to search and replace fields in the database, it's fine to set these as // if both local, production and staging use https, other wise prefix with http:// https://.
 
 - TOOLKIT_PRODUCTION_SSH=`project-name-production`
 - TOOLKIT_PRODUCTION_DIR=`~/project-name`
 - TOOLKIT_PRODUCTION_URL=`https://project-name.com`
 - TOOLKIT_STAGING_SSH=`project-name-staging`
 - TOOLKIT_STAGING_DIR=`~/project-name`
-- TOOLKIT_STAGIN_URL=`https://project-name.staging.com`
+- TOOLKIT_STAGING_URL=`https://project-name.staging.com`
 - TOOLKIT_LOCAL_DIR=`~/Sites/Clients/project-name`
 - TOOLKIT_LOCAL_URL=`http://project-name.test`
 - TOOLKIT_UPLOADS_DIR=`web/app/uploads`
@@ -23,7 +23,7 @@ These variables are used in the shell script `toolkit`. URLs are used to search 
 
 - DB_PREFIX=`tetlooseWP_`
 - DB_HOST=`127.0.0.1`
-- DB_NAME=`project-name`
+- DB_NAME=`database-project-name`
 - DB_USER=`root`
 - DB_PASSWORD=`root`
 - WP_ENV=`development`

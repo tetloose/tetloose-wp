@@ -4,7 +4,7 @@
 
 ### TS Helper
 
-`src/js/config/figures.ts`
+`src/js/utilities/figures.utilities.ts`
 
 ```
 <figure
@@ -48,7 +48,7 @@ get_template_part(
 
 ### TS Helper
 
-`src/js/config/iframes.ts`
+`src/js/utilities/iframes.utilities.ts`
 
 ```
 <div
@@ -87,11 +87,11 @@ get_template_part(
 
 ## Video iFrames (YouTube Vimeo)
 
-Wordpress allows you to paste a YouTube or Vimeo link directly into the content editor, the editor will automaticly build an iFrame for you. To style this correctly we need to convert the output into a string, strip out any paragraph tags, then place the iFrame into a div with the utility classes. The TS helper does this for you.
+Wordpress allows you to paste a YouTube or Vimeo link directly into the content editor, the editor will automatically build an iFrame for you. To style this correctly we need to convert the output into a string, strip out any paragraph tags, then place the iFrame into a div with the utility classes. The TS helper does this for you.
 
 ### TS Helper
 
-`src/js/config/iframes.ts`
+`src/js/utilities/iframes.utilities.ts`
 
 ```
 <div
@@ -256,12 +256,13 @@ get_template_part(
 
 TypeScript function to create html grid elements wrapped in a content element.
 
-- `src/js/html/grid.html.ts`
+- `src/js/html/row.html.ts`
+- `src/js/html/column.html.ts`
 - `src/js/html/content.html.ts`
 
 
 ```
-import { row, column, content } from '.'
+import { row, column, content } from './html'
 import { GridDataProps } from './html.types'
 
 const gridData: GridDataProps = [
@@ -270,7 +271,7 @@ const gridData: GridDataProps = [
             classNames: 'class-1',
             text: 'Column 1'
         },
-        brakepoint: {
+        breakPoint: {
             lrg: '1-third'
         },
         classNames: 'col-1'
@@ -280,23 +281,23 @@ const gridData: GridDataProps = [
             classNames: 'class-2 class-3',
             text: 'Column 2'
         },
-        brakepoint: {
+        breakPoint: {
             lrg: '2-third'
         },
         classNames: 'col-2'
     }
 ]
 
-const columns = gridData
+$HTMLElement.innerHtml = gridData
     .map((col) => {
-        const { body, brakepoint, classNames } = col
+        const { body, breakPoint, classNames } = col
 
         return column(
             content(
                 body && body.text ? body.text : '',
                 body && body.classNames ? body.classNames : ''
             ),
-            brakepoint,
+            breakPoint,
             classNames ? classNames : ''
         )
     })

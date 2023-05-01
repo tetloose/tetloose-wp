@@ -8,7 +8,7 @@ Favicons are included in the head here -> `src/js/components/wrapper/wrapper-hea
 
 If you add a new favicon, you must update `$favicon_version` on line **9** in `src/js/components/wrapper/wrapper-header-favicons.php` to bust the cache.
 
-`$favicon_application_colour` this changes the tab colour for specific browsers.
+`$favicon_application_colour` this changes the tab color for specific browsers.
 
 ```
 $favicon_version = 'tetloose';
@@ -17,4 +17,4 @@ $favicon_application_colour = '#ff69b4';
 
 # Navigation
 
-[SCRITPS >>](../Scripts/index.md)
+[SCRIPTS >>](../Scripts/index.md)

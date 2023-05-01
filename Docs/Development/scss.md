@@ -23,7 +23,7 @@ This imports
 @import 'layout';
 ```
 
-The only requirement here is `@import 'settings';`, this will import variables, mixins, colours, fonts and typography.
+The only requirement here is `@import 'settings';`, this will import variables, mixins, colors, fonts and typography.
 
 SCSS Modules will rely on this import if you want to use the project settings.
 
@@ -33,7 +33,7 @@ Custom reset, so everything is a baseline.
 
 ### Utils
 
-A collection of custom utilities to handle a variaty of different re usuable elements.
+A collection of custom utilities to handle a variety of different re usable elements.
 
 ### Global
 
@@ -41,7 +41,7 @@ For styling the html/body tag.
 
 ### Layout
 
-Custom Grid layout, based on halfs, thirds, and forths.
+Custom Grid layout, based on half's, thirds, and forth's.
 
 ## Print
 

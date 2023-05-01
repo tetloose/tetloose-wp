@@ -18,6 +18,8 @@ Page styles, this will allow you to style the page that contains the components.
 
 See **ACF** -> **News Landing** for fields.
 
+See: `src/js/components/add-posts/components-add-posts.php`
+
 # Navigation
 
 [SHARED FIELDS >>](shared-fields.md)

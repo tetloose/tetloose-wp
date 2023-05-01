@@ -1,6 +1,6 @@
 # Components
 
-Components are located `src/js/components`.
+Components are stored in `src/js/components`.
 
 ## Folder Structure
 
@@ -14,15 +14,15 @@ Components are located `src/js/components`.
     {component-name}.test.ts
 ```
 
-It's important to keep this file structure for each component as the naming conventions allow for easier searching of project files as well as specific files get treated differently depending on their name.
+It's important to keep this file structure for each component as the naming conventions allow for easier searching and specific files get treated differently depending on their name.
 
-PHP files will be automaticly picked up, run though PHPCS linting, then moved into the theme -> `web/app/themes/tetloose-theme/components/*.php`.
+PHP files will be automatically picked up, run though PHPCS linting, then moved into the theme -> `web/app/themes/tetloose-theme/components/*.php`.
 
 ## File types
 
 ### ACF Flexible Content File
 
-Files with the prefix `components-{component-name}.php` are treated as ACF Flexible Content files, this will be picked up by the component loader `src/js/components/loaders/component-loader.php`. The loader will recursivly look though `web/app/themes/tetloose-theme/components/` for any **.php** file that starts with `components-` and automaticly make it avalible to ACF.
+Files with the prefix `components-{component-name}.php` are treated as ACF Flexible Content files, this will be picked up by the component loader `src/js/components/loaders/component-loader.php`. The loader will recursively look though `web/app/themes/tetloose-theme/components/` for any **.php** file that starts with `components-` and automatically make it available to ACF.
 
 For more info about ACF Flexible Content check out the docs: [ACF Flexible Content](https://www.advancedcustomfields.com/resources/flexible-content/).
 

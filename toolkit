@@ -22,7 +22,7 @@ if test -f "$ENV"; then
     PRODUCTION_URL=$(grep TOOLKIT_PRODUCTION_URL $ENV | cut -d '=' -f2)
     STAGING_SSH=$(grep TOOLKIT_STAGING_SSH $ENV | cut -d '=' -f2)
     STAGING_DIR=$(grep TOOLKIT_STAGING_DIR $ENV | cut -d '=' -f2)
-    STAGIN_URL=$(grep TOOLKIT_STAGIN_URL $ENV | cut -d '=' -f2)
+    STAGIN_URL=$(grep TOOLKIT_STAGING_URL $ENV | cut -d '=' -f2)
     LOCAL_DIR=$(grep TOOLKIT_LOCAL_DIR $ENV | cut -d '=' -f2)
     LOCAL_URL=$(grep TOOLKIT_LOCAL_URL $ENV | cut -d '=' -f2)
     UPLOADS_DIR=$(grep TOOLKIT_UPLOADS_DIR $ENV | cut -d '=' -f2)

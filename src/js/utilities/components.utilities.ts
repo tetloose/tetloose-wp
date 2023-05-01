@@ -1,4 +1,4 @@
-import { modules } from './modules'
+import { modules } from '../config'
 
 export const components = document.querySelectorAll('[data-module]') as NodeListOf<HTMLElement> | null
 

@@ -1,4 +1,4 @@
-import { components, figures, iframes, videoIframes, observer } from './config'
+import { components, figures, iframes, videoIframes, observer } from './utilities'
 
 components?.forEach((component) => {
     observer.observe(component)

@@ -2,13 +2,15 @@
 
 Tetloose WP is a custom Wordpress framework that uses [Bedrock Wordpress](https://roots.io/bedrock/).
 
-## Recommended vscode Extensions
+## Recommended VSCode Extensions
 
-`cmd shif p` then type recommended.
+`cmd shift p` then type recommended.
 
-The sidebar will open with a list of recommended extensions to be installed. You need them all tbh.
+The sidebar will open with a list of recommended extensions to be installed.
 
-Workspaces is a key to this project, as the amount of files is wild. It will show only the files you need to use. See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.workspace) docs.
+'Workspaces' is a great plugin that allows you to show hide files.
+
+See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.workspace) docs.
 
 ## Core
 
@@ -27,7 +29,7 @@ Workspaces is a key to this project, as the amount of files is wild. It will sho
 - SCSS modules
 - SCSS
 - WCAG AAA
-- Performance optimised with dynamic Module loading
+- Performance optimized with dynamic Module loading
 
 ## Docs
 

@@ -1,8 +1,6 @@
 # ACF
 
-Tetloose-WP relies on Advanced Custom Fields ACF. When ever a **field** or **post type** is created or removed ACF will generate / update the associated json file for it. The files are stored in `src/acf`.
-
-These fields / post types can now be version controlled.
+When ever a **field** or **post type** is created /edited or removed ACF will generate / update the associated json file for it. The files are stored in `src/acf`. Which you can version control.
 
 ## Option pages
 

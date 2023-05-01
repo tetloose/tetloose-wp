@@ -1,6 +1,6 @@
 # SSH
 
-Make sure you have SSH access to your deployment environment
+Make sure you have SSH access to your staging / production environment.
 
 ## SSH Local config
 
@@ -27,7 +27,7 @@ Once this is done log out `exit`.
 
 ## No Password SSH
 
-To enable no password ssh, your local public key needs to be added to the servers authorized_keys
+To enable no password ssh, your local public key needs to be added to the servers authorized_keys.
 
 - `rsync ~/.ssh/id_rsa.pub project-name:~/.ssh/project-name.pub`
 - `ssh project-name` -> enter password

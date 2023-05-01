@@ -1,12 +1,12 @@
 # Local environment
 
-Tetloose WP was built with Mac OS, it would need to be tweaked to work with Windows.
+Tetloose WP has only been tested on Mac OS.
 
 This isn't a tutorial on setting up a local environment, more of an idea of a setup that could be used.
 
-Brew is used as a package manager to install casks, read more about [Brew](https://brew.sh/).
+Brew is used as a package manager, read more about [Brew](https://brew.sh/).
 
-[Laravel Valet](https://laravel.com/docs/9.x/) is a great tool to spinning up local enviroements with nginx. Requires some config to get php@7.4 to run. Please read the docs.
+[Laravel Valet](https://laravel.com/docs/9.x/) is a great tool to spinning up local environments with nginx. Requires some config to get php@7.4 to run. Please read the docs.
 
 ## Required
 
@@ -15,7 +15,7 @@ Brew is used as a package manager to install casks, read more about [Brew](https
 - git 2.37.1^: `brew install git`
 - Node 18.12.1^: `brew install nvm`
 - SSH
-- [Composer](https://getcomposer.org/doc/00-intro.md)
+- [Composer 2](https://getcomposer.org/doc/00-intro.md)
 - [WP-CLI](https://wp-cli.org/)
 
 ## Optional

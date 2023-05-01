@@ -1,5 +1,1 @@
-export { components } from './components'
-export { figures } from './figures'
-export { iframes } from './iframes'
-export { videoIframes } from './video-iframes'
-export { observer } from './observer'
+export { modules } from './modules.config'

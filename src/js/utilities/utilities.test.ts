@@ -1,7 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import { objectToString, AppendNode, addClassNames } from '.'
+import { objectToString } from './object-to-string.utilities'
+import { AppendNode } from './append-node.utilities'
+import { addClassNames } from './add-class-names.utilities'
 
 afterEach(() => {
     jest.restoreAllMocks()
@@ -31,7 +33,7 @@ test('Converts string to array adds each item to HTMLElement classlist', () => {
     expect(document.body.appendChild).toBeCalledWith(div)
 })
 
-test('Apends string to node', () => {
+test('Appends string to node', () => {
     const div = document.createElement('div')
     const element = '<div class="element"></div>'
 

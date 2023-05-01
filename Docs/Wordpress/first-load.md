@@ -20,7 +20,7 @@ Fill out the rest and click **Install Wordpress**, then Login.
 
 Goto **Users** -> **{user-name}-dev** and update your profile.
 
-Add First / Last Name and Nickname. Other wise Wordpress will show your username, this is a big securiy flaw, so fill out this info first.
+Add First / Last Name and Nickname. Other wise Wordpress will show your username, this is a big security flaw, so fill out this info first.
 
 ### Theme
 

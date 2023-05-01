@@ -1,25 +1,25 @@
 # Typescript
 
-Entry `src/app.ts`
+Entry `src/app.ts`.
 
 This will load in components, figures, iframes, videoIframes and the intersection observer.
 
 # Observer
 
-`src/config/observer`
+`src/utilities/observer.utilities`
 
 This will observe the document, if a component, figure, iframe or videoIframe hits the intersection it will load it.
 
 ## Components
 
-Component sit in `src/js/components`.
+Component stored in `src/js/components`.
 
 ### PHP Component
 
 - components-{component-name}.php
 - {component-name}-component.php
 
-These components require a few attributes
+These components require a few attributes:
 
 - `data-module="ComponentName"` (optional)
 - `data-animation="animation-name"` (optional)
@@ -61,7 +61,7 @@ See `src/js/utilities/component-class.utilities.ts` for the extended Class.
 
 We need to now tell Webpack that we want to create a dynamic module for this component.
 
-add a new key value to `src/js/config/modules.ts` object.
+add a new key value to `src/js/config/modules.config.ts` object.
 
 ```
 export const modules = {
@@ -75,7 +75,7 @@ export const modules = {
 
 Import this file into `component-name.component.ts`: `import styles from './component-name.module.scss'`
 
-Reference the styles in the Class Constructor:
+Reference the styles in the Constructor:
 
 ```
     constructor(module: HTMLElement) {
@@ -85,11 +85,11 @@ Reference the styles in the Class Constructor:
 
 Reference the style names in your markup `data-styles="class-name"`, add **.class-name {background-color: hotpink}** to `./component-name.module.scss`.
 
-The cssModule function will loop though and apply the css module class's to any element with this data-attribute.
+The **cssModule** function will loop though and apply the css module class name to any element with this data-attribute.
 
 Webpack will auto generate a TypeScript Definition file for each class name added. `component-name.module.scss.d.ts`.
 
-To use the application variables, mixins, colours, fonts and typography you must include `@import 'path-to/settings';` within `component-name.module.scss`.
+To use application variables, mixins, colors, fonts and typography you must include `@import 'path-to/settings';` within `component-name.module.scss`.
 
 See [SCSS-MODULES >>](scss-modules.md).
 
@@ -97,7 +97,9 @@ See [SCSS-MODULES >>](scss-modules.md).
 
 `{component-name}.styles.scss`
 
-For none css modules just include a style sheet in your ts file, it will load these styles. The nameing convention needs to be `{component-name}.styles.scss`, this will tell Webpack to treat this file differently from a CSS Module.
+For none css modules just include a style sheet in your ts file, it will load these styles. The naming convention needs to be `{component-name}.styles.scss`, this will tell Webpack to treat this file differently from a CSS Module.
+
+To use application variables, mixins, colors, fonts and typography you must include `@import 'path-to/settings';` within `component-name.styles.scss`.
 
 See [SCSS >>](scss.md).
 
@@ -105,7 +107,7 @@ See [SCSS >>](scss.md).
 
 `{component-name}.test.ts`
 
-Jest is set up for testing, the nameing convention is `{component-name}.test.ts`. See [Jest Docs >>](https://jestjs.io/docs/getting-started).
+Jest is set up for testing, the naming convention is `{component-name}.test.ts`. See [Jest Docs >>](https://jestjs.io/docs/getting-started).
 
 See [TESTING >>](testing.md).
 

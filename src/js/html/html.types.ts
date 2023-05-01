@@ -3,7 +3,7 @@ type BodyProps = {
     text?: string
 }
 
-type BrakePointGenerics =
+type BreakPointGenerics =
     'half' |
     '1-third' |
     '2-third' |
@@ -11,16 +11,16 @@ type BrakePointGenerics =
     '3-forth' |
     undefined
 
-export type BrakePointProps = {
-    sml?: BrakePointGenerics
-    med?: BrakePointGenerics
-    lrg?: BrakePointGenerics
-    xlrg?: BrakePointGenerics
-    xxlrg?: BrakePointGenerics
+export type BreakPointProps = {
+    sml?: BreakPointGenerics
+    med?: BreakPointGenerics
+    lrg?: BreakPointGenerics
+    xlrg?: BreakPointGenerics
+    xxlrg?: BreakPointGenerics
 }
 
 export type GridDataProps = Array<{
     body?: BodyProps
-    brakepoint: BrakePointProps
+    breakPoint: BreakPointProps
     classNames?: string
 }>

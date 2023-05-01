@@ -5,7 +5,7 @@
 - `yarn deploy`: see [Deployment](Docs/Development/deployment.md) docs
 - `yarn add-component`: see [TypeScript](Docs/Development/ts.md) docs
 - `yarn favicons`: see [Favicons](Docs/Development/ts.md) docs
-- `yarn git:commit`: Commits all files within your branch, promps for commit message
+- `yarn git:commit`: Commits all files within your branch, prompt for commit message
 - `yarn uploads:push`: Push uploads to an environment
 - `yarn uploads:pull`: Pull uploads from an environment to local
 - `yarn db:push`: Push database to an environment
