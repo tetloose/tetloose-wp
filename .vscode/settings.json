@@ -88,7 +88,9 @@
         ".phpcs.xml": true,
         ".gitmodules": true,
         "app": true,
-        ".vscode": true
+        ".vscode": true,
+        "Docs": true,
+        "README.md": true
     },
     "workspace.isHidden": true
 }
