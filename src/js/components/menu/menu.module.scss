@@ -6,11 +6,11 @@
 	right: 0;
 	bottom: 0;
 
-	@include mq(vars(brakepoint, med), max-width) {
+	@include mq(vars(breakpoint, med), max-width) {
 		width: rem(80px);
 	}
 
-	@include mq(vars(brakepoint, med)) {
+	@include mq(vars(breakpoint, med)) {
 		width: rem(120px);
 	}
 }
@@ -22,13 +22,13 @@
 	visibility: visible;
 	border-radius: 0;
 
-	@include mq(vars(brakepoint, med), max-width) {
+	@include mq(vars(breakpoint, med), max-width) {
 		border-top-width: 0;
 		border-right-width: 0;
 		border-bottom-width: 0;
 	}
 
-	@include mq(vars(brakepoint, med)) {
+	@include mq(vars(breakpoint, med)) {
 		border-width: 0;
 	}
 
@@ -37,12 +37,12 @@
 		top: 0;
 		right: 0;
 
-		@include mq(vars(brakepoint, med), max-width) {
+		@include mq(vars(breakpoint, med), max-width) {
 			width: rem(80px);
 			height: rem(80px);
 		}
 
-		@include mq(vars(brakepoint, med)) {
+		@include mq(vars(breakpoint, med)) {
 			width: rem(120px);
 			height: rem(120px);
 		}

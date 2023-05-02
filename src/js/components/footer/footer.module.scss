@@ -6,11 +6,11 @@
 	width: 100%;
 	text-align: center;
 
-	@include mq(vars(brakepoint, med), max-width) {
+	@include mq(vars(breakpoint, med), max-width) {
 		padding: rem(spacing(1));
 	}
 
-	@include mq(vars(brakepoint, med)) {
+	@include mq(vars(breakpoint, med)) {
 		padding: rem(spacing(2)) rem(spacing(1));
 	}
 

@@ -25,11 +25,11 @@
 				padding-bottom: rem(spacing(.5));
 				text-transform: uppercase;
 
-				@include mq(vars(brakepoint, med), max-width) {
+				@include mq(vars(breakpoint, med), max-width) {
 					@include type-h6;
 				}
 
-				@include mq(vars(brakepoint, med)) {
+				@include mq(vars(breakpoint, med)) {
 					@include type-h1;
 				}
 			}
