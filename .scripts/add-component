@@ -1,18 +1,6 @@
 #!/bin/bash
 #add-component
 
-# echo "$PRODUCTION_SSH"
-# echo "$PRODUCTION_DIR"
-# echo "$PRODUCTION_URL"
-# echo "$STAGING_SSH"
-# echo "$STAGING_DIR"
-# echo "$STAGIN_URL"
-# echo "$LOCAL_DIR"
-# echo "$LOCAL_URL"
-# echo "$UPLOADS_DIR"
-# echo "$BACKUP_DIR"
-# echo "$BRANCH"
-
 clear
 ls pattern-library
 echo ""
@@ -23,7 +11,8 @@ echo ""
 
 if [ -d pattern-library/"$COMPONENT" ]; then
     cp -r pattern-library/"$COMPONENT" src/js/components
-    echo "$COMPONENT" successfully added to src/js/components
+    echo Added: src/js/components/"$COMPONENT"
+    echo Instructions: src/js/components/"$COMPONENT"/README.md for instructions
 
     read -p "Add another component
 

@@ -17,29 +17,76 @@ ENV=.env
 export ENV
 
 if test -f "$ENV"; then
+    WP_CONTENT=$(grep WP_CONTENT $ENV | cut -d '=' -f2)
+    WP_THEME=$(grep WP_THEME $ENV | cut -d '=' -f2)
+    WP_PLUGINS=$(grep WP_PLUGINS $ENV | cut -d '=' -f2)
+    WP_UPLOADS=$(grep WP_UPLOADS $ENV | cut -d '=' -f2)
+
+    LOCAL_APP=$(grep LOCAL_APP $ENV | cut -d '=' -f2)
+    LOCAL_THEME=$(grep LOCAL_THEME $ENV | cut -d '=' -f2)
+    LOCAL_PLUGINS=$(grep LOCAL_PLUGINS $ENV | cut -d '=' -f2)
+    LOCAL_UPLOADS=$(grep LOCAL_UPLOADS $ENV | cut -d '=' -f2)
+
     PRODUCTION_SSH=$(grep TOOLKIT_PRODUCTION_SSH $ENV | cut -d '=' -f2)
     PRODUCTION_DIR=$(grep TOOLKIT_PRODUCTION_DIR $ENV | cut -d '=' -f2)
     PRODUCTION_URL=$(grep TOOLKIT_PRODUCTION_URL $ENV | cut -d '=' -f2)
+
     STAGING_SSH=$(grep TOOLKIT_STAGING_SSH $ENV | cut -d '=' -f2)
     STAGING_DIR=$(grep TOOLKIT_STAGING_DIR $ENV | cut -d '=' -f2)
     STAGIN_URL=$(grep TOOLKIT_STAGING_URL $ENV | cut -d '=' -f2)
+
     LOCAL_DIR=$(grep TOOLKIT_LOCAL_DIR $ENV | cut -d '=' -f2)
     LOCAL_URL=$(grep TOOLKIT_LOCAL_URL $ENV | cut -d '=' -f2)
-    UPLOADS_DIR=$(grep TOOLKIT_UPLOADS_DIR $ENV | cut -d '=' -f2)
+
     BACKUP_DIR=$(grep TOOLKIT_BACKUP_DIR $ENV | cut -d '=' -f2)
+
+    DB_PREFIX=$(grep DB_PREFIX $ENV | cut -d '=' -f2)
+    PRODUCTION_DB_HOST=$(grep PRODUCTION_DB_HOST $ENV | cut -d '=' -f2)
+    PRODUCTION_DB_NAME=$(grep PRODUCTION_DB_NAME $ENV | cut -d '=' -f2)
+    PRODUCTION_DB_USER=$(grep PRODUCTION_DB_USER $ENV | cut -d '=' -f2)
+    PRODUCTION_DB_PASSWORD=$(grep PRODUCTION_DB_PASSWORD $ENV | cut -d '=' -f2)
+    STAGING_DB_HOST=$(grep STAGING_DB_HOST $ENV | cut -d '=' -f2)
+    STAGING_DB_NAME=$(grep STAGING_DB_NAME $ENV | cut -d '=' -f2)
+    STAGING_DB_USER=$(grep STAGING_DB_USER $ENV | cut -d '=' -f2)
+    STAGING_DB_PASSWORD=$(grep STAGING_DB_PASSWORD $ENV | cut -d '=' -f2)
+
     BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
     git config --global core.pager cat
+
+    export WP_CONTENT
+    export WP_THEME
+    export WP_PLUGINS
+    export WP_UPLOADS
+
+    export LOCAL_APP
+    export LOCAL_THEME
+    export LOCAL_PLUGINS
+    export LOCAL_UPLOADS
 
     export PRODUCTION_SSH
     export PRODUCTION_DIR
     export PRODUCTION_URL
+
     export STAGING_SSH
     export STAGING_DIR
     export STAGIN_URL
+
     export LOCAL_DIR
     export LOCAL_URL
+
     export UPLOADS_DIR
     export BACKUP_DIR
+
+    export DB_PREFIX
+    export PRODUCTION_DB_HOST
+    export PRODUCTION_DB_NAME
+    export PRODUCTION_DB_USER
+    export PRODUCTION_DB_PASSWORD
+    export STAGING_DB_HOST
+    export STAGING_DB_NAME
+    export STAGING_DB_USER
+    export STAGING_DB_PASSWORD
+
     export BRANCH
 
     clear

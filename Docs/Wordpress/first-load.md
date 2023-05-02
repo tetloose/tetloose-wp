@@ -20,7 +20,31 @@ Fill out the rest and click **Install Wordpress**, then Login.
 
 Goto **Users** -> **{user-name}-dev** and update your profile.
 
-Add First / Last Name and Nickname. Other wise Wordpress will show your username, this is a big security flaw, so fill out this info first.
+Add First / Last Name and Nickname. Then select your **Display name publicly as** something other than your username, this is a big security flaw.
+
+### Plugins
+
+Before activating the Theme you must activate the plugins.
+
+Goto **Plugins** and activate the **required plugins** below:
+
+1. Advanced custom fields pro
+2. Advanced Custom Fields: Nav Menu Field
+3. Classic Editor
+
+**These ones are optional:**
+
+1. ACF Content Analysis for Yoast SEO
+2. Akismet Anti-Spam: Spam Protection
+3. Contact Form 7
+4. Easy Post Duplicator
+5. Simple Custom Post Order
+6. Yoast SEO
+
+**For Production:**
+
+1. Wordfence Security
+2. WPS Hide Login
 
 ### Theme
 
@@ -32,24 +56,6 @@ If you get a php error `Warning: require_once(/`, it means the theme hasn't been
 
 1. Goto **ACF** -> **Field Groups** -> **Sync available** and sync all the files.
 2. Goto **ACF** -> **Post Types** -> **Sync available** and sync all post types.
-
-### Plugins
-
-Goto **Plugins** and activate:
-
-1. ACF Content Analysis for Yoast SEO
-2. Advanced Custom Fields: Nav Menu Field
-3. Akismet Anti-Spam: Spam Protection (optional)
-4. Classic Editor
-5. Contact Form 7
-6. Easy Post Duplicator
-7. Simple Custom Post Order
-8. Yoast SEO
-
-These plugins are used for production not required in development
-
-1. Wordfence Security
-2. WPS Hide Login
 
 ### Pages
 

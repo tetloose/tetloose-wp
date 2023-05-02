@@ -4,6 +4,19 @@
 
 This will be the linked project host i.e. **project-name.test**.
 
+## STATIC VARIABLES
+
+These values should be left as they are, they are used for deployment, if your production instance of Wordpress uses a different folder name for wp-content, change it here etc.
+
+- WP_CONTENT=`wp-content`
+- WP_THEME=`wp-content/themes`
+- WP_PLUGINS=`wp-content/plugins`
+- WP_UPLOADS=`wp-content/uploads`
+- LOCAL_APP=`web/app`
+- LOCAL_THEME=`web/app/themes/tetloose-theme`
+- LOCAL_PLUGINS=`web/app/plugins`
+- LOCAL_UPLOADS=`web/app/uploads`
+
 ## TOOLKIT VARIABLES
 
 These variables are used in the shell script `toolkit`. URLs are used to search and replace fields in the database, it's fine to set these as // if both local, production and staging use https, other wise prefix with http:// https://.
@@ -19,7 +32,21 @@ These variables are used in the shell script `toolkit`. URLs are used to search 
 - TOOLKIT_UPLOADS_DIR=`web/app/uploads`
 - TOOLKIT_BACKUP_DIR=`~/Dropbox/Backups/project-name`
 
-## WORDPRESS OPTIONS
+## PRODUCTION WORDPRESS OPTIONS
+
+- PRODUCTION_DB_HOST=`127.0.0.1`
+- PRODUCTION_DB_NAME=`dbname`
+- PRODUCTION_DB_USER=`user`
+- PRODUCTION_DB_PASSWORD=`password`
+
+## STAGING WORDPRESS OPTIONS
+
+- STAGING_DB_HOST=`127.0.0.1`
+- STAGING_DB_NAME=`dbname`
+- STAGING_DB_USER=`user`
+- STAGING_DB_PASSWORD=`password`
+
+## LOCAL WORDPRESS OPTIONS
 
 - DB_PREFIX=`tetlooseWP_`
 - DB_HOST=`127.0.0.1`

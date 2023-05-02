@@ -1,39 +1,43 @@
 #!/bin/bash
 #deploy
 
-# echo "$PRODUCTION_SSH"
-# echo "$PRODUCTION_DIR"
-# echo "$PRODUCTION_URL"
-# echo "$STAGING_SSH"
-# echo "$STAGING_DIR"
-# echo "$STAGIN_URL"
-# echo "$LOCAL_DIR"
-# echo "$LOCAL_URL"
-# echo "$UPLOADS_DIR"
-# echo "$BACKUP_DIR"
-# echo "$BRANCH"
-
 read -p "Deploy
 Select Environment
 
-[0] Staging
-[1] Production
+[0] Production
+[1] Staging
 
-[0/1]: " DEPLOY_SWITCH
-if [ "$DEPLOY_SWITCH" = "0" ]; then
+[0/1]: " ENV_SWITCH
+
+read -p "Deploy Plugins
+
+[0] No
+[1] Yes
+
+[0/1]: " PLUGINS_SWITCH
+
+if [ "$ENV_SWITCH" = "0" ]; then
     SSH=$PRODUCTION_SSH
     DIR=$PRODUCTION_DIR
-    ENVIRONMENT=staging
-elif [ "$DEPLOY_SWITCH" = "1" ]; then
+    ENVIRONMENT=production
+elif [ "$ENV_SWITCH" = "1" ]; then
     SSH=$STAGING_SSH
     DIR=$STAGING_DIR
-    ENVIRONMENT=production
+    ENVIRONMENT=staging
 else
-  echo "Please Enter 0 or 1, Toolkit Stopping"
+  echo "Environment not set, Toolkit Stopping"
 fi
 
 if [ "$ENVIRONMENT" ]; then
     echo "Deploying to $ENVIRONMENT"
-    ssh $SSH "cd $DIR; git stash; git pull; git stash apply"
+
+    if [ "$PLUGINS_SWITCH" = "1" ]; then
+        eval rsync -r "$LOCAL_DIR"/"$LOCAL_PLUGINS" "$SSH":"$DIR"/"$WP_CONTENT" --stats --progress -raz --update
+    fi
+
+    eval rsync -r "$LOCAL_DIR"/"$LOCAL_THEME" "$SSH":"$DIR"/"$WP_THEME" --stats --progress -raz --update
+
     echo "$ENVIRONMENT updated..."
+else
+    echo "Environment not set, Toolkit Stopping"
 fi

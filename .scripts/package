@@ -1,30 +1,16 @@
 #!/bin/bash
-#backup
-
-# echo "$PRODUCTION_SSH"
-# echo "$PRODUCTION_DIR"
-# echo "$PRODUCTION_URL"
-# echo "$STAGING_SSH"
-# echo "$STAGING_DIR"
-# echo "$STAGIN_URL"
-# echo "$LOCAL_DIR"
-# echo "$LOCAL_URL"
-# echo "$UPLOADS_DIR"
-# echo "$BACKUP_DIR"
-# echo "$BRANCH"
+#package
 
 HASH=tetloose-$(date +"%Y-%m-%d-%h-%M-%s")
 
 mkdir -p package/"$HASH"
-mkdir -p package/"$HASH/mu-plugins"
 mkdir -p package/"$HASH/themes"
 wp search-replace "$LOCAL_URL" "$PRODUCTION_URL"
 wp db export package/"$HASH"/package.sql
 wp search-replace "$PRODUCTION_URL" "$LOCAL_URL"
-cp -r web/app/uploads package/"$HASH"
-cp -r web/app/plugins package/"$HASH"
-cp -r web/app/mu-plugins/advanced-custom-fields-pro package/"$HASH"/mu-plugins
-cp -r web/app/themes/tetloose-theme package/"$HASH"/themes
+cp -r "$LOCAL_UPLOADS" package/"$HASH"
+cp -r "$LOCAL_PLUGINS" package/"$HASH"
+cp -r "$LOCAL_THEME" package/"$HASH"/themes
 zip -r package/"$HASH".zip package/"$HASH"
 rm -rf package/"$HASH"
 echo ""

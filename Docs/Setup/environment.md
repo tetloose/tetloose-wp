@@ -2,7 +2,7 @@
 
 Tetloose WP has only been tested on Mac OS.
 
-This isn't a tutorial on setting up a local environment, more of an idea of a setup that could be used.
+This isn't a tutorial for setting up a local environment.
 
 Brew is used as a package manager, read more about [Brew](https://brew.sh/).
 

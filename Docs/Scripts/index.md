@@ -1,6 +1,6 @@
 ## Scripts
 
-- [GIT DEPLOY >>](git-deploy.md)
+- [DEPLOY >>](deploy.md)
 - [DATABASE >>](database.md)
 - [UPLOADS >>](uploads.md)
 - [CLONING >>](cloning.md)

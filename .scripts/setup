@@ -1,29 +1,44 @@
 #!/bin/bash
-#Setup
-
-# echo "$PRODUCTION_SSH"
-# echo "$PRODUCTION_DIR"
-# echo "$PRODUCTION_URL"
-# echo "$STAGING_SSH"
-# echo "$STAGING_DIR"
-# echo "$STAGIN_URL"
-# echo "$LOCAL_DIR"
-# echo "$LOCAL_URL"
-# echo "$UPLOADS_DIR"
-# echo "$BACKUP_DIR"
-# echo "$BRANCH"
+#setup
 
 read -p "Setup
 Choose Environment
 
-[0] Development
+[0] Local
 [1] Production
+[2] Staging
 
 [0/1]: " SETUP_SWITCH
+
+if [ "$SETUP_SWITCH" = "1" ]; then
+    SSH=$PRODUCTION_SSH
+    DIR=$PRODUCTION_DIR
+    DBHOST=$PRODUCTION_DB_HOST
+    DBNAME=$PRODUCTION_DB_NAME
+    DBUSER=$PRODUCTION_DB_USER
+    DBPASS=$PRODUCTION_DB_PASSWORD
+
+elif [ "$SETUP_SWITCH" = "2" ]; then
+    SSH=$STAGING_SSH
+    DIR=$STAGING_DIR
+    DBHOST=$STAGING_DB_HOST
+    DBNAME=$STAGING_DB_NAME
+    DBUSER=$STAGING_DB_USER
+    DBPASS=$STAGING_DB_PASSWORD
+fi
+
 if [ "$SETUP_SWITCH" = "0" ]; then
     eval "composer install; yarn; yarn postinstall; code .; yarn dev"
-elif [ "$SETUP_SWITCH" = "1" ]; then
-    eval "composer install; yarn; yarn build"
+
+elif [[ "$SETUP_SWITCH" = "1" || "$SETUP_SWITCH" = "2" ]]; then
+    ssh "$SSH" "mkdir -p $DIR";
+    ssh "$SSH" "cd $DIR; wp core download";
+    ssh "$SSH" "cd $DIR;  wp core config --dbhost=$DBHOST --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS --dbprefix=$DB_PREFIX --skip-check";
+    ssh "$SSH" "rm -rf $DIR/$WP_THEME $DIR/$WP_PLUGINS $DIR/$WP_UPLOADS";
+    ssh "$SSH" "cd $DIR; mkdir -p wp-content/themes wp-content/plugins wp-content/uploads; chmod 600 wp-config.php; chmod 775 wp-content/uploads";
+    ssh "$SSH" "cd $DIR; wp db reset";
+    eval "yarn deploy; yarn clone:to"
+
 else
-  echo "Please Enter 0 or 1, Toolkit Stopping"
+  echo "Environment not set, Toolkit Stopping"
 fi

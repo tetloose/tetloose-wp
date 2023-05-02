@@ -48,17 +48,17 @@ See [SSH](ssh.md)
 1. `cd ~/path-to-repo/tetloose-wp`
 2. `yarn setup`
 
-Set up will first generate a **.env** file in the project root, it will give you options to use a template and manually input the values values or an interactive option.
+Set up will first generate a **.env** file in the project root, this is a template, manually input the values.
 
 Check values in `.env` before continuing.
 
-`yarn setup` will continue to install packages. Once it completes, Browser-Sync will open a browser with  **localhost:3000**.
+`yarn setup` will continue, it prompts for an environment, select **local**. Once completed, Browser-Sync will open a browser at **localhost:3000**.
 
-It's very important you **do not** install Wordpress on **localhost:3000**.
+It's very important to **not** install Wordpress on **localhost:3000**.
 
 This will cause a page reload every time you save code.
 
-Install Wordpress on the vHost url i.e. `project-name.test/wp/wp-admin`.
+Install Wordpress on the **host** url i.e. `project-name.test/wp/wp-admin`.
 
 More info see [FIRST LOAD >>](../Wordpress/first-load.md).
 

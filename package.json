@@ -35,7 +35,7 @@
         "prepack": "pinst --disable",
         "postpack": "pinst --enable",
         "serve": "ENV=dev gulp serve",
-        "dev": "gulp clean; ENV=dev gulp php; ENV=dev gulp; yarn serve",
+        "dev": "gulp clean; gulp php; ENV=dev gulp; yarn serve",
         "build": "gulp clean; gulp php; gulp build",
         "favicons": "gulp cleanFavicons; gulp favicons",
         "git:commit": "./toolkit git-commit",

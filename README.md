@@ -1,4 +1,4 @@
-# TETLOOSE WP
+# Fractures.co.uk
 
 Tetloose WP is a custom Wordpress framework that uses [Bedrock Wordpress](https://roots.io/bedrock/).
 
@@ -53,7 +53,7 @@ See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.work
 
 ## Scripts
 
-- [GIT DEPLOY >>](Docs/Scripts/git-deploy.md)
+- [DEPLOY >>](Docs/Scripts/deploy.md)
 - [DATABASE >>](Docs/Scripts/database.md)
 - [UPLOADS >>](Docs/Scripts/uploads.md)
 - [CLONING >>](Docs/Scripts/cloning.md)

@@ -1,42 +1,32 @@
 #!/bin/bash
 #uploads-push
 
-# echo "$PRODUCTION_SSH"
-# echo "$PRODUCTION_DIR"
-# echo "$PRODUCTION_URL"
-# echo "$STAGING_SSH"
-# echo "$STAGING_DIR"
-# echo "$STAGIN_URL"
-# echo "$LOCAL_DIR"
-# echo "$LOCAL_URL"
-# echo "$UPLOADS_DIR"
-# echo "$BACKUP_DIR"
-# echo "$BRANCH"
-
 read -p "Uploads Push
 Select Environment
 
-[0] Staging
-[1] Production
+[0] Production
+[1] Staging
 
 [0/1]: " UPLOADS_PUSH_SWITCH
 if [ "$UPLOADS_PUSH_SWITCH" = "0" ]; then
     SSH=$PRODUCTION_SSH
     DIR=$PRODUCTION_DIR
-    ENVIRONMENT=staging
+    ENVIRONMENT=production
 elif [ "$UPLOADS_PUSH_SWITCH" = "1" ]; then
     SSH=$STAGING_SSH
     DIR=$STAGING_DIR
-    ENVIRONMENT=production
+    ENVIRONMENT=staging
 else
-  echo "Please Enter 0 or 1, Toolkit Stopping"
+  echo "Environment not set, Toolkit Stopping"
 fi
 
 if [ "$ENVIRONMENT" ]; then
-    eval "cd $LOCAL_DIR/web/app; zip -r -D uploads.zip uploads"
-    eval rsync "$LOCAL_DIR"/web/app/uploads.zip "$SSH":"$DIR"/web/app --stats --progress -zvrt --update
-    ssh "$SSH" "cd $DIR/web/app; unzip -o uploads.zip"
-    eval "rm -rf $LOCAL_DIR/web/app/uploads.zip"
-    ssh "$SSH" "rm -rf $DIR/web/app/uploads.zip"
+    eval "cd $LOCAL_DIR/$LOCAL_APP; zip -r -D uploads.zip uploads"
+    eval rsync "$LOCAL_DIR"/$LOCAL_APP/uploads.zip "$SSH":"$DIR"/$WP_CONTENT --stats --progress -zvrt --update
+    ssh "$SSH" "cd $DIR/$WP_CONTENT; unzip -o uploads.zip"
+    eval "rm -rf $LOCAL_DIR/$LOCAL_APP/uploads.zip"
+    ssh "$SSH" "rm -rf $DIR/$WP_CONTENT/uploads.zip"
     echo "Uploads pushed from Local to $ENVIRONMENT."
+else
+  echo "Environment not set, Toolkit Stopping"
 fi
