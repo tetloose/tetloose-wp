@@ -24,7 +24,7 @@ if [ "$ENVIRONMENT" ]; then
     ssh "$SSH" "cd $DIR/$WP_CONTENT; zip -r -D uploads.zip uploads"
     eval rsync "$SSH":"$DIR"/$WP_CONTENT/uploads.zip "$LOCAL_DIR"/$LOCAL_APP --stats --progress -zvrt --update
     ssh "$SSH" "rm -rf $DIR/$WP_CONTENT/uploads.zip"
-    eval "cd $LOCAL_DIR/$LOCAL_APP" unzip -o uploads.zip
+    eval "cd $LOCAL_DIR/$LOCAL_APP"; unzip -o uploads.zip
     eval rm -rf "$LOCAL_DIR"/$LOCAL_APP/uploads.zip
     echo "Uploads pulled from $ENVIRONMENT to local."
 else
