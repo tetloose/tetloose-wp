@@ -3,6 +3,8 @@
 interface CssExports {
   'footer': string;
   'footer__nav': string;
+  'footer__social': string;
+  'footer__social-link': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

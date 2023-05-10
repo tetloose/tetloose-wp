@@ -6,6 +6,7 @@
  */
 
 $footer_navigation = get_field( 'footer_navigation', 'option' );
+$footer_social = get_field( 'footer_social', 'option' );
 $footer_description = get_field( 'footer_description', 'option' ) ? get_field( 'footer_description', 'option' ) : '';
 $footer_bg_borders = get_field( 'footer_bg_borders', 'option' );
 $footer_content_styles = get_field( 'footer_content_styles', 'option' );
@@ -47,11 +48,14 @@ $sub_nav_component = new Module(
     class="<?php echo esc_attr( $footer_component->class_names() ); ?>">
     <?php
     get_template_part(
-        'components/social-component',
+        'components/partials-social',
         null,
         array(
             'styles' => 'footer__social',
             'class_names' => '',
+            'socials' => $footer_social,
+            'link_styles' => 'footer__social-link',
+            'link_class_names' => '',
         )
     );
     ?>
