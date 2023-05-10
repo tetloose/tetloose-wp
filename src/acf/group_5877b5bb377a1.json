@@ -1524,6 +1524,24 @@
             "preview_size": "thumbnail"
         },
         {
+            "key": "field_645b8c5edb7a9",
+            "label": "Navigation",
+            "name": "navigation",
+            "aria-label": "",
+            "type": "nav_menu",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "save_format": "object",
+            "container": 0,
+            "allow_null": 0
+        },
+        {
             "key": "field_642d65ab7aa58",
             "label": "Image Styles",
             "name": "image_styles",
@@ -2756,5 +2774,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683720093
+    "modified": 1683721365
 }
