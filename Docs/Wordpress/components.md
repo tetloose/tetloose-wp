@@ -4,7 +4,7 @@ Tetloose-WP relies on ACF Flexible Content to build page layouts.
 
 ## Flexible Content
 
-See **ACF** -> **Shared Fields** -> **Components**
+**ACF** -> **Shared Fields** -> **Components**
 
 This is a list of available components, the names should match the directory in `src/js/components` or be kind of similar so you know what they are.
 

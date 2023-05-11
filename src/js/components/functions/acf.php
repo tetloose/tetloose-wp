@@ -103,20 +103,6 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 
     acf_add_options_page(
         array(
-            'icon_url' => 'dashicons-star-filled',
-            'position' => 5,
-            'page_title' => 'Social',
-            'menu_title' => 'Social',
-            'menu_slug' => 'social',
-            'parent_slug' => 'theme',
-            'capability' => 'edit_posts',
-            'redirect' => false,
-            'autoload' => true,
-        )
-    );
-
-    acf_add_options_page(
-        array(
             'icon_url' => 'dashicons-media-text',
             'position' => 1,
             'page_title' => 'Static Content',

@@ -150,7 +150,7 @@ get_template_part(
 
 ## Form
 
-Used with embeded forms.
+Used with embedded forms.
 
 ### PHP Partial
 
@@ -201,6 +201,66 @@ get_template_part(
 );
 ?>
 ```
+
+## Form
+
+Used to generate social links with icons.
+
+### PHP Partial
+
+```
+$social = get_field( 'social' );
+
+get_template_part(
+    'components/partials-social',
+    null,
+    array(
+        'styles' => '',
+        'class_names' => '',
+        'socials' => $social,
+        'link_styles' => '',
+        'link_class_names' => '',
+    )
+);
+```
+
+## Navigation
+
+Acf Navigation field
+
+### PHP Component
+
+`src/js/components/navigation/navigation-component.php`
+
+```
+<?php
+$navigation = get_field( 'navigation' );
+
+get_template_part(
+    'components/navigation-component',
+    null,
+    array(
+        'tag' => 'nav',
+        'id' => $navigation->ID,
+        'styles' => 'main-nav',
+        'class_names' => '',
+        'ul_styles' => 'main-nav__ul',
+        'ul_class_names' => '',
+        'aria_expanded' => '',
+    )
+);
+?>
+```
+
+### TS File
+
+`src/js/components/navigation/navigation.component.ts`
+
+`this.subNav(this.module, styles['sub-nav__item'], styles['is-active'])` removes unwanted wp class names and populates active states with css module classes.
+
+### Styles
+
+`src/js/components/navigation/navigation.module.scss`
 
 ## Links
 

@@ -29,16 +29,24 @@ $footer_component = new Module(
         $footer_selection['background_color'],
     ]
 );
-$sub_nav_component = new Module(
+
+$navigation_component = new Module(
+    [
+        'footer__nav',
+    ],
+    [
+        'u-animate-hide',
+    ]
+);
+
+$navigation_ul_component = new Module(
     [
         'sub-nav',
         'is-inline',
         $footer_content_styles['link_hover_color'],
         $footer_content_styles['link_background_hover_color'],
     ],
-    [
-        'u-animate-hide',
-    ]
+    []
 );
 ?>
 <footer
@@ -58,23 +66,19 @@ $sub_nav_component = new Module(
             'link_class_names' => '',
         )
     );
-    ?>
-    <nav data-styles="footer__nav">
-        <?php
-        if ( ! empty( $footer_navigation->ID ) ) :
-            get_template_part(
-                'components/navigation-component',
-                null,
-                array(
-                    'id' => $footer_navigation->ID,
-                    'styles' => $sub_nav_component->styles(),
-                    'class_names' => $sub_nav_component->class_names(),
-                )
-            );
-        endif
-        ?>
-    </nav>
-    <?php
+    get_template_part(
+        'components/navigation-component',
+        null,
+        array(
+            'tag' => 'div',
+            'id' => $footer_navigation->ID,
+            'styles' => $navigation_component->styles(),
+            'class_names' => $navigation_component->class_names(),
+            'ul_styles' => $navigation_ul_component->styles(),
+            'ul_class_names' => $navigation_ul_component->class_names(),
+            'aria_expanded' => '',
+        )
+    );
     get_template_part(
         'components/partials-content',
         null,
