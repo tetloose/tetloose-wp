@@ -1,5 +1,47 @@
 @import '../../../scss/settings';
 
+.angle-open {
+	&::before,
+	&::after {
+		animation-name: kf-angle-open;
+		animation-duration: vars(transition, med);
+		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+}
+
+@keyframes kf-angle-open {
+	from {
+		height: 0;
+	}
+
+	to {
+		height: 50%;
+	}
+}
+
+.angle-close {
+	&::before,
+	&::after {
+		animation-name: kf-angle-close;
+		animation-duration: vars(transition, med);
+		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+}
+
+@keyframes kf-angle-close {
+	from {
+		height: 50%;
+	}
+
+	to {
+		height: 0;
+	}
+}
+
 .header {
 	position: fixed;
 	top: 0;
@@ -8,6 +50,14 @@
 	width: 100%;
 
 	@include transition(top);
+
+	@include mq(vars(breakpoint, med), max-width) {
+		height: rem(80px);
+	}
+
+	@include mq(vars(breakpoint, med)) {
+		height: rem(120px);
+	}
 
 	&.is-hidden {
 		@include mq(vars(breakpoint, med), max-width) {
@@ -42,13 +92,527 @@
 			cursor: pointer;
 		}
 	}
+}
+
+.menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
 
 	@include mq(vars(breakpoint, med), max-width) {
-		height: rem(80px);
+		width: rem(80px);
 	}
 
 	@include mq(vars(breakpoint, med)) {
-		height: rem(120px);
+		width: rem(120px);
+	}
+}
+
+.trigger {
+	$trigger: &;
+
+	z-index: 4;
+	width: 100%;
+	height: 100%;
+	visibility: visible;
+	border-radius: 0;
+
+	@include mq(vars(breakpoint, med), max-width) {
+		border-top-width: 0;
+		border-right-width: 0;
+		border-bottom-width: 0;
+	}
+
+	@include mq(vars(breakpoint, med)) {
+		border-width: 0;
+	}
+
+	&__title {
+		position: absolute;
+		left: 0;
+		background-color: transparent;
+		text-align: center;
+		text-transform: uppercase;
+
+		@include mq(vars(breakpoint, med), max-width) {
+			top: 10%;
+			right: -(rem(4px));
+			letter-spacing: rem(3.5px);
+
+			@include type-small;
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			top: 14%;
+			right: -(rem(9px));
+			letter-spacing: rem(9px);
+
+			@include type-paragraph;
+		}
+	}
+
+	&__container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 60%;
+		height: 35%;
+		transform: translate(-50%, -30%);
+	}
+
+	&__bar {
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		left: 0;
+		width: auto;
+		height: rem(3px);
+		visibility: visible;
+
+		&:nth-child(1) {
+			top: 0;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&:nth-child(4) {
+			bottom: 0;
+		}
+
+		@include transition-property(transform, background-color);
+		@include transition-duration(vars(transition, xfast));
+		@include transition-timing(ease-in-out);
+		@include hardware(true);
+	}
+
+	:global(.btn-light) & {
+		#{$trigger}__bar {
+			background-color: $light;
+		}
+	}
+
+	:global(.btn-dark) & {
+		#{$trigger}__bar {
+			background-color: $dark;
+		}
+	}
+
+	:global(.btn-color-1) & {
+		#{$trigger}__bar {
+			background-color: $color-1;
+		}
+	}
+
+	:global(.btn-color-2) & {
+		#{$trigger}__bar {
+			background-color: $color-2;
+		}
+	}
+
+	:global(.btn-color-3) & {
+		#{$trigger}__bar {
+			background-color: $color-3;
+		}
+	}
+
+	:global(.btn-color-4) & {
+		#{$trigger}__bar {
+			background-color: $color-4;
+		}
+	}
+
+	:global(.btn-hover-light) & {
+		&:focus #{$trigger}__bar {
+			background-color: $light;
+		}
+
+		@include mq-hover {
+			&:hover #{$trigger}__bar {
+				background-color: $light;
+			}
+		}
+	}
+
+	:global(.btn-hover-dark) & {
+		&:focus #{$trigger}__bar {
+			background-color: $dark;
+		}
+
+		@include mq-hover {
+			&:hover #{$trigger}__bar {
+				background-color: $dark;
+			}
+		}
+	}
+
+	:global(.btn-hover-color-1) & {
+		&:focus #{$trigger}__bar {
+			background-color: $color-1;
+		}
+
+		@include mq-hover {
+			&:hover #{$trigger}__bar {
+				background-color: $color-1;
+			}
+		}
+	}
+
+	:global(.btn-hover-color-2) & {
+		&:focus #{$trigger}__bar {
+			background-color: $color-2;
+		}
+
+		@include mq-hover {
+			&:hover #{$trigger}__bar {
+				background-color: $color-2;
+			}
+		}
+	}
+
+	:global(.btn-hover-color-3) & {
+		&:focus #{$trigger}__bar {
+			background-color: $color-3;
+		}
+
+		@include mq-hover {
+			&:hover #{$trigger}__bar {
+				background-color: $color-3;
+			}
+		}
+	}
+
+	:global(.btn-hover-color-4) & {
+		&:focus #{$trigger}__bar {
+			background-color: $color-4;
+		}
+
+		@include mq-hover {
+			&:hover #{$trigger}__bar {
+				background-color: $color-4;
+			}
+		}
+	}
+
+	&.is-active {
+		position: fixed;
+		top: 0;
+		right: 0;
+		background-color: transparent;
+		border-width: 0;
+
+		@include transition-property(color, opacity);
+
+		@include mq(vars(breakpoint, med), max-width) {
+			width: rem(80px);
+			height: rem(80px);
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			width: rem(120px);
+			height: rem(120px);
+		}
+
+		&:active,
+		&:focus {
+			background-color: transparent;
+			border-width: 0;
+		}
+
+		#{$trigger}__bar {
+			&:nth-child(1),
+			&:nth-child(4) {
+				top: 50%;
+				bottom: auto;
+				opacity: 0;
+				transform: translateY(-50%);
+				transform: rotate(45deg);
+			}
+
+			&:nth-child(2) {
+				transform: rotate(-45deg);
+			}
+
+			&:nth-child(3) {
+				transform: rotate(45deg);
+			}
+		}
+
+		:global(.btn-active-light) & {
+			color: $light;
+
+			#{$trigger}__bar {
+				background-color: $light;
+			}
+		}
+
+		:global(.btn-active-dark) & {
+			color: $dark;
+
+			#{$trigger}__bar {
+				background-color: $dark;
+			}
+		}
+
+		:global(.btn-active-color-1) & {
+			color: $color-1;
+
+			#{$trigger}__bar {
+				background-color: $color-1;
+			}
+		}
+
+		:global(.btn-active-color-2) & {
+			color: $color-2;
+
+			#{$trigger}__bar {
+				background-color: $color-2;
+			}
+		}
+
+		:global(.btn-active-color-3) & {
+			color: $color-3;
+
+			#{$trigger}__bar {
+				background-color: $color-3;
+			}
+		}
+
+		:global(.btn-active-color-4) & {
+			color: $color-4;
+
+			#{$trigger}__bar {
+				background-color: $color-4;
+			}
+		}
+
+		:global(.btn-active-hover-light) & {
+			&:focus {
+				color: $light;
+
+				#{$trigger}__bar {
+					background-color: $light;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $light;
+
+					#{$trigger}__bar {
+						background-color: $light;
+					}
+				}
+			}
+		}
+
+		:global(.btn-active-hover-dark) & {
+			&:focus {
+				color: $dark;
+
+				#{$trigger}__bar {
+					background-color: $dark;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $dark;
+
+					#{$trigger}__bar {
+						background-color: $dark;
+					}
+				}
+			}
+		}
+
+		:global(.btn-active-hover-color-1) & {
+			&:focus {
+				color: $color-1;
+
+				#{$trigger}__bar {
+					background-color: $color-1;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $color-1;
+
+					#{$trigger}__bar {
+						background-color: $color-1;
+					}
+				}
+			}
+		}
+
+		:global(.btn-active-hover-color-2) & {
+			&:focus {
+				color: $color-2;
+
+				#{$trigger}__bar {
+					background-color: $color-2;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $color-2;
+
+					#{$trigger}__bar {
+						background-color: $color-2;
+					}
+				}
+			}
+		}
+
+		:global(.btn-active-hover-color-3) & {
+			&:focus {
+				color: $color-3;
+
+				#{$trigger}__bar {
+					background-color: $color-3;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $color-3;
+
+					#{$trigger}__bar {
+						background-color: $color-3;
+					}
+				}
+			}
+		}
+
+		:global(.btn-active-hover-color-4) & {
+			&:focus {
+				color: $color-4;
+
+				#{$trigger}__bar {
+					background-color: $color-4;
+				}
+			}
+
+			@include mq-hover {
+				&:hover {
+					color: $color-4;
+
+					#{$trigger}__bar {
+						background-color: $color-4;
+					}
+				}
+			}
+		}
+
+		@include mq-hover {
+			&:focus,
+			&:hover {
+				background-color: transparent;
+			}
+		}
+	}
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
+	opacity: 0;
+	visibility: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	@include transition(all, vars(transition, slow), ease-in-out);
+
+	&.animation-light {
+		&::before,
+		&::after {
+			background-color: $light;
+		}
+	}
+
+	&.animation-dark {
+		&::before,
+		&::after {
+			background-color: $dark;
+		}
+	}
+
+	&.animation-color-1 {
+		&::before,
+		&::after {
+			background-color: $color-1;
+		}
+	}
+
+	&.animation-color-2 {
+		&::before,
+		&::after {
+			background-color: $color-2;
+		}
+	}
+
+	&.animation-color-3 {
+		&::before,
+		&::after {
+			background-color: $color-3;
+		}
+	}
+
+	&.animation-color-4 {
+		&::before,
+		&::after {
+			background-color: $color-4;
+		}
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		position: fixed;
+		right: 0;
+		left: 0;
+		z-index: -1;
+		height: 0;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	.sub-nav {
+		@include transition(all);
+		@include hardware(true);
+	}
+
+	.nav-open & {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.sub-nav {
+	$sub-nav: &;
+
+	opacity: 0;
+	visibility: hidden;
+
+	.sub-nav-visible & {
+		opacity: 1;
+		visibility: visible;
 	}
 }
 

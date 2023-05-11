@@ -77,20 +77,6 @@ if ( function_exists( 'acf_add_options_page' ) ) {
         array(
             'icon_url' => 'dashicons-star-filled',
             'position' => 3,
-            'page_title' => 'Menu',
-            'menu_title' => 'Menu',
-            'menu_slug' => 'menu',
-            'parent_slug' => 'theme',
-            'capability' => 'edit_posts',
-            'redirect' => false,
-            'autoload' => true,
-        )
-    );
-
-    acf_add_options_page(
-        array(
-            'icon_url' => 'dashicons-star-filled',
-            'position' => 4,
             'page_title' => 'Footer',
             'menu_title' => 'Footer',
             'menu_slug' => 'footer',

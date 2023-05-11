@@ -5,8 +5,8 @@
  * @package Tetloose-Theme
  */
 
-$scripts = get_field( 'scripts', 'option' );
+$footer_script = get_field( 'footer_script', 'option' );
 wp_footer();
-if ( ! empty( $scripts ) ) {
-    echo esc_sql( $scripts['footer'] );
+if ( ! empty( $footer_script ) ) {
+    echo esc_sql( $footer_script );
 }

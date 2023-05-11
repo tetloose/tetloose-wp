@@ -192,6 +192,8 @@ get_template_part(
         'href' => home_url( '/' ),
         'styles' => '',
         'class_names' => '',
+        'mobile_width' => 100,
+        'desktop_width' => 200,
         'figure_styles' => '',
         'figure_class_names' => '',
         'animation' => 'fade-in',

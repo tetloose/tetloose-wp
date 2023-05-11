@@ -1,6 +1,5 @@
 export const modules = {
     Header: () => import(/* webpackChunkName: "header" */ '../components/header/header.component'),
-    Menu: () => import(/* webpackChunkName: "menu" */ '../components/menu/menu.component'),
     Navigation: () => import(/* webpackChunkName: "navigation" */ '../components/navigation/navigation.component'),
     Footer: () => import(/* webpackChunkName: "footer" */ '../components/footer/footer.component'),
     AddPosts: () => import(/* webpackChunkName: "add-posts" */ '../components/add-posts/add-posts.component'),
