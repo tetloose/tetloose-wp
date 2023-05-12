@@ -315,6 +315,30 @@ get_template_part(
 ?>
 ```
 
+
+## Excerpt
+
+Add an excerpt to page / post via **add-posts** component.
+
+The component is styled in `src/js/components/add-posts/add-posts.module.scss`, the partial can take styles or class names. The post type is automatically added to the partial so you can attach different styles per post type.
+
+### PHP Partial
+
+`src/js/components/partials/partials-navlink.php`
+
+```
+<?php
+    get_template_part(
+        'components/partials-excerpt',
+        null,
+        array(
+            'styles' => '',
+            'class_names' => '',
+        )
+    );
+?>
+```
+
 ## HTML Grid / Content
 
 TypeScript function to create html grid elements wrapped in a content element.
