@@ -1,4 +1,4 @@
-# Fractures.co.uk
+# Tetloose-WP
 
 Tetloose WP is a custom Wordpress framework that uses [Bedrock Wordpress](https://roots.io/bedrock/).
 
