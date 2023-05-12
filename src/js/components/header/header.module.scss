@@ -94,21 +94,6 @@
 	}
 }
 
-.menu {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-
-	@include mq(vars(breakpoint, med), max-width) {
-		width: rem(80px);
-	}
-
-	@include mq(vars(breakpoint, med)) {
-		width: rem(120px);
-	}
-}
-
 .trigger {
 	$trigger: &;
 
@@ -519,6 +504,21 @@
 	}
 }
 
+.menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+
+	@include mq(vars(breakpoint, med), max-width) {
+		width: rem(80px);
+	}
+
+	@include mq(vars(breakpoint, med)) {
+		width: rem(120px);
+	}
+}
+
 .nav {
 	position: fixed;
 	top: 0;
@@ -532,6 +532,11 @@
 	overflow-y: auto;
 
 	@include transition(all, vars(transition, slow), ease-in-out);
+
+	.nav-open & {
+		opacity: 1;
+		visibility: visible;
+	}
 
 	&.animation-light {
 		&::before,
@@ -592,16 +597,6 @@
 	&::after {
 		bottom: 0;
 	}
-
-	.sub-nav {
-		@include transition(all);
-		@include hardware(true);
-	}
-
-	.nav-open & {
-		opacity: 1;
-		visibility: visible;
-	}
 }
 
 .sub-nav {
@@ -609,6 +604,9 @@
 
 	opacity: 0;
 	visibility: hidden;
+
+	@include transition(all);
+	@include hardware(true);
 
 	.sub-nav-visible & {
 		opacity: 1;

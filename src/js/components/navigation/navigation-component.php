@@ -5,7 +5,7 @@
  * @package Tetloose-Theme
  */
 
-if ( ! empty( $args ) && ! empty( $args['tag'] ) && ! empty( $args['id'] ) ) :
+if ( ! empty( $args ) && isset( $args['tag'] ) && isset( $args['id'] ) ) :
     $navigation_component = new Module(
         [
             $args['styles'],
@@ -22,6 +22,7 @@ if ( ! empty( $args ) && ! empty( $args['tag'] ) && ! empty( $args['id'] ) ) :
             $args['ul_class_names'],
         ]
     );
+    $animation = isset( $args['animation'] ) ? $args['animation'] : 'fade-in';
     $navigation = wp_nav_menu(
         array(
             'menu' => $args['id'],
@@ -39,7 +40,7 @@ if ( ! empty( $args ) && ! empty( $args['tag'] ) && ! empty( $args['id'] ) ) :
     ?>
     <<?php echo esc_attr( $args['tag'] ); ?>
         data-module="Navigation"
-        data-animation="fade-in"
+        data-animation="<?php echo esc_attr( $animation ); ?>"
         <?php if ( ! empty( $args['aria_expanded'] ) ) : ?>
             aria-expanded="<?php echo esc_attr( $args['aria_expanded'] ); ?>"
         <?php endif; ?>

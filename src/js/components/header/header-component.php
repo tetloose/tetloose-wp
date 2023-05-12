@@ -46,7 +46,6 @@ $navigation_component = new Module(
         $navigation_styles['animation_color'],
     ],
     [
-        'u-animate-hide',
         'u-align-middle',
         'u-align-center',
         $navigation_styles['bg_borders']['background_color'],
@@ -139,6 +138,7 @@ $navigation_ul_component = new Module(
                     'ul_styles' => $navigation_ul_component->styles(),
                     'ul_class_names' => $navigation_ul_component->class_names(),
                     'aria_expanded' => 'false',
+                    'animation' => 'hide',
                 )
             );
             ?>

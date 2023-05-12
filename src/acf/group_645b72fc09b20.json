@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "<strong>Settings<\/strong> \r\nis used to update the global colours \/ fonts \/ styles as well as some entry points into the the head, body and footer tags.\r\n\r\n<strong>Header<\/strong> \r\nfields for a header.\r\n\r\n<strong>Menu<\/strong> \r\nfields for a menu.\r\n\r\n<strong>Footer<\/strong> \r\nfields for a footer.\r\n\r\n<strong>Header<\/strong> \r\nfields for social tags.\r\n\r\nThese are option fields so they can be used any where, depending on the type of Header \/ Footer, these fields might be shared between them.",
+            "message": "<strong>Settings<\/strong> \r\nUsed to update global colours \/ fonts \/ styles as well as an entry point into the the head, body and footer tag.\r\n\r\n<strong>Header<\/strong> \r\nFields for current header.\r\n\r\n<strong>Footer<\/strong> \r\nFields for current footer.",
             "new_lines": "wpautop",
             "esc_html": 0
         }
@@ -39,5 +39,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683715339
+    "modified": 1683880311
 }

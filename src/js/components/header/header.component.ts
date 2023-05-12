@@ -95,11 +95,11 @@ export class Header extends ComponentClass {
                 nav.classList.add(`${styles['angle-close']}`)
 
                 setTimeout(() => {
-                    menu?.classList.remove(styles['nav-open'])
                     if (title instanceof HTMLElement) title.innerHTML = `${this.state?.closedText}`
                     nav?.classList.remove(`${styles['angle-open']}`, `${styles['angle-close']}`)
                     trigger.classList.remove(`${styles['is-active']}`)
                     html.classList.remove('no-scroll')
+                    menu?.classList.remove(styles['nav-open'])
                 }, 400)
             }, 200)
         }

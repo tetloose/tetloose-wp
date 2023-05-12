@@ -249,6 +249,7 @@ get_template_part(
         'ul_styles' => 'main-nav__ul',
         'ul_class_names' => '',
         'aria_expanded' => '',
+        'animation' => 'fade-in',
     )
 );
 ?>

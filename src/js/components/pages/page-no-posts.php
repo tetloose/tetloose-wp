@@ -5,28 +5,32 @@
  * @package Tetloose-Theme
  */
 
-$no_posts = get_field( 'no_posts', 'option' );
-$no_posts_styles = get_field( 'no_posts_styles', 'option' );
+$content_editor = get_field( 'no_posts_content_editor', 'option' );
+$bg_borders = get_field( 'no_posts_bg_borders', 'option' );
+$content_styles = get_field( 'no_posts_content_styles', 'option' );
+$btn_styles = get_field( 'no_posts_btn_styles', 'option' );
+$selection = get_field( 'no_posts_selection', 'option' );
+
 $no_posts_component = new Module(
     [],
     [
-        $no_posts_styles['bg_borders']['background_color'],
-        $no_posts_styles['bg_borders']['border_color'] ? 'u-border-t ' . $no_posts_styles['bg_borders']['border_color'] : '',
-        $no_posts_styles['content_styles']['color'],
-        $no_posts_styles['content_styles']['link_color'],
-        $no_posts_styles['content_styles']['link_hover_color'],
-        $no_posts_styles['content_styles']['link_background_hover_color'],
-        $no_posts_styles['btn_styles']['color'],
-        $no_posts_styles['btn_styles']['border_color'],
-        $no_posts_styles['btn_styles']['background_color'],
-        $no_posts_styles['btn_styles']['hover_color'],
-        $no_posts_styles['btn_styles']['border_hover_color'],
-        $no_posts_styles['btn_styles']['background_hover_color'],
-        $no_posts_styles['selection']['color'],
-        $no_posts_styles['selection']['background_color'],
+        $bg_borders['background_color'],
+        $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+        $content_styles['color'],
+        $content_styles['link_color'],
+        $content_styles['link_hover_color'],
+        $content_styles['link_background_hover_color'],
+        $btn_styles['color'],
+        $btn_styles['border_color'],
+        $btn_styles['background_color'],
+        $btn_styles['hover_color'],
+        $btn_styles['border_hover_color'],
+        $btn_styles['background_hover_color'],
+        $selection['color'],
+        $selection['background_color'],
     ]
 );
-if ( ! empty( $no_posts ) ) :
+if ( ! empty( $content_editor ) ) :
     ?>
     <main class="<?php echo esc_attr( $no_posts_component->class_names() ); ?>">
         <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-lrg u-spacing-b-lrg">
@@ -38,7 +42,7 @@ if ( ! empty( $no_posts ) ) :
                     array(
                         'styles' => '',
                         'class_names' => '',
-                        'content' => $no_posts,
+                        'content' => $content_editor,
                     )
                 );
             ?>
