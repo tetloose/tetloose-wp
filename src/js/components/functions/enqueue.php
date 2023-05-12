@@ -12,7 +12,7 @@ function global_styles() {
     $fonts = get_field( 'fonts', 'option' );
     $colors = get_field( 'colors', 'option' );
 
-    if ( ! empty( $colors ) && ! empty( $fonts ) ) {
+    if ( isset( $fonts ) && isset( $colors ) ) {
         return '
             :root {
                 --f-body: ' . wp_kses_post( $fonts['body_font']['font_family'] ) . ';
@@ -90,13 +90,15 @@ function scripts() {
 function styles() {
     $fonts = get_field( 'fonts', 'option' );
 
-    wp_enqueue_style(
-        'fonts',
-        $fonts['url'],
-        '',
-        'tetloose',
-        false
-    );
+    if ( isset( $fonts['url'] ) ) {
+        wp_enqueue_style(
+            'fonts',
+            $fonts['url'],
+            '',
+            'tetloose',
+            false
+        );
+    }
 
     $ver = null;
 

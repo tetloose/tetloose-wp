@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "<strong>Static Content<\/strong> \r\nManaged content outside of Wordpress Loop.\r\n\r\n<strong>No Posts<\/strong> \r\nWhen there are no posts to show.\r\n\r\n<strong>Password Protected<\/strong> \r\nWhen a post is set to password protected.\r\n\r\n<strong>404<\/strong> \r\nWhen a page \/ post doesn't exist.",
+            "message": "<strong>Static Content<\/strong> \r\nManaged content outside of Wordpress Loop.\r\n\r\n<strong>No Posts<\/strong> \r\nWhen there are no posts to show.\r\n\r\n<strong>Password Protected<\/strong> \r\nWhen a post is set to password protected.\r\n\r\n<strong>First load<\/strong> \r\nSave all fields to remove php notices.\r\n\r\n<strong>404<\/strong> \r\nWhen a page \/ post doesn't exist.",
             "new_lines": "wpautop",
             "esc_html": 0
         }
@@ -54,5 +54,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683880492
+    "modified": 1683889640
 }

@@ -3,82 +3,6 @@
     "title": "Shared Fields",
     "fields": [
         {
-            "key": "field_5b868d1e9ea0d",
-            "label": "Social",
-            "name": "social",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "field_6409d605b8c89",
-            "button_label": "Add more",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_6409d605b8c89",
-                    "label": "Link",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "parent_repeater": "field_5b868d1e9ea0d"
-                },
-                {
-                    "key": "field_6409d61ab8c8a",
-                    "label": "Icon",
-                    "name": "icon",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "u-icon-facebook": "Facebook",
-                        "u-icon-instagram": "Instagram",
-                        "u-icon-ticktok": "TickTok",
-                        "u-icon-linkedin": "LinkedIn",
-                        "u-icon-twitter": "Twitter",
-                        "u-icon-youtube": "Youtube",
-                        "u-icon-vimeo": "Vimeo",
-                        "u-icon-bandcamp": "Bandcamp",
-                        "u-icon-songkick": "Songkick",
-                        "u-icon-spotify": "Spotify"
-                    },
-                    "default_value": "u-icon-facebook",
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "parent_repeater": "field_5b868d1e9ea0d"
-                }
-            ]
-        },
-        {
             "key": "field_64242c4c0aed4",
             "label": "Colors",
             "name": "",
@@ -832,6 +756,82 @@
                     "ui": 0,
                     "ajax": 0,
                     "placeholder": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5b868d1e9ea0d",
+            "label": "Social",
+            "name": "social",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_6409d605b8c89",
+            "button_label": "Add more",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6409d605b8c89",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_5b868d1e9ea0d"
+                },
+                {
+                    "key": "field_6409d61ab8c8a",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "u-icon-facebook": "Facebook",
+                        "u-icon-instagram": "Instagram",
+                        "u-icon-tiktok": "TikTok",
+                        "u-icon-linkedin": "LinkedIn",
+                        "u-icon-twitter": "Twitter",
+                        "u-icon-youtube": "Youtube",
+                        "u-icon-vimeo": "Vimeo",
+                        "u-icon-bandcamp": "Bandcamp",
+                        "u-icon-songkick": "Songkick",
+                        "u-icon-spotify": "Spotify"
+                    },
+                    "default_value": "u-icon-facebook",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_5b868d1e9ea0d"
                 }
             ]
         },
@@ -2918,5 +2918,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683812502
+    "modified": 1683894868
 }

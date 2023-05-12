@@ -7,65 +7,30 @@
 
 $header_logo = get_field( 'header_logo', 'option' );
 $header_cta = get_field( 'header_cta', 'option' );
-$header_styles = get_field( 'header_styles', 'option' );
+$header_button_title_open = get_field( 'header_button_title_open', 'option' );
+$header_button_title_closed = get_field( 'header_button_title_closed', 'option' );
 $header_navigation = get_field( 'header_navigation', 'option' );
-$navigation_styles = get_field( 'navigation_styles', 'option' );
+$header_bg_borders = get_field( 'header_bg_borders', 'option' );
+$header_selection = get_field( 'header_selection', 'option' );
+$cta_btn_styles = get_field( 'cta_btn_styles', 'option' );
+$trigger_btn_styles = get_field( 'trigger_btn_styles', 'option' );
+$trigger_active_btn = get_field( 'trigger_active_btn', 'option' );
+$navigation_bg_borders = get_field( 'navigation_bg_borders', 'option' );
+$navigation_content_styles = get_field( 'navigation_content_styles', 'option' );
+$navigation_animation_color = get_field( 'navigation_animation_color', 'option' );
 $header_component = new Module(
     [
         'header',
     ],
     [
         'u-animate-hide',
-        $header_styles['bg_borders']['background_color'],
-        $header_styles['bg_borders']['border_color']
-            ? 'u-border-b ' . $header_styles['bg_borders']['border_color']
+        $header_bg_borders['background_color'],
+        $header_bg_borders['border_color']
+            ? 'u-border-b ' . $header_bg_borders['border_color']
             : '',
-        $header_styles['btn_styles']['color'],
-        $header_styles['btn_styles']['border_color'],
-        $header_styles['btn_styles']['background_color'],
-        $header_styles['btn_styles']['hover_color'],
-        $header_styles['btn_styles']['border_hover_color'],
-        $header_styles['btn_styles']['background_hover_color'],
-        $header_styles['active_btn']['active_color'],
-        $header_styles['active_btn']['active_hover_color'],
-        $header_styles['selection']['color'],
-        $header_styles['selection']['background_color'],
+        $header_selection['color'],
+        $header_selection['background_color'],
     ]
-);
-$cta_link_component = new Module(
-    [
-        'cta__link',
-    ],
-    [
-        'u-btn',
-    ]
-);
-$navigation_component = new Module(
-    [
-        'nav',
-        $navigation_styles['animation_color'],
-    ],
-    [
-        'u-align-middle',
-        'u-align-center',
-        $navigation_styles['bg_borders']['background_color'],
-        $navigation_styles['selection']['color'],
-        $navigation_styles['selection']['background_color'],
-    ],
-);
-$navigation_ul_component = new Module(
-    [
-        'sub-nav',
-        'is-navigation-menu',
-        $navigation_styles['content_styles']['link_hover_color'],
-        $navigation_styles['content_styles']['link_background_hover_color'],
-    ],
-    [
-        $navigation_styles['content_styles']['color'],
-        $navigation_styles['content_styles']['link_color'],
-        $navigation_styles['content_styles']['link_hover_color'],
-        $navigation_styles['content_styles']['link_background_hover_color'],
-    ],
 );
 ?>
 
@@ -74,19 +39,19 @@ $navigation_ul_component = new Module(
     data-animation="fade-in"
     data-styles="<?php echo esc_attr( $header_component->styles() ); ?>"
     class="<?php echo esc_attr( $header_component->class_names() ); ?>"
-    <?php if ( ! empty( $header_navigation['menu_title_closed'] ) ) : ?>
-        data-closed="<?php echo esc_attr( $header_navigation['menu_title_closed'] ); ?>"
+    <?php if ( ! empty( $header_button_title_closed ) ) : ?>
+        data-closed="<?php echo esc_attr( $header_button_title_closed ); ?>"
     <?php endif; ?>
-    <?php if ( ! empty( $header_navigation['menu_title_open'] ) ) : ?>
-        data-open="<?php echo esc_attr( $header_navigation['menu_title_open'] ); ?>"
+    <?php if ( ! empty( $header_button_title_open ) ) : ?>
+        data-open="<?php echo esc_attr( $header_button_title_open ); ?>"
     <?php endif; ?>>
     <?php
-    if ( ! empty( $header_logo['logo'] ) ) {
+    if ( isset( $header_logo['image'] ) ) {
         get_template_part(
             'components/partials-logo',
             null,
             array(
-                'image' => $header_logo['logo'],
+                'image' => $header_logo['image'],
                 'href' => home_url( '/' ),
                 'styles' => 'header__logo',
                 'mobile_width' => $header_logo['mobile_width'],
@@ -101,8 +66,31 @@ $navigation_ul_component = new Module(
         );
     }
     if ( have_rows( 'header_cta', 'option' ) ) :
+        $cta_component = new Module(
+            [
+                'cta',
+            ],
+            [
+                $cta_btn_styles['color'],
+                $cta_btn_styles['border_color'],
+                $cta_btn_styles['background_color'],
+                $cta_btn_styles['hover_color'],
+                $cta_btn_styles['border_hover_color'],
+                $cta_btn_styles['background_hover_color'],
+            ]
+        );
+        $cta_link_component = new Module(
+            [
+                'cta__link',
+            ],
+            [
+                'u-btn',
+            ]
+        );
         ?>
-        <div data-styles="cta">
+        <div
+            data-styles="<?php echo esc_attr( $cta_component->styles() ); ?>"
+            class="<?php echo esc_attr( $cta_component->class_names() ); ?>">
             <?php
             while ( have_rows( 'header_cta', 'option' ) ) :
                 the_row();
@@ -123,16 +111,61 @@ $navigation_ul_component = new Module(
         <?php
     endif;
 
-    if ( ! empty( $header_navigation ) ) :
+    if ( isset( $header_navigation->ID ) ) :
+        $trigger_component = new Module(
+            [
+                'menu',
+            ],
+            [
+                $trigger_btn_styles['color'],
+                $trigger_btn_styles['border_color'],
+                $trigger_btn_styles['background_color'],
+                $trigger_btn_styles['hover_color'],
+                $trigger_btn_styles['border_hover_color'],
+                $trigger_btn_styles['background_hover_color'],
+                $trigger_active_btn['active_color'],
+                $trigger_active_btn['active_hover_color'],
+            ],
+        );
+        $navigation_component = new Module(
+            [
+                'nav',
+                $navigation_animation_color,
+            ],
+            [
+                'u-align-middle',
+                'u-align-center',
+                $navigation_bg_borders['background_color'],
+                $navigation_bg_borders['border_color']
+                    ? 'u-border-b ' . $header_bg_borders['border_color']
+                    : '',
+            ],
+        );
+        $navigation_ul_component = new Module(
+            [
+                'sub-nav',
+                'is-navigation-menu',
+                $navigation_content_styles['link_hover_color'],
+                $navigation_content_styles['link_background_hover_color'],
+            ],
+            [
+                $navigation_content_styles['color'],
+                $navigation_content_styles['link_color'],
+                $navigation_content_styles['link_hover_color'],
+                $navigation_content_styles['link_background_hover_color'],
+            ],
+        );
         ?>
-        <div data-styles="menu">
+        <div
+            data-styles="<?php echo esc_attr( $trigger_component->styles() ); ?>"
+            class="<?php echo esc_attr( $trigger_component->class_names() ); ?>">
             <?php
             get_template_part(
                 'components/navigation-component',
                 null,
                 array(
                     'tag' => 'nav',
-                    'id' => $header_navigation['menu']->ID,
+                    'id' => $header_navigation->ID,
                     'styles' => $navigation_component->styles(),
                     'class_names' => $navigation_component->class_names(),
                     'ul_styles' => $navigation_ul_component->styles(),
@@ -145,13 +178,13 @@ $navigation_ul_component = new Module(
             <button
                 aria-expanded="false"
                 data-styles="trigger"
-                <?php if ( ! empty( $header_navigation['menu_title_closed'] ) ) : ?>
-                    aria-label="<?php echo esc_attr( $header_navigation['menu_title_closed'] ); ?>"
+                <?php if ( ! empty( $header_button_title_closed ) ) : ?>
+                    aria-label="<?php echo esc_attr( $header_button_title_closed ); ?>"
                 <?php endif; ?>
                 class="u-btn">
                 <span data-styles="trigger__title">
-                    <?php if ( ! empty( $header_navigation['menu_title_closed'] ) ) : ?>
-                        <?php echo esc_attr( $header_navigation['menu_title_closed'] ); ?>
+                    <?php if ( ! empty( $header_button_title_closed ) ) : ?>
+                        <?php echo esc_attr( $header_button_title_closed ); ?>
                     <?php endif; ?>
                 </span>
                 <span data-styles="trigger__container">

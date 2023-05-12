@@ -66,19 +66,21 @@ $navigation_ul_component = new Module(
             'link_class_names' => '',
         )
     );
-    get_template_part(
-        'components/navigation-component',
-        null,
-        array(
-            'tag' => 'div',
-            'id' => $footer_navigation->ID,
-            'styles' => $navigation_component->styles(),
-            'class_names' => $navigation_component->class_names(),
-            'ul_styles' => $navigation_ul_component->styles(),
-            'ul_class_names' => $navigation_ul_component->class_names(),
-            'aria_expanded' => '',
-        )
-    );
+    if ( isset( $footer_navigation->ID ) ) :
+        get_template_part(
+            'components/navigation-component',
+            null,
+            array(
+                'tag' => 'div',
+                'id' => $footer_navigation->ID,
+                'styles' => $navigation_component->styles(),
+                'class_names' => $navigation_component->class_names(),
+                'ul_styles' => $navigation_ul_component->styles(),
+                'ul_class_names' => $navigation_ul_component->class_names(),
+                'aria_expanded' => '',
+            )
+        );
+    endif;
     get_template_part(
         'components/partials-content',
         null,

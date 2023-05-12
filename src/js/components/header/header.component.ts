@@ -36,20 +36,20 @@ export class Header extends ComponentClass {
         const subNav = this.module.querySelector(`.${styles['sub-nav']}`)
         const trigger = this.module.querySelector(`.${styles['trigger']}`)
         const nav = this.module.querySelector(`.${styles['nav']}`)
-        const focusElem = subNav?.querySelector('a')
+        subNav?.setAttribute('tabindex', '-1')
 
-        if (trigger && focusElem && nav) {
+        if (trigger && subNav && nav) {
             this.module.addEventListener('keyup', (e: KeyboardEvent) => {
                 if (e.key === 'Escape' && this.state?.nav) {
-                    this.navToggle(trigger, nav, focusElem)
+                    this.navToggle(trigger, nav, subNav)
                 }
             })
 
-            trigger.addEventListener('click', () => this.navToggle(trigger, nav, focusElem))
+            trigger.addEventListener('click', () => this.navToggle(trigger, nav, subNav))
         }
     }
 
-    navToggle(trigger: Element, nav: Element, focusElem: HTMLElement) {
+    navToggle(trigger: Element, nav: Element, focusElem: Element) {
         const html = <HTMLElement>document.querySelector('html')
         const title = trigger.querySelector(`.${styles['trigger__title']}`)
         const innerWidth = window.innerWidth
@@ -75,7 +75,9 @@ export class Header extends ComponentClass {
 
                     if (focusElem && innerWidth >= 768) {
                         setTimeout(() => {
-                            focusElem.focus()
+                            if (focusElem instanceof HTMLElement) {
+                                focusElem.focus()
+                            }
                         }, 200)
                     }
                 }, 400)
