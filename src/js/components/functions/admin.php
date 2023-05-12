@@ -88,15 +88,15 @@ function admin_remove_items() {
 /**
  * Redirect user to theme settings.
  **/
-function admin_redirect_theme_settings() {
-    wp_redirect( admin_url( 'admin.php?page=theme-settings' ) );
+function admin_redirect_theme() {
+    wp_redirect( admin_url( 'admin.php?page=theme' ) );
 }
 
 /**
  * Redirect user to theme settings if wp-admin in url.
  **/
-function admin_login_redirect_theme_settings() {
-    return admin_url( 'admin.php?page=theme-settings' );
+function admin_login_redirect_theme() {
+    return admin_url( 'admin.php?page=theme' );
 }
 
 /**
@@ -146,7 +146,7 @@ if ( ! is_admin() ) {
 
 // Filter and action hooks.
 add_filter( 'admin_footer_text', 'admin_replace_wp_footer' );
-add_action( 'load-index.php', 'admin_redirect_theme_settings' );
-add_filter( 'login_redirect', 'admin_login_redirect_theme_settings', 10, 3 );
+add_action( 'load-index.php', 'admin_redirect_theme' );
+add_filter( 'login_redirect', 'admin_login_redirect_theme', 10, 3 );
 add_action( 'login_enqueue_scripts', 'wordpress_styles' );
 add_filter( 'wpseo_debug_markers', '__return_false' );
