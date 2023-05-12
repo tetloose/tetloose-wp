@@ -89,7 +89,9 @@
         ".gitmodules": true,
         "app": true,
         ".vscode": true,
-        "README.md": true
+        "README.md": true,
+        "package": true,
+        "pattern-library": true
     },
     "workspace.isHidden": true
 }
