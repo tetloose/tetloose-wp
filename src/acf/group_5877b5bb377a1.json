@@ -1635,8 +1635,8 @@
             "sub_fields": [
                 {
                     "key": "field_62d97b799155c",
-                    "label": "Image Gradiant",
-                    "name": "image_gradiant",
+                    "label": "Image Gradient",
+                    "name": "image_gradient",
                     "aria-label": "",
                     "type": "select",
                     "instructions": "",
@@ -1648,12 +1648,12 @@
                         "id": ""
                     },
                     "choices": {
-                        "u-gradiant-light": "Light",
-                        "u-gradiant-dark": "Dark",
-                        "u-gradiant-color-1": "Color 1",
-                        "u-gradiant-color-2": "Color 2",
-                        "u-gradiant-color-3": "Color 3",
-                        "u-gradiant-color-4": "Color 4"
+                        "u-gradient-light": "Light",
+                        "u-gradient-dark": "Dark",
+                        "u-gradient-color-1": "Color 1",
+                        "u-gradient-color-2": "Color 2",
+                        "u-gradient-color-3": "Color 3",
+                        "u-gradient-color-4": "Color 4"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -2918,5 +2918,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683894868
+    "modified": 1683902549
 }
