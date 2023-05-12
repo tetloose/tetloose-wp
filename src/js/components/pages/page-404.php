@@ -5,30 +5,34 @@
  * @package Tetloose-Theme
  */
 
-$error_page = get_field( 'error_page', 'option' );
-$error_styles = get_field( 'error_styles', 'option' );
-$error_page_component = new Module(
+$content_editor = get_field( 'error_content_editor', 'option' );
+$bg_borders = get_field( 'error_bg_borders', 'option' );
+$content_styles = get_field( 'error_content_styles', 'option' );
+$btn_styles = get_field( 'error_btn_styles', 'option' );
+$selection = get_field( 'error_selection', 'option' );
+
+$error_component = new Module(
     [],
     [
-        $error_styles['bg_borders']['background_color'],
-        $error_styles['bg_borders']['border_color'] ? 'u-border-t ' . $error_styles['bg_borders']['border_color'] : '',
-        $error_styles['content_styles']['color'],
-        $error_styles['content_styles']['link_color'],
-        $error_styles['content_styles']['link_hover_color'],
-        $error_styles['content_styles']['link_background_hover_color'],
-        $error_styles['btn_styles']['color'],
-        $error_styles['btn_styles']['border_color'],
-        $error_styles['btn_styles']['background_color'],
-        $error_styles['btn_styles']['hover_color'],
-        $error_styles['btn_styles']['border_hover_color'],
-        $error_styles['btn_styles']['background_hover_color'],
-        $error_styles['selection']['color'],
-        $error_styles['selection']['background_color'],
+        $bg_borders['background_color'],
+        $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+        $content_styles['color'],
+        $content_styles['link_color'],
+        $content_styles['link_hover_color'],
+        $content_styles['link_background_hover_color'],
+        $btn_styles['color'],
+        $btn_styles['border_color'],
+        $btn_styles['background_color'],
+        $btn_styles['hover_color'],
+        $btn_styles['border_hover_color'],
+        $btn_styles['background_hover_color'],
+        $selection['color'],
+        $selection['background_color'],
     ]
 );
-if ( ! empty( $error_page ) ) :
+if ( ! empty( $content_editor ) ) :
     ?>
-    <main class="<?php echo esc_attr( $error_page_component->class_names() ); ?>">
+    <main class="<?php echo esc_attr( $error_component->class_names() ); ?>">
         <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-lrg u-spacing-b-lrg">
             <div class="l-row__col is-med-2-third">
                 <?php
@@ -38,7 +42,7 @@ if ( ! empty( $error_page ) ) :
                     array(
                         'styles' => '',
                         'class_names' => '',
-                        'content' => $error_page,
+                        'content' => $content_editor,
                     )
                 );
                 ?>

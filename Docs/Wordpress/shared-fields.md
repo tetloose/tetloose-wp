@@ -6,11 +6,13 @@ The clone field is a great way to get around this. There is a custom page type c
 
 We can then clone these hidden fields into all the other fields.
 
-See **ACF** -> **Shared Fields**.
+### ACF Fields
 
-This contains every field type the project would require.
+**ACF** -> **Shared Fields**
 
-Once these are set up, you can then clone them. With option pages and archive pages you can prefix the variable.
+This contains every field type a project would require.
+
+Once these are set up, you can then clone them. With option pages and archive pages you can prefix the variable or label.
 
 This is a great way to make ACF Dry.
 

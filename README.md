@@ -31,6 +31,12 @@ See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.work
 - WCAG AAA
 - Performance optimized with dynamic Module loading
 
+## Issues
+
+There is a rare issue that happens randomly with PHPCS linting while running `yarn dev`, the linting function lags out and everything freezes while it waits for PHPCS lint to return.
+
+If this happens, cancel `yarn dev` then run `yarn serve`. This will bypass the php function, as `yarn dev` has already populated the project with components and assets, we just need to serve it.
+
 ## Docs
 
 - [ENVIRONMENT >>](Docs/Setup/environment.md)
@@ -64,7 +70,7 @@ See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.work
 ## Wordpress
 
 - [FIRST LOAD >>](Docs/Wordpress/first-load.md)
-- [THEME SETTINGS >>](Docs/Wordpress/theme-settings.md)
+- [THEME >>](Docs/Wordpress/theme.md)
 - [STATIC CONTENT >>](Docs/Wordpress/static-content.md)
 - [NEWS LANDING >>](Docs/Wordpress/news-landing.md)
 - [SHARED FIELDS >>](Docs/Wordpress/shared-fields.md)

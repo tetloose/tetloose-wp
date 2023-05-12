@@ -1,6 +1,6 @@
 <?php
 /**
- *  The Title
+ * The Title
  * Remove protected and private from the_title()
  *
  * @package Tetloose-Theme

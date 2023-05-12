@@ -5,8 +5,8 @@
  * @package Tetloose-Theme
  */
 
-$scripts = get_field( 'scripts', 'option' );
+$body_script = get_field( 'body_script', 'option' );
 
-if ( ! empty( $scripts ) ) {
-    echo esc_sql( $scripts['body'] );
+if ( ! empty( $body_script ) ) {
+    echo esc_sql( $body_script );
 }
