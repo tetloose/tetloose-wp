@@ -760,6 +760,82 @@
             ]
         },
         {
+            "key": "field_5b868d1e9ea0d",
+            "label": "Social",
+            "name": "social",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_6409d605b8c89",
+            "button_label": "Add more",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6409d605b8c89",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_5b868d1e9ea0d"
+                },
+                {
+                    "key": "field_6409d61ab8c8a",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "u-icon-facebook": "Facebook",
+                        "u-icon-instagram": "Instagram",
+                        "u-icon-tiktok": "TikTok",
+                        "u-icon-linkedin": "LinkedIn",
+                        "u-icon-twitter": "Twitter",
+                        "u-icon-youtube": "Youtube",
+                        "u-icon-vimeo": "Vimeo",
+                        "u-icon-bandcamp": "Bandcamp",
+                        "u-icon-songkick": "Songkick",
+                        "u-icon-spotify": "Spotify"
+                    },
+                    "default_value": "u-icon-facebook",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_5b868d1e9ea0d"
+                }
+            ]
+        },
+        {
             "key": "field_5b87ebe5e9e2b",
             "label": "Content Editor",
             "name": "content_editor",
@@ -1524,6 +1600,24 @@
             "preview_size": "thumbnail"
         },
         {
+            "key": "field_645b8c5edb7a9",
+            "label": "Navigation",
+            "name": "navigation",
+            "aria-label": "",
+            "type": "nav_menu",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "save_format": "object",
+            "container": 0,
+            "allow_null": 0
+        },
+        {
             "key": "field_642d65ab7aa58",
             "label": "Image Styles",
             "name": "image_styles",
@@ -1541,8 +1635,8 @@
             "sub_fields": [
                 {
                     "key": "field_62d97b799155c",
-                    "label": "Image Gradiant",
-                    "name": "image_gradiant",
+                    "label": "Image Gradient",
+                    "name": "image_gradient",
                     "aria-label": "",
                     "type": "select",
                     "instructions": "",
@@ -1554,12 +1648,12 @@
                         "id": ""
                     },
                     "choices": {
-                        "u-gradiant-light": "Light",
-                        "u-gradiant-dark": "Dark",
-                        "u-gradiant-color-1": "Color 1",
-                        "u-gradiant-color-2": "Color 2",
-                        "u-gradiant-color-3": "Color 3",
-                        "u-gradiant-color-4": "Color 4"
+                        "u-gradient-light": "Light",
+                        "u-gradient-dark": "Dark",
+                        "u-gradient-color-1": "Color 1",
+                        "u-gradient-color-2": "Color 2",
+                        "u-gradient-color-3": "Color 3",
+                        "u-gradient-color-4": "Color 4"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -1683,6 +1777,142 @@
         {
             "key": "field_64242b58f9e08",
             "label": "Styles",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645ce64e226b3",
+            "label": "Copyright",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645ce607fc9dc",
+            "label": "Socials",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645ce5d2fc9d9",
+            "label": "Logo",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645ce5d7fc9da",
+            "label": "Navigation",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645ce5e3fc9db",
+            "label": "CTA",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645b7ef22433a",
+            "label": "Colors",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645b7ef82433b",
+            "label": "Fonts",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645b7efe2433c",
+            "label": "Scripts",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -2688,5 +2918,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682355331
+    "modified": 1683902549
 }

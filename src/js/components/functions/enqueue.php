@@ -10,9 +10,9 @@
  **/
 function global_styles() {
     $fonts = get_field( 'fonts', 'option' );
-    $colours = get_field( 'colours', 'option' );
+    $colors = get_field( 'colors', 'option' );
 
-    if ( ! empty( $colours ) && ! empty( $fonts ) ) {
+    if ( isset( $fonts ) && isset( $colors ) ) {
         return '
             :root {
                 --f-body: ' . wp_kses_post( $fonts['body_font']['font_family'] ) . ';
@@ -25,12 +25,12 @@ function global_styles() {
                 --f-heading-regular: ' . wp_kses_post( $fonts['heading_font']['font_weight_regular'] ) . ';
                 --f-heading-medium: ' . wp_kses_post( $fonts['heading_font']['font_weight_medium'] ) . ';
                 --f-heading-bold: ' . wp_kses_post( $fonts['heading_font']['font_weight_bold'] ) . ';
-                --light: ' . wp_kses_post( $colours['light'] ) . ';
-                --dark: ' . wp_kses_post( $colours['dark'] ) . ';
-                --color-1: ' . wp_kses_post( $colours['color1'] ) . ';
-                --color-2: ' . wp_kses_post( $colours['color2'] ) . ';
-                --color-3: ' . wp_kses_post( $colours['color3'] ) . ';
-                --color-4: ' . wp_kses_post( $colours['color4'] ) . ';
+                --light: ' . wp_kses_post( $colors['light'] ) . ';
+                --dark: ' . wp_kses_post( $colors['dark'] ) . ';
+                --color-1: ' . wp_kses_post( $colors['color1'] ) . ';
+                --color-2: ' . wp_kses_post( $colors['color2'] ) . ';
+                --color-3: ' . wp_kses_post( $colors['color3'] ) . ';
+                --color-4: ' . wp_kses_post( $colors['color4'] ) . ';
             }
         ';
     }
@@ -90,13 +90,15 @@ function scripts() {
 function styles() {
     $fonts = get_field( 'fonts', 'option' );
 
-    wp_enqueue_style(
-        'fonts',
-        $fonts['url'],
-        '',
-        'tetloose',
-        false
-    );
+    if ( isset( $fonts['url'] ) ) {
+        wp_enqueue_style(
+            'fonts',
+            $fonts['url'],
+            '',
+            'tetloose',
+            false
+        );
+    }
 
     $ver = null;
 
@@ -180,23 +182,9 @@ add_action( 'wp_head', 'tetloose_global_admin_styles' );
  * Inline CSS for global styles,
  **/
 function tetloose_global_admin_styles() {
-    $header_logo = get_field( 'header_logo', 'option' );
-
     echo '
         <style type="text/css">
             ' . wp_kses_post( global_styles() ) . '
-
-            @media only screen and (max-width: 767px) {
-                .logo {
-                    max-width: ' . wp_kses_post( $header_logo['mobile_width'] ) / 16 . 'rem;
-                }
-            }
-
-            @media only screen and (min-width: 768px) {
-                .logo {
-                    max-width: ' . wp_kses_post( $header_logo['desktop_width'] ) / 16 . 'rem;
-                }
-            }
         </style>
     ';
 }

@@ -150,7 +150,7 @@ get_template_part(
 
 ## Form
 
-Used with embeded forms.
+Used with embedded forms.
 
 ### PHP Partial
 
@@ -192,6 +192,8 @@ get_template_part(
         'href' => home_url( '/' ),
         'styles' => '',
         'class_names' => '',
+        'mobile_width' => 100,
+        'desktop_width' => 200,
         'figure_styles' => '',
         'figure_class_names' => '',
         'animation' => 'fade-in',
@@ -201,6 +203,67 @@ get_template_part(
 );
 ?>
 ```
+
+## Form
+
+Used to generate social links with icons.
+
+### PHP Partial
+
+```
+$social = get_field( 'social' );
+
+get_template_part(
+    'components/partials-social',
+    null,
+    array(
+        'styles' => '',
+        'class_names' => '',
+        'socials' => $social,
+        'link_styles' => '',
+        'link_class_names' => '',
+    )
+);
+```
+
+## Navigation
+
+Acf Navigation field
+
+### PHP Component
+
+`src/js/components/navigation/navigation-component.php`
+
+```
+<?php
+$navigation = get_field( 'navigation' );
+
+get_template_part(
+    'components/navigation-component',
+    null,
+    array(
+        'tag' => 'nav',
+        'id' => $navigation->ID,
+        'styles' => 'main-nav',
+        'class_names' => '',
+        'ul_styles' => 'main-nav__ul',
+        'ul_class_names' => '',
+        'aria_expanded' => '',
+        'animation' => 'fade-in',
+    )
+);
+?>
+```
+
+### TS File
+
+`src/js/components/navigation/navigation.component.ts`
+
+`this.subNav(this.module, styles['sub-nav__item'], styles['is-active'])` removes unwanted wp class names and populates active states with css module classes.
+
+### Styles
+
+`src/js/components/navigation/navigation.module.scss`
 
 ## Links
 
@@ -249,6 +312,30 @@ get_template_part(
         'title' => $prev_title ? $prev_title : '',
     )
 );
+?>
+```
+
+
+## Excerpt
+
+Add an excerpt to page / post via **add-posts** component.
+
+The component is styled in `src/js/components/add-posts/add-posts.module.scss`, the partial can take styles or class names. The post type is automatically added to the partial so you can attach different styles per post type.
+
+### PHP Partial
+
+`src/js/components/partials/partials-navlink.php`
+
+```
+<?php
+    get_template_part(
+        'components/partials-excerpt',
+        null,
+        array(
+            'styles' => '',
+            'class_names' => '',
+        )
+    );
 ?>
 ```
 

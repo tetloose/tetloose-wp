@@ -75,7 +75,7 @@ if ( get_row_layout() == 'add_posts' ) :
                 the_post();
 
                 get_template_part(
-                    'components/excerpt-component',
+                    'components/partials-excerpt',
                     null,
                     array(
                         'styles' => esc_attr( $excerpt_component->styles() ),
@@ -96,7 +96,7 @@ if ( get_row_layout() == 'add_posts' ) :
                 setup_postdata( $post );
 
                 get_template_part(
-                    'components/excerpt-component',
+                    'components/partials-excerpt',
                     null,
                     array(
                         'styles' => esc_attr( $excerpt_component->styles() ),

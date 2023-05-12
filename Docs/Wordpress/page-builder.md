@@ -12,13 +12,11 @@ On first sync of ACF, you will have access to every component ever built for Tet
 4. footer
 5. functions
 6. header
-7. menu
-8. navigation
-9. pages
-10. partials
-11. post-nav
-12. social
-13. wrapper
+7. navigation
+8. pages
+9. partials
+10. post-nav
+11. wrapper
 
 To add these missing components, use `yarn add-component` to add them from the component library.
 

@@ -5,8 +5,8 @@
  * @package Tetloose-Theme
  */
 
-$scripts = get_field( 'scripts', 'option' );
+$head_script = get_field( 'head_script', 'option' );
 wp_head();
-if ( ! empty( $scripts ) ) {
-    echo esc_sql( $scripts['head'] );
+if ( ! empty( $head_script ) ) {
+    echo esc_sql( $head_script );
 }

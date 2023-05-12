@@ -1,7 +1,7 @@
 ## Wordpress
 
 - [FIRST LOAD >>](first-load.md)
-- [THEME SETTINGS >>](theme-settings.md)
+- [THEME >>](theme.md)
 - [STATIC CONTENT >>](static-content.md)
 - [NEWS LANDING >>](news-landing.md)
 - [SHARED FIELDS >>](shared-fields.md)

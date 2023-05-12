@@ -7,31 +7,37 @@
 
 $password_protected = get_field( 'password_protected', 'option' );
 $validation = isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) && $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] != $post->post_password ? true : false;
-$password_styles = get_field( 'password_styles', 'option' );
+
+$bg_borders = get_field( 'password_bg_borders', 'option' );
+$content_styles = get_field( 'password_content_styles', 'option' );
+$form_styles = get_field( 'password_form_styles', 'option' );
+$btn_styles = get_field( 'password_btn_styles', 'option' );
+$selection = get_field( 'password_selection', 'option' );
+
 $password_component = new Module(
     [],
     [
-        $password_styles['bg_borders']['background_color'],
-        $password_styles['bg_borders']['border_color'] ? 'u-border-t ' . $password_styles['bg_borders']['border_color'] : '',
-        $password_styles['content_styles']['color'],
-        $password_styles['content_styles']['link_color'],
-        $password_styles['content_styles']['link_hover_color'],
-        $password_styles['content_styles']['link_background_hover_color'],
-        $password_styles['btn_styles']['color'],
-        $password_styles['btn_styles']['border_color'],
-        $password_styles['btn_styles']['background_color'],
-        $password_styles['btn_styles']['hover_color'],
-        $password_styles['btn_styles']['border_hover_color'],
-        $password_styles['btn_styles']['background_hover_color'],
-        $password_styles['form_styles']['color'],
-        $password_styles['form_styles']['background_color'],
-        $password_styles['form_styles']['border_color'],
-        $password_styles['form_styles']['hover_color'],
-        $password_styles['form_styles']['background_hover_color'],
-        $password_styles['form_styles']['border_hover_color'],
-        $password_styles['form_styles']['validation_color'],
-        $password_styles['selection']['color'],
-        $password_styles['selection']['background_color'],
+        $bg_borders['background_color'],
+        $bg_borders['border_color'] ? 'u-border-t ' . $bg_borders['border_color'] : '',
+        $content_styles['color'],
+        $content_styles['link_color'],
+        $content_styles['link_hover_color'],
+        $content_styles['link_background_hover_color'],
+        $form_styles['color'],
+        $form_styles['background_color'],
+        $form_styles['border_color'],
+        $form_styles['hover_color'],
+        $form_styles['background_hover_color'],
+        $form_styles['border_hover_color'],
+        $form_styles['validation_color'],
+        $btn_styles['color'],
+        $btn_styles['border_color'],
+        $btn_styles['background_color'],
+        $btn_styles['hover_color'],
+        $btn_styles['border_hover_color'],
+        $btn_styles['background_hover_color'],
+        $selection['color'],
+        $selection['background_color'],
     ]
 );
 ?>
@@ -39,7 +45,7 @@ $password_component = new Module(
     <section class="l-row u-vh-fullscreen u-align-middle u-align-center u-spacing-t-sml u-spacing-b-sml">
         <div class="l-row__col is-med-half">
             <?php
-            if ( ! empty( $password_protected['title'] ) ) :
+            if ( isset( $password_protected['title'] ) ) :
                 get_template_part(
                     'components/partials-content',
                     null,
@@ -56,7 +62,6 @@ $password_component = new Module(
                 method="post"
                 class="u-form u-spacing-t-sml">
                 <div class="u-form__field">
-                    <label for="password-protected"><?php echo esc_attr( $password_protected['label'] ); ?></label>
                     <input
                         name="post_password"
                         id="password-protected"

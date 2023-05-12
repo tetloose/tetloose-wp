@@ -52,7 +52,7 @@ Goto **Appearance** -> **Themes** and activate **Tetloose-Theme**.
 
 If you get a php error `Warning: require_once(/`, it means the theme hasn't been populated with components, run `yarn dev` to fix this.
 
-### ACF
+### ACF Fields
 
 1. Goto **ACF** -> **Field Groups** -> **Sync available** and sync all the files.
 2. Goto **ACF** -> **Post Types** -> **Sync available** and sync all post types.
@@ -71,4 +71,4 @@ Click **homepage settings** -> **A static page** and select **Homepage** then cl
 
 # Navigation
 
-[THEME SETTINGS >>](theme-settings.md)
+[THEME >>](theme.md)

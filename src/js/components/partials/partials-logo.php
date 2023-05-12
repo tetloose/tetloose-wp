@@ -6,11 +6,30 @@
  */
 
 if ( ! empty( $args ) ) :
+    if ( ! empty( $args['mobile_width'] ) && ! empty( $args['desktop_width'] ) ) {
+        echo '
+            <style type="text/css">
+                @media only screen and (max-width: 767px) {
+                    .logo {
+                        max-width: ' . wp_kses_post( $args['mobile_width'] ) / 16 . 'rem;
+                    }
+                }
+
+                @media only screen and (min-width: 768px) {
+                    .logo {
+                        max-width: ' . wp_kses_post( $args['desktop_width'] ) / 16 . 'rem;
+                    }
+                }
+            </style>
+        ';
+    }
+
     if ( ! empty( $args['href'] ) ) {
         $el = 'a';
     } else {
         $el = 'div';
     }
+
     $logo_component = new Module(
         [
             $args['styles'],
