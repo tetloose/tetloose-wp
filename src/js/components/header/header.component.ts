@@ -58,6 +58,7 @@ export class Header extends ComponentClass {
         this.updateState('nav', this.state ? !this.state.nav : false)
 
         if (this.state?.nav) {
+            menu?.classList.add(styles['is-flex'])
             menu?.classList.add(styles['nav-open'])
             nav?.setAttribute('aria-expanded', 'true')
             trigger.classList.add(`${styles['is-active']}`)
@@ -100,8 +101,12 @@ export class Header extends ComponentClass {
                     if (title instanceof HTMLElement) title.innerHTML = `${this.state?.closedText}`
                     nav?.classList.remove(`${styles['angle-open']}`, `${styles['angle-close']}`)
                     trigger.classList.remove(`${styles['is-active']}`)
-                    html.classList.remove('no-scroll')
                     menu?.classList.remove(styles['nav-open'])
+
+                    setTimeout(() => {
+                        html.classList.remove('no-scroll')
+                        menu?.classList.remove(styles['is-flex'])
+                    }, 200)
                 }, 400)
             }, 200)
         }

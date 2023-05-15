@@ -520,6 +520,7 @@
 }
 
 .nav {
+	display: none;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -532,6 +533,10 @@
 	overflow-y: auto;
 
 	@include transition(all, vars(transition, slow), ease-in-out);
+
+	.is-flex & {
+		display: flex;
+	}
 
 	.nav-open & {
 		opacity: 1;
