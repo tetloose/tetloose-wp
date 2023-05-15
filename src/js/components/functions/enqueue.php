@@ -89,18 +89,17 @@ function scripts() {
  **/
 function styles() {
     $fonts = get_field( 'fonts', 'option' );
+    $ver = null;
 
     if ( isset( $fonts['url'] ) ) {
         wp_enqueue_style(
             'fonts',
-            $fonts['url'],
+            $fonts['url'] . '?v=tetloose',
             '',
-            'tetloose',
+            $ver,
             false
         );
     }
-
-    $ver = null;
 
     wp_dequeue_style( 'classic-theme-styles' );
 
