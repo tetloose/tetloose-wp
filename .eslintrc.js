@@ -57,8 +57,11 @@ module.exports = {
             'always'
         ],
         'space-before-function-paren': [
-            'error',
-            'never'
+            'error', {
+                'anonymous': 'never',
+                'named': 'never',
+                'asyncArrow': 'always'
+            }
         ]
     }
 }

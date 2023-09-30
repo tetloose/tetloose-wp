@@ -18,13 +18,20 @@
         "types": [
             "node",
             "jest"
-        ]
-    },
-    "base": ".",
-    "paths": {
-        "@components/*": [
-            "src/js/components/*"
-        ]
+        ],
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "paths": {
+            "@components/*": [
+                "src/js/components/*"
+            ]
+        }
     },
     "include": [
         "declaration.d.ts",

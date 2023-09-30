@@ -18,7 +18,7 @@ const iconGenerateFunc = () => {
         .pipe(plumber({ errorHandler: config.error }))
         .pipe(icomoonBuilder({
             templateType: 'map',
-            externalTemplare: config.template,
+            externalTemplate: config.template,
             filename: '.scss'
         }))
         .on('error', (error) => {

@@ -1,6 +1,5 @@
 import { generateFavicon } from 'gulp-real-favicon'
 import { favicons as config } from '../config'
-import { reload } from 'browser-sync'
 
 const generateFavIconFunc = () => {
     return generateFavicon({

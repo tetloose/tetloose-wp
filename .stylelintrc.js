@@ -65,8 +65,8 @@ module.exports = {
                     'first-nested',
                     'after-comment',
                     'after-custom-property'
-                ],
-            },
+                ]
+            }
         ],
         'max-line-length': 200,
         'max-nesting-depth': [
@@ -85,11 +85,11 @@ module.exports = {
                 'rules',
                 {
                     'type': 'at-rule',
-                    'name': 'supports',
+                    'name': 'supports'
                 },
                 {
                     'type': 'at-rule',
-                    'name': 'media',
+                    'name': 'media'
                 }
             ],
             {
@@ -129,7 +129,7 @@ module.exports = {
                 'padding-top',
                 'padding-right',
                 'padding-bottom',
-                'padding-left',,
+                'padding-left',
                 'align-content',
                 'align-items',
                 'align-self',
