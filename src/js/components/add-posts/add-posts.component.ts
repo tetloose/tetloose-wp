@@ -1,5 +1,5 @@
 import styles from './add-posts.module.scss'
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class AddPosts extends ComponentClass {
     constructor(module: HTMLElement) {

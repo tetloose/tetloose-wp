@@ -1,5 +1,5 @@
 import styles from './navigation.module.scss'
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class Navigation extends ComponentClass {
     constructor(module: HTMLElement) {

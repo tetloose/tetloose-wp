@@ -1,4 +1,4 @@
-import path from 'path'
+import { resolve } from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import config from './.gulp/config'
@@ -8,7 +8,7 @@ module.exports = {
     mode: config.webpack.mode ? 'development' : 'production',
     entry: config.webpack.entry,
     output: {
-        path: path.resolve(__dirname, config.webpack.output),
+        path: resolve(__dirname, config.webpack.output),
         filename: config.webpack.mode
             ? 'js/[name].js'
             : 'js/[name].[fullhash].js',
@@ -18,7 +18,15 @@ module.exports = {
     },
     stats: 'minimal',
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.css', '.scss']
+        extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
+        alias: {
+            '@': resolve(__dirname, 'src'),
+            '@styles': resolve(__dirname, 'src/scss'),
+            '@components': resolve(__dirname, 'src/js/components'),
+            '@config': resolve(__dirname, 'src/js/config'),
+            '@html': resolve(__dirname, 'src/js/html'),
+            '@utilities': resolve(__dirname, 'src/js/utilities')
+        }
     },
     module: {
         rules: [

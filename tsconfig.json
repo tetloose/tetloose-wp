@@ -28,8 +28,35 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
         "paths": {
+            "@/*": [
+                "./src/*"
+            ],
+            "@styles/*": [
+                "./src/scss/*"
+            ],
+            "@components": [
+                "./src/js/components"
+            ],
             "@components/*": [
-                "src/js/components/*"
+                "./src/js/components/*"
+            ],
+            "@html": [
+                "src/js/html"
+            ],
+            "@html/*": [
+                "src/js/html/*"
+            ],
+            "@utilities": [
+                "./src/js/utilities"
+            ],
+            "@utilities/*": [
+                "./src/js/utilities/*"
+            ],
+            "@config": [
+                "./src/js/config"
+            ],
+            "@config/*": [
+                "./src/js/config/*"
             ]
         }
     },

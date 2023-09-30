@@ -1,5 +1,5 @@
 import styles from './footer.module.scss'
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class Footer extends ComponentClass {
     constructor(module: HTMLElement) {

@@ -57,7 +57,7 @@ module.exports = {
     favicons: {
         entry: `${base}/src/favicon/favicon.png`,
         output: `${base}/web/app/themes/tetloose-theme/favicons/`,
-        appColour: '#c2ad8d',
+        appColor: '#c2ad8d',
         jsonTemplate: `${base}/src/favicon/favicon-data.json`,
         success: () => notification('🦙 Favicons 🦙', 'Saved', 'inc/header/head/head-favicons.php')
     }

@@ -21,7 +21,7 @@ const generateFavIconFunc = () => {
 			},
 			windows: {
 				pictureAspect: 'noChange',
-				backgroundColor: config.appColour,
+				backgroundColor: config.appColor,
 				onConflict: 'override',
 				assets: {
 					windows80Ie10Tile: false,
@@ -35,7 +35,7 @@ const generateFavIconFunc = () => {
 			},
 			androidChrome: {
 				pictureAspect: 'noChange',
-				themeColor: config.appColour,
+				themeColor: config.appColor,
 				manifest: {
 					display: 'standalone',
 					orientation: 'notSet',
@@ -50,7 +50,7 @@ const generateFavIconFunc = () => {
 			safariPinnedTab: {
 				pictureAspect: 'blackAndWhite',
 				threshold: 75,
-				themeColor: config.appColour
+				themeColor: config.appColor
 			}
 		},
         settings: {

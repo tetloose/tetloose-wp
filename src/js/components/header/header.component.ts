@@ -1,5 +1,5 @@
 import styles from './header.module.scss'
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class Header extends ComponentClass {
     constructor(module: HTMLElement) {
@@ -20,7 +20,7 @@ export class Header extends ComponentClass {
     headerScroll() {
         if (typeof this.state?.position === 'number') {
             const moduleHeight = this.module.offsetHeight
-            const offsetY: number = window.pageYOffset
+            const offsetY: number = window.scrollY
 
             if (offsetY > this.state?.position && !this.module.classList.contains(styles['is-hidden']) && offsetY >= moduleHeight) {
                 this.module.classList.add(styles['is-hidden'])
