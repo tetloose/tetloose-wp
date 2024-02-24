@@ -25,7 +25,7 @@ See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.work
 - Icon generation from [icomoon](https://icomoon.io/)
 - PHP linting
 - Modern js
-- Jest
+- Vitest
 - SCSS modules
 - SCSS
 - WCAG AAA

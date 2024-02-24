@@ -1,31 +1,72 @@
 import { src } from 'gulp'
-import shell from 'gulp-shell'
-import { clean as config } from '../config'
+import clean from 'gulp-clean';
+import { mkdirp } from 'mkdirp'
+import { clean as config } from '../config.js'
 
 const cleanAssetsFunc = () => {
-    return src('.', {
-            read: false
-        })
-        .pipe(shell(
-            [`rm -rf ${config.assets} ${config.components}; mkdir -p ${config.assets} ${config.css} ${config.icons} ${config.js}`]
-        ))
+    return src(config.assets, {
+        read: false,
+        allowEmpty: true
+    }).pipe(clean())
 }
 
-const cleanFaviconsFunc = () => {
-    return src('.', {
-            read: false
-        })
-        .pipe(shell(
-            [`rm -rf ${config.favicons}; mkdir -p ${config.favicons};`]
-        ))
+const cleanComponentsFunc = () => {
+    return src(config.components, {
+        read: false,
+        allowEmpty: true
+    }).pipe(clean())
 }
 
-export const clean = (cb) => {
+const cleanFaviconFunc = () => {
+    return src(config.favicon, {
+        read: false,
+        allowEmpty: true
+    }).pipe(clean())
+}
+
+const generateAssetsFunc = () => {
+    return mkdirp(config.assets)
+}
+
+const generateCssFunc = () => {
+    return mkdirp(config.css)
+}
+
+const generateJsFunc = () => {
+    return mkdirp(config.js)
+}
+
+const generateIconsFunc = () => {
+    return mkdirp(config.icons)
+}
+
+const generateComponentsFunc = () => {
+    return mkdirp(config.components)
+}
+
+const generateFaviconFunc = () => {
+    return mkdirp(config.favicon)
+}
+
+export const cleanAssets = (cb) => {
     cleanAssetsFunc()
+    cleanComponentsFunc()
+    cleanFaviconFunc()
+
+    setTimeout(() => {
+        generateAssetsFunc()
+        generateCssFunc()
+        generateJsFunc()
+        generateIconsFunc()
+        generateComponentsFunc()
+        generateFaviconFunc()
+        cb()
+    }, 400);
+
     cb()
 }
 
-export const cleanFavicons = (cb) => {
-    cleanFaviconsFunc()
+export const cleanFavicon = (cb) => {
+    cleanFaviconFunc()
     cb()
 }

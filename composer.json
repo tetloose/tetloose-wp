@@ -60,7 +60,7 @@
         "phalapi/phpmailer": "dev-master",
         "tetloose/advanced-custom-fields-pro": "dev-main",
         "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.0",
-        "wpackagist-plugin/wordpress-seo": "^20.5",
+        "wpackagist-plugin/wordpress-seo": "^22",
         "tetloose/tetloose-theme": "dev-main"
     },
     "require-dev": {

@@ -1,0 +1,23 @@
+{
+    "key": "ui_options_page_65d74a5879995",
+    "title": 404,
+    "active": true,
+    "menu_order": 0,
+    "page_title": 404,
+    "menu_slug": 404,
+    "parent_slug": "static-content",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": 404,
+    "position": 0,
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 1,
+    "_parent": 721,
+    "modified": 1708608110
+}

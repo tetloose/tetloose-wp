@@ -37,7 +37,7 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll": true
+        "source.fixAll": "explicit"
     },
     "eslint.validate": [
         "javascript",
@@ -85,13 +85,14 @@
         "node_modules": true,
         "vendor": true,
         "web": true,
-        ".phpcs.xml": true,
         ".gitmodules": true,
         "app": true,
-        ".vscode": true,
-        "README.md": true,
         "package": true,
-        "pattern-library": true
+        "pattern-library": true,
+        "vitest.config.ts": true,
+        "vitest.setup.ts": true,
+        ".vscode": true,
+        ".phpcs.xml": true
     },
-    "workspace.isHidden": false
+    "workspace.isHidden": true
 }

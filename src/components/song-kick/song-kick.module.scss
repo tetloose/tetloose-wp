@@ -1,0 +1,48 @@
+@import '@styles/settings';
+
+.song-kick {
+	display: block;
+
+	:global(.l-row) {
+		@include mq(vars(breakpoint, med), max-width) {
+			margin-top: -#{rem(rem(vars(layout, gutter)))};
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			margin-top: -#{calc(rem(vars(layout, gutter)) * 2)};
+		}
+	}
+
+	&__artist {
+		width: 100%;
+
+		@include mq(vars(breakpoint, med), max-width) {
+			margin-top: rem(rem(vars(layout, gutter)));
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			margin-top: calc(rem(vars(layout, gutter)) * 2);
+		}
+
+		&:nth-child(2) {
+			border-top: 0;
+		}
+	}
+
+	&__content {
+		@include mq(vars(breakpoint, med), max-width) {
+			padding: rem(spacing(1));
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			padding: rem(spacing(2));
+		}
+	}
+
+	:global(.l-action) {
+		margin-top: auto;
+	}
+}

@@ -1,9 +1,9 @@
 import { watch, series } from 'gulp'
 import { reload } from './serve.js'
-import { favicon } from './favicons.js'
+import { favicon } from './favicon.js'
 import { iconMoveFont, iconGenerate } from './icons.js'
 import { scriptsLint, scriptsBundle } from './scripts.js'
-import { stylesLint, styles, tinymce, print, wordpress } from './styles.js'
+import { stylesLint, styles, wordpress } from './styles.js'
 import { phpLint, phpComponents } from './php.js'
 import config from '../config'
 
@@ -18,8 +18,6 @@ const monitor = (cb) => {
         series(
             stylesLint,
             styles,
-            tinymce,
-            print,
             wordpress
         )
     )
@@ -28,27 +26,21 @@ const monitor = (cb) => {
             iconMoveFont,
             iconGenerate,
             stylesLint,
-            styles,
-            config.icons.success
+            styles
         )
     )
     watch([config.php.components],
-        series(
-            phpComponents,
-        )
+        series(phpComponents)
     ).on('change', (file) => {
         phpLint(file)
     })
     watch([config.php.files],
-        series(
-            reload
-        )
+        series(reload)
     )
     watch(
-        [config.favicons.entry],
+        [config.favicon.entry],
         series(
             favicon,
-            config.favicons.success,
             reload
         )
     )

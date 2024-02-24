@@ -1,0 +1,48 @@
+@import '@styles/settings';
+
+.figure {
+	:global(img) {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-position: center center;
+
+		@include object-fit;
+	}
+
+	&.is-contain :global(img) {
+		@include object-fit(contain);
+	}
+
+	&.is-left-top :global(img) {
+		object-position: left top;
+	}
+
+	&.is-left-center :global(img) {
+		object-position: left center;
+	}
+
+	&.is-left-bottom :global(img) {
+		object-position: left bottom;
+	}
+
+	&.is-right-top :global(img) {
+		object-position: right top;
+	}
+
+	&.is-right-center :global(img) {
+		object-position: right center;
+	}
+
+	&.is-right-bottom :global(img) {
+		object-position: right bottom;
+	}
+
+	&.is-center-top :global(img) {
+		object-position: center top;
+	}
+
+	&.is-center-bottom :global(img) {
+		object-position: center bottom;
+	}
+}

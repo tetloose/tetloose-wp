@@ -17,9 +17,11 @@ module.exports = {
         'sourceType': 'module'
     },
     'ignorePatterns': [
-        'web/app/themes/tetloose-theme/assets',
+        'public',
+        'build',
         'node_modules',
-        '*.scss.d.ts'
+        '*.scss.d.ts',
+        'fractal.config.js'
     ],
     'rules': {
         'quotes': [

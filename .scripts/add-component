@@ -10,9 +10,9 @@ echo ""
 echo ""
 
 if [ -d pattern-library/"$COMPONENT" ]; then
-    cp -r pattern-library/"$COMPONENT" src/js/components
-    echo Added: src/js/components/"$COMPONENT"
-    echo Instructions: src/js/components/"$COMPONENT"/README.md for instructions
+    cp -r pattern-library/"$COMPONENT" src/components
+    echo Added: src/components/"$COMPONENT"
+    echo Instructions: src/components/"$COMPONENT"/README.md for instructions
 
     read -p "Add another component
 

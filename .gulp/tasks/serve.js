@@ -2,6 +2,8 @@ import browserSync, { reload as bsReload } from 'browser-sync'
 import { serve as config } from '../config'
 
 const serveFunc = () => {
+    browserSync.create()
+
     return browserSync({
         proxy: config.proxy,
         open: true,

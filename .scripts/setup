@@ -28,7 +28,8 @@ elif [ "$SETUP_SWITCH" = "2" ]; then
 fi
 
 if [ "$SETUP_SWITCH" = "0" ]; then
-    eval "composer install; yarn; yarn postinstall; code .; yarn dev"
+    eval "composer install && yarn && yarn prepare && yarn create-hook"
+    eval "code . && yarn dev"
 
 elif [[ "$SETUP_SWITCH" = "1" || "$SETUP_SWITCH" = "2" ]]; then
     ssh "$SSH" "mkdir -p $DIR";
@@ -37,7 +38,7 @@ elif [[ "$SETUP_SWITCH" = "1" || "$SETUP_SWITCH" = "2" ]]; then
     ssh "$SSH" "rm -rf $DIR/$WP_THEME $DIR/$WP_PLUGINS $DIR/$WP_UPLOADS";
     ssh "$SSH" "cd $DIR; mkdir -p wp-content/themes wp-content/plugins wp-content/uploads; chmod 600 wp-config.php; chmod 775 wp-content/uploads";
     ssh "$SSH" "cd $DIR; wp db reset";
-    eval "yarn deploy; yarn clone:to"
+    eval "yarn deploy && yarn clone:to"
 
 else
   echo "Environment not set, Toolkit Stopping"

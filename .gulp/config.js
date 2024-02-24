@@ -1,15 +1,14 @@
-import path from 'path'
-import notification from './tasks/notification'
+import { resolve } from 'path'
 import * as dotenv from 'dotenv'
 
 dotenv.config()
 const isDev = process.env.ENV === 'dev'
-const base = path.resolve(__dirname, '../')
+const base = resolve(__dirname, '../')
 
 module.exports = {
     webpack: {
         mode: isDev,
-        entry: `${base}/src/js/app.ts`,
+        entry: `${base}/src/app.ts`,
         output: `${base}/web/app/themes/tetloose-theme/assets`
     },
     serve: {
@@ -17,8 +16,7 @@ module.exports = {
     },
     scripts: {
         files: `${base}/src/**/*.{ts,js}`,
-        modules: `${base}/src/js/**/*.scss`,
-        error: () => notification('❌ SCRIPTS ❌', 'Error', 'Check Terminal')
+        modules: `${base}/src/components/**/*.scss`
     },
     clean: {
         assets: `${base}/web/app/themes/tetloose-theme/assets`,
@@ -26,39 +24,32 @@ module.exports = {
         js: `${base}/web/app/themes/tetloose-theme/assets/js`,
         icons: `${base}/web/app/themes/tetloose-theme/assets/icons`,
         components: `${base}/web/app/themes/tetloose-theme/components/*.php`,
-        favicons: `${base}/web/app/themes/tetloose-theme/favicons`
+        favicon: `${base}/web/app/themes/tetloose-theme/favicon`
     },
     styles: {
         mode: isDev,
         files: `${base}/src/scss/**/*.scss`,
         appEntry: `${base}/src/scss/app.scss`,
-        tinymceEntry: `${base}/src/scss/tinymce.scss`,
-        printEntry: `${base}/src/scss/print.scss`,
         wordpressEntry: `${base}/src/scss/wordpress.scss`,
-        componentEntry: `${base}/src/js/components/**/*.scss`,
-        output: `${base}/web/app/themes/tetloose-theme/assets/css`,
-        error: () => notification('❌ STYLES ❌', 'Error', 'Check Terminal')
+        componentEntry: `${base}/src/components/**/*.scss`,
+        output: `${base}/web/app/themes/tetloose-theme/assets/css`
     },
     php: {
         files: `${base}/web/app/themes/tetloose-theme/**/*.php`,
-        components: `${base}/src/js/components/**/*.php`,
-        output: `${base}/web/app/themes/tetloose-theme/components`,
-        error: () => notification('❌ PHP ❌', 'Error', 'Check Terminal')
+        components: `${base}/src/components/**/*.php`,
+        output: `${base}/web/app/themes/tetloose-theme/components`
     },
     icons: {
         json: `${base}/src/icons/*.json`,
         template: `${base}/src/icons/template.mustache`,
         output: `${base}/src/scss/utils/icons.scss`,
         fonts: `${base}/src/icons/*.{svg,ttf,woff}`,
-        fontOutput: `${base}/web/app/themes/tetloose-theme/assets/icons`,
-        error: () => notification('❌ ICONS ❌', 'Error', 'Check Terminal'),
-        success: () => notification('💃 Icons 💃', 'Saved', 'scss/utils/icons.scss')
+        fontOutput: `${base}/web/app/themes/tetloose-theme/assets/icons`
     },
-    favicons: {
+    favicon: {
         entry: `${base}/src/favicon/favicon.png`,
-        output: `${base}/web/app/themes/tetloose-theme/favicons/`,
+        output: `${base}/web/app/themes/tetloose-theme/favicon/`,
         appColor: '#c2ad8d',
-        jsonTemplate: `${base}/src/favicon/favicon-data.json`,
-        success: () => notification('🦙 Favicons 🦙', 'Saved', 'inc/header/head/head-favicons.php')
+        jsonTemplate: `${base}/src/favicon/favicon-data.json`
     }
 }

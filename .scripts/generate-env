@@ -3,5 +3,5 @@
 
 echo "Generating local $ENV file"
 eval "cp $ENV.example $ENV"
-read -p "Update $ENV manualy, [ENTER] to continue " ENV_GATE
+read -p "Update $ENV manualy, [ENTER] to continue" ENV_GATE
 eval "sh ./toolkit $1"

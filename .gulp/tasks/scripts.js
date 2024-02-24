@@ -1,16 +1,12 @@
-import { src, lastRun } from 'gulp'
+import { src } from 'gulp'
 import webpack from 'webpack'
 import { reload } from 'browser-sync'
 import webpackConfig from '../../webpack.config'
-import plumber from 'gulp-plumber'
 import gulpESLintNew, { fix, format, failAfterError } from 'gulp-eslint-new'
 import { scripts as config } from '../config'
 
 const scriptsLintFunc = () => {
-    return src([config.files], {
-            since: lastRun(scriptsLintFunc)
-        })
-        .pipe(plumber({ errorHandler: config.error }))
+    return src([config.files])
         .pipe(gulpESLintNew({ fix: true }))
         .pipe(fix())
         .pipe(format())
@@ -29,7 +25,7 @@ const scriptsBundleFunc = () => {
             assets: false,
             builtAt: false,
             cached: false,
-            entrypoints: true,
+            entrypoints: false,
             hash: false,
             performance: false,
             timings: false,
@@ -47,6 +43,7 @@ export const scriptsBundle = (cb) => {
     scriptsBundleFunc()
     setTimeout(() => {
         reload()
-    }, 400);
+        cb()
+    }, 500);
     cb()
 }

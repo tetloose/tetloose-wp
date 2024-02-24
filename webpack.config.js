@@ -11,10 +11,10 @@ module.exports = {
         path: resolve(__dirname, config.webpack.output),
         filename: config.webpack.mode
             ? 'js/[name].js'
-            : 'js/[name].[fullhash].js',
+            : 'js/[name].[contenthash].js',
         chunkFilename: config.webpack.mode
             ? 'js/[name].js'
-            : 'js/[name].[fullhash].js'
+            : 'js/[name].[contenthash].js'
     },
     stats: 'minimal',
     resolve: {
@@ -22,10 +22,10 @@ module.exports = {
         alias: {
             '@': resolve(__dirname, 'src'),
             '@styles': resolve(__dirname, 'src/scss'),
-            '@components': resolve(__dirname, 'src/js/components'),
-            '@config': resolve(__dirname, 'src/js/config'),
-            '@html': resolve(__dirname, 'src/js/html'),
-            '@utilities': resolve(__dirname, 'src/js/utilities')
+            '@components': resolve(__dirname, 'src/components'),
+            '@elements': resolve(__dirname, 'src/elements'),
+            '@utilities': resolve(__dirname, 'src/utilities'),
+            '@config': resolve(__dirname, 'src/config')
         }
     },
     module: {
@@ -87,6 +87,10 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -95,10 +99,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: config.webpack.mode
                 ? 'css/[name].css'
-                : 'css/[name].[fullhash].css',
+                : 'css/[name].[contenthash].css',
             chunkFilename: config.webpack.mode
                 ? 'css/[name].css'
-                : 'css/[name].[fullhash].css'
+                : 'css/[name].[contenthash].css'
         })
     ],
     optimization: {

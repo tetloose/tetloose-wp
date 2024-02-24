@@ -1,0 +1,69 @@
+@import '@styles/settings';
+
+.music {
+	@include mq(vars(breakpoint, med), max-width) {
+		margin-top: -#{rem(spacing(1.5))};
+	}
+
+	@include mq(vars(breakpoint, med)) {
+		margin-top: -#{rem(spacing(2))};
+	}
+
+	&__row {
+		align-items: center;
+	}
+
+	&__logos {
+		display: flex;
+		flex-wrap: nowrap;
+		margin-right: -#{rem(spacing(.5))};
+		margin-left: -#{rem(spacing(.5))};
+		justify-content: center;
+
+		@include mq(vars(breakpoint, med), max-width) {
+			padding-top: rem(spacing(1.5));
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			padding-top: rem(spacing(2));
+		}
+
+		&-button {
+			padding-right: rem(spacing(.5));
+			padding-left: rem(spacing(.5));
+		}
+
+		&-image {
+			margin-right: auto;
+			margin-left: auto;
+
+			@include mq-hover {
+				@include transition('opacity');
+
+				&:hover {
+					opacity: .6;
+				}
+			}
+		}
+	}
+
+	&__player {
+		@include mq(vars(breakpoint, med), max-width) {
+			margin-top: rem(spacing(1.5));
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			margin-top: rem(spacing(2));
+		}
+	}
+
+	:global([data-module=Content]) {
+		@include mq(vars(breakpoint, med), max-width) {
+			padding-top: rem(spacing(1.5));
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			padding-top: rem(spacing(2));
+		}
+	}
+}

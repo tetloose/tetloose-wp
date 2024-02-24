@@ -1,9 +1,9 @@
-import path from 'path'
-import { src, dest, watch, series } from 'gulp'
-import phpcs from 'gulp-phpcs';
+import { resolve } from 'path'
+import { src, dest } from 'gulp'
+import phpcs from 'gulp-phpcs'
 import rename from 'gulp-rename'
 import { php as config } from '../config'
-const base = path.resolve(__dirname, '../../')
+const base = resolve(__dirname, '../../')
 
 const phpLintFunc = (file) => {
     return src(file)
