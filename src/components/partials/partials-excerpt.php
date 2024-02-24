@@ -38,11 +38,11 @@ $excerpt_component = new Module(
 $figure_component = new Module(
     [
         'excerpt__image',
-        $excerpt['image_styles']['image_size'],
-        $excerpt['image_styles']['image_alignment'],
     ],
     [
-        'u-bg-image',
+        $excerpt['image_styles']['image_size'],
+        $excerpt['image_styles']['image_alignment'],
+        $excerpt['image_styles']['image_ratio'],
         $excerpt['image_styles']['image_gradient'],
     ]
 );
@@ -77,7 +77,7 @@ $content_component = new Module(
             array(
                 'styles' => esc_attr( $content_component->styles() ),
                 'class_names' => '',
-                'content' => '<div data-styles="excerpt__content-inside">' . $content . '</div>',
+                'content' => $content,
             )
         );
     endif;

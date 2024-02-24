@@ -12,7 +12,14 @@ $header_component = new Module(
         'header',
     ],
     [
-        'u-animate-hide',
+        'u-load-hide',
+    ]
+);
+$inside_component = new Module(
+    [
+        'header__inside',
+    ],
+    [
         $header_bg_borders['background_color'],
         $header_bg_borders['border_color']
             ? 'u-border-b ' . $header_bg_borders['border_color']
@@ -52,9 +59,13 @@ if ( ! empty( $header_logo['mobile_width'] ) && ! empty( $header_logo['desktop_w
     data-duration="400"
     data-styles="<?php echo esc_attr( $header_component->styles() ); ?>"
     class="<?php echo esc_attr( $header_component->class_names() ); ?>">
-    <?php
-    get_template_part( '/components/header', 'logo' );
-    get_template_part( '/components/header', 'cta' );
-    get_template_part( '/components/header', 'menu' );
-    ?>
+    <div
+        data-styles="<?php echo esc_attr( $inside_component->styles() ); ?>"
+        class="<?php echo esc_attr( $inside_component->class_names() ); ?>">
+        <?php
+        get_template_part( '/components/header', 'logo' );
+        get_template_part( '/components/header', 'cta' );
+        ?>
+    </div>
+    <?php get_template_part( '/components/header', 'menu' ); ?>
 </header>

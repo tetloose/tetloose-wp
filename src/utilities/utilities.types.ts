@@ -7,7 +7,6 @@ export type ObjectToStringProps = {
 export type LoadingProps = {
     animation?: string
     duration: number
-    type: string
 }
 
 export type MotionOptionsProps = {
@@ -18,27 +17,27 @@ export type MotionOptionsProps = {
 
 export type RequestProps = Array<{
     [key: string]: {
-        [key: string]: string | number;
-    };
-}>;
+        [key: string]: string | number
+    }
+}>
 
 export type ResponseProps = {
-    [key: string]: RequestProps;
-};
+    [key: string]: RequestProps
+}
 
 export type MockParams = {
-    status?: number;
-    statusText?: string;
-    url?: string;
-    headers?: object;
-};
+    status?: number
+    statusText?: string
+    url?: string
+    headers?: object
+}
 
 export type FetchParamsProps = {
-    (input?: string | Request, init?: RequestInit): Promise<Response>;
-    mockResponse(body: string, init?: MockParams): FetchParamsProps;
-    mockResponseOnce(body: string, init?: MockParams): FetchParamsProps;
-    resetMocks(): void;
-};
+    (input?: string | Request, init?: RequestInit): Promise<Response>
+    mockResponse(body: string, init?: MockParams): FetchParamsProps
+    mockResponseOnce(body: string, init?: MockParams): FetchParamsProps
+    resetMocks(): void
+}
 
 export type StateProps = string | boolean | number | Element | HTMLElement | HTMLVideoElement | HTMLButtonElement | MotionOptionsProps | LoadingProps | EventProps | null
 

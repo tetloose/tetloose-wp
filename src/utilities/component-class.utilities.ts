@@ -10,7 +10,7 @@ export class ComponentClass {
 
     constructor(module: HTMLElement) {
         const { dataset } = module
-        const { animation, duration, type } = dataset
+        const { animation, duration } = dataset
 
         this.module = module
         this.state = {
@@ -21,8 +21,7 @@ export class ComponentClass {
             },
             loading: {
                 animation: animation ?? undefined,
-                duration: parseInt(duration ?? '0', 10),
-                type: type ?? ''
+                duration: parseInt(duration ?? '0', 10)
             }
         }
     }
@@ -30,24 +29,15 @@ export class ComponentClass {
     load() {
         const { module, state } = this
         const { classList } = module
-        const { animation, duration, type } = state.loading
+        const { animation, duration } = state.loading
 
         module.removeAttribute('style')
 
         setTimeout(() => {
-            if (animation) classList.add(`u-animate-${animation}`)
+            if (animation) classList.add(`u-load-${animation}`)
 
             setTimeout(() => {
-                if (type === 'figure') {
-                    setTimeout(() => {
-                        classList.forEach(className =>
-                            className.includes('animate') &&
-                            classList.remove(className))
-                        module.querySelector('.js-figurePlaceholder')?.remove()
-                    }, duration)
-                } else {
-                    classList.forEach(className => className.includes('animate') && classList.remove(className))
-                }
+                classList.forEach(className => className.includes('u-load-') && classList.remove(className))
             }, duration)
         }, duration)
     }

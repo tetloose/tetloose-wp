@@ -14,6 +14,7 @@ export const modules = {
     FullBleedVideo: () => import(/* webpackChunkName: "full-bleed-video" */ '../components/full-bleed-video/full-bleed-video.component'),
     Form: () => import(/* webpackChunkName: "form" */ '../components/form/form.component'),
     SongKick: () => import(/* webpackChunkName: "song-kick" */ '../components/song-kick/song-kick.component'),
+    Music: () => import(/* webpackChunkName: "music" */ '../components/music/music.component'),
     Figure: () => import(/* webpackChunkName: "figure" */ '../components/figure/figure.component'),
-    Music: () => import(/* webpackChunkName: "music" */ '../components/music/music.component')
+    Iframe: () => import(/* webpackChunkName: "iframe" */ '../components/iframe/iframe.component')
 }

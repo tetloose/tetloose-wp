@@ -18,7 +18,7 @@ if ( get_row_layout() == 'post_nav' ) :
             'post-nav',
         ],
         [
-            'u-animate-hide',
+            'u-load-hide',
             $spacing['top'],
             $spacing['bottom'],
             $bg_borders['background_color'],

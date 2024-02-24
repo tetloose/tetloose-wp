@@ -21,9 +21,10 @@ if ( have_rows( 'logo_repeater' ) ) :
                 $figure_component = new Module(
                     [
                         'music__logos-image',
-                        'is-contain',
                     ],
-                    []
+                    [
+                        'is-contain',
+                    ]
                 );
                 ?>
                 <a

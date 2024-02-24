@@ -4,6 +4,7 @@ interface CssExports {
   'song-kick': string;
   'song-kick__artist': string;
   'song-kick__content': string;
+  'song-kick__fallback': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

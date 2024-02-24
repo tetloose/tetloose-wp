@@ -7,14 +7,14 @@
 		align-items: center;
 		justify-content: center;
 
+		@include sizing('gap', size(.5));
+
 		&-link {
-			margin-right: rem(4px);
-			margin-left: rem(4px);
-			padding: rem(spacing(.3)) rem(spacing(.5));
 			line-height: normal;
 			text-decoration: none;
 
-			@include type-icon;
+			@extend %type-icon-xlrg;
+			@include sizing('padding', [size(1.2), size(2)]);
 		}
 	}
 }

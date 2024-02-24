@@ -4,8 +4,8 @@
 	&::before,
 	&::after {
 		animation-name: kf-angle-open;
-		animation-duration: vars(transition-duration, med);
-		animation-timing-function: vars(transition-timing, med);
+		animation-duration: vars(transition-duration, slow);
+		animation-timing-function: vars(transition-timing, slow);
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
 	}
@@ -25,8 +25,8 @@
 	&::before,
 	&::after {
 		animation-name: kf-angle-close;
-		animation-duration: vars(transition-duration, med);
-		animation-timing-function: vars(transition-timing, med);
+		animation-duration: vars(transition-duration, slow);
+		animation-timing-function: vars(transition-timing, slow);
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
 	}
@@ -43,31 +43,23 @@
 }
 
 .header {
+	$header: &;
+
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 2;
 	width: 100%;
-	transform: translate3d(0, 0, 0);
 
-	@include transition('transform', vars(transition-duration, slow), ease);
+	&__inside {
+		transform: translate3d(0, 0, 0);
 
-	@include mq(vars(breakpoint, med), max-width) {
-		height: rem(80px);
+		@include sizing('height', size(30));
+		@include transition('transform', vars(transition-duration, slow), vars(transition-timing, ease-in-out));
 	}
 
-	@include mq(vars(breakpoint, med)) {
-		height: rem(120px);
-	}
-
-	&.is-hidden {
-		@include mq(vars(breakpoint, med), max-width) {
-			transform: translate3d(0, -(rem(80px)), 0);
-		}
-
-		@include mq(vars(breakpoint, med)) {
-			transform: translate3d(0, -(rem(120px)), 0);
-		}
+	&.is-hidden #{$header}__inside {
+		transform: translate3d(0, -100%, 0);
 	}
 
 	&__logo {
@@ -75,13 +67,7 @@
 		top: 50%;
 		transform: translateY(-50%);
 
-		@include mq(vars(breakpoint, lrg), max-width) {
-			left: rem(spacing(1));
-		}
-
-		@include mq(vars(breakpoint, lrg)) {
-			left: rem(spacing(2));
-		}
+		@include sizing('left', size(8));
 
 		&:focus {
 			opacity: .8;
@@ -100,42 +86,35 @@
 
 	z-index: 4;
 	width: 100%;
-	height: 100%;
 	visibility: visible;
 	border-radius: 0;
+	transform: translate3d(0, 0, 0);
+
+	@include sizing('height', size(30));
+	@include transition('background-color, color, transform', vars(transition-duration, slow), vars(transition-timing, ease-in-out));
 
 	@include mq(vars(breakpoint, med), max-width) {
 		border-top-width: 0;
 		border-right-width: 0;
-		border-bottom-width: 0;
+
+		@include sizing('border-left-width', size(.5));
 	}
 
-	@include mq(vars(breakpoint, med)) {
-		border-width: 0;
+	.is-hidden & {
+		transform: translate3d(0, -100%, 0);
 	}
 
 	&__title {
 		position: absolute;
+		top: 14%;
+		right: 0;
 		left: 0;
 		background-color: transparent;
 		text-align: center;
 		text-transform: uppercase;
 
-		@include mq(vars(breakpoint, med), max-width) {
-			top: 10%;
-			right: -(rem(4px));
-			letter-spacing: rem(3.5px);
-
-			@include type-small;
-		}
-
-		@include mq(vars(breakpoint, med)) {
-			top: 14%;
-			right: -(rem(9px));
-			letter-spacing: rem(9px);
-
-			@include type-paragraph;
-		}
+		@extend %type-paragraph;
+		@include sizing('letter-spacing', size(1));
 	}
 
 	&__container {
@@ -153,8 +132,9 @@
 		right: 0;
 		left: 0;
 		width: auto;
-		height: rem(3px);
 		visibility: visible;
+
+		@include sizing('height', size(.75));
 
 		&:nth-child(1) {
 			top: 0;
@@ -289,17 +269,9 @@
 		background-color: transparent;
 		border-width: 0;
 
+		@include sizing('width', size(30));
+		@include sizing('height', size(30));
 		@include transition('color, opacity');
-
-		@include mq(vars(breakpoint, med), max-width) {
-			width: rem(80px);
-			height: rem(80px);
-		}
-
-		@include mq(vars(breakpoint, med)) {
-			width: rem(120px);
-			height: rem(120px);
-		}
 
 		&:active,
 		&:focus {
@@ -509,13 +481,7 @@
 	right: 0;
 	bottom: 0;
 
-	@include mq(vars(breakpoint, med), max-width) {
-		width: rem(80px);
-	}
-
-	@include mq(vars(breakpoint, med)) {
-		width: rem(120px);
-	}
+	@include sizing('width', size(30));
 }
 
 .nav {
@@ -605,8 +571,6 @@
 }
 
 .sub-nav {
-	$sub-nav: &;
-
 	opacity: 0;
 	visibility: hidden;
 
@@ -620,6 +584,8 @@
 }
 
 .cta {
+	@include sizing('right', size(30));
+
 	@include mq(vars(breakpoint, med), max-width) {
 		display: none;
 	}
@@ -629,17 +595,17 @@
 		flex-direction: column;
 		position: absolute;
 		top: 0;
-		right: rem(120px);
 		bottom: 0;
 		align-items: center;
 	}
 
 	&__link {
+		@include sizing('padding', size(4));
+
 		@include mq(vars(breakpoint, med)) {
 			display: flex;
 			width: 100%;
 			height: 100%;
-			padding: rem(spacing(1));
 			align-items: center;
 			justify-content: center;
 			border-top-width: 0;

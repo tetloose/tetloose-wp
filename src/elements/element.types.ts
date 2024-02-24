@@ -35,8 +35,6 @@ export type ImageProps = {
 }
 
 export type iframeProps = {
-    className?: string,
-    ratio: '21x9' | '16x9' | '4x6' | '4x3' | undefined
     src: string
     rest?: string
 }

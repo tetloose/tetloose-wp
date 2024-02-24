@@ -5,6 +5,7 @@
  * @package Tetloose-Theme
  **/
 
+$_title = get_sub_field( 'title' );
 $pagination_spacing = get_sub_field( 'pagination_spacing' );
 $pagination_bg_borders = get_sub_field( 'pagination_bg_borders' );
 $pagination_content_styles = get_sub_field( 'pagination_content_styles' );

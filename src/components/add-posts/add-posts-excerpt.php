@@ -14,8 +14,8 @@ $excerpt_component = new Module(
     [
         'l-row__col',
         is_archive()
-            ? 'is-lrg-half'
-            : 'is-lrg-1-third',
+            ? 'is-med-half'
+            : 'is-med-1-third',
         'no-gutter',
     ]
 );

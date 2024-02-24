@@ -1,4 +1,4 @@
-import { components, iframe, videoIframe, loadComponent, observer } from '@utilities'
+import { components, loadComponent, observer } from '@utilities'
 
 components?.forEach((component) => {
     const { dataset } = component
@@ -9,12 +9,4 @@ components?.forEach((component) => {
     } else {
         observer.observe(component)
     }
-})
-
-iframe?.forEach((frame) => {
-    observer.observe(frame)
-})
-
-videoIframe?.forEach((frame) => {
-    observer.observe(frame)
 })

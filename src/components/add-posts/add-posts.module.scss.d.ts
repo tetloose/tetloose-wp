@@ -4,7 +4,6 @@ interface CssExports {
   'excerpt': string;
   'excerpt__btn': string;
   'excerpt__content': string;
-  'excerpt__content-inside': string;
   'excerpt__image': string;
   'excerpt__time': string;
   'is-archive': string;

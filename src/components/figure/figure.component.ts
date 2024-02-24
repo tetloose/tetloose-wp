@@ -1,4 +1,3 @@
-import styles from './figure.module.scss'
 import { ComponentClass } from '@utilities'
 import { imageElement } from '@elements'
 
@@ -10,7 +9,8 @@ export class Figure extends ComponentClass {
     }
 
     createFigure() {
-        const { module } = this
+        const { module, state } = this
+        const { duration } = state.loading
         const {
             imageAlt,
             imageSml,
@@ -27,12 +27,18 @@ export class Figure extends ComponentClass {
             xlrg: imageXlrg ? imageXlrg : '',
             xxlrg: imageXxlrg ? imageXxlrg : ''
         }
+        const placeholder = module.querySelector('[data-placeholder]') as HTMLImageElement
         const image = imageElement(imageData)
 
         image.onload = () => {
             module.appendChild(image)
 
-            this.css(module, styles)
+            this.load()
+
+            setTimeout(() => {
+                if (placeholder) placeholder.remove()
+                image.classList.remove('is-loading')
+            }, duration)
         }
     }
 }

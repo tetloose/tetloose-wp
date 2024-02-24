@@ -1,15 +1,14 @@
-import { loadComponent, loadIframe, loadVideoIframe } from '@utilities'
+import { loadComponent } from '@utilities'
 
 export const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
         const { target } = entry
 
         if (target instanceof HTMLElement && entry.isIntersecting) {
-            const { dataset, classList } = target
+            const { dataset } = target
+            const { module } = dataset
 
-            if (dataset.module) loadComponent(target, dataset.module)
-            if (classList.contains('js-iframe')) loadIframe(target, dataset)
-            if (classList.contains('js-videoIframe')) loadVideoIframe(target, dataset)
+            if (module) loadComponent(target, module)
 
             observer.unobserve(target)
         }

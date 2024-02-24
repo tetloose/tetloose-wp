@@ -64,8 +64,8 @@
                 },
                 {
                     "key": "field_640997261d76c",
-                    "label": "Desktop Width",
-                    "name": "desktop_width",
+                    "label": "Width",
+                    "name": "width",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -77,26 +77,6 @@
                         "id": ""
                     },
                     "default_value": 300,
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_640997531d76d",
-                    "label": "Mobile Width",
-                    "name": "mobile_width",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": 200,
                     "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
@@ -414,5 +394,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683893945
+    "modified": 1708804932
 }

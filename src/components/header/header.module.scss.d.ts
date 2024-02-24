@@ -12,6 +12,7 @@ interface CssExports {
   'cta': string;
   'cta__link': string;
   'header': string;
+  'header__inside': string;
   'header__logo': string;
   'is-active': string;
   'is-flex': string;

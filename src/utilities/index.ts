@@ -10,8 +10,6 @@ export { objectToString } from './object-to-string.utilities'
 export { observer } from './observer.utilities'
 export { request } from './request.utilities'
 export { smoothScroll } from './smooth-scroll.utilities'
-export { iframe, loadIframe } from './iframe.utilities'
-export { videoIframe, loadVideoIframe } from './video-iframe.utilities'
 export {
     LoadingProps,
     MotionOptionsProps,

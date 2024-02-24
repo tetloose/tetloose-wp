@@ -4,15 +4,10 @@
 	$sub-nav: &;
 
 	&.is-inline {
-		font-size: 0;
-
 		#{$sub-nav}__item {
-			display: inline-block;
+			display: inline-flex;
 
-			a {
-				margin-right: rem(spacing(.3));
-				margin-left: rem(spacing(.3));
-			}
+			@include sizing('gap', size(1.2));
 		}
 	}
 
@@ -21,17 +16,9 @@
 			text-align: center;
 
 			a {
-				padding-top: rem(spacing(.5));
-				padding-bottom: rem(spacing(.5));
-				text-transform: uppercase;
-
-				@include mq(vars(breakpoint, med), max-width) {
-					@include type-h6;
-				}
-
-				@include mq(vars(breakpoint, med)) {
-					@include type-h1;
-				}
+				@extend %type-h1;
+				@extend %f-uppercase;
+				@include sizing('padding', [size(2), size(0)]);
 			}
 		}
 	}
@@ -41,24 +28,22 @@
 
 		a {
 			display: block;
-			margin-top: rem(spacing(.1));
-			margin-bottom: rem(spacing(.1));
 			text-decoration: none;
 
-			@include type-paragraph;
+			@extend %type-paragraph;
 
 			@include mq-hover {
 				@include transition;
 			}
 
 			&::after {
-				right: -(rem(10px));
-				left: -(rem(10px));
+				@include sizing('left', size(-2.5));
+				@include sizing('right', size(-2.5));
 			}
 		}
 
 		&.is-active > a {
-			@include interaction(disable);
+			@include disable(disable);
 
 			.u-link-hover-light & {
 				color: $light;

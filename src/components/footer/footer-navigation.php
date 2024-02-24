@@ -13,7 +13,7 @@ $navigation_component = new Module(
         'footer__nav',
     ],
     [
-        'u-animate-hide',
+        'u-load-hide',
     ]
 );
 

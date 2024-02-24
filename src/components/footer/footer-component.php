@@ -13,7 +13,7 @@ $footer_component = new Module(
         'footer',
     ],
     [
-        'u-animate-hide',
+        'u-load-hide',
         $footer_bg_borders['background_color'],
         $footer_bg_borders['border_color']
             ? 'u-border-t ' . $footer_bg_borders['border_color']

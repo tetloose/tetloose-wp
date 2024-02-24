@@ -14,6 +14,7 @@ $trigger_active_btn = get_field( 'trigger_active_btn', 'option' );
 $navigation_bg_borders = get_field( 'navigation_bg_borders', 'option' );
 $navigation_content_styles = get_field( 'navigation_content_styles', 'option' );
 $navigation_animation_color = get_field( 'navigation_animation_color', 'option' );
+$header_bg_borders = get_field( 'header_bg_borders', 'option' );
 
 if ( isset( $header_navigation->ID ) ) :
     $trigger_component = new Module(
@@ -80,12 +81,16 @@ if ( isset( $header_navigation->ID ) ) :
                 'animation' => 'hide',
             )
         );
+
+        $btn_class = $header_bg_borders['border_color']
+            ? 'u-border-b ' . $header_bg_borders['border_color']
+            : ''
         ?>
         <button
             aria-expanded="false"
             data-styles="trigger"
             aria-label="<?php echo ! empty( $closed ) ? esc_attr( $closed ) : ''; ?>"
-            class="u-btn">
+            class="u-btn <?php echo esc_attr( $btn_class ); ?>">
             <span data-styles="trigger__title">
                 <?php echo ! empty( $closed ) ? esc_attr( $closed ) : ''; ?>
             </span>

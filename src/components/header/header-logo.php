@@ -7,7 +7,9 @@
 
 $header_logo = get_field( 'header_logo', 'option' );
 
-if ( ! empty( $header_logo['mobile_width'] ) && ! empty( $header_logo['desktop_width'] ) ) {
+if ( ! empty( $header_logo['width'] ) ) {
+    $vw_context = 1520 * .01 * 1;
+
     echo '
         <style type="text/css">
             .logo {
@@ -16,13 +18,13 @@ if ( ! empty( $header_logo['mobile_width'] ) && ! empty( $header_logo['desktop_w
             }
             @media only screen and (max-width: 767px) {
                 .logo {
-                    max-width: ' . wp_kses_post( $header_logo['mobile_width'] ) / 16 . 'rem;
+                    max-width: ' . wp_kses_post( $header_logo['width'] ) / $vw_context * 3 . 'vw;
                 }
             }
 
             @media only screen and (min-width: 768px) {
                 .logo {
-                    max-width: ' . wp_kses_post( $header_logo['desktop_width'] ) / 16 . 'rem;
+                    max-width: ' . wp_kses_post( $header_logo['width'] ) / $vw_context * 1 . 'vw;
                 }
             }
         </style>

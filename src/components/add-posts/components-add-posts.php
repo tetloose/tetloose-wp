@@ -18,7 +18,7 @@ if ( get_row_layout() == 'add_posts' ) :
     $posts_component = new Module(
         [],
         [
-            'u-animate-hide',
+            'u-load-hide',
             $bg_borders['background_color'],
             $bg_borders['border_color']
                 ? 'u-border-t ' . $bg_borders['border_color']
@@ -26,7 +26,6 @@ if ( get_row_layout() == 'add_posts' ) :
             $spacing['top'],
             $spacing['bottom'],
             'l-row',
-            'no-gutter',
             'is-fullwidth',
         ]
     );

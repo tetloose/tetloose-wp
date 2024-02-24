@@ -3,7 +3,6 @@
 interface CssExports {
   'music': string;
   'music__logos': string;
-  'music__logos-button': string;
   'music__logos-image': string;
   'music__player': string;
   'music__row': string;

@@ -9,120 +9,56 @@
 	&.is-news {
 		#{$excerpt}__time {
 			display: block;
+
+			@include sizing('padding-bottom', size(2));
 		}
 
 		#{$excerpt}__image {
-			z-index: 0;
-			height: 0;
-
-			:global(img) {
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-			}
+			aspect-ratio: 1 / 1;
 		}
 
 		#{$excerpt}__content {
-			padding-top: rem(spacing(2));
-			padding-bottom: rem(spacing(2));
 			text-align: center;
 
-			@include mq(vars(breakpoint, lrg), max-width) {
-				padding-right: rem(vars(layout, gutter));
-				padding-left: rem(vars(layout, gutter));
-			}
-
-			@include mq(vars(breakpoint, lrg)) {
-				padding-right: rem(spacing(2));
-				padding-left: rem(spacing(2));
-			}
-
-			&-inside {
-				width: 100%;
-
-				:global(> *:first-child) {
-					margin-top: 0;
-					padding-top: 0;
-				}
-			}
+			@include sizing('padding', size(8));
 		}
 
 		#{$excerpt}__btn {
 			white-space: nowrap;
 
-			@include mq(vars(breakpoint, lrg), max-width) {
-				margin-top: rem(spacing(.3));
-			}
+			@include sizing('margin-top', size(1.2));
 
-			@include mq(vars(breakpoint, lrg)) {
+			@include mq(vars(breakpoint, med)) {
 				position: absolute;
-				bottom: rem(spacing(2));
 				left: 50%;
 				transform: translateX(-50%);
+
+				@include sizing('bottom', size(12));
 			}
 		}
 
 		&.is-archive {
-			@include mq(vars(breakpoint, lrg)) {
-				padding-bottom: rem(spacing(4));
-			}
-
-			#{$excerpt}__image {
-				@include mq(vars(breakpoint, lrg), max-width) {
-					padding-bottom: 50%;
-				}
-
-				@include mq(vars(breakpoint, sml), max-width) {
-					padding-bottom: 80%;
-				}
-
-				@include mq(vars(breakpoint, lrg)) {
-					padding-bottom: 80%;
-				}
+			@include mq(vars(breakpoint, med)) {
+				@include sizing('padding-bottom', size(25));
 			}
 		}
 
 		&.is-component {
-			#{$excerpt}__image {
-				opacity: .8;
-
-				&::before {
-					opacity: .8;
-				}
-
-				@include mq(vars(breakpoint, lrg), max-width) {
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					z-index: 0;
-					height: auto;
-				}
-
-				@include mq(vars(breakpoint, lrg)) {
-					padding-bottom: 110%;
-				}
-
-				@include mq(vars(breakpoint, xxlrg)) {
-					padding-bottom: 80%;
-				}
+			#{$excerpt}__image:before {
+				opacity: .7;
 			}
 
 			#{$excerpt}__content {
 				display: flex;
-				position: relative;
+				flex-direction: column;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
 				z-index: 1;
 				align-items: center;
-
-				@include mq(vars(breakpoint, lrg)) {
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-				}
+				justify-content: center;
 			}
 		}
 	}
@@ -139,19 +75,19 @@
 	}
 
 	:global(.page-numbers) {
-		margin-right: rem(4px);
-		margin-left: rem(4px);
-		padding: rem(spacing(.3)) rem(spacing(.5));
 		line-height: normal;
 		text-decoration: none;
 
-		@include type-paragraph;
+		@extend %type-paragraph;
+		@include sizing('margin-right', size(1));
+		@include sizing('margin-left', size(1));
+		@include sizing('padding', [size(1.2), size(2)]);
 	}
 
 	:global(.next),
 	:global(.prev) {
-		padding-right: rem(spacing(.2));
-		padding-left: rem(spacing(.2));
+		@include sizing('margin-right', size(.8));
+		@include sizing('margin-left', size(.8));
 
 		[class*=u-icon-] {
 			position: relative;
@@ -167,8 +103,9 @@
 	:global(.current) {
 		margin-right: 0;
 		margin-left: 0;
-		padding-right: rem(spacing(.7));
-		padding-left: rem(spacing(.7));
+
+		@include sizing('padding-right', size(2.8));
+		@include sizing('padding-left', size(2.8));
 	}
 
 	&:global(.u-link-hover-light .current) {

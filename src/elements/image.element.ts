@@ -11,6 +11,7 @@ export function imageElement(options: ImageProps): HTMLImageElement {
     } = options
     const image = new Image()
 
+    image.classList.add('u-figure__img', 'is-loading')
     image.setAttribute('alt', alt ? alt : '')
     image.setAttribute(
         'srcset',
@@ -22,6 +23,7 @@ export function imageElement(options: ImageProps): HTMLImageElement {
             ${sml ? `${sml} 320w` : ''}
         `
     )
+
     if (sml) image.src = sml
 
     return image

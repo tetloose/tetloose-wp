@@ -11,16 +11,15 @@ if ( ! empty( $args ) ) :
             $args['styles'],
         ],
         [
+            'u-figure',
             $args['class_names'],
-            'u-animate-figure',
         ]
     );
     ?>
     <figure
         data-module="Figure"
-        data-type="figure"
         data-duration="<?php echo esc_attr( $args['animation_duration'] ); ?>"
-        data-styles="figure <?php echo esc_attr( $figure_component->styles() ); ?>"
+        data-styles="<?php echo esc_attr( $figure_component->styles() ); ?>"
         data-image-alt="<?php echo esc_attr( $args['image']['alt'] ); ?>"
         data-image-sml="<?php echo esc_attr( $args['image']['sizes']['sml'] ); ?>"
         data-image-med="<?php echo esc_attr( $args['image']['sizes']['med'] ); ?>"
@@ -29,7 +28,8 @@ if ( ! empty( $args ) ) :
         data-image-xxlrg="<?php echo esc_attr( $args['image']['sizes']['xxlrg'] ); ?>"
         class="<?php echo esc_attr( $figure_component->class_names() ); ?>">
         <img
-            class="js-figurePlaceholder"
+            data-placeholder="true"
+            class="u-figure__img"
             src="<?php echo esc_attr( $args['image']['sizes']['sml'] ); ?>"
             alt="">
     </figure>
