@@ -72,7 +72,7 @@ export class Header extends ComponentClass {
             const moduleHeight = offsetHeight
             const offsetY: number = scrollY
 
-            if (offsetY > position && !classList.contains(styles['is-hidden']) && offsetY >= moduleHeight) {
+            if (offsetY > position && !classList.contains(styles['is-hidden']) && offsetY >= position + moduleHeight) {
                 classList.add(styles['is-hidden'])
             } else if (offsetY < position && classList.contains(styles['is-hidden'])) {
                 classList.remove(styles['is-hidden'])
