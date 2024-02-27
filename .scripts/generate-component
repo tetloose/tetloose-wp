@@ -1,0 +1,81 @@
+#!/bin/bash
+#generate-component
+
+clear
+
+read -p "Enter component location:
+
+[0] ACF Flexible Content
+[1] Component
+
+[0/1/2]: " COMPONENT_SWITCH
+
+if [ "$COMPONENT_SWITCH" ]; then
+    read -p "Enter component name i.e Navigation bar (*no hyphens*) press [ENTER]: " COMPONENT
+    read -p "Enter component description [ENTER]: " COMPONENT_DESCRIPTION
+
+    EXPORT_NAME=$(echo "$COMPONENT" | perl -pe '$_ = lc')                       # lowercase
+    EXPORT_NAME=$(echo "$EXPORT_NAME" | perl -pe 's/ /-/g')                     # spaces to hyphens
+    EXPORT_NAME=$(echo "$EXPORT_NAME" | perl -pe 's/(^|-)(\w)/\U$2/g')          # Uppercase first segment
+
+    COMPONENT_NAME=$(echo "$COMPONENT" | perl -pe '$_ = lc')                    # Lowercase
+    COMPONENT_NAME=$(echo "$COMPONENT_NAME" | perl -pe 's/ /-/g')               # Spaces to hyphens
+
+    PHP_NAME=$(echo "$COMPONENT" | perl -pe '$_ = lc' | tr ' ' '_')             # Spaces to underscores
+
+    NICE_NAME=$(echo "$COMPONENT" | perl -pe '$_ = lc')                         # lowercase
+    NICE_NAME=$(echo "$NICE_NAME" | perl -pe 's/-/ /g')                         # Convert hyphens to spaces
+    NICE_NAME=$(echo "$NICE_NAME" | perl -pe 's/(^|-)(\w)/\U$2/g')              # Uppercase first segment
+
+    DIR="./src/components/$COMPONENT_NAME"
+
+    mkdir -p $DIR
+
+    cp .scripts/template/component.ts $DIR/$COMPONENT_NAME.component.ts
+    cp .scripts/template/styles.scss $DIR/$COMPONENT_NAME.module.scss
+    cp .scripts/template/test.ts $DIR/$COMPONENT_NAME.test.ts
+    cp .scripts/template/types.ts $DIR/$COMPONENT_NAME.types.ts
+
+    find "$DIR/" -type f -name "$COMPONENT_NAME.component.ts" -exec sed -i '' -e "s|EXPORT_NAME|$EXPORT_NAME|g" {} +
+    find "$DIR/" -type f -name "$COMPONENT_NAME.component.ts" -exec sed -i '' -e "s|COMPONENT_NAME|$COMPONENT_NAME|g" {} +
+    find "$DIR/" -type f -name "$COMPONENT_NAME.module.scss" -exec sed -i '' -e "s|COMPONENT_NAME|$COMPONENT_NAME|g" {} +
+    find "$DIR/" -type f -name "$COMPONENT_NAME.test.ts" -exec sed -i '' -e "s|EXPORT_NAME|$EXPORT_NAME|g" {} +
+    find "$DIR/" -type f -name "$COMPONENT_NAME.test.ts" -exec sed -i '' -e "s|COMPONENT_NAME|$COMPONENT_NAME|g" {} +
+    find "$DIR/" -type f -name "$COMPONENT_NAME.types.ts" -exec sed -i '' -e "s|EXPORT_NAME|$EXPORT_NAME|g" {} +
+
+    if [ "$COMPONENT_SWITCH" = "0" ]; then
+        cp .scripts/template/acf.php $DIR/components-$COMPONENT_NAME.php
+        cp .scripts/template/acf.md $DIR/README.md
+
+        find "$DIR/" -type f -name "components-$COMPONENT_NAME.php" -exec sed -i '' -e "s|NICE_NAME|$NICE_NAME|g" {} +
+        find "$DIR/" -type f -name "components-$COMPONENT_NAME.php" -exec sed -i '' -e "s|COMPONENT_DESCRIPTION|$COMPONENT_DESCRIPTION|g" {} +
+        find "$DIR/" -type f -name "components-$COMPONENT_NAME.php" -exec sed -i '' -e "s|PHP_NAME|$PHP_NAME|g" {} +
+        find "$DIR/" -type f -name "components-$COMPONENT_NAME.php" -exec sed -i '' -e "s|COMPONENT_NAME|$COMPONENT_NAME|g" {} +
+        find "$DIR/" -type f -name "components-$COMPONENT_NAME.php" -exec sed -i '' -e "s|EXPORT_NAME|$EXPORT_NAME|g" {} +
+
+        find "$DIR/" -type f -name "README.md" -exec sed -i '' -e "s|PHP_NAME|$PHP_NAME|g" {} +
+    elif [ "$COMPONENT_SWITCH" = "1" ]; then
+        cp .scripts/template/component.php $DIR/$COMPONENT_NAME-component.php
+        cp .scripts/template/component.md $DIR/README.md
+
+        find "$DIR/" -type f -name "$COMPONENT_NAME-component.php" -exec sed -i '' -e "s|NICE_NAME|$NICE_NAME|g" {} +
+        find "$DIR/" -type f -name "$COMPONENT_NAME-component.php" -exec sed -i '' -e "s|COMPONENT_DESCRIPTION|$COMPONENT_DESCRIPTION|g" {} +
+        find "$DIR/" -type f -name "$COMPONENT_NAME-component.php" -exec sed -i '' -e "s|COMPONENT_NAME|$COMPONENT_NAME|g" {} +
+        find "$DIR/" -type f -name "$COMPONENT_NAME-component.php" -exec sed -i '' -e "s|EXPORT_NAME|$EXPORT_NAME|g" {} +
+    fi
+
+    find "$DIR/" -type f -name "README.md" -exec sed -i '' -e "s|NICE_NAME|$NICE_NAME|g" {} +
+    find "$DIR/" -type f -name "README.md" -exec sed -i '' -e "s|COMPONENT_DESCRIPTION|$COMPONENT_DESCRIPTION|g" {} +
+    find "$DIR/" -type f -name "README.md" -exec sed -i '' -e "s|EXPORT_NAME|$EXPORT_NAME|g" {} +
+    find "$DIR/" -type f -name "README.md" -exec sed -i '' -e "s|COMPONENT_NAME|$COMPONENT_NAME|g" {} +
+
+    echo ""
+    echo ""
+    eval "code ./src/config/modules.config.ts"
+    echo "$EXPORT_NAME: () => import(/* webpackChunkName: '$COMPONENT_NAME' */ '@components/$COMPONENT_NAME/$COMPONENT_NAME.component')"
+    echo ""
+    echo ""
+
+else
+  echo "Please check your input, and try again"
+fi

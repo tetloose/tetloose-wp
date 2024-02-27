@@ -8,7 +8,7 @@
 
 if ( get_row_layout() == 'animated_banner' ) :
     $bg_borders = get_sub_field( 'bg_borders' );
-    $ratio = get_sub_field( 'ratio' );
+    $height = get_sub_field( 'height' );
     $plane = get_sub_field( 'plane' );
     $clouds = get_sub_field( 'clouds' );
     $buildings = get_sub_field( 'buildings' );
@@ -22,7 +22,7 @@ if ( get_row_layout() == 'animated_banner' ) :
         ],
         [
             'u-load-hide',
-            $ratio,
+            $height,
             $bg_borders['background_color'],
             $bg_borders['border_color']
                 ? 'u-border-t ' . $bg_borders['border_color']

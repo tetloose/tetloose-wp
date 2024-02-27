@@ -1,30 +1,41 @@
 #!/bin/bash
-#add-component
+# add-component
+
+PATTERN_LIBRARY=($(ls pattern-library | grep -v "README.md"))
 
 clear
-ls pattern-library
 echo ""
-echo ""
-read -p "Avalible components: copy component name paste press [ENTER]: " COMPONENT
-echo ""
+for index in "${!PATTERN_LIBRARY[@]}"; do
+    echo "  [$index] ${PATTERN_LIBRARY[$index]}"
+done
 echo ""
 
-if [ -d pattern-library/"$COMPONENT" ]; then
-    cp -r pattern-library/"$COMPONENT" src/components
-    echo Added: src/components/"$COMPONENT"
-    echo Instructions: src/components/"$COMPONENT"/README.md for instructions
+read -p "Enter the number corresponding to the component to copy and press [ENTER]: " COMPONENT_INDEX
 
-    read -p "Add another component
+if ! [[ "$COMPONENT_INDEX" =~ ^[0-9]+$ ]]; then
+    echo "Invalid input. Please enter a number."
+    exit 1
+fi
 
-    [0] Yes
-    [1] No
+if (( COMPONENT_INDEX >= 0 && COMPONENT_INDEX < ${#PATTERN_LIBRARY[@]} )); then
+    COMPONENT="${PATTERN_LIBRARY[$COMPONENT_INDEX]}"
 
-    [0/1]: " ADD_COMPONENT_SWITCH
-    if [ "$ADD_COMPONENT_SWITCH" = "0" ]; then
-        eval "sh .scripts/add-component"
+    if [ -d "pattern-library/$COMPONENT" ]; then
+        cp -r "pattern-library/$COMPONENT" src/components
+        echo "Added: src/components/$COMPONENT"
+        echo "Instructions: src/components/$COMPONENT/README.md for instructions"
+        echo ""
+        echo ""
+        read -p "Add another component? [0] Yes, [1] No: " ADD_COMPONENT_SWITCH
+
+        if [ "$ADD_COMPONENT_SWITCH" = "0" ]; then
+            eval "sh .scripts/add-component"
+        else
+            echo "Toolkit Stopping"
+        fi
     else
-        echo "Toolkit Stopping"
+        echo "$COMPONENT" does not exist, Toolkit Stopping
     fi
 else
-    echo "$COMPONENT" does not exist, Toolkit Stopping
+    echo "Invalid number. Please enter a valid number."
 fi

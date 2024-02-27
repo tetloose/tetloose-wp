@@ -130,7 +130,11 @@ elif [ "$1" = "db-pull" ]; then
 elif [ "$1" = "package" ]; then
     eval "sh .scripts/$1"
 
+# ./toolkit add-component
 elif [ "$1" = "add-component" ]; then
+    eval "sh .scripts/$1"
+
+elif [ "$1" = "generate-component" ]; then
     eval "sh .scripts/$1"
 
 else
