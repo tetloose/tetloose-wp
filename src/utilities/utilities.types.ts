@@ -1,5 +1,3 @@
-import { EventProps } from '../components/song-kick/song-kick.types'
-
 export type ObjectToStringProps = {
     [key: string]: string
 }
@@ -39,7 +37,7 @@ export type FetchParamsProps = {
     resetMocks(): void
 }
 
-export type StateProps = string | boolean | number | Element | HTMLElement | HTMLVideoElement | HTMLButtonElement | MotionOptionsProps | LoadingProps | EventProps | null
+export type StateProps = string | boolean | number | Element | HTMLElement | HTMLVideoElement | HTMLButtonElement | MotionOptionsProps | LoadingProps | null
 
 export type HTMLIFrame = HTMLIFrameElement | null
 export type HTMLProps = HTMLElement | null
