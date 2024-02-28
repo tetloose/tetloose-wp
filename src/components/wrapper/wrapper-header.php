@@ -24,7 +24,7 @@ $html_component = new Module(
 <head>
     <?php
         get_template_part( '/components/wrapper', 'header-meta' );
-        get_template_part( '/components/wrapper', 'header-favicons' );
+        get_template_part( '/components/wrapper', 'header-favicon' );
         get_template_part( '/components/wrapper', 'header-scripts' );
     ?>
 </head>

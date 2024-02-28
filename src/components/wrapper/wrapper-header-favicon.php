@@ -1,6 +1,6 @@
 <?php
 /**
- * Wrapper - Header Favicons
+ * Wrapper - Header Favicon
  *
  * @package Tetloose-Theme
  */
