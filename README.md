@@ -2,6 +2,10 @@
 
 Tetloose WP is a custom Wordpress framework that uses [Bedrock Wordpress](https://roots.io/bedrock/).
 
+## Clone repo with submodules
+
+`git clone git@github.com:tetloose/tetloose-wp.git --recurse-submodules`
+
 ## Recommended VSCode Extensions
 
 `cmd shift p` then type recommended.
