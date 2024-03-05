@@ -28,7 +28,7 @@ elif [ "$SETUP_SWITCH" = "2" ]; then
 fi
 
 if [ "$SETUP_SWITCH" = "0" ]; then
-    eval "composer install && yarn && yarn prepare && yarn create-hook"
+    eval "composer install && yarn && yarn prepare"
     eval "code . && yarn dev"
 
 elif [[ "$SETUP_SWITCH" = "1" || "$SETUP_SWITCH" = "2" ]]; then

@@ -31,7 +31,7 @@ export class ComponentClass {
         const { classList } = module
         const { animation, duration } = state.loading
 
-        module.removeAttribute('style')
+        module.style.opacity = ''
 
         setTimeout(() => {
             if (animation) classList.add(`u-load-${animation}`)
