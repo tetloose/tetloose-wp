@@ -24,6 +24,8 @@ if (( COMPONENT_INDEX >= 0 && COMPONENT_INDEX < ${#PATTERN_LIBRARY[@]} )); then
         cp -r "pattern-library/$COMPONENT" src/components
         echo "Added: src/components/$COMPONENT"
         echo "Instructions: src/components/$COMPONENT/README.md for instructions"
+        eval "code ./src/config/modules.config.ts"
+        eval "code ./src/components/$COMPONENT/README.md"
         echo ""
         echo ""
         read -p "Add another component? [0] Yes, [1] No: " ADD_COMPONENT_SWITCH

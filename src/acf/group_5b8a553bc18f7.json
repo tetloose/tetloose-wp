@@ -35,14 +35,14 @@
             {
                 "param": "post_template",
                 "operator": "==",
-                "value": "index.php"
+                "value": "default"
             }
         ],
         [
             {
                 "param": "post_template",
                 "operator": "==",
-                "value": "default"
+                "value": "index.php"
             }
         ]
     ],
@@ -67,5 +67,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682355391
+    "modified": 1709843411
 }

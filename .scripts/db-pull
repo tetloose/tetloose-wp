@@ -27,6 +27,7 @@ if [ "$ENVIRONMENT" ]; then
     eval rsync -r "$SSH":"$DIR"/db.sql "$LOCAL_DIR" --stats --progress -raz --update;
     eval "wp db import db.sql";
     wp search-replace "$URL" "$LOCAL_URL";
+    wp search-replace "$LOCAL_URL/wp-content" "$LOCAL_URL/app";
     rm -rf db.sql;
     ssh "$SSH" "cd $DIR; rm -rf db.sql";
     echo "db updated on local from $ENVIRONMENT...";

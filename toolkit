@@ -33,7 +33,7 @@ if test -f "$ENV"; then
 
     STAGING_SSH=$(grep TOOLKIT_STAGING_SSH $ENV | cut -d '=' -f2)
     STAGING_DIR=$(grep TOOLKIT_STAGING_DIR $ENV | cut -d '=' -f2)
-    STAGIN_URL=$(grep TOOLKIT_STAGING_URL $ENV | cut -d '=' -f2)
+    STAGING_URL=$(grep TOOLKIT_STAGING_URL $ENV | cut -d '=' -f2)
 
     LOCAL_DIR=$(grep TOOLKIT_LOCAL_DIR $ENV | cut -d '=' -f2)
     LOCAL_URL=$(grep TOOLKIT_LOCAL_URL $ENV | cut -d '=' -f2)
@@ -69,7 +69,7 @@ if test -f "$ENV"; then
 
     export STAGING_SSH
     export STAGING_DIR
-    export STAGIN_URL
+    export STAGING_URL
 
     export LOCAL_DIR
     export LOCAL_URL

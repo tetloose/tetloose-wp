@@ -17,6 +17,7 @@ module.exports = {
                 'ignoreShorthands': ['grid-template']
             }
         ],
+        'value-keyword-case': null,
         'declaration-colon-space-after': 'always-single-line',
         'declaration-colon-newline-after': 'always-multi-line',
         'max-empty-lines': 1,
