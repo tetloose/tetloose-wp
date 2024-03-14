@@ -8,7 +8,7 @@ read -p "Enter component location:
 [0] ACF Flexible Content
 [1] Component
 
-[0/1/2]: " COMPONENT_SWITCH
+[0/1]: " COMPONENT_SWITCH
 
 if [ "$COMPONENT_SWITCH" ]; then
     read -p "Enter component name i.e Navigation bar (*no hyphens*) press [ENTER]: " COMPONENT

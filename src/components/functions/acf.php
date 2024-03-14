@@ -22,7 +22,12 @@ add_filter(
     'acf/settings/load_json',
     function ( $paths ) {
         unset( $paths[0] );
-        $paths[] = esc_url( str_replace( 'web/wp/', '', ABSPATH ) . 'src/acf' );
+
+        if ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ) {
+            $paths[] = esc_url( get_theme_file_path() . '/acf' );
+        } else {
+            $paths[] = esc_url( str_replace( 'web/wp/', '', ABSPATH ) . 'src/acf' );
+        }
 
         return $paths;
     }

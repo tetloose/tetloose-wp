@@ -29,7 +29,8 @@ export class ComponentClass {
     load() {
         const { module, state } = this
         const { classList } = module
-        const { animation, duration } = state.loading
+        const { loading } = state
+        const { animation, duration } = loading
 
         module.style.opacity = ''
 
@@ -43,7 +44,9 @@ export class ComponentClass {
     }
 
     updateState(key: string, value: StateProps) {
-        if (this.state) this.state[key] = value
+        const { state } = this
+
+        if (state) state[key] = value
     }
 
     css<T>(element: HTMLElement, styles: T, loadDuration = 0) {
@@ -112,7 +115,8 @@ export class ComponentClass {
 
     handleMotion() {
         const { module, state } = this
-        const { property } = state.motionOptions
+        const { motionOptions } = state
+        const { property } = motionOptions
         const top = module.getBoundingClientRect().top
         const height = module.getBoundingClientRect().height
         const viewportHeight = window.innerHeight

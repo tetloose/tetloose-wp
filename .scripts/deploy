@@ -35,8 +35,11 @@ if [ "$ENVIRONMENT" ]; then
         eval rsync -r "$LOCAL_DIR"/"$LOCAL_PLUGINS" "$SSH":"$DIR"/"$WP_CONTENT" --stats --progress -raz --update
     fi
 
-    ssh "$SSH" "rm -rf $DIR/$WP_THEME/tetloose-theme"
+    ssh "$SSH" "rm -rf $DIR/$WP_THEME/tetloose-theme;"
+    ssh "$SSH" "rm -rf $DIR/$WP_THEME/tetloose-theme/acf;"
     eval rsync -r "$LOCAL_DIR"/"$LOCAL_THEME" "$SSH":"$DIR"/"$WP_THEME" --stats --progress -raz --update
+    eval rsync -r "$LOCAL_DIR"/src/acf "$SSH":"$DIR"/"$WP_THEME/tetloose-theme" --stats --progress -raz --update
+
     echo "$ENVIRONMENT updated..."
 else
     echo "Environment not set, Toolkit Stopping"

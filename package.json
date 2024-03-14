@@ -38,7 +38,7 @@
         "lint": "eslint --ext .js,.ts src && stylelint \"src/**/*.scss\"",
         "lint:fix": "eslint --ext .js,.ts --fix . && stylelint \"src/**/*.scss\" --fix",
         "favicon": "gulp cleanFavicon && gulp favicon",
-        "deploy": "composer update && yarn build && yarn git:commit && bash toolkit deploy",
+        "deploy": "composer update && yarn build && bash toolkit deploy",
         "uploads:push": "bash toolkit uploads-push",
         "uploads:pull": "bash toolkit uploads-pull",
         "db:push": "bash toolkit db-push",
