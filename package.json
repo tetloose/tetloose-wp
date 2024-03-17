@@ -32,7 +32,7 @@
         "setup": "bash toolkit setup",
         "dev": "gulp clean && gulp php && ENV=dev gulp && yarn serve",
         "serve": "ENV=dev gulp serve",
-        "build": "gulp clean && gulp php && gulp build",
+        "build": "gulp clean && gulp php && gulp build && yarn favicon",
         "test": "vitest",
         "coverage": "vitest run --coverage",
         "lint": "eslint --ext .js,.ts src && stylelint \"src/**/*.scss\"",
