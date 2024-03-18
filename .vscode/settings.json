@@ -4,7 +4,6 @@
     "phpsab.snifferEnable": true,
     "phpsab.executablePathCS": "vendor/squizlabs/php_codesniffer/bin/phpcs",
     "phpsab.executablePathCBF": "vendor/squizlabs/php_codesniffer/bin/phpcbf",
-    "php.validate.executablePath": "/opt/homebrew/opt/php@7.4/bin/php",
     "intelephense.environment.phpVersion": "7.4.33",
     "intelephense.stubs": [
         "wordpress",
