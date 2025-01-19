@@ -15,7 +15,8 @@ module.exports = {
         proxy: process.env.PROXY
     },
     scripts: {
-        files: `${base}/src/**/*.{ts,js}`,
+        entry: `${base}/src/app.ts`,
+        files: `${base}/src/components/**/*.{ts,js}`,
         modules: `${base}/src/components/**/*.scss`
     },
     clean: {

@@ -23,7 +23,7 @@ else
 fi
 
 if [ "$ENVIRONMENT" ]; then
-    eval wp db export db.sql;
+    eval "wp db export db.sql --host=127.0.0.1 --port=3310 --user=$DB_USER --password=$DB_PASSWORD";
     eval rsync -r "$LOCAL_DIR"/db.sql "$SSH":"$DIR" --stats --progress -raz --update
     ssh "$SSH" "cd $DIR; wp db import db.sql; wp search-replace '$LOCAL_URL' '$URL'; wp search-replace '$URL/wp' '$URL'; wp search-replace '$URL/app' '$URL/wp-content'; rm -rf db.sql"
     rm -rf db.sql

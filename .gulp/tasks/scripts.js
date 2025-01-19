@@ -1,6 +1,5 @@
 import { src } from 'gulp'
 import webpack from 'webpack'
-import { reload } from 'browser-sync'
 import webpackConfig from '../../webpack.config'
 import gulpESLintNew, { fix, format, failAfterError } from 'gulp-eslint-new'
 import { scripts as config } from '../config'
@@ -13,9 +12,13 @@ const scriptsLintFunc = () => {
         .pipe(failAfterError())
 }
 
-const scriptsBundleFunc = () => {
-    return webpack(webpackConfig, (err, stats) => {
-        if (err) console.log(err)
+const scriptsBundleFunc = (cb = () => {}) => {
+    webpack(webpackConfig, (err, stats) => {
+        if (err) {
+            console.error('Webpack Error:', err.toString())
+            return cb(err)
+        }
+
         console.log('[scripts]', stats.toString({
             colors: true,
             modules: false,
@@ -31,6 +34,8 @@ const scriptsBundleFunc = () => {
             timings: false,
             version: false
         }))
+
+        cb()
     })
 }
 
@@ -40,10 +45,5 @@ export const scriptsLint = (cb) => {
 }
 
 export const scriptsBundle = (cb) => {
-    scriptsBundleFunc()
-    setTimeout(() => {
-        reload()
-        cb()
-    }, 500);
-    cb()
+    scriptsBundleFunc(cb)
 }

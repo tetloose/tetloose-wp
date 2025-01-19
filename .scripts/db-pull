@@ -25,9 +25,9 @@ fi
 if [ "$ENVIRONMENT" ]; then
     ssh "$SSH" "cd $DIR; wp db export db.sql";
     eval rsync -r "$SSH":"$DIR"/db.sql "$LOCAL_DIR" --stats --progress -raz --update;
-    eval "wp db import db.sql";
-    wp search-replace "$URL" "$LOCAL_URL";
-    wp search-replace "$LOCAL_URL/wp-content" "$LOCAL_URL/app";
+    eval "wp db import db.sql --host=127.0.0.1 --port=3310 --user=$DB_USER --password=$DB_PASSWORD";
+    wp search-replace "$URL" "$LOCAL_URL --host=127.0.0.1 --port=3310 --user=$DB_USER --password=$DB_PASSWORD";
+    wp search-replace "$LOCAL_URL/wp-content" "$LOCAL_URL/app --host=127.0.0.1 --port=3310 --user=$DB_USER --password=$DB_PASSWORD";
     rm -rf db.sql;
     ssh "$SSH" "cd $DIR; rm -rf db.sql";
     echo "db updated on local from $ENVIRONMENT...";

@@ -8,10 +8,15 @@ import { phpLint, phpComponents } from './php.js'
 import config from '../config'
 
 const monitor = (cb) => {
-    watch([config.scripts.files, config.scripts.modules],
+    watch([
+        config.scripts.entry,
+        config.scripts.files,
+        config.scripts.modules
+    ],
         series(
             scriptsLint,
-            scriptsBundle
+            scriptsBundle,
+            reload
         )
     )
     watch([config.styles.files],

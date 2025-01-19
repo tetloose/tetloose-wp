@@ -94,6 +94,11 @@ else
     eval "sh .scripts/generate-env"
 fi
 
+source $ENV
+
+export DB_USER=$DB_USER
+export DB_PASSWORD=$DB_PASSWORD
+
 # ./toolkit setup
 if [ "$1" = "setup" ]; then
     eval "sh .scripts/$1"
