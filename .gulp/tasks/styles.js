@@ -1,6 +1,5 @@
 import { src, dest } from 'gulp'
 import { init, write } from 'gulp-sourcemaps'
-import sass from 'gulp-dart-sass'
 import autoprefixer from 'gulp-autoprefixer'
 import filter from 'gulp-filter'
 import cleanCss from 'gulp-clean-css'
@@ -9,6 +8,10 @@ import gulpif from 'gulp-if'
 import rev from 'gulp-rev'
 import { styles as config } from '../config'
 import { reload } from 'browser-sync'
+import gulpSass from 'gulp-sass'
+import dartSass from 'sass'
+
+const sass = gulpSass(dartSass)
 
 const stylesLintFunc = () => {
     return src([config.files])
