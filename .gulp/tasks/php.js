@@ -3,6 +3,7 @@ import { src, dest } from 'gulp'
 import phpcs from 'gulp-phpcs'
 import rename from 'gulp-rename'
 import { php as config } from '../config'
+
 const base = resolve(__dirname, '../../')
 
 const phpLintFunc = (file) => {

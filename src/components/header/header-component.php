@@ -6,8 +6,8 @@
  */
 
 $header_bg_borders = get_field( 'header_bg_borders', 'option' );
-$header_selection = get_field( 'header_selection', 'option' );
-$header_component = new Module(
+$header_selection  = get_field( 'header_selection', 'option' );
+$header_component  = new Module(
     [
         'header',
     ],
@@ -15,40 +15,19 @@ $header_component = new Module(
         'u-load-hide',
     ]
 );
-$inside_component = new Module(
+$inside_component  = new Module(
     [
         'header__inside',
     ],
     [
-        $header_bg_borders['background_color'],
+        $header_bg_borders['background_color'] ?? '',
         $header_bg_borders['border_color']
             ? 'u-border-b ' . $header_bg_borders['border_color']
             : '',
-        $header_selection['color'],
-        $header_selection['background_color'],
+        $header_selection['color'] ?? '',
+        $header_selection['background_color'] ?? '',
     ]
 );
-if ( ! empty( $header_logo['mobile_width'] ) && ! empty( $header_logo['desktop_width'] ) ) {
-    echo '
-        <style type="text/css">
-            .logo {
-                display: block;
-                width: 100%;
-            }
-            @media only screen and (max-width: 767px) {
-                .logo {
-                    max-width: ' . wp_kses_post( $header_logo['mobile_width'] ) / 16 . 'rem;
-                }
-            }
-
-            @media only screen and (min-width: 768px) {
-                .logo {
-                    max-width: ' . wp_kses_post( $header_logo['desktop_width'] ) / 16 . 'rem;
-                }
-            }
-        </style>
-    ';
-}
 ?>
 
 <header

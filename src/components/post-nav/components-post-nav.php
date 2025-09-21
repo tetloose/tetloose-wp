@@ -6,13 +6,13 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'post_nav' ) :
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
+if ( get_row_layout() === 'post_nav' ) :
+    $spacing        = get_sub_field( 'spacing' );
+    $bg_borders     = get_sub_field( 'bg_borders' );
     $content_styles = get_sub_field( 'content_styles' );
-    $selection = get_sub_field( 'selection' );
-    $prev_post = get_previous_post();
-    $next_post = get_next_post();
+    $selection      = get_sub_field( 'selection' );
+    $prev_post      = get_previous_post();
+    $next_post      = get_next_post();
     $post_component = new Module(
         [
             'post-nav',
@@ -33,7 +33,7 @@ if ( get_row_layout() == 'post_nav' ) :
             $selection['background_color'],
         ]
     );
-    $nav_component = new Module(
+    $nav_component  = new Module(
         [
             'post-nav__nav',
         ],

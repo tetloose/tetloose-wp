@@ -12,7 +12,7 @@
  **/
 function is_post_type( $type ) {
     global $wp_query;
-    if ( $type == get_post_type( $wp_query->post->ID ) ) {
+    if ( $type === get_post_type( $wp_query->post->ID ) ) {
         return true;
     }
 
@@ -20,7 +20,7 @@ function is_post_type( $type ) {
 }
 
 /**
- * Function if page id == post type add class
+ * Function if page id === post type add class
  *
  * @param array  $classes array of strings.
  * @param object $menu_item check if true or false.
@@ -30,7 +30,7 @@ function post_type_active_class( $classes = array(), $menu_item = false ) {
     $id = ( isset( $post->ID ) ? get_the_ID() : null );
 
     if ( isset( $id ) ) {
-        $classes[] = ( $menu_item->url == get_post_type_archive_link( $post->post_type ) ) ? 'current-menu-item' : '';
+        $classes[] = ( $menu_item->url === get_post_type_archive_link( $post->post_type ) ) ? 'current-menu-item' : '';
     }
 
     return $classes;

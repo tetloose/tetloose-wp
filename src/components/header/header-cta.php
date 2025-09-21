@@ -5,11 +5,11 @@
  * @package Tetloose-Theme
  */
 
-$header_cta = get_field( 'header_cta', 'option' );
+$header_cta     = get_field( 'header_cta', 'option' );
 $cta_btn_styles = get_field( 'cta_btn_styles', 'option' );
 
 if ( have_rows( 'header_cta', 'option' ) ) :
-    $cta_component = new Module(
+    $cta_component  = new Module(
         [
             'cta',
         ],
@@ -42,8 +42,8 @@ if ( have_rows( 'header_cta', 'option' ) ) :
                     'components/partials-link',
                     null,
                     array(
-                        'link' => get_sub_field( 'link' ),
-                        'styles' => esc_attr( $link_component->styles() ),
+                        'link'        => get_sub_field( 'link' ),
+                        'styles'      => esc_attr( $link_component->styles() ),
                         'class_names' => esc_attr( $link_component->class_names() ),
                     )
                 );

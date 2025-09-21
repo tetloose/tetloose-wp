@@ -6,7 +6,7 @@
  */
 
 $global_selection = get_field( 'global_selection', 'option' );
-$html_component = new Module(
+$html_component   = new Module(
     [],
     [
         current_user_can( 'administrator' ) && is_user_logged_in()

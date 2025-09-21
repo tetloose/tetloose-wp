@@ -5,8 +5,8 @@
  * @package Tetloose-Theme
  */
 
-$favicon_url = get_template_directory_uri() . '/favicon';
-$favicon_version = '1';
+$favicon_url               = get_template_directory_uri() . '/favicon';
+$favicon_version           = '1';
 $favicon_application_color = '#ff69b4';
 
 try {

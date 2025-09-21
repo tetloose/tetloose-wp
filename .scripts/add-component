@@ -6,7 +6,7 @@ PATTERN_LIBRARY=($(ls pattern-library | grep -v "README.md"))
 clear
 echo ""
 for index in "${!PATTERN_LIBRARY[@]}"; do
-    echo "  [$index] ${PATTERN_LIBRARY[$index]}"
+    echo "[$index] ${PATTERN_LIBRARY[$index]}"
 done
 echo ""
 
@@ -31,7 +31,7 @@ if (( COMPONENT_INDEX >= 0 && COMPONENT_INDEX < ${#PATTERN_LIBRARY[@]} )); then
         read -p "Add another component? [0] Yes, [1] No: " ADD_COMPONENT_SWITCH
 
         if [ "$ADD_COMPONENT_SWITCH" = "0" ]; then
-            eval "sh .scripts/add-component"
+            eval "bash .scripts/add-component"
         else
             echo "Toolkit Stopping"
         fi

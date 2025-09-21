@@ -31,7 +31,7 @@ if ( ! empty( $header_logo['width'] ) ) {
     ';
 }
 
-if ( isset( $header_logo['image'] ) ) :
+if ( $header_logo && $header_logo['image'] && isset( $header_logo['image'] ) ) :
     ?>
     <a
         data-styles="header__logo"
@@ -42,9 +42,9 @@ if ( isset( $header_logo['image'] ) ) :
             'components/figure',
             null,
             array(
-                'image' => $header_logo['image'],
-                'styles' => '',
-                'class_names' => 'logo',
+                'image'              => $header_logo['image'],
+                'styles'             => '',
+                'class_names'        => 'logo',
                 'animation_duration' => 400,
             )
         );

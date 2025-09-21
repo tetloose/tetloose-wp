@@ -19,6 +19,7 @@ const monitor = (cb) => {
             reload
         )
     )
+
     watch([config.styles.files],
         series(
             stylesLint,
@@ -26,6 +27,7 @@ const monitor = (cb) => {
             wordpress
         )
     )
+
     watch([config.icons.fonts, config.icons.json],
         series(
             iconMoveFont,
@@ -34,14 +36,17 @@ const monitor = (cb) => {
             styles
         )
     )
+
     watch([config.php.components],
         series(phpComponents)
     ).on('change', (file) => {
         phpLint(file)
     })
-    watch([config.php.files],
+
+    watch([config.php.components],
         series(reload)
     )
+
     watch(
         [config.favicon.entry],
         series(
@@ -49,6 +54,7 @@ const monitor = (cb) => {
             reload
         )
     )
+
     cb()
 }
 

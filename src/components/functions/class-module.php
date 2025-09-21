@@ -9,6 +9,12 @@
  * Create css module + class names and attach to components
  **/
 class Module {
+    /** @var array<string> */
+    private array $styles;
+
+    /** @var array<string> */
+    private array $class_names;
+
     /**
      * Public function Constructor
      *
@@ -16,7 +22,7 @@ class Module {
      * @param array $class_names array of classnames.
      **/
     public function __construct( $styles = [], $class_names = [] ) {
-        $this->styles = $styles;
+        $this->styles      = $styles;
         $this->class_names = $class_names;
     }
 

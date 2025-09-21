@@ -9,7 +9,7 @@
  * Function Pull in acf global styles
  **/
 function global_styles() {
-    $fonts = get_field( 'fonts', 'option' );
+    $fonts  = get_field( 'fonts', 'option' );
     $colors = get_field( 'colors', 'option' );
 
     if ( isset( $fonts ) && isset( $colors ) ) {
@@ -89,7 +89,7 @@ function scripts() {
  **/
 function styles() {
     $fonts = get_field( 'fonts', 'option' );
-    $ver = null;
+    $ver   = null;
 
     if ( isset( $fonts['url'] ) ) {
         wp_enqueue_style(
