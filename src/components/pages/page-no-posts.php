@@ -6,10 +6,10 @@
  */
 
 $content_editor = get_field( 'no_posts_content_editor', 'option' );
-$bg_borders = get_field( 'no_posts_bg_borders', 'option' );
+$bg_borders     = get_field( 'no_posts_bg_borders', 'option' );
 $content_styles = get_field( 'no_posts_content_styles', 'option' );
-$btn_styles = get_field( 'no_posts_btn_styles', 'option' );
-$selection = get_field( 'no_posts_selection', 'option' );
+$btn_styles     = get_field( 'no_posts_btn_styles', 'option' );
+$selection      = get_field( 'no_posts_selection', 'option' );
 
 $no_posts_component = new Module(
     [],
@@ -40,9 +40,9 @@ if ( ! empty( $content_editor ) ) :
                     'components/partials-content',
                     null,
                     array(
-                        'styles' => '',
+                        'styles'      => '',
                         'class_names' => '',
-                        'content' => $content_editor,
+                        'content'     => $content_editor,
                     )
                 );
             ?>

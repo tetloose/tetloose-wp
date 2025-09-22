@@ -5,7 +5,7 @@
  * @package Tetloose-Theme
  */
 
-$footer_navigation = get_field( 'footer_navigation', 'option' );
+$footer_navigation     = get_field( 'footer_navigation', 'option' );
 $footer_content_styles = get_field( 'footer_content_styles', 'option' );
 
 $navigation_component = new Module(
@@ -32,13 +32,13 @@ if ( isset( $footer_navigation->ID ) ) :
         'components/navigation-component',
         null,
         array(
-            'tag' => 'div',
-            'id' => $footer_navigation->ID,
-            'styles' => $navigation_component->styles(),
-            'class_names' => $navigation_component->class_names(),
-            'ul_styles' => $navigation_ul_component->styles(),
+            'tag'            => 'div',
+            'id'             => $footer_navigation->ID,
+            'styles'         => $navigation_component->styles(),
+            'class_names'    => $navigation_component->class_names(),
+            'ul_styles'      => $navigation_ul_component->styles(),
             'ul_class_names' => $navigation_ul_component->class_names(),
-            'aria_expanded' => '',
+            'aria_expanded'  => '',
         )
     );
 endif;

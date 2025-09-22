@@ -5,19 +5,19 @@
  * @package Tetloose-Theme
  */
 
-$open = get_field( 'header_button_title_open', 'option' );
-$closed = get_field( 'header_button_title_closed', 'option' );
-$header_navigation = get_field( 'header_navigation', 'option' );
-$header_bg_borders = get_field( 'header_bg_borders', 'option' );
-$trigger_btn_styles = get_field( 'trigger_btn_styles', 'option' );
-$trigger_active_btn = get_field( 'trigger_active_btn', 'option' );
-$navigation_bg_borders = get_field( 'navigation_bg_borders', 'option' );
-$navigation_content_styles = get_field( 'navigation_content_styles', 'option' );
+$open                       = get_field( 'header_button_title_open', 'option' );
+$closed                     = get_field( 'header_button_title_closed', 'option' );
+$header_navigation          = get_field( 'header_navigation', 'option' );
+$header_bg_borders          = get_field( 'header_bg_borders', 'option' );
+$trigger_btn_styles         = get_field( 'trigger_btn_styles', 'option' );
+$trigger_active_btn         = get_field( 'trigger_active_btn', 'option' );
+$navigation_bg_borders      = get_field( 'navigation_bg_borders', 'option' );
+$navigation_content_styles  = get_field( 'navigation_content_styles', 'option' );
 $navigation_animation_color = get_field( 'navigation_animation_color', 'option' );
-$header_bg_borders = get_field( 'header_bg_borders', 'option' );
+$header_bg_borders          = get_field( 'header_bg_borders', 'option' );
 
 if ( isset( $header_navigation->ID ) ) :
-    $trigger_component = new Module(
+    $trigger_component       = new Module(
         [
             'menu',
         ],
@@ -32,7 +32,7 @@ if ( isset( $header_navigation->ID ) ) :
             $trigger_active_btn['active_hover_color'],
         ],
     );
-    $navigation_component = new Module(
+    $navigation_component    = new Module(
         [
             'nav',
             $navigation_animation_color,
@@ -71,14 +71,14 @@ if ( isset( $header_navigation->ID ) ) :
             'components/navigation-component',
             null,
             array(
-                'tag' => 'nav',
-                'id' => $header_navigation->ID,
-                'styles' => $navigation_component->styles(),
-                'class_names' => $navigation_component->class_names(),
-                'ul_styles' => $navigation_ul_component->styles(),
+                'tag'            => 'nav',
+                'id'             => $header_navigation->ID,
+                'styles'         => $navigation_component->styles(),
+                'class_names'    => $navigation_component->class_names(),
+                'ul_styles'      => $navigation_ul_component->styles(),
                 'ul_class_names' => $navigation_ul_component->class_names(),
-                'aria_expanded' => 'false',
-                'animation' => 'hide',
+                'aria_expanded'  => 'false',
+                'animation'      => 'hide',
             )
         );
 

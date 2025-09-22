@@ -6,12 +6,12 @@
  */
 
 $password_protected = get_field( 'password_protected', 'option' );
-$validation = isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) && $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] != $post->post_password ? true : false;
-$bg_borders = get_field( 'password_bg_borders', 'option' );
-$content_styles = get_field( 'password_content_styles', 'option' );
-$form_styles = get_field( 'password_form_styles', 'option' );
-$btn_styles = get_field( 'password_btn_styles', 'option' );
-$selection = get_field( 'password_selection', 'option' );
+$validation         = isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) && $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] !== $post->post_password ? true : false;
+$bg_borders         = get_field( 'password_bg_borders', 'option' );
+$content_styles     = get_field( 'password_content_styles', 'option' );
+$form_styles        = get_field( 'password_form_styles', 'option' );
+$btn_styles         = get_field( 'password_btn_styles', 'option' );
+$selection          = get_field( 'password_selection', 'option' );
 
 $password_component = new Module(
     [],
@@ -49,9 +49,9 @@ $password_component = new Module(
                     'components/partials-content',
                     null,
                     array(
-                        'styles' => '',
+                        'styles'      => '',
                         'class_names' => '',
-                        'content' => '<h2>' . esc_attr( $password_protected['title'] ) . '</h2>',
+                        'content'     => '<h2>' . esc_attr( $password_protected['title'] ) . '</h2>',
                     )
                 );
             endif;

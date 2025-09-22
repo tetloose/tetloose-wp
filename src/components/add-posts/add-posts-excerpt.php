@@ -24,7 +24,7 @@ get_template_part(
     'components/partials-excerpt',
     null,
     array(
-        'styles' => esc_attr( $excerpt_component->styles() ),
+        'styles'      => esc_attr( $excerpt_component->styles() ),
         'class_names' => esc_attr( $excerpt_component->class_names() ),
     )
 );

@@ -6,7 +6,7 @@
  */
 
 if ( ! empty( $args ) && isset( $args['tag'] ) && isset( $args['id'] ) ) :
-    $navigation_component = new Module(
+    $navigation_component    = new Module(
         [
             $args['styles'],
         ],
@@ -22,11 +22,11 @@ if ( ! empty( $args ) && isset( $args['tag'] ) && isset( $args['id'] ) ) :
             $args['ul_class_names'],
         ]
     );
-    $animation = isset( $args['animation'] ) ? $args['animation'] : 'fade-in';
-    $navigation = wp_nav_menu(
+    $animation               = isset( $args['animation'] ) ? $args['animation'] : 'fade-in';
+    $navigation              = wp_nav_menu(
         array(
-            'menu' => $args['id'],
-            'container' => false,
+            'menu'       => $args['id'],
+            'container'  => false,
             'items_wrap' => '
                 <ul
                     data-styles="' . esc_attr( $navigation_ul_component->styles() ) . '"
@@ -34,7 +34,7 @@ if ( ! empty( $args ) && isset( $args['tag'] ) && isset( $args['id'] ) ) :
                     %3$s
                 </ul>
             ',
-            'echo' => false,
+            'echo'       => false,
         )
     );
     ?>

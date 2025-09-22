@@ -7,9 +7,9 @@
 
 get_header();
 if ( have_posts() ) {
-    $spacing = get_field( get_post_type() . '_spacing', 'option' );
+    $spacing          = get_field( get_post_type() . '_spacing', 'option' );
     $background_color = get_field( get_post_type() . '_background_color', 'option' );
-    $page_component = new Module(
+    $page_component   = new Module(
         [],
         [
             $spacing['top'],

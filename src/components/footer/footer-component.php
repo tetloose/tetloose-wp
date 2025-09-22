@@ -5,10 +5,10 @@
  * @package Tetloose-Theme
  */
 
-$footer_bg_borders = get_field( 'footer_bg_borders', 'option' );
+$footer_bg_borders     = get_field( 'footer_bg_borders', 'option' );
 $footer_content_styles = get_field( 'footer_content_styles', 'option' );
-$footer_selection = get_field( 'footer_selection', 'option' );
-$footer_component = new Module(
+$footer_selection      = get_field( 'footer_selection', 'option' );
+$footer_component      = new Module(
     [
         'footer',
     ],

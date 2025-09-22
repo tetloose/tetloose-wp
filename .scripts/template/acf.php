@@ -6,7 +6,7 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'PHP_NAME' ) :
+if ( get_row_layout() === 'PHP_NAME' ) :
     $component = new Module(
         [
             'COMPONENT_NAME',

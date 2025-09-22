@@ -5,12 +5,12 @@
  * @package Tetloose-Theme
  **/
 
-$_title = get_sub_field( 'title' );
-$pagination_spacing = get_sub_field( 'pagination_spacing' );
-$pagination_bg_borders = get_sub_field( 'pagination_bg_borders' );
+$_title                    = get_sub_field( 'title' );
+$pagination_spacing        = get_sub_field( 'pagination_spacing' );
+$pagination_bg_borders     = get_sub_field( 'pagination_bg_borders' );
 $pagination_content_styles = get_sub_field( 'pagination_content_styles' );
-$pagination_selection = get_sub_field( 'pagination_selection' );
-$pagination_component = new Module(
+$pagination_selection      = get_sub_field( 'pagination_selection' );
+$pagination_component      = new Module(
     [
         'pagination',
     ],
@@ -32,8 +32,8 @@ $pagination_component = new Module(
 
 pagination(
     array(
-        'title' => $_title ? $_title : 'Pagination',
-        'styles' => esc_attr( $pagination_component->styles() ),
+        'title'       => $_title ? $_title : 'Pagination',
+        'styles'      => esc_attr( $pagination_component->styles() ),
         'class_names' => esc_attr( $pagination_component->class_names() ),
     )
 );

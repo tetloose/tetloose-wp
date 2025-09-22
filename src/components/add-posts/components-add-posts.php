@@ -6,16 +6,16 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'add_posts' ) :
-    $_posts = get_sub_field( 'posts' );
-    $_title = get_sub_field( 'title' );
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $pagination_spacing = get_sub_field( 'pagination_spacing' );
-    $pagination_bg_borders = get_sub_field( 'pagination_bg_borders' );
+if ( get_row_layout() === 'add_posts' ) :
+    $_posts                    = get_sub_field( 'posts' );
+    $_title                    = get_sub_field( 'title' );
+    $spacing                   = get_sub_field( 'spacing' );
+    $bg_borders                = get_sub_field( 'bg_borders' );
+    $pagination_spacing        = get_sub_field( 'pagination_spacing' );
+    $pagination_bg_borders     = get_sub_field( 'pagination_bg_borders' );
     $pagination_content_styles = get_sub_field( 'pagination_content_styles' );
-    $pagination_selection = get_sub_field( 'pagination_selection' );
-    $posts_component = new Module(
+    $pagination_selection      = get_sub_field( 'pagination_selection' );
+    $posts_component           = new Module(
         [],
         [
             'u-load-hide',
@@ -29,7 +29,7 @@ if ( get_row_layout() == 'add_posts' ) :
             'is-fullwidth',
         ]
     );
-    $pagination_component = new Module(
+    $pagination_component      = new Module(
         [
             'pagination',
         ],

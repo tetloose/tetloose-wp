@@ -5,14 +5,14 @@
  * @package Tetloose-Theme
  */
 
-$the_date = new DateTime( get_the_date() );
-$post_date = $the_date->format( 'd/m/Y' );
-$excerpt = get_field( 'excerpt' );
-$permalink = get_the_permalink();
-$content = isset( $excerpt['description'] )
+$the_date          = new DateTime( get_the_date() );
+$post_date         = $the_date->format( 'd/m/Y' );
+$excerpt           = get_field( 'excerpt' );
+$permalink         = get_the_permalink();
+$content           = isset( $excerpt['description'] )
     ? '<h3><span data-styles="excerpt__time" class="u-small">' . esc_attr( $post_date ) . '</span>' . wp_trim_words( esc_attr( get_the_title() ), 3, '<span class="u-small">...</span>' ) . '</h3> <p>' . wp_trim_words( esc_attr( $excerpt['description'] ), 10, '<span class="u-small">...</span>' ) . '</p>'
     : '';
-$content .= isset( $excerpt['button_text'] ) && ! empty( $permalink )
+$content          .= isset( $excerpt['button_text'] ) && ! empty( $permalink )
     ? '<p><a class="u-btn is-inline" data-styles="excerpt__btn" href="' . esc_url( $permalink ) . '">' . esc_attr( $excerpt['button_text'] ) . '</a></p>'
     : '';
 $excerpt_component = new Module(
@@ -35,7 +35,7 @@ $excerpt_component = new Module(
         isset( $args['class_names'] ) ? $args['class_names'] : '',
     ]
 );
-$figure_component = new Module(
+$figure_component  = new Module(
     [
         'excerpt__image',
     ],
@@ -63,9 +63,9 @@ $content_component = new Module(
             'components/figure',
             null,
             array(
-                'image' => $excerpt['image'],
-                'styles' => esc_attr( $figure_component->styles() ),
-                'class_names' => esc_attr( $figure_component->class_names() ),
+                'image'              => $excerpt['image'],
+                'styles'             => esc_attr( $figure_component->styles() ),
+                'class_names'        => esc_attr( $figure_component->class_names() ),
                 'animation_duration' => 400,
             )
         );
@@ -75,9 +75,9 @@ $content_component = new Module(
             'components/partials-content',
             null,
             array(
-                'styles' => esc_attr( $content_component->styles() ),
+                'styles'      => esc_attr( $content_component->styles() ),
                 'class_names' => '',
-                'content' => $content,
+                'content'     => $content,
             )
         );
     endif;
