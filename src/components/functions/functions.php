@@ -28,5 +28,9 @@ $parts = [
 ];
 
 foreach ( $parts as $part ) {
-    require_once get_theme_file_path( "components/{$part}.php" );
+    $include = get_theme_file_path( "components/{$part}.php" );
+
+    if ( file_exists( $include ) ) {
+        require_once $include;
+    }
 }

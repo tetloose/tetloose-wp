@@ -24,7 +24,7 @@ module.exports = {
         css: `${base}/web/app/themes/tetloose-theme/assets/css`,
         js: `${base}/web/app/themes/tetloose-theme/assets/js`,
         icons: `${base}/web/app/themes/tetloose-theme/assets/icons`,
-        components: `${base}/web/app/themes/tetloose-theme/components/*.php`,
+        components: `${base}/web/app/themes/tetloose-theme/components`,
         favicon: `${base}/web/app/themes/tetloose-theme/favicon`
     },
     styles: {
