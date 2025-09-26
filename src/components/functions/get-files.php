@@ -13,10 +13,14 @@
  * @param files $files array of files to return.
  **/
 function get_files( $dir, $files ) {
-    $file_list = [];
+    $file_list   = [];
     $directories = new DirectoryIterator( get_template_directory() . $dir );
 
     foreach ( $directories as $directory ) {
+        if ( $directory->isDot() || ! $directory->isFile() ) {
+            continue;
+        }
+
         $file_name = $directory->getFilename();
         foreach ( $files as $file ) {
             if ( starts_with( $file_name, $file ) ) {

@@ -1,4 +1,4 @@
-import { ImageProps } from '@elements'
+import type { ImageProps } from '@elements'
 
 export function imageElement(options: ImageProps): HTMLImageElement {
     const {

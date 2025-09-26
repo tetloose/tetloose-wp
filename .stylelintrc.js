@@ -29,7 +29,6 @@ module.exports = {
         'number-leading-zero': 'never',
         'at-rule-no-vendor-prefix': true,
         'function-url-quotes': 'never',
-        'function-comma-space-after': 'always',
         'color-hex-case': 'lower',
         'color-hex-length': 'short',
         'color-named': [

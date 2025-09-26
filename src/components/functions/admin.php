@@ -1,12 +1,12 @@
 <?php
 /**
- * Wordpress Admin functions
+ * WordPress Admin functions
  *
  * @package Tetloose-Theme
  **/
 
 /**
- * Replaces Wordpress with link to Tetloose.com
+ * Replaces WordPress with link to Tetloose.com
  **/
 function admin_replace_wp_footer() {
     remove_filter( 'update_footer', 'core_update_footer' );
@@ -89,7 +89,7 @@ function admin_remove_items() {
  * Redirect user to theme settings.
  **/
 function admin_redirect_theme() {
-    wp_redirect( admin_url( 'admin.php?page=settings' ) );
+    wp_safe_redirect( admin_url( 'admin.php?page=settings' ) );
 }
 
 /**
@@ -100,13 +100,13 @@ function admin_login_redirect_theme() {
 }
 
 /**
- * Wordpress styles
+ * WordPress styles
  **/
 function wordpress_styles() {
     $ver = null;
 
     wp_enqueue_style(
-        'wordpress',
+        'WordPress',
         get_stylesheet_directory_uri() . '/assets/css/wordpress.css',
         array(),
         $ver,
@@ -114,7 +114,7 @@ function wordpress_styles() {
     );
 }
 
-// Cleanup Wordpress head.
+// Cleanup WordPress head.
 if ( is_user_logged_in() ) {
     add_action( 'wp_head', 'admin_frontend_styles' );
     add_action( 'admin_init', 'admin_remove_items' );

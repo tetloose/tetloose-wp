@@ -34,8 +34,8 @@ if ( ! empty( $args ) && ! empty( $args['socials'] ) ) :
                 'components/partials-link',
                 null,
                 array(
-                    'link' => $social['link'],
-                    'styles' => esc_attr( $link_component->styles() ),
+                    'link'        => $social['link'],
+                    'styles'      => esc_attr( $link_component->styles() ),
                     'class_names' => esc_attr( $link_component->class_names() ),
                 )
             );

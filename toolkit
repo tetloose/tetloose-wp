@@ -91,7 +91,7 @@ if test -f "$ENV"; then
 
     clear
 else
-    eval "sh .scripts/generate-env"
+    eval "bash .scripts/generate-env"
 fi
 
 source $ENV
@@ -101,46 +101,46 @@ export DB_PASSWORD=$DB_PASSWORD
 
 # ./toolkit setup
 if [ "$1" = "setup" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit git-commit
 elif [ "$1" = "git-commit" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit deploy
 elif [ "$1" = "deploy" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit backup
 elif [ "$1" = "backup" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit uploads-push
 elif [ "$1" = "uploads-push" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit uploads-pull
 elif [ "$1" = "uploads-pull" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit db-push
 elif [ "$1" = "db-push" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit db-pull
 elif [ "$1" = "db-pull" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit db-pull
 elif [ "$1" = "package" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 # ./toolkit add-component
 elif [ "$1" = "add-component" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 elif [ "$1" = "generate-component" ]; then
-    eval "sh .scripts/$1"
+    eval "bash .scripts/$1"
 
 else
     echo "Toolkit Stopping";

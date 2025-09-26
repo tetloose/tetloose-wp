@@ -6,34 +6,23 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'post_nav' ) :
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $content_styles = get_sub_field( 'content_styles' );
-    $selection = get_sub_field( 'selection' );
-    $prev_post = get_previous_post();
-    $next_post = get_next_post();
+if ( get_row_layout() === 'post_nav' ) :
+    $spacing        = get_sub_field( 'spacing' );
+    $text_alignment = get_sub_field( 'text_alignment' );
+    $prev_post      = get_previous_post();
+    $next_post      = get_next_post();
     $post_component = new Module(
         [
             'post-nav',
         ],
         [
             'u-load-hide',
-            $spacing['top'],
-            $spacing['bottom'],
-            $bg_borders['background_color'],
-            $bg_borders['border_color']
-                ? 'u-border-t ' . $bg_borders['border_color']
-                : '',
-            $content_styles['color'],
-            $content_styles['link_color'],
-            $content_styles['link_hover_color'],
-            $content_styles['link_background_hover_color'],
-            $selection['color'],
-            $selection['background_color'],
+            $spacing['top'] ?? '',
+            $spacing['bottom'] ?? '',
+            $text_alignment ?? '',
         ]
     );
-    $nav_component = new Module(
+    $nav_component  = new Module(
         [
             'post-nav__nav',
         ],

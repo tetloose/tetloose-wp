@@ -13,5 +13,6 @@
  **/
 function starts_with( $string, $start_string ) {
     $len = strlen( $start_string ?? '' );
+
     return ( substr( $string, 0, $len ) === $start_string );
 }

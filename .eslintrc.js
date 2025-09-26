@@ -6,7 +6,8 @@ module.exports = {
     'globals': {},
     'parser': '@typescript-eslint/parser',
     'plugins': [
-        '@typescript-eslint'
+        '@typescript-eslint',
+        'unused-imports'
     ],
     'extends': [
         'eslint:recommended',
@@ -34,6 +35,7 @@ module.exports = {
         ],
         'indent': 'off',
         '@typescript-eslint/indent': ['error'],
+        '@typescript-eslint/consistent-type-imports': 'error',
         'no-multi-spaces': [
             'error'
         ],
@@ -64,6 +66,15 @@ module.exports = {
                 'named': 'never',
                 'asyncArrow': 'always'
             }
-        ]
+        ],
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': ['warn', {
+            vars: 'all',
+            varsIgnorePattern: '^_',
+            args: 'after-used',
+            argsIgnorePattern: '^_'
+        }]
     }
 }

@@ -19,6 +19,7 @@ export class Figure extends ComponentClass {
             imageXlrg,
             imageXxlrg
         } = module.dataset
+
         const imageData = {
             alt: imageAlt ? imageAlt : '',
             sml: imageSml ? imageSml : '',
@@ -37,6 +38,7 @@ export class Figure extends ComponentClass {
 
             setTimeout(() => {
                 if (placeholder) placeholder.remove()
+
                 image.classList.remove('is-loading')
             }, duration)
         }

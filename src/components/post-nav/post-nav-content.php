@@ -12,9 +12,9 @@ if ( ! empty( $_title ) ) :
         'components/partials-content',
         null,
         array(
-            'styles' => '',
+            'styles'      => '',
             'class_names' => 'text-align-center',
-            'content' => '<h3>' . $_title . '</h3>',
+            'content'     => '<h3>' . $_title . '</h3>',
         )
     );
 endif;

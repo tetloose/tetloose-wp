@@ -15,7 +15,8 @@ function bold_last_string( $string ) {
         $word_arr = explode( ' ', $string );
         if ( count( $word_arr ) > 1 ) {
             $word_arr[ count( $word_arr ) - 1 ] = '<strong>' . ( $word_arr[ count( $word_arr ) - 1 ] ) . '</strong>';
-            $string = implode( ' ', $word_arr );
+            $string                             = implode( ' ', $word_arr );
+
             return wp_kses_post( $string );
         } else {
             return '<strong>' . wp_kses_post( $string ) . '</strong>';

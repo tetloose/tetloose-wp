@@ -1,4 +1,4 @@
-import { BreakPointProps } from '@elements'
+import type { BreakPointProps } from '@elements'
 import { objectToString } from '@utilities'
 
 export function column(content: string, breakPoint: BreakPointProps, classes: string): string {

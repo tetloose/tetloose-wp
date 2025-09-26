@@ -7,14 +7,12 @@
 
 get_header();
 if ( have_posts() ) {
-    $spacing = get_field( get_post_type() . '_spacing', 'option' );
-    $background_color = get_field( get_post_type() . '_background_color', 'option' );
+    $spacing        = get_field( get_post_type() . '_spacing', 'option' );
     $page_component = new Module(
         [],
         [
-            $spacing['top'],
-            $spacing['bottom'],
-            $background_color,
+            $spacing['top'] ?? '',
+            $spacing['bottom'] ?? '',
         ]
     );
     ?>

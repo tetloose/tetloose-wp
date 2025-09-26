@@ -6,11 +6,11 @@ const serveFunc = () => {
 
     return browserSync({
         proxy: config.proxy,
-        open: true,
+        open: false,
         notify: false,
         logFileChanges: false,
-        logSnippet: false,
-        ogLevel: 'silent',
+        logSnippet: true,
+        ogLevel: 'info',
         ghostMode: {
             clicks: true,
             forms: true,

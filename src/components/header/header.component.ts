@@ -1,4 +1,6 @@
 import styles from './header.module.scss'
+import menuStyles from './menu.module.scss'
+import navStyles from './nav.module.scss'
 import { ComponentClass } from '@utilities'
 
 export class Header extends ComponentClass {
@@ -6,55 +8,49 @@ export class Header extends ComponentClass {
         super(module)
 
         this.css(module, styles)
+        this.css(module, menuStyles)
+        this.css(module, navStyles)
         this.addScroll()
         this.setState()
     }
 
     setState() {
         const { module } = this
-        const menu = module.querySelector(`.${styles['menu']}`) as HTMLElement
-        const trigger = module.querySelector(`.${styles['trigger']}`) as HTMLElement
-        const nav = module.querySelector(`.${styles['nav']}`) as HTMLElement
-        const subNav = module.querySelector(`.${styles['sub-nav']}`) as HTMLElement
+        const { open, closed } = module.dataset
+        const menu = module.querySelector(`.${menuStyles['menu']}`) as HTMLElement
+        const nav = module.querySelector(`.${navStyles['nav']}`) as HTMLElement
 
-        if (menu) {
-            const { dataset } = menu
-            const { closed, open } = dataset
-
-            this.updateState('openText', open ? open : '')
-            this.updateState('closedText', closed ? closed : '')
-        } else {
-            this.updateState('openText', 'open test')
-            this.updateState('closedText', 'closed test')
-        }
-
+        this.updateState('openText', open ? open : '')
+        this.updateState('closedText', closed ? closed : '')
         this.updateState('menu', menu ? menu : null)
-        this.updateState('trigger', trigger ? trigger : null)
         this.updateState('nav', nav ? nav : null)
-        this.updateState('subNav', subNav ? subNav : null)
         this.updateState('position', 0)
         this.updateState('navOpen', false)
         this.loadEventListener()
+        this.navigation({
+            nav,
+            liClass: navStyles['nav__li'],
+            liActiveClass: navStyles['is-active']
+        })
     }
 
     loadEventListener() {
         const { module, state } = this
-        const { navOpen } = state
-        const { trigger, nav, subNav } = state
+        const { menu, nav } = state
 
         if (
-            trigger instanceof HTMLElement &&
-            nav instanceof HTMLElement &&
-            subNav instanceof HTMLElement
+            menu instanceof HTMLElement &&
+            nav instanceof HTMLElement
         ) {
-            (subNav as HTMLElement).setAttribute('tabindex', '-1')
+            this.trapNavigation(menu, nav)
 
-            module.addEventListener('keyup', (e: KeyboardEvent) =>
-                e.key === 'Escape' && navOpen &&
-                this.navToggle(trigger, nav, subNav)
-            )
+            module.addEventListener('keyup', (e: KeyboardEvent) => {
+                if (e.key === 'Escape') {
+                    this.navToggle(menu, nav, nav)
+                }
+            })
 
-            trigger.addEventListener('click', () => this.navToggle(trigger, nav, subNav))
+            menu.addEventListener('click', () => this.navToggle(menu, nav, nav))
         }
     }
 
@@ -82,67 +78,38 @@ export class Header extends ComponentClass {
         }
     }
 
-    navToggle(trigger: Element, nav: Element, focusElem: Element) {
-        const { state } = this
-        const { menu, navOpen, openText, closedText } = state
+    navToggle(menu: Element, nav: Element, focus: HTMLElement) {
+        const { module, state } = this
+        const { navOpen, openText, closedText } = state
         const html = document.querySelector('html') as HTMLElement
-        const title = trigger.querySelector(`.${styles['trigger__title']}`)
-        const innerWidth = window.innerWidth
 
         this.updateState('navOpen', !navOpen)
 
-        if (this.state?.navOpen && menu instanceof HTMLElement) {
-            menu.classList.add(styles['is-flex'], styles['nav-open'])
-            trigger.classList.add(`${styles['is-active']}`)
-            trigger.setAttribute('aria-expanded', 'true')
-            trigger.setAttribute('aria-label', `${openText}`)
-            nav.setAttribute('aria-expanded', 'true')
+        if (this.state?.navOpen) {
             html.classList.add('no-scroll')
 
-            if (title) {
-                title.innerHTML = `${openText}`
-            }
-
             setTimeout(() => {
-                nav.classList.add(`${styles['angle-open']}`)
-
-                setTimeout(() => {
-                    menu?.classList.add(styles['sub-nav-visible'])
-
-                    if (focusElem && innerWidth >= 768) {
-                        setTimeout(() => {
-                            if (focusElem instanceof HTMLElement) focusElem.focus()
-                        }, 200)
-                    }
-                }, 400)
-            }, 200)
+                module.classList.add(styles['is-active'])
+                menu.classList.add(`${menuStyles['is-active']}`)
+                menu.setAttribute('aria-expanded', 'true')
+                menu.setAttribute('aria-label', `${openText}`)
+                nav.classList.add(navStyles['is-active'])
+                nav.setAttribute('aria-expanded', 'true')
+            }, 100)
         } else {
-            (menu as HTMLElement)?.classList.remove(styles['sub-nav-visible'])
-            trigger.setAttribute('aria-expanded', 'false')
-            trigger.setAttribute('aria-label', `${closedText}`)
-            nav.setAttribute('aria-expanded', 'false')
-
-            if (trigger instanceof HTMLElement && innerWidth >= 768) trigger.focus()
+            html.classList.remove('no-scroll')
 
             setTimeout(() => {
-                nav.classList.add(`${styles['angle-close']}`)
-
-                setTimeout(() => {
-                    if (title) {
-                        title.innerHTML = `${closedText}`
-                    }
-
-                    (menu as HTMLElement)?.classList.remove(styles['nav-open'])
-                    trigger.classList.remove(`${styles['is-active']}`)
-                    nav.classList.remove(`${styles['angle-open']}`, `${styles['angle-close']}`)
-
-                    setTimeout(() => {
-                        (menu as HTMLElement)?.classList.remove(styles['is-flex'])
-                        html.classList.remove('no-scroll')
-                    }, 200)
-                }, 400)
-            }, 200)
+                module.classList.remove(styles['is-active'])
+                menu.classList.remove(`${menuStyles['is-active']}`)
+                menu.setAttribute('aria-expanded', 'false')
+                menu.setAttribute('aria-label', `${closedText}`)
+                nav.classList.remove(navStyles['is-active'])
+                nav.setAttribute('aria-expanded', 'false')
+            }, 100)
         }
+
+        setTimeout(() => focus.focus(), 0)
     }
 }
 
