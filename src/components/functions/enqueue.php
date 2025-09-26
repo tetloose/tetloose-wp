@@ -5,38 +5,6 @@
  * @package Tetloose-Theme
  **/
 
-/**
- * Function Pull in acf global styles
- **/
-function global_styles() {
-    $fonts  = get_field( 'fonts', 'option' );
-    $colors = get_field( 'colors', 'option' );
-
-    if ( isset( $fonts ) && isset( $colors ) ) {
-        return '
-            :root {
-                --f-body: ' . wp_kses_post( $fonts['body_font']['font_family'] ) . ';
-                --f-body-light: ' . wp_kses_post( $fonts['body_font']['font_weight_light'] ) . ';
-                --f-body-regular: ' . wp_kses_post( $fonts['body_font']['font_weight_regular'] ) . ';
-                --f-body-medium: ' . wp_kses_post( $fonts['body_font']['font_weight_medium'] ) . ';
-                --f-body-bold: ' . wp_kses_post( $fonts['body_font']['font_weight_bold'] ) . ';
-                --f-heading: ' . wp_kses_post( $fonts['heading_font']['font_family'] ) . ';
-                --f-heading-light: ' . wp_kses_post( $fonts['heading_font']['font_weight_light'] ) . ';
-                --f-heading-regular: ' . wp_kses_post( $fonts['heading_font']['font_weight_regular'] ) . ';
-                --f-heading-medium: ' . wp_kses_post( $fonts['heading_font']['font_weight_medium'] ) . ';
-                --f-heading-bold: ' . wp_kses_post( $fonts['heading_font']['font_weight_bold'] ) . ';
-                --light: ' . wp_kses_post( $colors['light'] ) . ';
-                --dark: ' . wp_kses_post( $colors['dark'] ) . ';
-                --color-1: ' . wp_kses_post( $colors['color1'] ) . ';
-                --color-2: ' . wp_kses_post( $colors['color2'] ) . ';
-                --color-3: ' . wp_kses_post( $colors['color3'] ) . ';
-                --color-4: ' . wp_kses_post( $colors['color4'] ) . ';
-            }
-        ';
-    }
-}
-
-// Define vars from env.
 define( 'USE_JQUERY', getenv( 'USE_JQUERY' ) );
 define( 'JQUERY_VERSION', getenv( 'JQUERY_VERSION' ) );
 
@@ -88,18 +56,7 @@ function scripts() {
  * Function Load styles
  **/
 function styles() {
-    $fonts = get_field( 'fonts', 'option' );
-    $ver   = null;
-
-    if ( isset( $fonts['url'] ) ) {
-        wp_enqueue_style(
-            'fonts',
-            $fonts['url'] . '?v=tetloose',
-            '',
-            $ver,
-            false
-        );
-    }
+    $version = null;
 
     wp_dequeue_style( 'classic-theme-styles' );
 
@@ -109,83 +66,11 @@ function styles() {
                 $file,
                 get_stylesheet_directory_uri() . '/assets/css/' . $file,
                 array(),
-                $ver,
+                $version,
                 false
             );
         }
     }
-}
-
-add_action( 'admin_head', 'tetloose_global_styles' );
-
-/**
- * Admin Head hook,
- * Inline CSS for color scheme,
- * ACF Colour description
- **/
-function tetloose_global_styles() {
-    echo '
-        <style type="text/css">
-            ' . wp_kses_post( global_styles() ) . '
-
-            #tcs {
-                display: flex;
-                flex-wrap: no-wrap;
-                width: 100%;
-                height: 20px;
-            }
-
-            #tcs span {
-                width: 16.66666667%;
-                height: 20px;
-                font-size: 12px;
-                text-align: center;
-                color: #fff;
-                text-shadow: 0.05em 0 #000, 0 0.05em #000, -0.05em 0 #000, 0 -0.05em #000, -0.05em -0.05em #000, -0.05em 0.05em #000, 0.05em -0.05em #000, 0.05em 0.05em #000;
-            }
-
-            #tcs span::nth-child(1) {
-                background-color: green;
-            }
-
-            #tcs .a {
-                background-color: var(--light);
-            }
-
-            #tcs .b {
-                background-color: var(--dark);
-            }
-
-            #tcs .c {
-                background-color: var(--color-1);
-            }
-
-            #tcs .d {
-                background-color: var(--color-2);
-            }
-
-            #tcs .e {
-                background-color: var(--color-3);
-            }
-
-            #tcs .f {
-                background-color: var(--color-4);
-            }
-        </style>';
-}
-
-add_action( 'wp_head', 'tetloose_global_admin_styles' );
-
-/**
- * Head hook,
- * Inline CSS for global styles,
- **/
-function tetloose_global_admin_styles() {
-    echo '
-        <style type="text/css">
-            ' . wp_kses_post( global_styles() ) . '
-        </style>
-    ';
 }
 
 // Dequeue footer style.

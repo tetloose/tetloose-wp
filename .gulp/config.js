@@ -16,7 +16,8 @@ module.exports = {
     },
     scripts: {
         entry: `${base}/src/app.ts`,
-        files: `${base}/src/components/**/*.{ts,js}`,
+        files: `${base}/src/**/**/*.{ts,js}`,
+        components: `${base}/src/components/**/*.{ts,js}`,
         modules: `${base}/src/components/**/*.scss`
     },
     clean: {

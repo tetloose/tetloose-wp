@@ -1,0 +1,77 @@
+@use '@styles/settings' as *;
+
+.nav {
+	display: flex;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: rgba($dark, .5);
+	backdrop-filter: blur(5px);
+
+	@include transition('all');
+	@include sizing('padding-top', size(layout(header-height)));
+	@include sizing('padding-bottom', size(layout(header-height)));
+	@include sizing('padding-right', size(layout(header-height)));
+	@include sizing('padding-left', size(layout(header-height)));
+
+	&.is-active {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__li {
+		list-style-type: none;
+
+		a {
+			display: block;
+			position: relative;
+			background-color: $dark;
+			color: $light;
+			text-decoration: none;
+
+			@extend %f-h1;
+			@extend %f-uppercase;
+			@include user-select(disable);
+			@include sizing('padding', [size(6), size(3)]);
+			@include sizing('margin-top', size(3));
+			@include sizing('margin-bottom', size(3));
+
+			&::before {
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				opacity: 0;
+				background-color: $light;
+
+				@include sizing('height', size(2));
+			}
+
+			&:focus {
+				background-color: shade($dark, 10%);
+			}
+
+			@include mq-hover {
+				@include transition('background');
+
+				&:focus,
+				&:hover {
+					background-color: shade($dark, 10%);
+				}
+			}
+		}
+
+		&.is-active a::before {
+			opacity: 1;
+		}
+	}
+}

@@ -10,11 +10,27 @@
 		@include sizing('gap', size(.5));
 
 		&-link {
-			line-height: normal;
+			color: $dark;
 			text-decoration: none;
 
-			@extend %type-icon-xlrg;
-			@include sizing('padding', [size(1.2), size(2)]);
+			@include sizing('margin-right', size(1));
+			@include sizing('margin-left', size(1));
+			@include sizing('padding', size(2));
+			@extend %f-icon-xxxlrg;
+
+			&:focus {
+				background-color: $dark;
+				color: $light;
+			}
+
+			@include mq-hover {
+				@include transition('background, color');
+
+				&:hover {
+					background-color: $dark;
+					color: $light;
+				}
+			}
 		}
 	}
 }

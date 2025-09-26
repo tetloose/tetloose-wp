@@ -1,9 +1,11 @@
-import { LoadingProps, MotionOptionsProps, StateProps } from './utilities.types'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import type { AnimateProps, HTMLProps, LoadingProps, StateProps } from './utilities.types'
+import type { NavigationProps } from '@/components/navigation/navigation.types'
 
 export class ComponentClass {
     module: HTMLElement
     state: {
-        motionOptions: MotionOptionsProps;
         loading: LoadingProps
         [key: string]: StateProps;
     }
@@ -14,11 +16,6 @@ export class ComponentClass {
 
         this.module = module
         this.state = {
-            motionOptions: {
-                observed: false,
-                scrollListener: () => this.handleMotion(),
-                property: 'scroll'
-            },
             loading: {
                 animation: animation ?? undefined,
                 duration: parseInt(duration ?? '0', 10)
@@ -78,69 +75,78 @@ export class ComponentClass {
         }, loadDuration)
     }
 
-    motion(property = 'scroll') {
-        const { module, state } = this
-        const { motionOptions } = state
+    navigation({
+        nav,
+        liClass,
+        liActiveClass
+    }: NavigationProps) {
+        nav.querySelectorAll('li')
+            .forEach(el => {
+                el.removeAttribute('id')
 
-        this.updateState('motionOptions', {
-            ...motionOptions,
-            property: property
-        })
-        this.handleMotion()
-
-        const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-            entries.forEach(entry => {
-                const { state } = this
-                const { motionOptions } = state
-                const { isIntersecting } = entry
-                const { scrollListener, observed } = motionOptions
-
-                if (isIntersecting && !observed) {
-                    window.addEventListener('scroll', scrollListener)
-                    this.updateState('motionOptions', { ...motionOptions, observed: true })
-
-                } else if (observed) {
-                    window.removeEventListener('scroll', scrollListener)
-                    this.updateState('motionOptions', { ...motionOptions, observed: false })
+                if (el.classList.contains('current-menu-item')) {
+                    el.removeAttribute('class')
+                    el.classList.add(liClass)
+                    el.classList.add(liActiveClass)
+                } else {
+                    el.removeAttribute('class')
+                    el.classList.add(liClass)
                 }
             })
-        }, {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0
+    }
+
+    getNavigationFocusElements(container: Element): HTMLElement[] {
+        const selector = [
+            'a[href]',
+            'button:not([disabled])',
+            'input:not([disabled]):not([type="hidden"])',
+            '[tabindex]:not([tabindex="-1"])'
+        ].join(',')
+
+        return Array.from(container.querySelectorAll<HTMLElement>(selector))
+            .filter(el => el.offsetParent !== null || el.getClientRects().length > 0)
+    }
+
+    trapNavigation(menu: HTMLElement, nav: HTMLElement) {
+        nav.setAttribute('tabindex', '-1')
+
+        nav.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key !== 'Tab' || !this.state.navOpen) return
+
+            const focusElements = this.getNavigationFocusElements(nav)
+            if (focusElements.length === 0) {
+                e.preventDefault()
+                menu.focus()
+
+                return
+            }
+
+            const first = focusElements[0]
+            const last = focusElements[focusElements.length - 1]
+            const active = document.activeElement as HTMLProps
+
+            if (!e.shiftKey && active === last) {
+                e.preventDefault()
+                menu.focus()
+
+                return
+            }
+
+            if (e.shiftKey && active === first) {
+                e.preventDefault()
+                menu.focus()
+
+                return
+            }
         })
-
-        observer.observe(module)
     }
 
-    handleMotion() {
-        const { module, state } = this
-        const { motionOptions } = state
-        const { property } = motionOptions
-        const top = module.getBoundingClientRect().top
-        const height = module.getBoundingClientRect().height
-        const viewportHeight = window.innerHeight
-
-        let scrollValue = Math.max(0, 1 - (top + height) / (viewportHeight + height))
-        scrollValue = Math.min(1, scrollValue)
-
-        module.style.setProperty(`--${property}`, `${scrollValue}`)
-    }
-
-    subNav(nav: Element, item: string, active: string) {
-        nav && item && active &&
-            nav.querySelectorAll('li')
-                .forEach(elem => {
-                    elem.removeAttribute('id')
-
-                    if (elem.classList.contains('current-menu-item')) {
-                        elem.removeAttribute('class')
-                        elem.classList.add(item)
-                        elem.classList.add(active)
-                    } else {
-                        elem.removeAttribute('class')
-                        elem.classList.add(item)
-                    }
-                })
+    animate({
+        target,
+        fromVars,
+        toVars
+    }: AnimateProps) {
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.fromTo(target, fromVars, toVars)
     }
 }

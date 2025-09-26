@@ -10,14 +10,12 @@ if ( have_posts() ) {
     if ( post_password_required( $post ) ) {
         get_template_part( '/components/page', 'password' );
     } else {
-        $spacing          = get_field( 'spacing' );
-        $background_color = get_field( 'background_color' );
-        $page_component   = new Module(
+        $spacing        = get_field( 'spacing' );
+        $page_component = new Module(
             [],
             [
-                $spacing['top'],
-                $spacing['bottom'],
-                $background_color,
+                $spacing['top'] ?? '',
+                $spacing['bottom'] ?? '',
             ]
         );
         ?>

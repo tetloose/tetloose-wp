@@ -16,7 +16,7 @@ add_editor_style( 'assets/css/wordpress.css' );
 add_filter(
     'tiny_mce_before_init',
     function ( $mce_before_remove_h1 ) {
-        $mce_before_remove_h1['block_formats'] = 'Title=h2;Heading=h3;Sub Heading=h4;Paragraph=p;';
+        $mce_before_remove_h1['block_formats'] = 'h1=h1;h2=h2;h3=h3;h4=h4;p=p;';
 
         return $mce_before_remove_h1;
     }
@@ -42,9 +42,14 @@ add_filter(
     function ( $mce_before_init ) {
         $mce_formats = array(
             array(
-                'title'    => 'Button',
+                'title'    => 'Light Button',
                 'selector' => 'a',
-                'classes'  => 'u-btn is-inline',
+                'classes'  => 'u-btn is-light is-inline',
+            ),
+            array(
+                'title'    => 'Dark Button',
+                'selector' => 'a',
+                'classes'  => 'u-btn is-dark is-inline',
             ),
             array(
                 'title'    => 'Small Text',

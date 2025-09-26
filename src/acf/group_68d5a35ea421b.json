@@ -1,11 +1,11 @@
 {
-    "key": "group_645b71459f7b3",
-    "title": "Footer",
+    "key": "group_68d5a35ea421b",
+    "title": "Projects Landing",
     "fields": [
         {
-            "key": "field_645ce496b04f8",
+            "key": "field_68d5a35ea6093",
             "label": "Cloned",
-            "name": "footer",
+            "name": "projects",
             "aria-label": "",
             "type": "clone",
             "instructions": "",
@@ -17,12 +17,10 @@
                 "id": ""
             },
             "clone": [
-                "field_645ce5d7fc9da",
-                "field_645b8c5edb7a9",
-                "field_645ce607fc9dc",
-                "field_5b868d1e9ea0d",
-                "field_645ce64e226b3",
-                "field_64368ce753370"
+                "field_5878eaaba3bfe",
+                "field_5878ea5f040e6",
+                "field_643687cc61b62",
+                "field_641d819bb0b98"
             ],
             "display": "seamless",
             "layout": "block",
@@ -35,18 +33,33 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "footer"
+                "value": "projects-landing"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "permalink",
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1758549770
+    "modified": 1758831539
 }

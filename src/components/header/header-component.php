@@ -5,9 +5,9 @@
  * @package Tetloose-Theme
  */
 
-$header_bg_borders = get_field( 'header_bg_borders', 'option' );
-$header_selection  = get_field( 'header_selection', 'option' );
-$header_component  = new Module(
+$open             = get_field( 'header_button_title_open', 'option' );
+$closed           = get_field( 'header_button_title_closed', 'option' );
+$header_component = new Module(
     [
         'header',
     ],
@@ -15,18 +15,11 @@ $header_component  = new Module(
         'u-load-hide',
     ]
 );
-$inside_component  = new Module(
+$inside_component = new Module(
     [
         'header__inside',
     ],
-    [
-        $header_bg_borders['background_color'] ?? '',
-        $header_bg_borders['border_color']
-            ? 'u-border-b ' . $header_bg_borders['border_color']
-            : '',
-        $header_selection['color'] ?? '',
-        $header_selection['background_color'] ?? '',
-    ]
+    []
 );
 ?>
 
@@ -37,14 +30,15 @@ $inside_component  = new Module(
     data-animation="fade-in"
     data-duration="400"
     data-styles="<?php echo esc_attr( $header_component->styles() ); ?>"
-    class="<?php echo esc_attr( $header_component->class_names() ); ?>">
-    <div
-        data-styles="<?php echo esc_attr( $inside_component->styles() ); ?>"
-        class="<?php echo esc_attr( $inside_component->class_names() ); ?>">
+    class="<?php echo esc_attr( $header_component->class_names() ); ?>"
+    data-closed="<?php echo ! empty( $closed ) ? esc_attr( $closed ) : ''; ?>"
+    data-open="<?php echo ! empty( $open ) ? esc_attr( $open ) : ''; ?>"
+>
+    <div data-styles="header__inside">
         <?php
-        get_template_part( '/components/header', 'logo' );
-        get_template_part( '/components/header', 'cta' );
+            get_template_part( '/components/header', 'logo' );
+            get_template_part( '/components/header', 'menu' );
         ?>
     </div>
-    <?php get_template_part( '/components/header', 'menu' ); ?>
+    <?php get_template_part( '/components/header', 'nav' ); ?>
 </header>

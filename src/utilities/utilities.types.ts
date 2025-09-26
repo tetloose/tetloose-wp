@@ -7,12 +7,6 @@ export type LoadingProps = {
     duration: number
 }
 
-export type MotionOptionsProps = {
-    observed: boolean,
-    scrollListener: () => void,
-    property: string
-}
-
 export type RequestProps = Array<{
     [key: string]: {
         [key: string]: string | number
@@ -37,7 +31,11 @@ export type FetchParamsProps = {
     resetMocks(): void
 }
 
-export type StateProps = string | boolean | number | Element | HTMLElement | HTMLVideoElement | HTMLButtonElement | MotionOptionsProps | LoadingProps | null
+export type AnimateProps = {
+    target: gsap.TweenTarget
+    fromVars: gsap.TweenVars
+    toVars: gsap.TweenVars
+}
 
 export type HTMLIFrame = HTMLIFrameElement | null
 export type HTMLProps = HTMLElement | null
@@ -45,3 +43,5 @@ export type InputProps = HTMLInputElement | null
 export type HTMLNodeProps = NodeListOf<HTMLElement> | null
 export type ButtonProps = HTMLButtonElement | null
 export type HTMLVideoProps = HTMLVideoElement | null
+
+export type StateProps = string | boolean | number | Element | HTMLElement | HTMLVideoElement | HTMLButtonElement | LoadingProps | HTMLNodeProps | null

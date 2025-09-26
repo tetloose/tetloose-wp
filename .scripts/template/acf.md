@@ -4,7 +4,7 @@ COMPONENT_DESCRIPTION
 
 ## Module.ts
 
-Update `src/js/config/modules.config.ts` with:
+Update `src/config/modules.config.ts` with:
 
 `EXPORT_NAME: () => import(/* webpackChunkName: "COMPONENT_NAME" */ '@components/COMPONENT_NAME/COMPONENT_NAME.component')`
 

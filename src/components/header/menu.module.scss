@@ -1,0 +1,80 @@
+@use '@styles/settings' as *;
+
+.menu {
+	$menu: &;
+
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: $dark;
+
+	@include sizing('height', size(layout(header-height)));
+	@include sizing('width', size(layout(header-height)));
+
+	&:focus {
+		background-color: shade($dark, 10%);
+	}
+
+	@include mq-hover {
+		@include transition('background');
+
+		&:hover {
+			background-color: shade($dark, 10%);
+		}
+	}
+
+	&__bar {
+		position: absolute;
+		visibility: visible;
+		background-color: $light;
+
+		@include sizing('height', size(2));
+		@include sizing('right', size(layout(gutter)));
+		@include sizing('left', size(layout(gutter)));
+		@include transition('all');
+		@include hardware(true);
+
+		&:nth-child(1) {
+			@include sizing('top', size(layout(gutter)));
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&:nth-child(4) {
+			@include sizing('bottom', size(layout(gutter)));
+		}
+	}
+
+	&.is-active {
+		position: fixed;
+
+		#{$menu}__bar {
+			&:nth-child(1) {
+				top: 50%;
+				transform: translateY(-50%) rotate(-45deg);
+			}
+
+			&:nth-child(4) {
+				bottom: 50%;
+				transform: translateY(-50%) rotate(45deg);
+			}
+
+			&:nth-child(1),
+			&:nth-child(4) {
+				opacity: 0;
+			}
+
+			&:nth-child(2) {
+				transform: rotate(-45deg);
+			}
+
+			&:nth-child(3) {
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

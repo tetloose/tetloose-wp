@@ -1,4 +1,4 @@
-import { ObjectToStringProps } from './utilities.types'
+import type { ObjectToStringProps } from './utilities.types'
 
 export function objectToString(classes: ObjectToStringProps): string {
     return Object.entries(classes)

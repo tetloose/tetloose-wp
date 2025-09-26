@@ -2,7 +2,6 @@
 // Please do not change this file!
 interface CssExports {
   'footer': string;
-  'footer__nav': string;
   'footer__social': string;
   'footer__social-link': string;
 }

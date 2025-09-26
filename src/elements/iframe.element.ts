@@ -1,4 +1,4 @@
-import { iframeProps } from './element.types'
+import type { iframeProps } from './element.types'
 
 export function iframeElement({
     src,

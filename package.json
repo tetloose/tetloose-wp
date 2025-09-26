@@ -73,7 +73,9 @@
         "css-modules-typescript-loader": "^4.0.1",
         "dotenv": "^16.0.3",
         "eslint": "^8.31.0",
+        "eslint-plugin-unused-imports": "^4.2.0",
         "fs": "^0.0.1-security",
+        "gsap": "^3.13.0",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^8.0.0",
         "gulp-clean": "^0.4.0",
@@ -116,6 +118,5 @@
     },
     "browserslist": [
         "defaults"
-    ],
-    "dependencies": {}
+    ]
 }

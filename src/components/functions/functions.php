@@ -25,6 +25,7 @@ $parts = [
     'tinymce',
     'console-log',
     'class-module',
+    'comments',
 ];
 
 foreach ( $parts as $part ) {

@@ -12,7 +12,6 @@ export { request } from './request.utilities'
 export { smoothScroll } from './smooth-scroll.utilities'
 export {
     LoadingProps,
-    MotionOptionsProps,
     StateProps,
     ObjectToStringProps,
     RequestProps,

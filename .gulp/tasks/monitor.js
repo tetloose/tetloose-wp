@@ -9,8 +9,8 @@ import config from '../config'
 
 const monitor = (cb) => {
     watch([
-        config.scripts.entry,
         config.scripts.files,
+        config.scripts.components,
         config.scripts.modules
     ],
         series(
@@ -43,7 +43,7 @@ const monitor = (cb) => {
         phpLint(file)
     })
 
-    watch([config.php.components],
+    watch([config.php.files],
         series(reload)
     )
 
