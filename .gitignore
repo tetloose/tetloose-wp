@@ -37,5 +37,3 @@ node_modules/
 *.sql
 package/*.zip
 .husky
-src/scss
-pattern-library
