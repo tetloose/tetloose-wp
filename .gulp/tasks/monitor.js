@@ -1,6 +1,5 @@
 import { watch, series } from 'gulp'
 import { reload } from './serve.js'
-import { favicon } from './favicon.js'
 import { iconMoveFont, iconGenerate } from './icons.js'
 import { scriptsLint, scriptsBundle } from './scripts.js'
 import { stylesLint, styles, wordpress } from './styles.js'
@@ -45,14 +44,6 @@ const monitor = (cb) => {
 
     watch([config.php.files],
         series(reload)
-    )
-
-    watch(
-        [config.favicon.entry],
-        series(
-            favicon,
-            reload
-        )
     )
 
     cb()

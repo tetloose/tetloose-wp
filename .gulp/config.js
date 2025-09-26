@@ -25,8 +25,7 @@ module.exports = {
         css: `${base}/web/app/themes/tetloose-theme/assets/css`,
         js: `${base}/web/app/themes/tetloose-theme/assets/js`,
         icons: `${base}/web/app/themes/tetloose-theme/assets/icons`,
-        components: `${base}/web/app/themes/tetloose-theme/components`,
-        favicon: `${base}/web/app/themes/tetloose-theme/favicon`
+        components: `${base}/web/app/themes/tetloose-theme/components`
     },
     styles: {
         mode: isDev,
@@ -47,11 +46,5 @@ module.exports = {
         output: `${base}/src/scss/utils/icons.scss`,
         fonts: `${base}/src/icons/*.{svg,ttf,woff}`,
         fontOutput: `${base}/web/app/themes/tetloose-theme/assets/icons`
-    },
-    favicon: {
-        entry: `${base}/src/favicon/favicon.png`,
-        output: `${base}/web/app/themes/tetloose-theme/favicon/`,
-        appColor: '#c2ad8d',
-        jsonTemplate: `${base}/src/favicon/favicon-data.json`
     }
 }

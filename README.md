@@ -21,7 +21,6 @@ See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.work
 
 ## Features
 
-- Favicon generation
 - Icon generation from [icomoon](https://icomoon.io/)
 - PHP linting
 - Typescript

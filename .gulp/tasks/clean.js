@@ -17,13 +17,6 @@ const cleanComponentsFunc = () => {
     }).pipe(clean())
 }
 
-const cleanFaviconFunc = () => {
-    return src(config.favicon, {
-        read: false,
-        allowEmpty: true
-    }).pipe(clean())
-}
-
 const generateAssetsFunc = () => {
     return mkdirp(config.assets)
 }
@@ -44,14 +37,9 @@ const generateComponentsFunc = () => {
     return mkdirp(config.components)
 }
 
-const generateFaviconFunc = () => {
-    return mkdirp(config.favicon)
-}
-
 export const cleanAssets = (cb) => {
     cleanAssetsFunc()
     cleanComponentsFunc()
-    cleanFaviconFunc()
 
     setTimeout(() => {
         generateAssetsFunc()
@@ -59,14 +47,8 @@ export const cleanAssets = (cb) => {
         generateJsFunc()
         generateIconsFunc()
         generateComponentsFunc()
-        generateFaviconFunc()
         cb()
     }, 400);
 
-    cb()
-}
-
-export const cleanFavicon = (cb) => {
-    cleanFaviconFunc()
     cb()
 }

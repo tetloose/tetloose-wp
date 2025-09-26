@@ -11,12 +11,11 @@ export class Footer extends ComponentClass {
 
         const nav = module.querySelector(`.${navStyles['nav']}`) as HTMLElement
 
-        this.navigation({
+        nav ? this.navigation({
             nav,
             liClass: navStyles['nav__li'],
             liActiveClass: navStyles['is-active']
-        })
-
+        }) : null
     }
 }
 

@@ -27,11 +27,12 @@ export class Header extends ComponentClass {
         this.updateState('position', 0)
         this.updateState('navOpen', false)
         this.loadEventListener()
-        this.navigation({
+
+        nav ? this.navigation({
             nav,
             liClass: navStyles['nav__li'],
             liActiveClass: navStyles['is-active']
-        })
+        }) : null
     }
 
     loadEventListener() {
