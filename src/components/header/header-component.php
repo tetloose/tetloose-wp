@@ -15,12 +15,6 @@ $header_component = new Module(
         'u-load-hide',
     ]
 );
-$inside_component = new Module(
-    [
-        'header__inside',
-    ],
-    []
-);
 ?>
 
 <header
@@ -35,10 +29,7 @@ $inside_component = new Module(
     data-open="<?php echo ! empty( $open ) ? esc_attr( $open ) : ''; ?>"
 >
     <div data-styles="header__inside">
-        <?php
-            get_template_part( '/components/header', 'logo' );
-            get_template_part( '/components/header', 'menu' );
-        ?>
+        <?php get_template_part( '/components/header', 'menu' ); ?>
     </div>
     <?php get_template_part( '/components/header', 'nav' ); ?>
 </header>
