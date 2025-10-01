@@ -1,11 +1,11 @@
 {
-    "key": "group_5b8bc6498705f",
-    "title": "News Landing",
+    "key": "group_68d6d3cadc52d",
+    "title": "Music Landing",
     "fields": [
         {
-            "key": "field_64358dce0e3df",
+            "key": "field_68d6d3cae1a3b",
             "label": "Cloned",
-            "name": "news",
+            "name": "music",
             "aria-label": "",
             "type": "clone",
             "instructions": "",
@@ -19,7 +19,7 @@
             "clone": [
                 "field_5878eaaba3bfe",
                 "field_5878ea5f040e6",
-                "field_643687cc61b62",
+                "field_68d993ed557f6",
                 "field_641d819bb0b98"
             ],
             "display": "seamless",
@@ -33,7 +33,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "news-landing"
+                "value": "music-landing"
             }
         ]
     ],
@@ -61,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1758549865
+    "modified": 1759095596
 }

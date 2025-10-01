@@ -1,6 +1,6 @@
 <?php
 /**
- * Slugify
+ * Create Slug
  *
  * @package Tetloose-Theme
  **/
@@ -10,7 +10,7 @@
  *
  * @param string $url value passed is a string.
  **/
-function slugify( $url ) {
+function create_slug( $url ) {
     $url     = strtolower( $url );
     $url     = wp_strip_all_tags( $url );
     $url     = stripslashes( $url );
@@ -20,5 +20,6 @@ function slugify( $url ) {
     $replace = '-';
     $url     = preg_replace( $match, $replace, $url );
     $url     = trim( $url, '-' );
+
     return $url;
 }

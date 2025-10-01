@@ -7,45 +7,40 @@
  **/
 
 if ( get_row_layout() === 'post_nav' ) :
-    $spacing        = get_sub_field( 'spacing' );
-    $text_alignment = get_sub_field( 'text_alignment' );
-    $prev_post      = get_previous_post();
-    $next_post      = get_next_post();
-    $post_component = new Module(
-        [
-            'post-nav',
-        ],
-        [
-            'u-load-hide',
-            $spacing['top'] ?? '',
-            $spacing['bottom'] ?? '',
-            $text_alignment ?? '',
-        ]
-    );
-    $nav_component  = new Module(
-        [
-            'post-nav__nav',
-        ],
-        [
-            'u-spacing-t-sml',
-        ]
-    );
+    $spacing   = get_sub_field( 'spacing' );
+    $prev_post = get_previous_post();
+    $next_post = get_next_post();
     if ( ! empty( $prev_post ) || ! empty( $next_post ) ) :
+        $section = new Module(
+            [],
+            [
+                $spacing['top'] ?? '',
+                $spacing['bottom'] ?? '',
+            ]
+        );
+        $row     = new Module(
+            [
+                'post-nav',
+            ],
+            [
+                'u-load-hide',
+            ],
+            [
+                'opacity: 0;',
+            ]
+        );
         ?>
-        <section
-            style="opacity: 0"
-            data-module="PostNav"
-            data-animation="fade-in"
-            data-duration="400"
-            data-styles="<?php echo esc_attr( $post_component->styles() ); ?>"
-            class="<?php echo esc_attr( $post_component->class_names() ); ?>">
-            <div class="l-row">
+        <section class="<?php echo esc_attr( $section->class_names() ); ?>">
+            <div
+                style="<?php echo esc_attr( $row->inline_styles() ); ?>"
+                data-module="PostNav"
+                data-animation="fade-in"
+                data-duration="400"
+                data-styles="<?php echo esc_attr( $row->styles() ); ?>"
+                class="<?php echo esc_attr( $row->class_names() ); ?>"
+            >
                 <div class="l-row__col">
-                    <?php get_template_part( '/components/post-nav', 'content' ); ?>
-                    <nav
-                        data-styles="<?php echo esc_attr( $nav_component->styles() ); ?>"
-                        data-styles="post-nav__nav-link"
-                        class="<?php echo esc_attr( $nav_component->class_names() ); ?>">
+                    <nav data-styles="post-nav__nav">
                         <?php
                         get_template_part( '/components/post-nav', 'prev' );
                         get_template_part( '/components/post-nav', 'back' );

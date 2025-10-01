@@ -3,30 +3,49 @@
 .menu {
 	$menu: &;
 
-	position: absolute;
-	top: 0;
-	right: 0;
-	background-color: $dark;
+	@include color-scheme(
+		(
+			--menu-bg: $light,
+			--menu-border: $dark,
+			--bar-bg: $dark,
+			--menu-bg-active: color($light, $dark, 20%)
+		),
+		(
+			--menu-bg: $dark,
+			--menu-border: $light,
+			--bar-bg: $light,
+			--menu-bg-active: color($dark, $light, 30%)
+		)
+	);
 
+	position: absolute;
+	background-color: var(--menu-bg);
+	border-style: solid;
+	border-color: var(--menu-border);
+
+	@include sizing('right', size(layout(gutter)));
+	@include sizing('top', size(layout(gutter)));
+	@include sizing('border-width', size(.5));
 	@include sizing('height', size(layout(header-height)));
 	@include sizing('width', size(layout(header-height)));
-
-	&:focus {
-		background-color: shade($dark, 10%);
-	}
 
 	@include mq-hover {
 		@include transition('background');
 
 		&:hover {
-			background-color: shade($dark, 10%);
+			background-color: var(--menu-bg-active);
 		}
+	}
+
+	&:focus {
+		background-color: var(--menu-bg-active);
 	}
 
 	&__bar {
 		position: absolute;
+		opacity: 1;
 		visibility: visible;
-		background-color: $light;
+		background-color: var(--bar-bg);
 
 		@include sizing('height', size(2));
 		@include sizing('right', size(layout(gutter)));
@@ -69,11 +88,11 @@
 			}
 
 			&:nth-child(2) {
-				transform: rotate(-45deg);
+				transform: translateY(-50%) rotate(-45deg);
 			}
 
 			&:nth-child(3) {
-				transform: rotate(45deg);
+				transform: translateY(-50%) rotate(45deg);
 			}
 		}
 	}

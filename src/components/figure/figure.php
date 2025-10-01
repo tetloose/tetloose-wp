@@ -6,7 +6,7 @@
  */
 
 if ( ! empty( $args ) ) :
-    $figure_component = new Module(
+    $figure = new Module(
         [
             $args['styles'],
         ],
@@ -19,14 +19,15 @@ if ( ! empty( $args ) ) :
     <figure
         data-module="Figure"
         data-duration="<?php echo esc_attr( $args['animation_duration'] ); ?>"
-        data-styles="<?php echo esc_attr( $figure_component->styles() ); ?>"
+        data-styles="<?php echo esc_attr( $figure->styles() ); ?>"
         data-image-alt="<?php echo esc_attr( $args['image']['alt'] ); ?>"
         data-image-sml="<?php echo esc_attr( $args['image']['sizes']['sml'] ); ?>"
         data-image-med="<?php echo esc_attr( $args['image']['sizes']['med'] ); ?>"
         data-image-lrg="<?php echo esc_attr( $args['image']['sizes']['lrg'] ); ?>"
         data-image-xlrg="<?php echo esc_attr( $args['image']['sizes']['xlrg'] ); ?>"
         data-image-xxlrg="<?php echo esc_attr( $args['image']['sizes']['xxlrg'] ); ?>"
-        class="<?php echo esc_attr( $figure_component->class_names() ); ?>">
+        class="<?php echo esc_attr( $figure->class_names() ); ?>"
+    >
         <img
             data-placeholder="true"
             class="u-figure__img"

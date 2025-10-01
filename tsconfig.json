@@ -75,6 +75,7 @@
         "node_modules",
         "web",
         ".scripts",
-        "vendor"
+        "vendor",
+        "pattern-library"
     ]
 }

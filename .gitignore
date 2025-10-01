@@ -37,3 +37,4 @@ node_modules/
 *.sql
 package/*.zip
 .husky
+*:[Zz]one.Identifier*

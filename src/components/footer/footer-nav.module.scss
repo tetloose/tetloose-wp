@@ -1,6 +1,18 @@
 @use '@styles/settings' as *;
 
 .nav {
+	@include color-scheme(
+		(
+			--nav-a-color: $dark,
+			--nav-a-bg-active: $dark,
+			--nav-a-color-active: $light
+		),
+		(
+			--nav-a-color: $light,
+			--nav-a-bg-active: $light,
+			--nav-a-color-active: $dark
+		)
+	);
 	@include sizing('padding-bottom', size(2));
 
 	&__li {
@@ -8,7 +20,7 @@
 		list-style-type: none;
 
 		a {
-			color: $dark;
+			color: var(--nav-a-color);
 			text-decoration: none;
 
 			@extend %f-small;
@@ -20,23 +32,23 @@
 			@include sizing('padding', [size(1), size(2)]);
 
 			&:focus {
-				background-color: $dark;
-				color: $light;
+				background-color: var(--nav-a-bg-active);
+				color: var(--nav-a-color-active);
 			}
 
 			@include mq-hover {
 				@include transition('background, color');
 
 				&:hover {
-					background-color: $dark;
-					color: $light;
+					background-color: var(--nav-a-bg-active);
+					color: var(--nav-a-color-active);
 				}
 			}
 		}
 
 		&.is-active a {
-			background-color: $dark;
-			color: $light;
+			background-color: var(--nav-a-bg-active);
+			color: var(--nav-a-color-active);
 		}
 	}
 }

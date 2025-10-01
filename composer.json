@@ -52,14 +52,13 @@
         "wpackagist-plugin/advanced-custom-fields-nav-menu-field": "^2.0",
         "wpackagist-plugin/classic-editor": "^1.6.7",
         "wpackagist-plugin/akismet": "^5.5",
-        "wpackagist-plugin/simple-custom-post-order": "^2.5.11",
         "wpackagist-plugin/contact-form-7": "^6.1.1",
         "wpackagist-plugin/wordfence": "^8.1.0",
         "wpackagist-plugin/wps-hide-login": "^1.9.17.2",
         "phalapi/phpmailer": "dev-master",
         "tetloose/advanced-custom-fields-pro": "dev-main",
         "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.0",
-        "wpackagist-plugin/wordpress-seo": "^25.9",
+        "wpackagist-plugin/wordpress-seo": "^26",
         "tetloose/tetloose-theme": "dev-main"
     },
     "require-dev": {

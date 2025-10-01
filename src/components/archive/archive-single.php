@@ -10,8 +10,8 @@ if ( have_posts() ) {
     if ( post_password_required( $post ) ) {
         get_template_part( '/components/page', 'password' );
     } else {
-        $spacing        = get_field( 'spacing' );
-        $page_component = new Module(
+        $spacing = get_field( 'spacing' );
+        $main    = new Module(
             [],
             [
                 $spacing['top'] ?? '',
@@ -19,7 +19,7 @@ if ( have_posts() ) {
             ]
         );
         ?>
-        <main class="<?php echo esc_attr( $page_component->class_names() ); ?>">
+        <main class="<?php echo esc_attr( $main->class_names() ); ?>">
             <?php
             while ( have_posts() ) :
                 the_post();

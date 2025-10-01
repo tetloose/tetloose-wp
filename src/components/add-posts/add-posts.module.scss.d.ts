@@ -2,11 +2,6 @@
 // Please do not change this file!
 interface CssExports {
   'add-posts': string;
-  'excerpt': string;
-  'excerpt__btn': string;
-  'excerpt__content': string;
-  'excerpt__time': string;
-  'pagination': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

@@ -1,4 +1,4 @@
-# Tetloose-WP
+# Tetloose.com
 
 Tetloose WP is a custom Wordpress framework that uses [Bedrock Wordpress](https://roots.io/bedrock/).
 
@@ -33,7 +33,7 @@ See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.work
 ## Clone the project
 
 1. `cd ~/project-folder`
-2. `git clone git@github.com:tetloose/tetloose-wp.git --recurse-submodules`
+2. `git clone git@github.com:tetloose/tetloose.com.git --recurse-submodules`
 3. `git checkout -b develop`
 
 ## Issues

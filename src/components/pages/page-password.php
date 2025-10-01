@@ -10,25 +10,13 @@ $validation         = isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) && post_p
 ?>
 <main class="l-row u-height-fullscreen align-center justify-center u-spacing-t-xxlrg u-spacing-b-xxlrg">
     <section class="l-row__col width-6">
-        <?php
-        if ( isset( $password_protected['title'] ) ) :
-            get_template_part(
-                'components/partials-content',
-                null,
-                array(
-                    'styles'      => '',
-                    'class_names' => '',
-                    'content'     => '<h1>' . esc_attr( $password_protected['title'] ) . '</h1>',
-                )
-            );
-        endif;
-        ?>
         <form
             action="<?php echo esc_url( home_url( '/' ) ) . esc_sql( $password_protected['action'] ); ?>"
             method="post"
             class="u-form u-spacing-t-sml"
         >
             <input type="hidden" name="redirect_to" value="<?php echo esc_url( get_permalink() ); ?>">
+            <label for="password-protected"><?php echo esc_attr( $password_protected['title'] ?? 'Password' ); ?></label>
             <input
                 name="post_password"
                 id="password-protected"
@@ -45,9 +33,7 @@ $validation         = isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) && post_p
             <?php endif; ?>
             <div class="l-row justify-flex-end">
                 <div class="l-row__col width-auto">
-                    <button class="u-btn is-light is-inline" type="submit">
-                        <?php echo esc_attr( $password_protected['submit'] ); ?>
-                    </button>
+                    <input type="submit" value="<?php echo esc_attr( $password_protected['submit'] ); ?>">
                 </div>
             </div>
         </form>

@@ -1,0 +1,51 @@
+@use '@styles/settings' as *;
+
+.excerpt {
+	$excerpt: &;
+
+	@include color-scheme(
+		(
+			--selection-bg: $light,
+			--selection-color: $dark,
+			--content-bg: $dark,
+			--content-color: $light
+		),
+		(
+			--selection-bg: $dark,
+			--selection-color: $light,
+			--content-bg: $light,
+			--content-color: $dark
+		)
+	);
+
+	display: flex;
+	flex-direction: column;
+
+	@include sizing('margin-top', calc(size(layout(gutter)) * 2));
+
+	&__time {
+		display: block;
+
+		@include sizing('padding-bottom', size(2));
+	}
+
+	&__content {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		background-color: var(--content-bg);
+		color: var(--content-color);
+
+		@include sizing('padding', size(8));
+		@include selection(
+			#{var(--selection-bg)},
+			#{var(--selection-color)}
+		);
+
+		p:has(#{$excerpt}__btn) {
+			margin-top: auto;
+
+			@include sizing('padding-top', size(8));
+		}
+	}
+}

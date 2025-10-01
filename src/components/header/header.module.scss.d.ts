@@ -3,8 +3,6 @@
 interface CssExports {
   'header': string;
   'header__inside': string;
-  'header__logo': string;
-  'header__logo-img': string;
   'is-active': string;
   'is-hidden': string;
 }

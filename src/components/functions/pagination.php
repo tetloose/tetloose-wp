@@ -8,12 +8,12 @@
 /**
  * Pagination function
  *
- * @param object $args value passed is a object.
  * @param string $num_pages value passed is a string.
  * @param string $page_rage value passed is a string.
  * @param string $paged value passed is a string.
+ * @return array Retrieves paginated links for archive post pages
  **/
-function pagination( $args, $num_pages = '', $page_rage = '', $paged = '' ) {
+function pagination( $num_pages = '', $page_rage = '', $paged = '' ) {
     global $paged;
 
     if ( empty( $page_rage ) ) {
@@ -51,40 +51,7 @@ function pagination( $args, $num_pages = '', $page_rage = '', $paged = '' ) {
         'add_fragment' => '',
     );
 
-    $paginate_links = paginate_links( $pagination_args );
-
-    if ( is_array( $paginate_links ) ) {
-        ?>
-        <div
-            data-styles="<?php echo esc_attr( $args['styles'] ); ?>"
-            class="<?php echo esc_attr( $args['class_names'] ); ?>">
-            <div class="l-row">
-                <div class="l-row__col">
-                    <?php
-                    if ( ! empty( $args['title'] ) ) :
-                        get_template_part(
-                            'components/partials-content',
-                            null,
-                            array(
-                                'styles'      => '',
-                                'class_names' => 'text-align-center',
-                                'content'     => '<h3>' . $args['title'] . '</h3>',
-                            )
-                        );
-                    endif;
-                    ?>
-                    <nav class="u-spacing-t-sml">
-                        <?php
-                        foreach ( $paginate_links as $page ) {
-                            echo wp_kses_post( $page );
-                        }
-                        ?>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <?php
-    }
+    return paginate_links( $pagination_args );
 }
 
 // Next link.

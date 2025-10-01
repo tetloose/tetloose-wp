@@ -1,6 +1,23 @@
 @use '@styles/settings' as *;
 
 .nav {
+	@include color-scheme(
+		(
+			--nav-a-color: $dark,
+			--nav-a-bg: $light,
+			--nav-a-border: $dark,
+			--nav-a-before: $dark,
+			--nav-a-active: color($light, $dark, 20%)
+		),
+		(
+			--nav-a-color: $light,
+			--nav-a-bg: $dark,
+			--nav-a-border: $light,
+			--nav-a-before: $light,
+			--nav-a-active: color($dark, $light, 30%)
+		)
+	);
+
 	display: flex;
 	position: fixed;
 	top: 0;
@@ -13,14 +30,10 @@
 	visibility: hidden;
 	overflow-x: hidden;
 	overflow-y: auto;
-	background-color: rgba($dark, .5);
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(100px);
 
 	@include transition('all');
-	@include sizing('padding-top', size(layout(header-height)));
-	@include sizing('padding-bottom', size(layout(header-height)));
-	@include sizing('padding-right', size(layout(header-height)));
-	@include sizing('padding-left', size(layout(header-height)));
+	@include sizing('padding', size(layout(header-height)));
 
 	&.is-active {
 		opacity: 1;
@@ -28,21 +41,26 @@
 	}
 
 	&__li {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		list-style-type: none;
 
 		a {
-			display: block;
 			position: relative;
-			background-color: $dark;
-			color: $light;
+			background-color: var(--nav-a-bg);
+			border-style: solid;
+			border-color: var(--nav-a-border);
+			color: var(--nav-a-color);
 			text-decoration: none;
 
 			@extend %f-h1;
 			@extend %f-uppercase;
 			@include user-select(disable);
-			@include sizing('padding', [size(6), size(3)]);
+			@include sizing('padding', [size(6), size(8)]);
 			@include sizing('margin-top', size(3));
 			@include sizing('margin-bottom', size(3));
+			@include sizing('border-width', size(.25));
 
 			&::before {
 				content: '';
@@ -51,21 +69,20 @@
 				bottom: 0;
 				left: 0;
 				opacity: 0;
-				background-color: $light;
+				background-color: var(--nav-a-before);
 
 				@include sizing('height', size(2));
 			}
 
 			&:focus {
-				background-color: shade($dark, 10%);
+				background-color: var(--nav-a-active);
 			}
 
 			@include mq-hover {
 				@include transition('background');
 
-				&:focus,
 				&:hover {
-					background-color: shade($dark, 10%);
+					background-color: var(--nav-a-active);
 				}
 			}
 		}

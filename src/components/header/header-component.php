@@ -5,26 +5,30 @@
  * @package Tetloose-Theme
  */
 
-$open             = get_field( 'header_button_title_open', 'option' );
-$closed           = get_field( 'header_button_title_closed', 'option' );
-$header_component = new Module(
+$open   = get_field( 'header_button_title_open', 'option' );
+$closed = get_field( 'header_button_title_closed', 'option' );
+$header = new Module(
     [
         'header',
     ],
     [
         'u-load-hide',
+    ],
+    [
+        'opacity: 0;',
+        'display: none;',
     ]
 );
 ?>
 
 <header
-    style="opacity: 0"
+    styles="<?php echo esc_attr( $header->inline_styles() ); ?>"
     data-module="Header"
     data-preload="true"
     data-animation="fade-in"
     data-duration="400"
-    data-styles="<?php echo esc_attr( $header_component->styles() ); ?>"
-    class="<?php echo esc_attr( $header_component->class_names() ); ?>"
+    data-styles="<?php echo esc_attr( $header->styles() ); ?>"
+    class="<?php echo esc_attr( $header->class_names() ); ?>"
     data-closed="<?php echo ! empty( $closed ) ? esc_attr( $closed ) : ''; ?>"
     data-open="<?php echo ! empty( $open ) ? esc_attr( $open ) : ''; ?>"
 >

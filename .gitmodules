@@ -1,6 +1,6 @@
-[submodule "src/scss"]
-	path = src/scss
-	url = git@github.com:tetloose/tetloose-styles.git
 [submodule "pattern-library"]
 	path = pattern-library
 	url = git@github.com:tetloose/tetloose-wp-pattern-library.git
+[submodule "src/scss"]
+	path = src/scss
+	url = git@github.com:tetloose/tetloose-styles.git

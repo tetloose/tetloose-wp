@@ -3,6 +3,19 @@
 .footer {
 	$footer: &;
 
+	@include color-scheme(
+		(
+			--social-color: $dark,
+			--social-active: $light,
+			--social-active-bg: $dark
+		),
+		(
+			--social-color: $light,
+			--social-active: $dark,
+			--social-active-bg: $light
+		)
+	);
+
 	width: 100%;
 	text-align: center;
 
@@ -16,7 +29,7 @@
 
 		&-link {
 			display: inline-flex;
-			color: $dark;
+			color: var(--social-color);
 			text-decoration: none;
 
 			@include sizing('margin-right', size(1));
@@ -25,21 +38,21 @@
 			@include user-select(disable);
 
 			&:focus {
-				background-color: $dark;
-				color: $light;
+				background-color: var(--social-active-bg);
+				color: var(--social-active);
 			}
 
 			@include mq-hover {
 				@include transition('background, color');
 
 				&:hover {
-					background-color: $dark;
-					color: $light;
+					background-color: var(--social-active-bg);
+					color: var(--social-active);
 				}
 			}
 
 			&::before {
-				@extend %f-icon-xxxlrg;
+				@extend %f-icon-xxlrg;
 			}
 		}
 	}

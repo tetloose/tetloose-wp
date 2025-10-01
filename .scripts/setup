@@ -28,8 +28,12 @@ elif [ "$SETUP_SWITCH" = "2" ]; then
 fi
 
 if [ "$SETUP_SWITCH" = "0" ]; then
-    eval "composer install && yarn && yarn prepare"
-    eval "code . && yarn dev"
+    COMPOSER_V2="$HOME/.config/composer/composer2"
+
+    $COMPOSER_V2 install || exit 1
+    yarn || exit 1
+    yarn prepare || exit 1
+    yarn dev
 
 elif [[ "$SETUP_SWITCH" = "1" || "$SETUP_SWITCH" = "2" ]]; then
     ssh "$SSH" "mkdir -p $DIR";

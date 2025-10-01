@@ -1,6 +1,6 @@
 import styles from './header.module.scss'
-import menuStyles from './menu.module.scss'
-import navStyles from './nav.module.scss'
+import menuStyles from './header-menu.module.scss'
+import navStyles from './header-nav.module.scss'
 import { ComponentClass } from '@utilities'
 
 export class Header extends ComponentClass {
@@ -16,7 +16,7 @@ export class Header extends ComponentClass {
 
     setState() {
         const { module } = this
-        const { open, closed } = module.dataset
+        const { open, closed } = module.dataset ?? {}
         const menu = module.querySelector(`.${menuStyles['menu']}`) as HTMLElement
         const nav = module.querySelector(`.${navStyles['nav']}`) as HTMLElement
 
@@ -40,8 +40,8 @@ export class Header extends ComponentClass {
         const { menu, nav } = state
 
         if (
-            menu instanceof HTMLElement &&
-            nav instanceof HTMLElement
+            menu && menu instanceof HTMLElement &&
+            nav && nav instanceof HTMLElement
         ) {
             this.trapNavigation(menu, nav)
 

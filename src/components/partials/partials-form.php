@@ -6,20 +6,21 @@
  */
 
 if ( ! empty( $args ) ) :
-    $form_component = new Module(
+    $component = new Module(
         [
-            $args['styles'],
+            $args['styles'] ?? '',
         ],
         [
             'u-form',
-            $args['class_names'],
+            $args['class_names'] ?? '',
         ]
     );
     ?>
     <div
-        data-styles="<?php echo esc_attr( $form_component->styles() ); ?>"
-        class="<?php echo esc_attr( $form_component->class_names() ); ?>">
-        <?php echo do_shortcode( $args['form'] ); ?>
+        data-styles="<?php echo esc_attr( $component->styles() ); ?>"
+        class="<?php echo esc_attr( $component->class_names() ); ?>"
+    >
+        <?php echo do_shortcode( $args['form'] ?? '' ); ?>
     </div>
     <?php
 endif;

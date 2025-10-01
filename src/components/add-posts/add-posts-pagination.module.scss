@@ -1,0 +1,67 @@
+@use '@styles/settings' as *;
+
+.pagination {
+	@include color-scheme(
+		(
+			--pagination-color: $dark,
+			--pagination-active-bg: $dark,
+			--pagination-active-color: $light
+		),
+		(
+			--pagination-color: $light,
+			--pagination-active-bg: $light,
+			--pagination-active-color: $dark
+		)
+	);
+
+	width: 100%;
+
+	:global(nav) {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: center;
+	}
+
+	:global(.dots) {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	:global(.current),
+	:global(.page-numbers),
+	:global(.next),
+	:global(.prev) {
+		@extend %f-paragraph;
+		@include sizing('margin-right', size(1));
+		@include sizing('margin-left', size(1));
+		@include sizing('padding', [size(1), size(3)]);
+		@include user-select(disable);
+	}
+
+	:global(.current) {
+		background-color: var(--pagination-active-bg);
+		color: var(--pagination-active-color);
+	}
+
+	:global(.page-numbers:not(.current)),
+	:global(.next),
+	:global(.prev) {
+		color: var(--pagination-color);
+		text-decoration: none;
+
+		&:focus {
+			background-color: var(--pagination-active-bg);
+			color: var(--pagination-active-color);
+		}
+
+		@include mq-hover {
+			@include transition('background, color');
+
+			&:hover {
+				background-color: var(--pagination-active-bg);
+				color: var(--pagination-active-color);
+			}
+		}
+	}
+}

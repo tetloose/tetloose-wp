@@ -10,8 +10,8 @@ get_template_part(
     null,
     array(
         'styles'      => 'post-nav__nav-link',
-        'class_names' => 'u-icon-news',
+        'class_names' => 'u-icon-' . get_post_type(),
         'href'        => '/' . get_post_type(),
-        'title'       => get_post_type() ? get_post_type() : '',
+        'title'       => get_post_type() ?? '',
     )
 );

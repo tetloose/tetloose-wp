@@ -5,14 +5,13 @@
 
 	position: fixed;
 	top: 0;
-	left: 0;
+	right: 0;
 	z-index: z-index(xxxlrg);
-	width: 100%;
 
 	@include sizing('height', size(layout(header-height)));
 
 	&.is-hidden #{$header}__inside {
-		transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -200%, 0);
 	}
 
 	&.is-active #{$header}__inside {
@@ -27,26 +26,5 @@
 		@include transition('transform, height, filter, background-color');
 		@include sizing('height', size(layout(header-height)));
 		@include user-select(disable);
-	}
-
-	&__logo {
-		position: absolute;
-		top: 0;
-
-		@include sizing('left', size(layout(gutter)));
-		@include sizing('height', size(layout(header-height)));
-		@include sizing('right', size(layout(header-height)));
-
-		&:focus {
-			opacity: .8;
-		}
-
-		@include mq-hover {
-			@include transition('opacity');
-		}
-
-		&-img {
-			height: 100%;
-		}
 	}
 }

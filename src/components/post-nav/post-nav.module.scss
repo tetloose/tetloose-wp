@@ -2,6 +2,19 @@
 
 .post-nav {
 	&__nav {
+		@include color-scheme(
+			(
+				--nav-color: $dark,
+				--nav-active-bg: $dark,
+				--nav-active-color: $light
+			),
+			(
+				--nav-color: $light,
+				--nav-active-bg: $light,
+				--nav-active-color: $dark
+			)
+		);
+
 		display: flex;
 		flex-wrap: nowrap;
 		align-items: center;
@@ -10,7 +23,7 @@
 		@include sizing('gap', size(.5));
 
 		&-link {
-			color: $dark;
+			color: var(--nav-color);
 			text-decoration: none;
 
 			@include sizing('margin-right', size(1));
@@ -19,16 +32,16 @@
 			@extend %f-icon-xxxlrg;
 
 			&:focus {
-				background-color: $dark;
-				color: $light;
+				background-color: var(--nav-active-bg);
+				color: var(--nav-active-color);
 			}
 
 			@include mq-hover {
 				@include transition('background, color');
 
 				&:hover {
-					background-color: $dark;
-					color: $light;
+					background-color: var(--nav-active-bg);
+					color: var(--nav-active-color);
 				}
 			}
 		}

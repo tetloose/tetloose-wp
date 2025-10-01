@@ -6,7 +6,7 @@
  */
 
 if ( ! empty( $args ) && isset( $args['id'] ) ) :
-    $navigation_component    = new Module(
+    $component  = new Module(
         [
             $args['styles'],
         ],
@@ -14,7 +14,7 @@ if ( ! empty( $args ) && isset( $args['id'] ) ) :
             $args['class_names'],
         ]
     );
-    $navigation_ul_component = new Module(
+    $ul         = new Module(
         [
             $args['ul_styles'],
         ],
@@ -22,15 +22,15 @@ if ( ! empty( $args ) && isset( $args['id'] ) ) :
             $args['ul_class_names'],
         ]
     );
-    $animation               = isset( $args['animation'] ) ? $args['animation'] : 'fade-in';
-    $navigation              = wp_nav_menu(
+    $animation  = isset( $args['animation'] ) ? $args['animation'] : 'fade-in';
+    $navigation = wp_nav_menu(
         array(
             'menu'       => $args['id'],
             'container'  => false,
             'items_wrap' => '
                 <ul
-                    data-styles="' . esc_attr( $navigation_ul_component->styles() ) . '"
-                    class="' . esc_attr( $navigation_ul_component->class_names() ) . '">
+                    data-styles="' . esc_attr( $ul->styles() ) . '"
+                    class="' . esc_attr( $ul->class_names() ) . '">
                     %3$s
                 </ul>
             ',
@@ -42,8 +42,9 @@ if ( ! empty( $args ) && isset( $args['id'] ) ) :
         <?php if ( ! empty( $args['aria_expanded'] ) ) : ?>
             aria-expanded="<?php echo esc_attr( $args['aria_expanded'] ); ?>"
         <?php endif; ?>
-        data-styles="<?php echo esc_attr( $navigation_component->styles() ); ?>"
-        class="<?php echo esc_attr( $navigation_component->class_names() ); ?>">
+        data-styles="<?php echo esc_attr( $component->styles() ); ?>"
+        class="<?php echo esc_attr( $component->class_names() ); ?>"
+    >
         <?php echo wp_kses_post( $navigation ); ?>
     </nav>
     <?php

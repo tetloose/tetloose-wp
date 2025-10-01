@@ -7,8 +7,8 @@
 
 get_header();
 if ( have_posts() ) {
-    $spacing        = get_field( get_post_type() . '_spacing', 'option' );
-    $page_component = new Module(
+    $spacing = get_field( get_post_type() . '_spacing', 'option' );
+    $main    = new Module(
         [],
         [
             $spacing['top'] ?? '',
@@ -16,7 +16,7 @@ if ( have_posts() ) {
         ]
     );
     ?>
-    <main class="<?php echo esc_attr( $page_component->class_names() ); ?>">
+    <main class="<?php echo esc_attr( $main->class_names() ); ?>">
         <?php get_template_part( '/components/component', 'loader' ); ?>
     </main>
     <?php
