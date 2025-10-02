@@ -42,10 +42,8 @@
 			#{var(--selection-color)}
 		);
 
-		p:has(#{$excerpt}__btn) {
+		:global(p:has(.u-btn)) {
 			margin-top: auto;
-
-			@include sizing('padding-top', size(8));
 		}
 	}
 }
