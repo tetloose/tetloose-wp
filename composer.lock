@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69b0d8f92acccd0b23b696c4aa9b2e11",
+    "content-hash": "fc6b22517414674211ec5a6925741bfa",
     "packages": [
         {
             "name": "composer/installers",
@@ -1343,6 +1343,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/easy-post-duplicator/"
+        },
+        {
+            "name": "wpackagist-plugin/enhanced-media-library",
+            "version": "2.9.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/enhanced-media-library/",
+                "reference": "tags/2.9.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/enhanced-media-library.2.9.4.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/enhanced-media-library/"
         },
         {
             "name": "wpackagist-plugin/wordfence",

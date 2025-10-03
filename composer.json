@@ -59,7 +59,8 @@
         "tetloose/advanced-custom-fields-pro": "dev-main",
         "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.0",
         "wpackagist-plugin/wordpress-seo": "^26",
-        "tetloose/tetloose-theme": "dev-main"
+        "tetloose/tetloose-theme": "dev-main",
+        "wpackagist-plugin/enhanced-media-library": "^2.9"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.7.1",
