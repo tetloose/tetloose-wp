@@ -1,6 +1,6 @@
 {
     "key": "group_68d6d5034a944",
-    "title": "Diary Landing",
+    "title": "Music Landing",
     "fields": [
         {
             "key": "field_68d6d5034c3b2",
@@ -33,7 +33,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "diary-landing"
+                "value": "music-landing"
             }
         ]
     ],
@@ -61,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759509566
+    "modified": 1759095612
 }

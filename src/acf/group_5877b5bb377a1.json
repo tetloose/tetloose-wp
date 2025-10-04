@@ -641,6 +641,69 @@
             ]
         },
         {
+            "key": "field_68e0fc68c95df",
+            "label": "iFrame Attributes",
+            "name": "iframe_attributes",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_68e0fc69c95e1",
+                    "label": "Full Width",
+                    "name": "full_width",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_68db98ca1ccbd"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
+                {
+                    "key": "field_68e0fc82c95e8",
+                    "label": "Height",
+                    "name": "height",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 352,
+                    "min": "",
+                    "max": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
             "key": "field_68dbf4e111caa",
             "label": "Carousel Attributes",
             "name": "carousel_attributes",
@@ -656,6 +719,28 @@
             },
             "layout": "table",
             "sub_fields": [
+                {
+                    "key": "field_68e0e27560c12",
+                    "label": "Full Width",
+                    "name": "full_width",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_68db98ca1ccbd"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
                 {
                     "key": "field_68dbf88411caf",
                     "label": "Auto Height",
@@ -2032,6 +2117,7 @@
                             },
                             "clone": [
                                 "field_65953811e8aee",
+                                "field_68e0fc68c95df",
                                 "field_659530b1e8ae9",
                                 "field_68d993ed557f6",
                                 "field_641d819bb0b98"
@@ -2522,5 +2608,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759399689
+    "modified": 1759575444
 }
