@@ -1,9 +1,9 @@
 {
-    "key": "group_68d6d5034a944",
-    "title": "Music Landing",
+    "key": "group_68d6d3cadc52d",
+    "title": "Diary Landing",
     "fields": [
         {
-            "key": "field_68d6d5034c3b2",
+            "key": "field_68d6d3cae1a3b",
             "label": "Cloned",
             "name": "diary",
             "aria-label": "",
@@ -33,7 +33,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "music-landing"
+                "value": "diary-landing"
             }
         ]
     ],
@@ -61,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759576220
+    "modified": 1759577988
 }
