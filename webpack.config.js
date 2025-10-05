@@ -108,7 +108,11 @@ module.exports = {
     optimization: {
         minimize: !config.webpack.mode,
         minimizer: [
-            new CssMinimizerPlugin(),
+            new CssMinimizerPlugin({
+                minimizerOptions: {
+                    preset: ['default', { calc: false }]
+                }
+            }),
             new TerserPlugin()
         ],
         runtimeChunk: 'single'
